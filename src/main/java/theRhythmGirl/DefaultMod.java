@@ -4,6 +4,7 @@ import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.audio.SoundMaster.AddAudio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -74,7 +75,8 @@ public class DefaultMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        AddAudioSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
@@ -87,7 +89,7 @@ public class DefaultMod implements
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Rhythm Girl";
-    private static final String AUTHOR = "Whebon"; // And pretty soon - You!
+    private static final String AUTHOR = "Whebon";
     private static final String DESCRIPTION = "An in-game description for my own Slay the Spire mod";
     
     // =============== INPUT TEXTURE LOCATION =================
@@ -134,6 +136,11 @@ public class DefaultMod implements
     // Atlas and JSON files for the Animations
     public static final String THE_DEFAULT_SKELETON_ATLAS = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.atlas";
     public static final String THE_DEFAULT_SKELETON_JSON = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.json";
+
+    //Whebon edit
+    public static String makeAudioPath(String resourcePath) {
+        return getModID() + "Resources/audio/sfx/" + resourcePath;
+    }
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -510,5 +517,14 @@ public class DefaultMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        //whebon edit
+        BaseMod.addAudio("BLUNT_LIGHT", makeAudioPath("hit_big.wav"));
+        BaseMod.addAudio("ATTACK_FAST", makeAudioPath("hit_small.wav"));
+        BaseMod.addAudio("BIG_HIT", makeAudioPath("hit_big.wav"));
+        BaseMod.addAudio("SMALL_HIT", makeAudioPath("hit_small.wav"));
     }
 }
