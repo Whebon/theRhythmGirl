@@ -23,9 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.DefaultMod;
 import theRhythmGirl.cards.*;
-import theRhythmGirl.relics.DefaultClickableRelic;
-import theRhythmGirl.relics.PlaceholderRelic;
-import theRhythmGirl.relics.PlaceholderRelic2;
+import theRhythmGirl.relics.*;
 
 import java.util.ArrayList;
 
@@ -187,12 +185,16 @@ public class TheDefault extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
+        retVal.add(QuarterNote.ID);
+        retVal.add(TimeSignature44.ID);
         retVal.add(PlaceholderRelic.ID);
         retVal.add(PlaceholderRelic2.ID);
         retVal.add(DefaultClickableRelic.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
+        UnlockTracker.markRelicAsSeen(QuarterNote.ID);
+        UnlockTracker.markRelicAsSeen(TimeSignature44.ID);
         UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
         UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
         UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);

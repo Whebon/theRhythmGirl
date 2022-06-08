@@ -6,5 +6,9 @@
 "theRhythmGirl:RarePower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+"theRhythmGirl:BeatPower": {
+        "NAME": "Beat",
+        "DESCRIPTIONS": ["Current beat. Has no effect of itself, but may affect the behaviour of other cards."]
 }
 }

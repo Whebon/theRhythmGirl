@@ -25,10 +25,7 @@ import theRhythmGirl.cards.*;
 import theRhythmGirl.characters.TheDefault;
 import theRhythmGirl.events.IdentityCrisisEvent;
 import theRhythmGirl.potions.PlaceholderPotion;
-import theRhythmGirl.relics.BottledPlaceholderRelic;
-import theRhythmGirl.relics.DefaultClickableRelic;
-import theRhythmGirl.relics.PlaceholderRelic;
-import theRhythmGirl.relics.PlaceholderRelic2;
+import theRhythmGirl.relics.*;
 import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
 import theRhythmGirl.variables.DefaultCustomVariable;
@@ -37,6 +34,7 @@ import theRhythmGirl.variables.DefaultSecondMagicNumber;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Properties;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -109,7 +107,7 @@ public class DefaultMod implements
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-  
+
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_attack_default_gray.png";
     private static final String SKILL_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_skill_default_gray.png";
@@ -388,6 +386,8 @@ public class DefaultMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
+        BaseMod.addRelicToCustomPool(new QuarterNote(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new TimeSignature44(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);

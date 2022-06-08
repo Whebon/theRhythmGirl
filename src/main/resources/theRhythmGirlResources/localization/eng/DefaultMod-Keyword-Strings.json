@@ -16,5 +16,19 @@
       "multikeyword"
     ],
     "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "NAMES": [
+      "beat",
+      "Beat"
+    ],
+    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
+  },
+  {
+    "NAMES": [
+      "measure",
+      "Measure"
+    ],
+    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
   }
 ]

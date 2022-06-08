@@ -30,5 +30,19 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+  "theRhythmGirl:QuarterNote": {
+    "NAME": "Quarter Note",
+    "FLAVOR": "Keep the beats going.",
+    "DESCRIPTIONS": [
+      "After you play a card, gain 1 therhythmgirl:beat."
+    ]
+  },
+  "theRhythmGirl:TimeSignature44": {
+    "NAME": "4/4 Time Signature",
+    "FLAVOR": "Easy enough. Feel free to clap along.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, set your therhythmgirl:beat to 1. Whenever you have more than 4 therhythmgirl:beat, lose 4 therhythmgirl:beat and gain 1 therhythmgirl:measure."
+    ]
   }
 }
