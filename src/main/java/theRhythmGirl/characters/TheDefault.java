@@ -101,7 +101,7 @@ public class TheDefault extends CustomPlayer {
         super(name, setClass, orbTextures,
                 "theRhythmGirlResources/images/char/defaultCharacter/orb/vfx.png", null,
                 new SpriterAnimation(
-                        "theRhythmGirlResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+                        "theRhythmGirlResources/images/char/rhythmGirlCharacter/Spriter/theRhythmGirlAnimation.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
@@ -118,12 +118,13 @@ public class TheDefault extends CustomPlayer {
 
         // =============== ANIMATIONS =================  
 
-        loadAnimation(
-                THE_DEFAULT_SKELETON_ATLAS,
-                THE_DEFAULT_SKELETON_JSON,
-                1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
+        //whebon edit (atlas):
+//        loadAnimation(
+//                THE_DEFAULT_SKELETON_ATLAS,
+//                THE_DEFAULT_SKELETON_JSON,
+//                1.0f);
+//        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
+//        e.setTime(e.getEndTime() * MathUtils.random());
 
         // =============== /ANIMATIONS/ =================
 

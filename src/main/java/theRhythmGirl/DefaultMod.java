@@ -124,16 +124,17 @@ public class DefaultMod implements
     // Character assets
     private static final String THE_DEFAULT_BUTTON = "theRhythmGirlResources/images/charSelect/DefaultCharacterButton.png";
     private static final String THE_DEFAULT_PORTRAIT = "theRhythmGirlResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "theRhythmGirlResources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "theRhythmGirlResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "theRhythmGirlResources/images/char/defaultCharacter/corpse.png";
+    public static final String THE_DEFAULT_SHOULDER_1 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder.png";
+    public static final String THE_DEFAULT_SHOULDER_2 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder2.png";
+    public static final String THE_DEFAULT_CORPSE = "theRhythmGirlResources/images/char/rhythmGirlCharacter/corpse.png";
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "theRhythmGirlResources/images/Badge.png";
     
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.json";
+    //whebon edit (atlas):
+    //public static final String THE_DEFAULT_SKELETON_ATLAS = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.atlas";
+    //public static final String THE_DEFAULT_SKELETON_JSON = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.json";
 
     //Whebon edit
     public static String makeAudioPath(String resourcePath) {
