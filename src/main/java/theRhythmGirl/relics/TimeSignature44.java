@@ -4,11 +4,9 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.DefaultMod;
-import theRhythmGirl.actions.CapBeatAction;
+import theRhythmGirl.actions.ResetBeatAction;
 import theRhythmGirl.powers.BeatPower;
 import theRhythmGirl.util.TextureLoader;
 
@@ -24,7 +22,7 @@ public class TimeSignature44 extends CustomRelic {
 
     public TimeSignature44() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
-        this.counter = 1;
+        //this.counter = 1;
     }
 
     @Override
@@ -33,12 +31,6 @@ public class TimeSignature44 extends CustomRelic {
     }
 
     public void atTurnStart() {
-        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, BeatPower.POWER_ID));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
-    }
-
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        AbstractDungeon.actionManager.addToBottom(new CapBeatAction(AbstractDungeon.player, AbstractDungeon.player, 4));
+        this.addToBot(new ResetBeatAction(AbstractDungeon.player, AbstractDungeon.player));
     }
 }

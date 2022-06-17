@@ -14,10 +14,10 @@ import static theRhythmGirl.DefaultMod.makePowerPath;
 
 //Beat tracker
 
-public class BeatPower extends AbstractPower implements CloneablePowerInterface {
+public class MeasurePower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = DefaultMod.makeID("BeatPower");
+    public static final String POWER_ID = DefaultMod.makeID("MeasurePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -27,7 +27,7 @@ public class BeatPower extends AbstractPower implements CloneablePowerInterface 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    public BeatPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public MeasurePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -52,6 +52,6 @@ public class BeatPower extends AbstractPower implements CloneablePowerInterface 
 
     @Override
     public AbstractPower makeCopy() {
-        return new BeatPower(owner, source, amount);
+        return new MeasurePower(owner, source, amount);
     }
 }

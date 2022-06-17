@@ -10,5 +10,9 @@
 "theRhythmGirl:BeatPower": {
         "NAME": "Beat",
         "DESCRIPTIONS": ["Current beat. Has no effect of itself, but may affect the behaviour of other cards."]
+},
+"theRhythmGirl:MeasurePower": {
+        "NAME": "Measure",
+        "DESCRIPTIONS": ["Current Measure. Has no effect of itself, but may affect the behaviour of other cards."]
 }
 }

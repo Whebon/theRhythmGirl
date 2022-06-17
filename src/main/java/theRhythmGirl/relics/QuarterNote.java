@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.DefaultMod;
+import theRhythmGirl.actions.AddBeatAction;
 import theRhythmGirl.powers.BeatPower;
 import theRhythmGirl.util.TextureLoader;
 
@@ -22,7 +23,7 @@ public class QuarterNote extends CustomRelic {
 
     public QuarterNote() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
-        this.counter = 1;
+        //this.counter = 1;
     }
 
     @Override
@@ -31,15 +32,6 @@ public class QuarterNote extends CustomRelic {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
-        ++this.counter;
-        if (this.counter == 5) {
-            this.counter = 1;
-        }
-    }
-
-    public void onVictory(){
-        this.counter = 1;
+        AbstractDungeon.actionManager.addToBottom(new AddBeatAction(AbstractDungeon.player, AbstractDungeon.player));
     }
 }
