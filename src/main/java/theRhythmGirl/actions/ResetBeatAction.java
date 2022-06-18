@@ -18,13 +18,14 @@ public class ResetBeatAction extends AbstractGameAction {
     }
 
     public void update() {
+        this.addToTop(new UpdateBeatRelicCounterAction());
         if (this.target != null && this.target.hasPower(BeatPower.POWER_ID)) {
             int currentAmount = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
             this.addToTop(new ReducePowerAction(target, source, BeatPower.POWER_ID, currentAmount-1));
         }
         else {
             this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+                    new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1, true));
         }
         this.isDone = true;
     }

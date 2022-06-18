@@ -18,17 +18,25 @@
     "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
   },
   {
+    "PROPER_NAME": "Beat",
     "NAMES": [
-      "beat",
-      "Beat"
+      "beat"
     ],
-    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
+    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards..."
   },
   {
+    "PROPER_NAME": "On Beat X",
     "NAMES": [
-      "measure",
-      "Measure"
+      "On Beat",
+      "on_beat"
     ],
-    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
+    "DESCRIPTION": "Card effects after 'On Beat X' will only occur if the player has exactly X #yBeat."
+  },
+  {
+    "PROPER_NAME": "Measure",
+    "NAMES": [
+      "measure"
+    ],
+    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards..."
   }
 ]

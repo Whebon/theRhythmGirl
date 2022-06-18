@@ -3,12 +3,14 @@ package theRhythmGirl.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.DefaultMod;
 import theRhythmGirl.actions.AddBeatAction;
 import theRhythmGirl.powers.BeatPower;
+import theRhythmGirl.powers.MeasurePower;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.DefaultMod.makeRelicOutlinePath;

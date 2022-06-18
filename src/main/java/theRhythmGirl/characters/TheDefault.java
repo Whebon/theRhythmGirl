@@ -155,14 +155,15 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(MandrillStrike.ID);
 
         retVal.add(DefaultCommonAttack.ID);
         retVal.add(DefaultUncommonAttack.ID);

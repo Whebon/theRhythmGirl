@@ -1,5 +1,8 @@
 package theRhythmGirl.cards;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theRhythmGirl.powers.BeatPower;
 
 public abstract class AbstractDefaultCard extends CustomCard {
 
@@ -15,6 +18,11 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public int defaultBaseSecondMagicNumber;    // And our base stat - the number in it's base state. It will reset to that by default.
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
     public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
+
+    public int onBeat;
+    public int baseOnBeat;
+    public boolean upgradedOnBeat;
+    public boolean isOnBeatModified;
 
     public AbstractDefaultCard(final String id,
                                final String name,
@@ -35,6 +43,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
         isBlockModified = false;
         isMagicNumberModified = false;
         isDefaultSecondMagicNumberModified = false;
+        isOnBeatModified = false;
     }
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
@@ -43,12 +52,36 @@ public abstract class AbstractDefaultCard extends CustomCard {
             defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Show how the number changes, as out of combat, the base number of a card is shown.
             isDefaultSecondMagicNumberModified = true; // Modified = true, color it green to highlight that the number is being changed.
         }
-
+        if (upgradedOnBeat) {
+            onBeat = baseOnBeat;
+            isOnBeatModified = true;
+        }
     }
 
     public void upgradeDefaultSecondMagicNumber(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
         defaultBaseSecondMagicNumber += amount; // Upgrade the number by the amount you provide in your card.
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Set the number to be equal to the base value.
         upgradedDefaultSecondMagicNumber = true; // Upgraded = true - which does what the above method does.
+    }
+
+    public void upgradeOnBeat(int amount) {
+        defaultBaseSecondMagicNumber += amount;
+        onBeat = baseOnBeat;
+        upgradedOnBeat = true;
+    }
+
+    public boolean onBeatTriggered(){
+        return onBeat > 0 &&
+                AbstractDungeon.player.hasPower(BeatPower.POWER_ID) &&
+                AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == onBeat;
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        super.triggerOnGlowCheck();
+        if (this.onBeatTriggered())
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        else
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 }

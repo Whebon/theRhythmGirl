@@ -39,6 +39,7 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
     private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 1;
 
+    //whebon edit:
     //public int specialDamage; "never-used"
 
     // /STAT DECLARATION/

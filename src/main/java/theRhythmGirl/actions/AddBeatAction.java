@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.powers.BeatPower;
 import theRhythmGirl.powers.MeasurePower;
+import theRhythmGirl.relics.QuarterNote;
 import theRhythmGirl.relics.TimeSignature44;
 
 //adds a beat and takes time signatures into consideration
@@ -25,6 +26,7 @@ public class AddBeatAction extends AbstractGameAction {
     }
 
     public void update() {
+        this.addToTop(new UpdateBeatRelicCounterAction());
         boolean addOne = true;
         if (this.target != null && this.target.hasPower(BeatPower.POWER_ID)) {
             int currentAmount = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
@@ -38,7 +40,7 @@ public class AddBeatAction extends AbstractGameAction {
         }
         if (addOne) {
             this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+                    new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1, true));
         }
         this.isDone = true;
     }

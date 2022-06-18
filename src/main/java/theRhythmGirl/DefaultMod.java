@@ -4,7 +4,6 @@ import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import basemod.patches.com.megacrit.cardcrawl.audio.SoundMaster.AddAudio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -30,11 +29,11 @@ import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
 import theRhythmGirl.variables.DefaultCustomVariable;
 import theRhythmGirl.variables.DefaultSecondMagicNumber;
+import theRhythmGirl.variables.OnBeatVariable;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Properties;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -418,6 +417,7 @@ public class DefaultMod implements
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
+        BaseMod.addDynamicVariable(new OnBeatVariable());
         
         logger.info("Adding cards");
         // Add the cards
@@ -508,6 +508,13 @@ public class DefaultMod implements
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
                 //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
+
+                // whebon edit:
+                // note to self: added keywords do not get parsed correctly in relic strings.
+                // expected behavior: therhythmgirl:beat -> `Beat` [Beat, description]
+                // actual behavior: therhythmgirl:beat -> therhythmgirl:beat [Beat, description]
+                // workaround: #yBeat -> `Beat` []
+                // downside of the workaround: the keyword doesn't get parsed so the description of the keyword is not displayed
             }
         }
     }

@@ -56,6 +56,10 @@
   },
   "theRhythmGirl:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! block."
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "theRhythmGirl:MandrillStrike": {
+    "NAME": "Mandrill Strike",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat !theRhythmGirl:OnBeat!: deal !M! additional damage."
   }
 }

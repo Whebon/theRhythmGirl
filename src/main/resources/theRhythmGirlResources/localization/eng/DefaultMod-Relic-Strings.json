@@ -35,14 +35,14 @@
     "NAME": "Quarter Note",
     "FLAVOR": "Keep the beats going.",
     "DESCRIPTIONS": [
-      "After you play a card, gain 1 therhythmgirl:beat."
+      "After you play a card, gain #b1 #yBeat."
     ]
   },
   "theRhythmGirl:TimeSignature44": {
     "NAME": "4/4 Time Signature",
     "FLAVOR": "Easy enough. Feel free to clap along.",
     "DESCRIPTIONS": [
-      "At the start of each turn, set your therhythmgirl:beat to 1. Whenever you have more than 4 therhythmgirl:beat, lose 4 therhythmgirl:beat and gain 1 therhythmgirl:measure."
+      "At the start of each turn, set your #yBeat to #b1. Whenever you have more than #b4 #yBeat, lose #b4 #yBeat and gain #b1 #yMeasure."
     ]
   }
 }
