@@ -22,7 +22,6 @@ public class TimeSignature44 extends CustomRelic {
 
     public TimeSignature44() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
-        //this.counter = 1;
     }
 
     @Override
@@ -32,5 +31,9 @@ public class TimeSignature44 extends CustomRelic {
 
     public void atTurnStart() {
         this.addToBot(new ResetBeatAction(AbstractDungeon.player, AbstractDungeon.player));
+    }
+
+    public void onVictory(){
+        this.counter = -1;
     }
 }

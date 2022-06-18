@@ -1,13 +1,16 @@
 package theRhythmGirl.cards;
 
+import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.DefaultMod;
+import theRhythmGirl.actions.ForceWaitAction;
 import theRhythmGirl.characters.TheDefault;
 
 import static theRhythmGirl.DefaultMod.makeCardPath;
@@ -73,12 +76,17 @@ public class MandrillStrike extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int totalDamage = damage;
-        if (onBeatTriggered())
+        if (onBeatTriggered()){
             totalDamage += magicNumber;
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("BIG_HIT"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRAKE_STRIKE_SWEET"));
+        }
+        else{
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRAKE_STRIKE_SOUR"));
+        }
+        AbstractDungeon.actionManager.addToBottom(new ForceWaitAction(1.5F));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, totalDamage, damageTypeForTurn),
-                        AbstractGameAction.AttackEffect.BLUNT_LIGHT, false, true));
+                        AbstractGameAction.AttackEffect.BLUNT_HEAVY, false, true));
     }
 
     // Upgraded stats.

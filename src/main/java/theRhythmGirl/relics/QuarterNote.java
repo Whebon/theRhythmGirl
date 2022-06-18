@@ -25,7 +25,6 @@ public class QuarterNote extends CustomRelic {
 
     public QuarterNote() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
-        //this.counter = 1;
     }
 
     @Override
@@ -35,5 +34,9 @@ public class QuarterNote extends CustomRelic {
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         AbstractDungeon.actionManager.addToBottom(new AddBeatAction(AbstractDungeon.player, AbstractDungeon.player));
+    }
+
+    public void onVictory(){
+        this.counter = -1;
     }
 }

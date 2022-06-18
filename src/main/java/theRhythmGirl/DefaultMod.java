@@ -529,10 +529,10 @@ public class DefaultMod implements
 
     @Override
     public void receiveAddAudio() {
-        //whebon edit
-        BaseMod.addAudio("BLUNT_LIGHT", makeAudioPath("hit_big.wav"));
-        BaseMod.addAudio("ATTACK_FAST", makeAudioPath("hit_small.wav"));
-        BaseMod.addAudio("BIG_HIT", makeAudioPath("hit_big.wav"));
-        BaseMod.addAudio("SMALL_HIT", makeAudioPath("hit_small.wav"));
+        // whebon edit
+        // please automate somehow
+        BaseMod.addAudio("STRIKE", makeAudioPath("SFX_Strike.wav"));
+        BaseMod.addAudio("MANDRAKE_STRIKE_SWEET", makeAudioPath("SFX_MandrakeStrikeSweet.wav"));
+        BaseMod.addAudio("MANDRAKE_STRIKE_SOUR", makeAudioPath("SFX_MandrakeStrikeSweet.wav"));
     }
 }
