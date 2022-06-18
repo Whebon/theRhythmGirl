@@ -18,8 +18,8 @@ public class QuarterNote extends CustomRelic {
 
     public static final String ID = DefaultMod.makeID("QuarterNote");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("quarter_note.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("quarter_note.png"));
 
     public QuarterNote() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);

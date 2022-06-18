@@ -17,8 +17,8 @@ public class TimeSignature44 extends CustomRelic {
 
     public static final String ID = DefaultMod.makeID("TimeSignature44");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("timesignature44.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("timesignature44.png"));
 
     public TimeSignature44() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
