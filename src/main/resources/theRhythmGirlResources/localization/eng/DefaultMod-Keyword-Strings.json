@@ -22,13 +22,15 @@
     "NAMES": [
       "beat"
     ],
-    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards..."
+    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
   },
   {
     "PROPER_NAME": "On Beat X",
     "NAMES": [
       "On Beat",
-      "on_beat"
+      "on_beat",
+      "on",
+      "on_beat_2_or_4"
     ],
     "DESCRIPTION": "Card effects after 'On Beat X' will only occur if the player has exactly X #yBeat."
   },
@@ -37,6 +39,6 @@
     "NAMES": [
       "measure"
     ],
-    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards..."
+    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
   }
 ]

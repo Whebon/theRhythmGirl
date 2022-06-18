@@ -1,16 +1,13 @@
 package theRhythmGirl.cards;
 
-import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.DefaultMod;
-import theRhythmGirl.actions.ForceWaitAction;
 import theRhythmGirl.characters.TheDefault;
 
 import static theRhythmGirl.DefaultMod.makeCardPath;
@@ -32,8 +29,8 @@ public class MandrillStrike extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
-    private static final int DAMAGE = 6;
+    private static final int COST = 1;
+    private static final int DAMAGE = 4;
     private static final int ON_BEAT = 3;
     private static final int MAGIC = 12;
     private static final int UPGRADE_MAGIC = 6;
@@ -83,7 +80,6 @@ public class MandrillStrike extends AbstractDynamicCard {
         else{
             AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRAKE_STRIKE_SOUR"));
         }
-        AbstractDungeon.actionManager.addToBottom(new ForceWaitAction(1.5F));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, totalDamage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY, false, true));

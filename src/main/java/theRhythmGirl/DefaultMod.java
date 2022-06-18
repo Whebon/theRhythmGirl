@@ -532,7 +532,7 @@ public class DefaultMod implements
         // whebon edit
         // please automate somehow
         BaseMod.addAudio("STRIKE", makeAudioPath("SFX_Strike.wav"));
+        BaseMod.addAudio("MANDRAKE_STRIKE_SOUR", makeAudioPath("SFX_MandrakeStrikeSour.wav"));
         BaseMod.addAudio("MANDRAKE_STRIKE_SWEET", makeAudioPath("SFX_MandrakeStrikeSweet.wav"));
-        BaseMod.addAudio("MANDRAKE_STRIKE_SOUR", makeAudioPath("SFX_MandrakeStrikeSweet.wav"));
     }
 }

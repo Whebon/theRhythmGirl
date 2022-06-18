@@ -12,6 +12,8 @@ public class OnBeatVariable extends DynamicVariable {
     @Override
     public String key() {
         return makeID("OnBeat");
+        // note to self: if the formatting on keywords doesn't work: use [#efc851]keyword[] to fake it.
+        // e.g. therhythmgirl:On_Beat !theRhythmGirl:OnBeat! [#efc851]or[] !theRhythmGirl:SecondOnBeat!:
     }
 
     @Override
