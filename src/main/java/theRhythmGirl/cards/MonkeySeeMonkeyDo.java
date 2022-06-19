@@ -1,28 +1,28 @@
 package theRhythmGirl.cards;
 
+import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
+import com.megacrit.cardcrawl.cards.blue.Hologram;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.DefaultMod;
+import theRhythmGirl.actions.BetterCopyDiscardPileToHandAction;
 import theRhythmGirl.actions.GainBeatAction;
 import theRhythmGirl.characters.TheDefault;
 
 import static theRhythmGirl.DefaultMod.makeCardPath;
 
-public class Metronome extends AbstractDynamicCard {
+public class MonkeySeeMonkeyDo extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Metronome.class.getSimpleName());
-    public static final String IMG = makeCardPath("Metronome.png");
+    public static final String ID = DefaultMod.makeID(MonkeySeeMonkeyDo.class.getSimpleName());
+    public static final String IMG = makeCardPath("MonkeySeeMonkeyDo.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -31,43 +31,34 @@ public class Metronome extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     // /STAT DECLARATION/
 
-
-    public Metronome() {
+    public MonkeySeeMonkeyDo() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("METRONOME"));
-        this.addToBot(new LoseHPAction(p, p, 1));
-        if (upgraded) {
-            AbstractCard s = (new Metronome()).makeCopy();
-            s.upgrade();
-            this.addToBot(new MakeTempCardInHandAction(s, 1));
-        } else {
-            this.addToBot(new MakeTempCardInHandAction(new Metronome(), 1));
-        }
+        if (upgraded)
+            this.addToBot(new BetterCopyDiscardPileToHandAction(1));
+        else
+            this.addToBot(new BetterDiscardPileToHandAction(1));
     }
 
-    //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.retain = true;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+
     }
 }

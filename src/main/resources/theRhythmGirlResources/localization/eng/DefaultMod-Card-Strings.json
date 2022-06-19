@@ -91,5 +91,10 @@
     "NAME": "Flipper Roll",
     "DESCRIPTION": "Gain !B! Block. NL Can be upgraded any number of times.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block !M! times. NL Can be upgraded any number of times."
+  },
+  "theRhythmGirl:MonkeySeeMonkeyDo": {
+    "NAME": "Monkey Business",
+    "DESCRIPTION": "Put a card from your discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Put a copy of a card from your discard pile into your hand."
   }
 }

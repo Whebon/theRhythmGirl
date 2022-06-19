@@ -4,7 +4,6 @@ import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -37,7 +36,7 @@ public class FlipperRolls extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
