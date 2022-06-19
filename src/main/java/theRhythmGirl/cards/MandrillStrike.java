@@ -31,8 +31,8 @@ public class MandrillStrike extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 4;
-    private static final int MAGIC = 12;
-    private static final int UPGRADE_MAGIC = 6;
+    private static final int MAGIC = 6;
+    private static final int UPGRADE_MAGIC = 4;
 
     // /STAT DECLARATION/
 
@@ -74,10 +74,10 @@ public class MandrillStrike extends AbstractDynamicCard {
         int totalDamage = damage;
         if (onBeatTriggered()){
             totalDamage += magicNumber;
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRAKE_STRIKE_SWEET"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRILL_STRIKE_SWEET"));
         }
         else{
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRAKE_STRIKE_SOUR"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRILL_STRIKE_SOUR"));
         }
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, totalDamage, damageTypeForTurn),

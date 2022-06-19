@@ -52,7 +52,7 @@
   },
   "theRhythmGirl:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. Repeat."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "theRhythmGirl:Defend": {
     "NAME": "Defend",
@@ -78,5 +78,18 @@
   "theRhythmGirl:MicroRowSwim": {
     "NAME": "Micro Row Swim",
     "DESCRIPTION": "therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+  },
+  "theRhythmGirl:Jab": {
+    "NAME": "Jab",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theRhythmGirl:IntoYou": {
+    "NAME": "Into You",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "theRhythmGirl:FlipperRolls": {
+    "NAME": "Flipper Roll",
+    "DESCRIPTION": "Gain !B! Block. NL Can be upgraded any number of times.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block !M! times. NL Can be upgraded any number of times."
   }
 }

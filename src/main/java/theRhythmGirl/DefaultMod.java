@@ -535,12 +535,26 @@ public class DefaultMod implements
         // whebon edit
         // please automate somehow
         BaseMod.addAudio("STRIKE", makeAudioPath("SFX_Strike.wav"));
-        BaseMod.addAudio("MANDRAKE_STRIKE_SOUR", makeAudioPath("SFX_MandrakeStrikeSour.wav"));
-        BaseMod.addAudio("MANDRAKE_STRIKE_SWEET", makeAudioPath("SFX_MandrakeStrikeSweet.wav"));
+        BaseMod.addAudio("MANDRILL_STRIKE_SOUR", makeAudioPath("SFX_MandrillStrikeSour.wav"));
+        BaseMod.addAudio("MANDRILL_STRIKE_SWEET", makeAudioPath("SFX_MandrillStrikeSweet.wav"));
         BaseMod.addAudio("TALL_SCREW", makeAudioPath("SFX_TallScrew.wav"));
         BaseMod.addAudio("METRONOME", makeAudioPath("SFX_Metronome.wav"));
         BaseMod.addAudio("AIR_RALLY_13", makeAudioPath("SFX_AirRally13.wav"));
         BaseMod.addAudio("AIR_RALLY_24", makeAudioPath("SFX_AirRally24.wav"));
         BaseMod.addAudio("MICRO_ROW_SWIM", makeAudioPath("SFX_MicroRowSwim.wav"));
+        BaseMod.addAudio("JAB_1", makeAudioPath("SFX_Jab1.wav"));
+        BaseMod.addAudio("JAB_2", makeAudioPath("SFX_Jab2.wav"));
+        BaseMod.addAudio("INTO_YOU_1", makeAudioPath("SFX_IntoYou1.wav"));
+        BaseMod.addAudio("INTO_YOU_2", makeAudioPath("SFX_IntoYou2.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_1", makeAudioPath("SFX_FlipperRoll1.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_2", makeAudioPath("SFX_FlipperRoll2.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_3", makeAudioPath("SFX_FlipperRoll3.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_4", makeAudioPath("SFX_FlipperRoll4.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_5", makeAudioPath("SFX_FlipperRoll5.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_6", makeAudioPath("SFX_FlipperRoll6.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_7", makeAudioPath("SFX_FlipperRoll7.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_8", makeAudioPath("SFX_FlipperRoll8.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_9", makeAudioPath("SFX_FlipperRoll9.wav"));
+        BaseMod.addAudio("FLIPPER_ROLL_10", makeAudioPath("SFX_FlipperRoll10.wav"));
     }
 }

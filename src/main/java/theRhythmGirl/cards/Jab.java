@@ -8,14 +8,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theRhythmGirl.DefaultMod;
 import theRhythmGirl.cardmodifiers.RepeatModifier;
 import theRhythmGirl.characters.TheDefault;
 
 import static theRhythmGirl.DefaultMod.makeCardPath;
 
-public class Strike extends AbstractDynamicCard {
+public class Jab extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -23,8 +22,9 @@ public class Strike extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Strike.class.getSimpleName());
-    public static final String IMG = makeCardPath("Strike.png");
+    public static final String ID = DefaultMod.makeID(Jab.class.getSimpleName());
+    public static final String IMG = makeCardPath("Jab.png");
+    public static final String IMG_2 = makeCardPath("Jab_2.png");
 
     // /TEXT DECLARATION/
 
@@ -36,24 +36,31 @@ public class Strike extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int COST = 0;
+    private static final int DAMAGE = 4;
+    private static final int UPGRADE_PLUS_DMG = 2;
 
     // /STAT DECLARATION/
 
-    public Strike() {
+    public Jab() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
+        CardModifierManager.addModifier(this, new RepeatModifier());
+    }
+
+    @Override
+    public void triggerWhenCopied(){
+        this.loadCardImage(IMG_2);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("STRIKE"));
+        if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_1"));
+        else
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_2"));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, true));
