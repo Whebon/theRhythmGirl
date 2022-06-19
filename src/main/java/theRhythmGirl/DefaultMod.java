@@ -30,7 +30,10 @@ import theRhythmGirl.util.TextureLoader;
 import theRhythmGirl.variables.DefaultCustomVariable;
 import theRhythmGirl.variables.DefaultSecondMagicNumber;
 import theRhythmGirl.variables.OnBeatVariable;
+import theRhythmGirl.variables.SecondOnBeatVariable;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -418,6 +421,7 @@ public class DefaultMod implements
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         BaseMod.addDynamicVariable(new OnBeatVariable());
+        BaseMod.addDynamicVariable(new SecondOnBeatVariable());
         
         logger.info("Adding cards");
         // Add the cards
@@ -527,6 +531,11 @@ public class DefaultMod implements
         return getModID() + ":" + idText;
     }
 
+    private String toAudioKey(String fileName){
+        //todo
+        return fileName;
+    }
+
     @Override
     public void receiveAddAudio() {
         // whebon edit
@@ -534,5 +543,9 @@ public class DefaultMod implements
         BaseMod.addAudio("STRIKE", makeAudioPath("SFX_Strike.wav"));
         BaseMod.addAudio("MANDRAKE_STRIKE_SOUR", makeAudioPath("SFX_MandrakeStrikeSour.wav"));
         BaseMod.addAudio("MANDRAKE_STRIKE_SWEET", makeAudioPath("SFX_MandrakeStrikeSweet.wav"));
+        BaseMod.addAudio("TALL_SCREW", makeAudioPath("SFX_TallScrew.wav"));
+        BaseMod.addAudio("METRONOME", makeAudioPath("SFX_Metronome.wav"));
+        BaseMod.addAudio("AIR_RALLY_13", makeAudioPath("SFX_AirRally13.wav"));
+        BaseMod.addAudio("AIR_RALLY_24", makeAudioPath("SFX_AirRally24.wav"));
     }
 }

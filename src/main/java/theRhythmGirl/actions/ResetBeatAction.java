@@ -24,8 +24,8 @@ public class ResetBeatAction extends AbstractGameAction {
             this.addToTop(new ReducePowerAction(target, source, BeatPower.POWER_ID, currentAmount-1));
         }
         else {
-            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1, true));
+            this.addToTop(new SilentApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new BeatPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
         }
         this.isDone = true;
     }

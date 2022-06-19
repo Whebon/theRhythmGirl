@@ -157,14 +157,16 @@ public class TheDefault extends CustomPlayer {
 
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(MandrillStrike.ID);
+        retVal.add(TallScrew.ID);
+        retVal.add(Metronome.ID);
+        retVal.add(AirRally.ID);
+        retVal.add(AirRally.ID);
+        retVal.add(AirRally.ID);
 
+        /*
         retVal.add(DefaultCommonAttack.ID);
         retVal.add(DefaultUncommonAttack.ID);
         retVal.add(DefaultRareAttack.ID);
@@ -180,6 +182,8 @@ public class TheDefault extends CustomPlayer {
         retVal.add(DefaultAttackWithVariable.ID);
         retVal.add(DefaultSecondMagicNumberSkill.ID);
         retVal.add(OrbSkill.ID);
+         */
+
         return retVal;
     }
 

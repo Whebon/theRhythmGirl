@@ -60,6 +60,20 @@
   },
   "theRhythmGirl:MandrillStrike": {
     "NAME": "Mandrill Strike",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat !theRhythmGirl:OnBeat!: deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat !theRhythmGirl:OnBeat!: Deal !M! additional damage."
+  },
+  "theRhythmGirl:TallScrew": {
+    "NAME": "Tall Screw",
+    "DESCRIPTION": "Gain !B! Block. Gain 1 additional therhythmgirl:Beat."
+  },
+  "theRhythmGirl:Metronome": {
+    "NAME": "Metronome",
+    "DESCRIPTION": "Lose 1 hp. Add a copy of this card to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Lose 1 hp. Add a copy of this card to your hand. NL Exhaust."
+  },
+  "theRhythmGirl:AirRally": {
+    "NAME": "Air Rally",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat !theRhythmGirl:OnBeat! or !theRhythmGirl:SecondOnBeat!: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Lose 1 hp. Add a copy of this card to your hand. NL Exhaust."
   }
 }

@@ -24,6 +24,11 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public boolean upgradedOnBeat;
     public boolean isOnBeatModified;
 
+    public int secondOnBeat;
+    public int baseSecondOnBeat;
+    public boolean upgradedSecondOnBeat;
+    public boolean isSecondOnBeatModified;
+
     public AbstractDefaultCard(final String id,
                                final String name,
                                final String img,
@@ -56,6 +61,10 @@ public abstract class AbstractDefaultCard extends CustomCard {
             onBeat = baseOnBeat;
             isOnBeatModified = true;
         }
+        if (upgradedSecondOnBeat) {
+            secondOnBeat = baseSecondOnBeat;
+            isSecondOnBeatModified = true;
+        }
     }
 
     public void upgradeDefaultSecondMagicNumber(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
@@ -65,9 +74,15 @@ public abstract class AbstractDefaultCard extends CustomCard {
     }
 
     public void upgradeOnBeat(int amount) {
-        defaultBaseSecondMagicNumber += amount;
+        baseOnBeat += amount;
         onBeat = baseOnBeat;
         upgradedOnBeat = true;
+    }
+
+    public void upgradeOnSecondBeat(int amount) {
+        baseSecondOnBeat += amount;
+        secondOnBeat = baseSecondOnBeat;
+        upgradedSecondOnBeat = true;
     }
 
     public boolean onBeatTriggered(){
@@ -76,10 +91,16 @@ public abstract class AbstractDefaultCard extends CustomCard {
                 AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == onBeat;
     }
 
+    public boolean secondOnBeatTriggered(){
+        return secondOnBeat > 0 &&
+                AbstractDungeon.player.hasPower(BeatPower.POWER_ID) &&
+                AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == secondOnBeat;
+    }
+
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (this.onBeatTriggered())
+        if (this.onBeatTriggered() || this.secondOnBeatTriggered())
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

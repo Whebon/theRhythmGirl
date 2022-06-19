@@ -2,15 +2,11 @@ package theRhythmGirl.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.DefaultMod;
-import theRhythmGirl.actions.AddBeatAction;
-import theRhythmGirl.powers.BeatPower;
-import theRhythmGirl.powers.MeasurePower;
+import theRhythmGirl.actions.GainBeatAction;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.DefaultMod.makeRelicOutlinePath;
@@ -33,7 +29,7 @@ public class QuarterNote extends CustomRelic {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        AbstractDungeon.actionManager.addToBottom(new AddBeatAction(AbstractDungeon.player, AbstractDungeon.player));
+        AbstractDungeon.actionManager.addToBottom(new GainBeatAction(AbstractDungeon.player, AbstractDungeon.player));
     }
 
     public void onVictory(){
