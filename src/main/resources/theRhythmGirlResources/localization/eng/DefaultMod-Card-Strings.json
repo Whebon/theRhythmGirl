@@ -60,7 +60,7 @@
   },
   "theRhythmGirl:MandrillStrike": {
     "NAME": "Mandrill Strike",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat !theRhythmGirl:OnBeat!: Deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 3: Deal !M! additional damage."
   },
   "theRhythmGirl:TallScrew": {
     "NAME": "Tall Screw",
@@ -73,7 +73,7 @@
   },
   "theRhythmGirl:AirRally": {
     "NAME": "Air Rally",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat !theRhythmGirl:OnBeat! or !theRhythmGirl:SecondOnBeat!: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable.",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3 NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable.",
     "UPGRADE_DESCRIPTION": "Retain. NL Lose 1 hp. Add a copy of this card to your hand. NL Exhaust."
   }
 }

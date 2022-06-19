@@ -19,15 +19,10 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
     public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
 
-    public int onBeat;
-    public int baseOnBeat;
-    public boolean upgradedOnBeat;
-    public boolean isOnBeatModified;
-
-    public int secondOnBeat;
-    public int baseSecondOnBeat;
-    public boolean upgradedSecondOnBeat;
-    public boolean isSecondOnBeatModified;
+    public boolean isOnBeat1 = false;
+    public boolean isOnBeat2 = false;
+    public boolean isOnBeat3 = false;
+    public boolean isOnBeat4 = false;
 
     public AbstractDefaultCard(final String id,
                                final String name,
@@ -48,7 +43,6 @@ public abstract class AbstractDefaultCard extends CustomCard {
         isBlockModified = false;
         isMagicNumberModified = false;
         isDefaultSecondMagicNumberModified = false;
-        isOnBeatModified = false;
     }
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
@@ -56,14 +50,6 @@ public abstract class AbstractDefaultCard extends CustomCard {
         if (upgradedDefaultSecondMagicNumber) { // If we set upgradedDefaultSecondMagicNumber = true in our card.
             defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Show how the number changes, as out of combat, the base number of a card is shown.
             isDefaultSecondMagicNumberModified = true; // Modified = true, color it green to highlight that the number is being changed.
-        }
-        if (upgradedOnBeat) {
-            onBeat = baseOnBeat;
-            isOnBeatModified = true;
-        }
-        if (upgradedSecondOnBeat) {
-            secondOnBeat = baseSecondOnBeat;
-            isSecondOnBeatModified = true;
         }
     }
 
@@ -73,34 +59,34 @@ public abstract class AbstractDefaultCard extends CustomCard {
         upgradedDefaultSecondMagicNumber = true; // Upgraded = true - which does what the above method does.
     }
 
-    public void upgradeOnBeat(int amount) {
-        baseOnBeat += amount;
-        onBeat = baseOnBeat;
-        upgradedOnBeat = true;
-    }
-
-    public void upgradeOnSecondBeat(int amount) {
-        baseSecondOnBeat += amount;
-        secondOnBeat = baseSecondOnBeat;
-        upgradedSecondOnBeat = true;
-    }
-
     public boolean onBeatTriggered(){
-        return onBeat > 0 &&
-                AbstractDungeon.player.hasPower(BeatPower.POWER_ID) &&
-                AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == onBeat;
+        if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
+            return isOnBeat1;
+        if (isOnBeat1 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount <= 1)
+            return true;
+        if (isOnBeat2 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 2)
+            return true;
+        if (isOnBeat3 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 3)
+            return true;
+        return isOnBeat4 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 4;
     }
 
-    public boolean secondOnBeatTriggered(){
-        return secondOnBeat > 0 &&
-                AbstractDungeon.player.hasPower(BeatPower.POWER_ID) &&
-                AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == secondOnBeat;
+    public boolean onBeatTriggered(int beat){
+        if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
+            return beat==1 && isOnBeat1;
+        if (beat==1 && isOnBeat1 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount <= 1)
+            return true;
+        if (beat==2 && isOnBeat2 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 2)
+            return true;
+        if (beat==3 && isOnBeat3 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 3)
+            return true;
+        return beat==4 && isOnBeat4 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 4;
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (this.onBeatTriggered() || this.secondOnBeatTriggered())
+        if (this.onBeatTriggered())
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

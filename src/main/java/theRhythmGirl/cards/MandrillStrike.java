@@ -31,7 +31,6 @@ public class MandrillStrike extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 4;
-    private static final int ON_BEAT = 3;
     private static final int MAGIC = 12;
     private static final int UPGRADE_MAGIC = 6;
 
@@ -40,9 +39,9 @@ public class MandrillStrike extends AbstractDynamicCard {
     public MandrillStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-
         magicNumber = baseMagicNumber = MAGIC;
-        onBeat = baseOnBeat = ON_BEAT;
+
+        isOnBeat3 = true;
 
         this.tags.add(CardTags.STRIKE);
     }

@@ -29,11 +29,7 @@ import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
 import theRhythmGirl.variables.DefaultCustomVariable;
 import theRhythmGirl.variables.DefaultSecondMagicNumber;
-import theRhythmGirl.variables.OnBeatVariable;
-import theRhythmGirl.variables.SecondOnBeatVariable;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -420,8 +416,6 @@ public class DefaultMod implements
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
-        BaseMod.addDynamicVariable(new OnBeatVariable());
-        BaseMod.addDynamicVariable(new SecondOnBeatVariable());
         
         logger.info("Adding cards");
         // Add the cards
