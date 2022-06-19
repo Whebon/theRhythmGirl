@@ -1,5 +1,6 @@
 package theRhythmGirl.cards;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theRhythmGirl.DefaultMod;
+import theRhythmGirl.cardmodifiers.RepeatModifier;
 import theRhythmGirl.characters.TheDefault;
 
 import static theRhythmGirl.DefaultMod.makeCardPath;
@@ -46,6 +48,7 @@ public class Strike extends AbstractDynamicCard {
 
         this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
+        CardModifierManager.addModifier(this, new RepeatModifier());
     }
 
     // Actions the card should do.

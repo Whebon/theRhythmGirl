@@ -40,5 +40,12 @@
       "measure"
     ],
     "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
+  },
+  {
+    "PROPER_NAME": "Repeat",
+    "NAMES": [
+      "repeat"
+    ],
+    "DESCRIPTION": "Add a copy of this card to your hand with Exhaust instead of therhythmgirl:Repeat."
   }
 ]

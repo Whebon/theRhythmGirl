@@ -62,25 +62,20 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public boolean onBeatTriggered(){
         if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
             return isOnBeat1;
-        if (isOnBeat1 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount <= 1)
+        int beatAmount = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
+        if (isOnBeat1 && beatAmount == 1)
             return true;
-        if (isOnBeat2 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 2)
+        if (isOnBeat2 && beatAmount == 2)
             return true;
-        if (isOnBeat3 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 3)
+        if (isOnBeat3 && beatAmount == 3)
             return true;
-        return isOnBeat4 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 4;
+        return isOnBeat4 && beatAmount == 4;
     }
 
     public boolean onBeatTriggered(int beat){
         if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
-            return beat==1 && isOnBeat1;
-        if (beat==1 && isOnBeat1 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount <= 1)
-            return true;
-        if (beat==2 && isOnBeat2 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 2)
-            return true;
-        if (beat==3 && isOnBeat3 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 3)
-            return true;
-        return beat==4 && isOnBeat4 && AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount == 4;
+            return beat == 1;
+        return beat == AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
     }
 
     @Override

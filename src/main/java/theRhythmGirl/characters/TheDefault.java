@@ -163,8 +163,7 @@ public class TheDefault extends CustomPlayer {
         retVal.add(TallScrew.ID);
         retVal.add(Metronome.ID);
         retVal.add(AirRally.ID);
-        retVal.add(AirRally.ID);
-        retVal.add(AirRally.ID);
+        retVal.add(MicroRowSwim.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);

@@ -541,5 +541,6 @@ public class DefaultMod implements
         BaseMod.addAudio("METRONOME", makeAudioPath("SFX_Metronome.wav"));
         BaseMod.addAudio("AIR_RALLY_13", makeAudioPath("SFX_AirRally13.wav"));
         BaseMod.addAudio("AIR_RALLY_24", makeAudioPath("SFX_AirRally24.wav"));
+        BaseMod.addAudio("MICRO_ROW_SWIM", makeAudioPath("SFX_MicroRowSwim.wav"));
     }
 }

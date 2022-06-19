@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -51,7 +52,13 @@ public class Metronome extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("METRONOME"));
         this.addToBot(new LoseHPAction(p, p, 1));
-        this.addToBot(new MakeTempCardInHandAction(new Metronome(), 1));
+        if (upgraded) {
+            AbstractCard s = (new Metronome()).makeCopy();
+            s.upgrade();
+            this.addToBot(new MakeTempCardInHandAction(s, 1));
+        } else {
+            this.addToBot(new MakeTempCardInHandAction(new Metronome(), 1));
+        }
     }
 
     //Upgraded stats.

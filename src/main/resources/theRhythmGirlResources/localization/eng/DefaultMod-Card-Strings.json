@@ -52,7 +52,7 @@
   },
   "theRhythmGirl:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. Repeat."
   },
   "theRhythmGirl:Defend": {
     "NAME": "Defend",
@@ -73,7 +73,10 @@
   },
   "theRhythmGirl:AirRally": {
     "NAME": "Air Rally",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3 NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Lose 1 hp. Add a copy of this card to your hand. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable."
+  },
+  "theRhythmGirl:MicroRowSwim": {
+    "NAME": "Micro Row Swim",
+    "DESCRIPTION": "therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
   }
 }

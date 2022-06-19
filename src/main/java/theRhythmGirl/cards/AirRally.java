@@ -1,26 +1,18 @@
 package theRhythmGirl.cards;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import theRhythmGirl.DefaultMod;
-import theRhythmGirl.actions.OnBeatAction;
 import theRhythmGirl.characters.TheDefault;
-
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 import static theRhythmGirl.DefaultMod.makeCardPath;
 
@@ -80,20 +72,20 @@ public class AirRally extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new OnBeatAction(p, m, 1, 3, ()->{
+        if (onBeatTriggered(1) || onBeatTriggered(3)){
             AbstractDungeon.actionManager.addToBottom(new SFXAction("AIR_RALLY_13"));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new WeakPower(m, magicNumber, false), magicNumber));
-        }));
-        AbstractDungeon.actionManager.addToBottom(new OnBeatAction(p, m, 2, 4, ()->{
+        }
+        else{
             AbstractDungeon.actionManager.addToBottom(new SFXAction("AIR_RALLY_24"));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new VulnerablePower(m, magicNumber, false), magicNumber));
-        }));
-
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, true));
+        }
     }
 
     // Upgraded stats.
