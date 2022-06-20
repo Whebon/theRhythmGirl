@@ -16,6 +16,8 @@ public class QuarterNote extends CustomRelic {
 
     public static final String ID = DefaultMod.makeID("QuarterNote");
 
+    //todo: redraw the time signature relic such that the lines match up with the time signature relic
+
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("quarter_note.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("quarter_note.png"));
 
