@@ -19,8 +19,8 @@ public class IntoYou extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = DefaultMod.makeID(IntoYou.class.getSimpleName());
-    public static final String IMG = makeCardPath("IntoYou.png");
-    public static final String IMG_2 = makeCardPath("IntoYou_2.png");
+    public static final String IMG = makeCardPath("IntoYou_Exhaust.png");
+    public static final String IMG_REPEAT = makeCardPath("IntoYou_Repeat.png");
 
     // /TEXT DECLARATION/
 
@@ -47,17 +47,17 @@ public class IntoYou extends AbstractDynamicCard {
     }
 
     @Override
-    public void triggerWhenCopied(){
-        this.loadCardImage(IMG_2);
+    public void loadAlternativeCardImage(){
+        this.loadCardImage(IMG_REPEAT);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("INTO_YOU_1"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("INTO_YOU_REPEAT"));
         else
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("INTO_YOU_2"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("INTO_YOU_EXHAUST"));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 

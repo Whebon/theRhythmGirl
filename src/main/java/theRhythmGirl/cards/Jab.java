@@ -23,8 +23,8 @@ public class Jab extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = DefaultMod.makeID(Jab.class.getSimpleName());
-    public static final String IMG = makeCardPath("Jab.png");
-    public static final String IMG_2 = makeCardPath("Jab_2.png");
+    public static final String IMG = makeCardPath("Jab_Exhaust.png");
+    public static final String IMG_REPEAT = makeCardPath("Jab_Repeat.png");
 
     // /TEXT DECLARATION/
 
@@ -50,17 +50,17 @@ public class Jab extends AbstractDynamicCard {
     }
 
     @Override
-    public void triggerWhenCopied(){
-        this.loadCardImage(IMG_2);
+    public void loadAlternativeCardImage(){
+        this.loadCardImage(IMG_REPEAT);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_1"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_REPEAT"));
         else
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_2"));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_EXHAUST"));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, true));

@@ -542,10 +542,10 @@ public class DefaultMod implements
         BaseMod.addAudio("AIR_RALLY_13", makeAudioPath("SFX_AirRally13.wav"));
         BaseMod.addAudio("AIR_RALLY_24", makeAudioPath("SFX_AirRally24.wav"));
         BaseMod.addAudio("MICRO_ROW_SWIM", makeAudioPath("SFX_MicroRowSwim.wav"));
-        BaseMod.addAudio("JAB_1", makeAudioPath("SFX_Jab1.wav"));
-        BaseMod.addAudio("JAB_2", makeAudioPath("SFX_Jab2.wav"));
-        BaseMod.addAudio("INTO_YOU_1", makeAudioPath("SFX_IntoYou1.wav"));
-        BaseMod.addAudio("INTO_YOU_2", makeAudioPath("SFX_IntoYou2.wav"));
+        BaseMod.addAudio("JAB_REPEAT", makeAudioPath("SFX_JabRepeat.wav"));
+        BaseMod.addAudio("JAB_EXHAUST", makeAudioPath("SFX_JabExhaust.wav"));
+        BaseMod.addAudio("INTO_YOU_REPEAT", makeAudioPath("SFX_IntoYouRepeat.wav"));
+        BaseMod.addAudio("INTO_YOU_EXHAUST", makeAudioPath("SFX_IntoYouExhaust.wav"));
         BaseMod.addAudio("FLIPPER_ROLL_1", makeAudioPath("SFX_FlipperRoll1.wav"));
         BaseMod.addAudio("FLIPPER_ROLL_2", makeAudioPath("SFX_FlipperRoll2.wav"));
         BaseMod.addAudio("FLIPPER_ROLL_3", makeAudioPath("SFX_FlipperRoll3.wav"));

@@ -24,6 +24,8 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public boolean isOnBeat3 = false;
     public boolean isOnBeat4 = false;
 
+    public static String originalImg;
+
     public AbstractDefaultCard(final String id,
                                final String name,
                                final String img,
@@ -43,6 +45,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
         isBlockModified = false;
         isMagicNumberModified = false;
         isDefaultSecondMagicNumberModified = false;
+        originalImg = img;
     }
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
@@ -85,5 +88,13 @@ public abstract class AbstractDefaultCard extends CustomCard {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    }
+
+    public void loadAlternativeCardImage(){
+        this.loadCardImage(originalImg);
+    }
+
+    public void loadOriginalCardImage(){
+        this.loadCardImage(originalImg);
     }
 }

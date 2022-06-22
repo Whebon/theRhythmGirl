@@ -11,27 +11,31 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import org.apache.commons.lang3.StringUtils;
+import theRhythmGirl.cards.AbstractDefaultCard;
 
 
 public class RepeatModifier extends AbstractCardModifier {
-    public static String ID = "ttherhythmgirl:RepeatCardModifier";
+    public static String ID = "therhythmgirl:RepeatCardModifier";
 
     public RepeatModifier() {
     }
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
+        ((AbstractDefaultCard)card).loadAlternativeCardImage();
         return rawDescription + " NL therhythmgirl:Repeat.";
     }
 
     @Override
+    public void onRemove(AbstractCard card) {
+        ((AbstractDefaultCard)card).loadOriginalCardImage();
+    }
+
+    @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        AbstractCard newCard = card.makeCopy();
+        AbstractCard newCard = card.makeStatEquivalentCopy();
         CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, true);
         CardModifierManager.addModifier(newCard, new ExhaustMod());
-        if (card.upgraded) {
-            newCard.upgrade();
-        }
         AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(newCard, 1));
     }
 

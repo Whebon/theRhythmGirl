@@ -161,12 +161,12 @@ public class TheDefault extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-        //retVal.add(Jab.ID);
+        retVal.add(Jab.ID);
         //retVal.add(MandrillStrike.ID);
         //retVal.add(TallScrew.ID);
         //retVal.add(Metronome.ID);
         //retVal.add(AirRally.ID);
-        //retVal.add(IntoYou.ID);
+        retVal.add(IntoYou.ID);
         //retVal.add(MicroRowSwim.ID);
         retVal.add(FlipperRolls.ID);
         retVal.add(Armaments.ID);
