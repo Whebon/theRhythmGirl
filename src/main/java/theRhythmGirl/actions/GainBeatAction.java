@@ -32,7 +32,7 @@ public class GainBeatAction extends AbstractGameAction {
             if (currentAmount >= cap){
                 //reduce beats instead and add a measure
                 this.addToTop(new ReducePowerAction(target, source, BeatPower.POWER_ID, cap-1));
-                this.addToTop(new SilentApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                         new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
                 addOne = false;
             }

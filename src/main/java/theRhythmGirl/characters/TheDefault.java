@@ -181,6 +181,7 @@ public class TheDefault extends CustomPlayer {
         retVal.add(Clash.ID);
         retVal.add(Pitch.ID);
         retVal.add(StormOfSteel.ID);
+        retVal.add(Ready.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);

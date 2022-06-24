@@ -17,6 +17,8 @@ public class UpdateBeatRelicCounterAction extends AbstractGameAction {
         this.actionType = ActionType.SPECIAL;
     }
 
+    //todo: replace the flashing Quarter Note with something a bit less noticeable
+
     public void update() {
         if (AbstractDungeon.player.hasRelic(QuarterNote.ID) && AbstractDungeon.player.hasPower(BeatPower.POWER_ID)){
             int prevCount = AbstractDungeon.player.getRelic(QuarterNote.ID).counter;

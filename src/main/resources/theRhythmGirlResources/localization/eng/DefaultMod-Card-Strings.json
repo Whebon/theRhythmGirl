@@ -118,5 +118,10 @@
   "theRhythmGirl:HomeRun": {
     "NAME": "Home Run",
     "DESCRIPTION": "therhythmgirl:On_Beat 1: deal !D! damage."
+  },
+  "theRhythmGirl:Ready": {
+    "NAME": "Rea--dy",
+    "DESCRIPTION": "Gain 1 additional therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "Gain 1 additional therhythmgirl:Beat. Draw a card."
   }
 }

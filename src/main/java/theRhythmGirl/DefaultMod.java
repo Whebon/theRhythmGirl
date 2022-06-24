@@ -562,5 +562,6 @@ public class DefaultMod implements
         BaseMod.addAudio("SEESAW_EXHAUST", makeAudioPath("SFX_SeeSawExhaust.wav"));
         BaseMod.addAudio("PITCH", makeAudioPath("SFX_Pitch.wav"));
         BaseMod.addAudio("HOME_RUN", makeAudioPath("SFX_HomeRun.wav"));
+        BaseMod.addAudio("READY", makeAudioPath("SFX_Ready.wav"));
     }
 }
