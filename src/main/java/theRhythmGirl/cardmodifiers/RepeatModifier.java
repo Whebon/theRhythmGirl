@@ -36,7 +36,7 @@ public class RepeatModifier extends AbstractCardModifier {
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
         AbstractCard newCard = card.makeStatEquivalentCopy();
         CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, true);
-        CardModifierManager.addModifier(newCard, new ExhaustMod());
+        CardModifierManager.addModifier(newCard, new ExhaustAndEtherealModifier());
         AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(newCard, 1));
     }
 

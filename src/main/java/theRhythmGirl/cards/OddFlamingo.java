@@ -35,9 +35,9 @@ public class OddFlamingo extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 20;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int COST = 2;
+    private static final int DAMAGE = 25;
+    private static final int UPGRADE_PLUS_DMG = 10;
 
     // /STAT DECLARATION/
 
