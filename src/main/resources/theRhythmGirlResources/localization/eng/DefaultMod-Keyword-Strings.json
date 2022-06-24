@@ -46,6 +46,13 @@
     "NAMES": [
       "repeat"
     ],
-    "DESCRIPTION": "Add a copy of this card to your hand with #yExhaust and #yEthereal instead of #yRepeat."
+    "DESCRIPTION": "Add a copy of this card to your hand with #yExhaust and #yEthereal instead of Repeat."
+  },
+  {
+    "PROPER_NAME": "Cued",
+    "NAMES": [
+      "cued"
+    ],
+    "DESCRIPTION": "Cued cards exhaust whenever you play another attack. Cued cards are also equipped with #yExhaust and #yEthereal."
   }
 ]

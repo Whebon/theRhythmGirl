@@ -10,6 +10,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.EchoForm;
+import com.megacrit.cardcrawl.cards.green.StormOfSteel;
 import com.megacrit.cardcrawl.cards.red.Armaments;
 import com.megacrit.cardcrawl.cards.red.Clash;
 import com.megacrit.cardcrawl.cards.red.SearingBlow;
@@ -178,6 +179,8 @@ public class TheDefault extends CustomPlayer {
         //retVal.add(OddFlamingo.ID);
         retVal.add(SeeSaw.ID);
         retVal.add(Clash.ID);
+        retVal.add(Pitch.ID);
+        retVal.add(StormOfSteel.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);

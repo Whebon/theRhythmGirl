@@ -560,5 +560,7 @@ public class DefaultMod implements
         BaseMod.addAudio("ODD_FLAMINGO", makeAudioPath("SFX_OddFlamingo.wav"));
         BaseMod.addAudio("SEESAW_REPEAT", makeAudioPath("SFX_SeeSawRepeat.wav"));
         BaseMod.addAudio("SEESAW_EXHAUST", makeAudioPath("SFX_SeeSawExhaust.wav"));
+        BaseMod.addAudio("PITCH", makeAudioPath("SFX_Pitch.wav"));
+        BaseMod.addAudio("HOME_RUN", makeAudioPath("SFX_HomeRun.wav"));
     }
 }

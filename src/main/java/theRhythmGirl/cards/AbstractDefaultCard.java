@@ -1,7 +1,9 @@
 package theRhythmGirl.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.powers.BeatPower;
 
 public abstract class AbstractDefaultCard extends CustomCard {
@@ -19,6 +21,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
     public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
 
+    public boolean mustBePlayedOnBeat = false;
     public boolean isOnBeat1 = false;
     public boolean isOnBeat2 = false;
     public boolean isOnBeat3 = false;
@@ -88,6 +91,18 @@ public abstract class AbstractDefaultCard extends CustomCard {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (!super.canUse(p, m)){
+            return false;
+        }
+        if (mustBePlayedOnBeat && !onBeatTriggered()) {
+            this.cantUseMessage = "This card must be played #rOn #rBeat.";
+            return false;
+        }
+        return true;
     }
 
     public void loadAlternativeCardImage(){

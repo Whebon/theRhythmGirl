@@ -109,5 +109,14 @@
     "NAME": "See Saw",
     "DESCRIPTION": "Deal !D! damage to an enemy that did not take damage this turn.",
     "EXTENDED_DESCRIPTION": ["That enemy already took damage this turn."]
+  },
+  "theRhythmGirl:Pitch": {
+    "NAME": "Pitch",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#e3be4e]Home [#e3be4e]Run to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#e3be4e]Home [#e3be4e]Run+ to your hand."
+  },
+  "theRhythmGirl:HomeRun": {
+    "NAME": "Home Run",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: deal !D! damage."
   }
 }
