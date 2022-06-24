@@ -104,5 +104,10 @@
   "theRhythmGirl:OddFlamingo": {
     "NAME": "Odd Flamingo",
     "DESCRIPTION": "Deal !D! damage to ALL enemies except the targeted enemy."
+  },
+  "theRhythmGirl:SeeSaw": {
+    "NAME": "See Saw",
+    "DESCRIPTION": "Deal !D! damage to an enemy that did not take damage this turn.",
+    "EXTENDED_DESCRIPTION": ["That enemy already took damage this turn."]
   }
 }

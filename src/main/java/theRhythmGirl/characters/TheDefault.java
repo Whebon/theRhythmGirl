@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.EchoForm;
 import com.megacrit.cardcrawl.cards.red.Armaments;
+import com.megacrit.cardcrawl.cards.red.Clash;
 import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -159,22 +160,24 @@ public class TheDefault extends CustomPlayer {
         logger.info("Begin loading starter Deck Strings");
 
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
+        //retVal.add(Defend.ID);
+        //retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Jab.ID);
+        //retVal.add(Jab.ID);
         //retVal.add(MandrillStrike.ID);
         //retVal.add(TallScrew.ID);
         //retVal.add(Metronome.ID);
         //retVal.add(AirRally.ID);
         retVal.add(IntoYou.ID);
         //retVal.add(MicroRowSwim.ID);
-        retVal.add(FlipperRolls.ID);
-        retVal.add(Armaments.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
-        retVal.add(DoubleUp.ID);
-        retVal.add(DoubleUp.ID);
-        retVal.add(OddFlamingo.ID);
+        //retVal.add(FlipperRolls.ID);
+        //retVal.add(Armaments.ID);
+        //retVal.add(MonkeySeeMonkeyDo.ID);
+        //retVal.add(DoubleUp.ID);
+        //retVal.add(DoubleUp.ID);
+        //retVal.add(OddFlamingo.ID);
+        retVal.add(SeeSaw.ID);
+        retVal.add(Clash.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);
