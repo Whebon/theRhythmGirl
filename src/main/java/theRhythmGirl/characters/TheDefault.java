@@ -174,7 +174,7 @@ public class TheDefault extends CustomPlayer {
         retVal.add(MonkeySeeMonkeyDo.ID);
         retVal.add(DoubleUp.ID);
         retVal.add(DoubleUp.ID);
-        retVal.add(DoubleUp.ID);
+        retVal.add(OddFlamingo.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);

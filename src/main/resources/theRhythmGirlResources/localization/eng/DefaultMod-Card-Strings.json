@@ -100,5 +100,9 @@
   "theRhythmGirl:DoubleUp": {
     "NAME": "Double Up",
     "DESCRIPTION": "The first attack you play each turn is played twice."
+  },
+  "theRhythmGirl:OddFlamingo": {
+    "NAME": "Odd Flamingo",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies except the targeted enemy."
   }
 }

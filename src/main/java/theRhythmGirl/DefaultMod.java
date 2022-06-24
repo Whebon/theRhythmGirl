@@ -557,5 +557,6 @@ public class DefaultMod implements
         BaseMod.addAudio("FLIPPER_ROLL_9", makeAudioPath("SFX_FlipperRoll9.wav"));
         BaseMod.addAudio("FLIPPER_ROLL_10", makeAudioPath("SFX_FlipperRoll10.wav"));
         BaseMod.addAudio("DOUBLE_UP", makeAudioPath("SFX_DoubleUp.wav"));
+        BaseMod.addAudio("ODD_FLAMINGO", makeAudioPath("SFX_OddFlamingo.wav"));
     }
 }
