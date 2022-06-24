@@ -9,6 +9,7 @@ import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.EchoForm;
 import com.megacrit.cardcrawl.cards.red.Armaments;
 import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -170,8 +171,10 @@ public class TheDefault extends CustomPlayer {
         //retVal.add(MicroRowSwim.ID);
         retVal.add(FlipperRolls.ID);
         retVal.add(Armaments.ID);
-        retVal.add(SearingBlow.ID);
         retVal.add(MonkeySeeMonkeyDo.ID);
+        retVal.add(DoubleUp.ID);
+        retVal.add(DoubleUp.ID);
+        retVal.add(DoubleUp.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);

@@ -96,5 +96,9 @@
     "NAME": "Monkey Business",
     "DESCRIPTION": "Put a card from your discard pile into your hand.",
     "UPGRADE_DESCRIPTION": "Put a copy of a card from your discard pile into your hand."
+  },
+  "theRhythmGirl:DoubleUp": {
+    "NAME": "Double Up",
+    "DESCRIPTION": "The first attack you play each turn is played twice."
   }
 }

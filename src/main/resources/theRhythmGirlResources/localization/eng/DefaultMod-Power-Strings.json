@@ -14,5 +14,9 @@
 "theRhythmGirl:MeasurePower": {
         "NAME": "Measure",
         "DESCRIPTIONS": ["Current Measure. Has no effect of itself, but may affect the behaviour of other cards."]
+},
+"theRhythmGirl:DoubleUpPower": {
+        "NAME": "Double Up",
+        "DESCRIPTIONS": ["The first attack you play each turn is played twice.", "The first #b", " attacks you play each turn are played twice."]
 }
 }

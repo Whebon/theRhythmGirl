@@ -18,11 +18,19 @@ public class UpdateBeatRelicCounterAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (AbstractDungeon.player.hasRelic(QuarterNote.ID) && AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
+        if (AbstractDungeon.player.hasRelic(QuarterNote.ID) && AbstractDungeon.player.hasPower(BeatPower.POWER_ID)){
+            int prevCount = AbstractDungeon.player.getRelic(QuarterNote.ID).counter;
             AbstractDungeon.player.getRelic(QuarterNote.ID).counter = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
-        if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
+            if (AbstractDungeon.player.getRelic(QuarterNote.ID).counter != prevCount)
+                AbstractDungeon.player.getRelic(QuarterNote.ID).flash();
+        }
+        if (AbstractDungeon.player.hasRelic(TimeSignature44.ID)){
+            int prevCount = AbstractDungeon.player.getRelic(TimeSignature44.ID).counter;
             AbstractDungeon.player.getRelic(TimeSignature44.ID).counter = AbstractDungeon.player.hasPower(MeasurePower.POWER_ID) ?
                     AbstractDungeon.player.getPower(MeasurePower.POWER_ID).amount : 0;
+            if (AbstractDungeon.player.getRelic(TimeSignature44.ID).counter != prevCount)
+                AbstractDungeon.player.getRelic(TimeSignature44.ID).flash();
+        }
         this.isDone = true;
     }
 }
