@@ -24,6 +24,8 @@ import theRhythmGirl.RhythmGirlMod;
 
 import static theRhythmGirl.RhythmGirlMod.makeOrbPath;
 
+//todo: delete orbs from the project
+
 public class DefaultOrb extends CustomOrb {
 
     // Standard ID/Description

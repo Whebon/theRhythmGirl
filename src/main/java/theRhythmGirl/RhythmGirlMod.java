@@ -64,6 +64,7 @@ public class RhythmGirlMod implements
     // Colors (RGB)
     // Character Color
     // CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    //todo: change the rhythm girl color to red or something
     public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(252.0f, 218.0f, 159.0f);
     
     // Potion Colors in RGB
@@ -72,6 +73,7 @@ public class RhythmGirlMod implements
     public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
 
     // Card backgrounds - The actual rectangular card.
+    //todo: refactor DEFAULT_GRAY to RHYTHM_GIRL_COLOR, darken the bg color and make sure the card frames have the same x,y offset as the silent's card frames
     private static final String ATTACK_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_attack_rhythm_girl_color.png";
     private static final String SKILL_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_skill_rhythm_girl_color.png";
     private static final String POWER_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_power_rhythm_girl_color.png";
@@ -85,6 +87,7 @@ public class RhythmGirlMod implements
     private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/1024/card_default_gray_orb.png";
     
     // Character assets
+    //todo: slightly reduce the size of the corpse asset
     private static final String THE_RHYTHM_GIRL_BUTTON = "theRhythmGirlResources/images/charSelect/DefaultCharacterButton.png";
     private static final String THE_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/charSelect/DefaultCharacterPortraitBG.png";
     public static final String THE_RHYTHM_GIRL_SHOULDER_1 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder.png";
@@ -235,7 +238,7 @@ public class RhythmGirlMod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + TheRhythmGirl.Enums.THE_RHYTHM_GIRL.toString());
         
-        BaseMod.addCharacter(new TheRhythmGirl("the Default", TheRhythmGirl.Enums.THE_RHYTHM_GIRL),
+        BaseMod.addCharacter(new TheRhythmGirl("the Rhythm Girl", TheRhythmGirl.Enums.THE_RHYTHM_GIRL),
                 THE_RHYTHM_GIRL_BUTTON, THE_RHYTHM_GIRL_PORTRAIT, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
         
         receiveEditPotions();
