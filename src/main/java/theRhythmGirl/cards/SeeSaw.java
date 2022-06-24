@@ -11,18 +11,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import theRhythmGirl.DefaultMod;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.RepeatModifier;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class SeeSaw extends AbstractDynamicCard {
+public class SeeSaw extends AbstractRhythmGirlCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -30,7 +27,7 @@ public class SeeSaw extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(SeeSaw.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(SeeSaw.class.getSimpleName());
     public static final String IMG = makeCardPath("SeeSaw_Exhaust.png");
     public static final String IMG_REPEAT = makeCardPath("SeeSaw_Repeat.png");
 
@@ -44,7 +41,7 @@ public class SeeSaw extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
     private static final int DAMAGE = 6;

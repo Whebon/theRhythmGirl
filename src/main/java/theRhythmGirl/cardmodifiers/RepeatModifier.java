@@ -1,17 +1,13 @@
 package theRhythmGirl.cardmodifiers;
 
 import basemod.abstracts.AbstractCardModifier;
-import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
-import com.megacrit.cardcrawl.localization.LocalizedStrings;
-import org.apache.commons.lang3.StringUtils;
-import theRhythmGirl.cards.AbstractDefaultCard;
+import theRhythmGirl.cards.AbstractRhythmGirlCard;
 
 
 public class RepeatModifier extends AbstractCardModifier {
@@ -23,13 +19,13 @@ public class RepeatModifier extends AbstractCardModifier {
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
         //todo: check if loadCardImage also loads the correct "_p" image (for the third Repeat card).
-        ((AbstractDefaultCard)card).loadAlternativeCardImage();
+        ((AbstractRhythmGirlCard)card).loadAlternativeCardImage();
         return rawDescription + " NL therhythmgirl:Repeat.";
     }
 
     @Override
     public void onRemove(AbstractCard card) {
-        ((AbstractDefaultCard)card).loadOriginalCardImage();
+        ((AbstractRhythmGirlCard)card).loadOriginalCardImage();
     }
 
     @Override

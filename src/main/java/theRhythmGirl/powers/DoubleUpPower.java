@@ -15,17 +15,17 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theRhythmGirl.DefaultMod;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.util.TextureLoader;
 
-import static theRhythmGirl.DefaultMod.makePowerPath;
+import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
 //Beat tracker
 
 public class DoubleUpPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = DefaultMod.makeID("DoubleUpPower");
+    public static final String POWER_ID = RhythmGirlMod.makeID("DoubleUpPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -36,7 +36,7 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("doubleup_power32.png"));
 
     private int cardsDoubledThisTurn = 0;
-    public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
+    public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
     public DoubleUpPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;

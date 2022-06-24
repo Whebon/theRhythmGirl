@@ -1,27 +1,24 @@
 package theRhythmGirl.cards;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.DefaultMod;
-import theRhythmGirl.actions.GainBeatAction;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class Metronome extends AbstractDynamicCard {
+public class Metronome extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Metronome.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(Metronome.class.getSimpleName());
     public static final String IMG = makeCardPath("Metronome.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,7 +31,7 @@ public class Metronome extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
 

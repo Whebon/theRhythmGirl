@@ -8,14 +8,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.DefaultMod;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.CuedModifier;
-import theRhythmGirl.cardmodifiers.RepeatModifier;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class HomeRun extends AbstractDynamicCard {
+public class HomeRun extends AbstractRhythmGirlCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -23,7 +22,7 @@ public class HomeRun extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(HomeRun.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(HomeRun.class.getSimpleName());
     public static final String IMG = makeCardPath("HomeRun.png");
 
     // /TEXT DECLARATION/
@@ -34,7 +33,7 @@ public class HomeRun extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 3;
     private static final int DAMAGE = 50;

@@ -3,11 +3,11 @@ package theRhythmGirl.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theRhythmGirl.DefaultMod;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.util.TextureLoader;
 
-import static theRhythmGirl.DefaultMod.makeRelicOutlinePath;
-import static theRhythmGirl.DefaultMod.makeRelicPath;
+import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
+import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
 
 public class PlaceholderRelic extends CustomRelic {
 
@@ -18,7 +18,7 @@ public class PlaceholderRelic extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic");
+    public static final String ID = RhythmGirlMod.makeID("PlaceholderRelic");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));

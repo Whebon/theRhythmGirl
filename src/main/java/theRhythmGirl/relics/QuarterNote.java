@@ -5,16 +5,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theRhythmGirl.DefaultMod;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.GainBeatAction;
 import theRhythmGirl.util.TextureLoader;
 
-import static theRhythmGirl.DefaultMod.makeRelicOutlinePath;
-import static theRhythmGirl.DefaultMod.makeRelicPath;
+import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
+import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
 
 public class QuarterNote extends CustomRelic {
 
-    public static final String ID = DefaultMod.makeID("QuarterNote");
+    public static final String ID = RhythmGirlMod.makeID("QuarterNote");
 
     //todo: redraw the time signature relic such that the lines match up with the time signature relic
 

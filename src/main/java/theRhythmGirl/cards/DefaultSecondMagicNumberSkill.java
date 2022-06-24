@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import theRhythmGirl.DefaultMod;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
+public class DefaultSecondMagicNumberSkill extends AbstractRhythmGirlCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -22,14 +22,14 @@ public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
      * For how to create it, check out:
      * https://github.com/daviscook477/BaseMod/wiki/Dynamic-Variables
      * The files in this base that detail this are:
-     * variables.DefaultSecondMagicNumber and cards.AbstractDefaultCard
+     * variables.DefaultSecondMagicNumber and cards.AbstractRhythmGirlCard
      *
      * Apply 2(5) vulnerable and 4(9) poison to an enemy.
      */
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(DefaultSecondMagicNumberSkill.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(DefaultSecondMagicNumberSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
@@ -40,7 +40,7 @@ public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
 

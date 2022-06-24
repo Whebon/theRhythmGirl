@@ -5,17 +5,17 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.DefaultMod;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.GainBeatAction;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class TallScrew extends AbstractDynamicCard {
+public class TallScrew extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(TallScrew.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(TallScrew.class.getSimpleName());
     public static final String IMG = makeCardPath("TallScrew.png");
 
     // /TEXT DECLARATION/
@@ -26,7 +26,7 @@ public class TallScrew extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
     private static final int BLOCK = 7;

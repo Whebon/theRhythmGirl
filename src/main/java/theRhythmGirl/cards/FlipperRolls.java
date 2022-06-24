@@ -1,28 +1,22 @@
 package theRhythmGirl.cards;
 
-import basemod.helpers.CardModifierManager;
-import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import theRhythmGirl.DefaultMod;
-import theRhythmGirl.cardmodifiers.RepeatModifier;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class FlipperRolls extends AbstractDynamicCard {
+public class FlipperRolls extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(FlipperRolls.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(FlipperRolls.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = makeCardPath("FlipperRolls.png");
 
@@ -34,7 +28,7 @@ public class FlipperRolls extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
     private static final int BLOCK = 5;

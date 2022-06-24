@@ -6,13 +6,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.DefaultMod;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.orbs.DefaultOrb;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class OrbSkill extends AbstractDynamicCard {
+public class OrbSkill extends AbstractRhythmGirlCard {
 
     /*
      * Orb time.
@@ -22,7 +22,7 @@ public class OrbSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(OrbSkill.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(OrbSkill.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public static final String IMG = makeCardPath("Skill.png");
@@ -38,7 +38,7 @@ public class OrbSkill extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
 

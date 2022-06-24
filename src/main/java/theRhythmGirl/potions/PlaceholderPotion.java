@@ -12,17 +12,18 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.abstracts.CustomPotion;
+import theRhythmGirl.RhythmGirlMod;
 
 public class PlaceholderPotion extends CustomPotion {
 
-    public static final String POTION_ID = theRhythmGirl.DefaultMod.makeID("PlaceholderPotion");
+    public static final String POTION_ID = RhythmGirlMod.makeID("PlaceholderPotion");
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     
     public static final String NAME = potionStrings.NAME;
     public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
     public PlaceholderPotion() {
-        // The bottle shape and inside is determined by potion size and color. The actual colors are the main DefaultMod.java
+        // The bottle shape and inside is determined by potion size and color. The actual colors are the main RhythmGirlMod.java
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.M, PotionColor.SMOKE);
         
         // Potency is the damage/magic number equivalent of potions.

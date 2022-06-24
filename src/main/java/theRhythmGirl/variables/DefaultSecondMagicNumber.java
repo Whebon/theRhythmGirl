@@ -2,9 +2,9 @@ package theRhythmGirl.variables;
 
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import theRhythmGirl.cards.AbstractDefaultCard;
+import theRhythmGirl.cards.AbstractRhythmGirlCard;
 
-import static theRhythmGirl.DefaultMod.makeID;
+import static theRhythmGirl.RhythmGirlMod.makeID;
 
 public class DefaultSecondMagicNumber extends DynamicVariable {
 
@@ -20,22 +20,22 @@ public class DefaultSecondMagicNumber extends DynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        return ((AbstractDefaultCard) card).isDefaultSecondMagicNumberModified;
+        return ((AbstractRhythmGirlCard) card).isDefaultSecondMagicNumberModified;
 
     }
 
     @Override
     public int value(AbstractCard card) {
-        return ((AbstractDefaultCard) card).defaultSecondMagicNumber;
+        return ((AbstractRhythmGirlCard) card).defaultSecondMagicNumber;
     }
 
     @Override
     public int baseValue(AbstractCard card) {
-        return ((AbstractDefaultCard) card).defaultBaseSecondMagicNumber;
+        return ((AbstractRhythmGirlCard) card).defaultBaseSecondMagicNumber;
     }
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        return ((AbstractDefaultCard) card).upgradedDefaultSecondMagicNumber;
+        return ((AbstractRhythmGirlCard) card).upgradedDefaultSecondMagicNumber;
     }
 }

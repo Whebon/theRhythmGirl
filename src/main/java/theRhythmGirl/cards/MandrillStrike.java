@@ -7,16 +7,16 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.DefaultMod;
-import theRhythmGirl.characters.TheDefault;
+import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.characters.TheRhythmGirl;
 
-import static theRhythmGirl.DefaultMod.makeCardPath;
+import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class MandrillStrike extends AbstractDynamicCard {
+public class MandrillStrike extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(MandrillStrike.class.getSimpleName());
+    public static final String ID = RhythmGirlMod.makeID(MandrillStrike.class.getSimpleName());
     public static final String IMG = makeCardPath("MandrillStrike.png");
 
     // /TEXT DECLARATION/
@@ -27,7 +27,7 @@ public class MandrillStrike extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
     private static final int DAMAGE = 4;
