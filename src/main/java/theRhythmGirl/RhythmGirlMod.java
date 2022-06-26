@@ -513,5 +513,6 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("PITCH", makeAudioPath("SFX_Pitch.wav"));
         BaseMod.addAudio("HOME_RUN", makeAudioPath("SFX_HomeRun.wav"));
         BaseMod.addAudio("READY", makeAudioPath("SFX_Ready.wav"));
+        BaseMod.addAudio("NEVER_GIVE_UP", makeAudioPath("SFX_NeverGiveUp.wav"));
     }
 }

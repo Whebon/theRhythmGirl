@@ -123,5 +123,9 @@
     "NAME": "Rea--dy",
     "DESCRIPTION": "Gain 1 additional therhythmgirl:Beat.",
     "UPGRADE_DESCRIPTION": "Gain 1 additional therhythmgirl:Beat. Draw a card."
+  },
+  "theRhythmGirl:NeverGiveUp": {
+    "NAME": "Never Give Up",
+    "DESCRIPTION": "Restore !M! % of NL your Max HP. NL Permanently remove this card from your deck."
   }
 }
