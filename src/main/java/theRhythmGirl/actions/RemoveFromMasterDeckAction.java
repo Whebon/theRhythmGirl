@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-//adds a beat and takes time signatures into consideration
+//removes a card with a specific uuid from the master deck
 
 public class RemoveFromMasterDeckAction extends AbstractGameAction {
     private final UUID uuidToRemove;

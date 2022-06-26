@@ -20,7 +20,8 @@
   {
     "PROPER_NAME": "Beat",
     "NAMES": [
-      "beat"
+      "beat",
+      "beats"
     ],
     "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
   },

@@ -168,15 +168,8 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(IntoYou.ID);
         //retVal.add(MicroRowSwim.ID);
         //retVal.add(FlipperRolls.ID);
-        retVal.add(Armaments.ID);
+        //retVal.add(Armaments.ID);
         retVal.add(NeverGiveUp.ID);
-        retVal.add(Armaments.ID);
-        retVal.add(Armaments.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
         retVal.add(MonkeySeeMonkeyDo.ID);
         //retVal.add(DoubleUp.ID);
         //retVal.add(DoubleUp.ID);
@@ -186,10 +179,7 @@ public class TheRhythmGirl extends CustomPlayer {
         //retVal.add(Pitch.ID);
         retVal.add(Ready.ID);
         retVal.add(NeverGiveUp.ID);
-        retVal.add(NeverGiveUp.ID);
-        retVal.add(NeverGiveUp.ID);
-        retVal.add(NeverGiveUp.ID);
-        retVal.add(NeverGiveUp.ID);
+        retVal.add(MochiPounding.ID);
 
         /*
         retVal.add(DefaultCommonAttack.ID);
