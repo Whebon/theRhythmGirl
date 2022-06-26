@@ -33,7 +33,7 @@ public class HomeRun extends AbstractRhythmGirlCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
+    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 3;
     private static final int DAMAGE = 50;

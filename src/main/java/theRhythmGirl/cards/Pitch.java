@@ -48,6 +48,7 @@ public class Pitch extends AbstractRhythmGirlCard {
         isOnBeat1 = true;
         mustBePlayedOnBeat = true;
         this.cardsToPreview = new HomeRun();
+        //todo: add tooltip about 'cued' keyword
     }
 
     // Actions the card should do.

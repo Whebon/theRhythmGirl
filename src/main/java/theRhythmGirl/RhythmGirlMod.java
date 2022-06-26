@@ -63,9 +63,10 @@ public class RhythmGirlMod implements
     
     // Colors (RGB)
     // Character Color
-    // CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    //todo: change the rhythm girl color to red or something
-    public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(252.0f, 218.0f, 159.0f);
+    // gray: CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    // skin: CardHelper.getColor(252.0f, 218.0f, 159.0f);
+    // redwood: CardHelper.getColor(164.0f, 90.0f, 82.0f);
+    public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(164.0f, 90.0f, 82.0f);
     
     // Potion Colors in RGB
     public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
@@ -73,18 +74,18 @@ public class RhythmGirlMod implements
     public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
 
     // Card backgrounds - The actual rectangular card.
-    //todo: refactor DEFAULT_GRAY to RHYTHM_GIRL_COLOR, darken the bg color and make sure the card frames have the same x,y offset as the silent's card frames
-    private static final String ATTACK_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_attack_rhythm_girl_color.png";
-    private static final String SKILL_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_skill_rhythm_girl_color.png";
-    private static final String POWER_DEFAULT_GRAY = "theRhythmGirlResources/images/512/bg_power_rhythm_girl_color.png";
+    private static final String ATTACK_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_attack_rhythm_girl_color.png";
+    private static final String SKILL_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_skill_rhythm_girl_color.png";
+    private static final String POWER_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_power_rhythm_girl_color.png";
+
+    //todo: create custom energy orb
+    private static final String ENERGY_ORB_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/card_default_gray_orb.png";
+    private static final String CARD_ENERGY_ORB = "theRhythmGirlResources/images/cardFrames/512/card_small_orb.png";
     
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "theRhythmGirlResources/images/512/card_default_gray_orb.png";
-    private static final String CARD_ENERGY_ORB = "theRhythmGirlResources/images/512/card_small_orb.png";
-    
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/1024/bg_attack_rhythm_girl_color.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/1024/bg_skill_rhythm_girl_color.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/1024/bg_power_rhythm_girl_color.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/1024/card_default_gray_orb.png";
+    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_attack_rhythm_girl_color.png";
+    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_skill_rhythm_girl_color.png";
+    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_power_rhythm_girl_color.png";
+    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/card_default_gray_orb.png";
     
     // Character assets
     //todo: slightly reduce the size of the corpse asset
