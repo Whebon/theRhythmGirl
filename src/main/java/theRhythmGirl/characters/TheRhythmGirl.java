@@ -156,48 +156,13 @@ public class TheRhythmGirl extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        //retVal.add(Defend.ID);
-        //retVal.add(Defend.ID);
-        //retVal.add(Strike.ID);
-        //retVal.add(Strike.ID);
-        //retVal.add(Jab.ID);
-        //retVal.add(MandrillStrike.ID);
-        //retVal.add(TallScrew.ID);
-        //retVal.add(Metronome.ID);
-        //retVal.add(AirRally.ID);
         retVal.add(IntoYou.ID);
-        //retVal.add(MicroRowSwim.ID);
-        //retVal.add(FlipperRolls.ID);
-        //retVal.add(Armaments.ID);
         retVal.add(NeverGiveUp.ID);
         retVal.add(MonkeySeeMonkeyDo.ID);
-        //retVal.add(DoubleUp.ID);
-        //retVal.add(DoubleUp.ID);
-        //retVal.add(OddFlamingo.ID);
-        //retVal.add(SeeSaw.ID);
-        //retVal.add(Clash.ID);
-        //retVal.add(Pitch.ID);
         retVal.add(Ready.ID);
         retVal.add(NeverGiveUp.ID);
         retVal.add(MochiPounding.ID);
-
-        /*
-        retVal.add(DefaultCommonAttack.ID);
-        retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(DefaultRareAttack.ID);
-
-        retVal.add(DefaultCommonSkill.ID);
-        retVal.add(DefaultUncommonSkill.ID);
-        retVal.add(DefaultRareSkill.ID);
-
-        retVal.add(DefaultCommonPower.ID);
-        retVal.add(DefaultUncommonPower.ID);
-        retVal.add(DefaultRarePower.ID);
-
-        retVal.add(DefaultAttackWithVariable.ID);
-        retVal.add(DefaultSecondMagicNumberSkill.ID);
-        retVal.add(OrbSkill.ID);
-         */
+        retVal.add(BuiltToScale.ID);
 
         return retVal;
     }

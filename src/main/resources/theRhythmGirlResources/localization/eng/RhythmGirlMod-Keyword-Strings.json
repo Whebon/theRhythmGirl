@@ -23,7 +23,7 @@
       "beat",
       "beats"
     ],
-    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
+    "DESCRIPTION": "Has no effect of its own, but may affect the behaviour of other cards."
   },
   {
     "PROPER_NAME": "On Beat X",
@@ -40,7 +40,7 @@
     "NAMES": [
       "measure"
     ],
-    "DESCRIPTION": "Has no effect of itself, but may affect the behaviour of other cards."
+    "DESCRIPTION": "Has no effect of its own, but may affect the behaviour of other cards."
   },
   {
     "PROPER_NAME": "Repeat",

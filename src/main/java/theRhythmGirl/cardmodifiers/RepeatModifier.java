@@ -18,7 +18,7 @@ public class RepeatModifier extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        //todo: check if loadCardImage also loads the correct "_p" image (for the third Repeat card).
+        //todo: check if loadCardImage also loads the correct "_p" image (for the third Repeat card). fix: change all "_p" images to their repeat variant
         ((AbstractRhythmGirlCard)card).loadAlternativeCardImage();
         return rawDescription + " NL therhythmgirl:Repeat.";
     }

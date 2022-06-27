@@ -131,5 +131,10 @@
   "theRhythmGirl:MochiPounding": {
     "NAME": "Mochi Pounding",
     "DESCRIPTION": "Gain !M! additional therhythmgirl:Beats."
+  },
+  "theRhythmGirl:BuiltToScale": {
+    "NAME": "Built To Scale",
+    "DESCRIPTION": "Gain Block equal to your therhythmgirl:Measure.",
+    "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
   }
 }

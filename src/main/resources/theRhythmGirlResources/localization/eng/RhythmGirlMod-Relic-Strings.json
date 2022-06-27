@@ -42,7 +42,7 @@
     "NAME": "4/4 Time Signature",
     "FLAVOR": "Easy enough. Feel free to clap along.",
     "DESCRIPTIONS": [
-      "At the start of each turn, set your #yBeat to #b1. Whenever you have more than #b4 #yBeat, lose #b4 #yBeat and gain #b1 #yMeasure."
+      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeat and gain #b1 #yMeasure. NL At the start of each turn, set your #yBeat to #b1."
     ]
   }
 }

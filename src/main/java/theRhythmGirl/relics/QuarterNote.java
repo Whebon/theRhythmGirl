@@ -16,7 +16,13 @@ public class QuarterNote extends CustomRelic {
 
     public static final String ID = RhythmGirlMod.makeID("QuarterNote");
 
-    //todo: redraw the time signature relic such that the lines match up with the time signature relic
+    //todo: redraw the time signature relic icon such that the lines match up with the time signature relic
+    //todo: remove the QuarterNote relic and make it a mechanic of the 'beat' keyword itself. by the means of one of these methods:
+    //      * im 'OnCardUseSubscriber' in the main mod (downside: the subscriber is a pre-use event)
+    //      * in the beat power (downside: must have beat already)
+    //      * in 'onUseCard' (downside: only works with rhythm girl cards)
+    //todo: update the description of beat/measure to describe what the quarterNote used to do
+    //todo: visualize beats and measures better using custom batches
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("quarter_note.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("quarter_note.png"));
