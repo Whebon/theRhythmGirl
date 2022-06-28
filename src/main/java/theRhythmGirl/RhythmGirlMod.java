@@ -450,6 +450,10 @@ public class RhythmGirlMod implements
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 getModID() + "Resources/localization/eng/RhythmGirlMod-Orb-Strings.json");
+
+        // UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/RhythmGirlMod-UI-Strings.json");
         
         logger.info("Done editing strings");
     }

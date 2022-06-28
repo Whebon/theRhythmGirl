@@ -23,7 +23,7 @@
       "beat",
       "beats"
     ],
-    "DESCRIPTION": "After you play a card, gain #b1 #yBeat. At the start of each turn, set your #yBeat to #b1."
+    "DESCRIPTION": "After you play a card, gain #b1 #yBeat. At the start of each turn, reset your #yBeat to #b1."
   },
   {
     "PROPER_NAME": "On Beat X",

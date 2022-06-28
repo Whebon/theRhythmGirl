@@ -3,11 +3,9 @@ package theRhythmGirl.ui;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -15,8 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.TipHelper;
-import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -44,9 +41,8 @@ public class BeatUI
     private float floatyTimer = 0;
     private final Hitbox hitbox;
 
-    //todo: update power string to UI string
-    public static final String POWER_ID = RhythmGirlMod.makeID("BeatPower");
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String UI_ID = RhythmGirlMod.makeID("BeatUI");
+    private static final UIStrings UIStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
@@ -85,17 +81,22 @@ public class BeatUI
         lineRegion = new TextureAtlas.AtlasRegion(lineTex, 0, 0, 63, 9);
         marshalRegion = new TextureAtlas.AtlasRegion(marshalTex, 0, 0, 48, 73);
 
+        marshalAnimationActive = new MarshalAnimation(MarshalAnimationTypes.NONE, 1);
+        currentBeat = 1;
         reset();
     }
 
     public void reset(){
         setMarshalAnimationDuration(false);
         marshalAnimationQueue = new ArrayList<>();
-        marshalAnimationActive = new MarshalAnimation(MarshalAnimationTypes.WALKING, 1);
+        for (int i = currentBeat-1; i > 0; i--) {
+            marshalAnimationQueue.add(new MarshalAnimation(MarshalAnimationTypes.WALKING, i));
+        }
         marshalAnimationTimeElapsed = 0;
         marshalAnimationX = 0;
         marshalAnimationY = 0;
         currentBeat = 1;
+        updateTimeSignatureRelicCounters();
     }
 
     private void updateMarshalAnimation(){
@@ -109,29 +110,30 @@ public class BeatUI
                 setMarshalAnimationDuration(false);
             }
         }
-        
+
+        //set target X, Y
+        int target = marshalAnimationActive.target;
+        if (target == 1 && marshalAnimationActive.type == MarshalAnimationTypes.JUMPING &&  marshalAnimationTimeElapsed <= marshalAnimationDuration/2)
+            target = 5;
+        marshalAnimationX = getX()+(target-1)*getPillarSpacing()*Settings.scale
+                -marshalRegion.getRegionWidth()/2.0f*Settings.scale;
+        marshalAnimationY = getY()+MARSHAL_FEET_Y_OFFSET*Settings.scale;
+        marshalAnimationTimeElapsed += Gdx.graphics.getDeltaTime();
+
+        //walking animation (to the left)
         if(marshalAnimationActive.type == MarshalAnimationTypes.WALKING){
-            //todo: turn this into a walking animation, not a copy of the jumping animation
-            //walking animation
-            marshalAnimationX = getX()+(marshalAnimationActive.target-1)*getPillarSpacing()*Settings.scale
-                    -marshalRegion.getRegionWidth()/2.0f*Settings.scale;
-            marshalAnimationY = getY()+MARSHAL_FEET_Y_OFFSET*Settings.scale;
-            marshalAnimationTimeElapsed += Gdx.graphics.getDeltaTime();
+            //todo: add animation frames between [marshalAnimationTimeElapsed/marshalAnimationDuration] for walking
             if (marshalAnimationTimeElapsed > marshalAnimationDuration){
                 marshalAnimationTimeElapsed = marshalAnimationDuration;
                 marshalAnimationActive.type = MarshalAnimationTypes.NONE;
             }
             float t = marshalAnimationTimeElapsed/marshalAnimationDuration;
-            marshalAnimationX -= getPillarSpacing()*Settings.scale*(1-t);
-            marshalAnimationY += 4*t*(1-t)*MARSHAL_ANIMATION_JUMP_HEIGHT;
+            marshalAnimationX += getPillarSpacing()*Settings.scale*(1-t);
         }
 
+        //jumping animation (to the right)
         if(marshalAnimationActive.type == MarshalAnimationTypes.JUMPING){
-            //jumping animation
-            marshalAnimationX = getX()+(marshalAnimationActive.target-1)*getPillarSpacing()*Settings.scale
-                    -marshalRegion.getRegionWidth()/2.0f*Settings.scale;
-            marshalAnimationY = getY()+MARSHAL_FEET_Y_OFFSET*Settings.scale;
-            marshalAnimationTimeElapsed += Gdx.graphics.getDeltaTime();
+            //todo: add animation frames between [marshalAnimationTimeElapsed/marshalAnimationDuration] for jumping
             if (marshalAnimationTimeElapsed > marshalAnimationDuration){
                 marshalAnimationTimeElapsed = marshalAnimationDuration;
                 marshalAnimationActive.type = MarshalAnimationTypes.NONE;
@@ -166,8 +168,10 @@ public class BeatUI
     }
 
     public void updateTimeSignatureRelicCounters(){
-        if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
-            AbstractDungeon.player.getRelic(TimeSignature44.ID).counter = currentBeat;
+        if (AbstractDungeon.player != null){
+            if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
+                AbstractDungeon.player.getRelic(TimeSignature44.ID).counter = currentBeat;
+        }
     }
 
     public float getPillarSpacing(){
@@ -201,11 +205,12 @@ public class BeatUI
 
     public void update(AbstractPlayer player) {
         hitbox.resize(
-                64 * Settings.scale
-                        + 32 * Settings.scale * 4,
-                64 * Settings.scale
+                ((getNumberOfPillars()-1)*getPillarSpacing()+pillarRegion.getRegionWidth())*Settings.scale,
+                (pillarRegion.getRegionHeight()+marshalRegion.getRegionHeight()*2.0f)*Settings.scale
         );
-        hitbox.translate(getX(), getY());
+        hitbox.translate(
+                getX()-pillarRegion.getRegionWidth()/2.0f*Settings.scale,
+                getY()-pillarRegion.getRegionHeight()*Settings.scale);
         hitbox.update();
     }
 
@@ -272,17 +277,15 @@ public class BeatUI
                 }
             }
 
-            // draw a tooltip (credits: Bug Kiooeht)
+            // draw a tooltip
             if (hitbox.hovered && !AbstractDungeon.isScreenUp) {
-                String body = powerStrings.DESCRIPTIONS[0];
+                String body = UIStrings.TEXT[1]+currentBeat+UIStrings.TEXT[2];
 
                 float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
-                height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
-
                 TipHelper.renderGenericTip(
-                        hitbox.x,
-                        hitbox.y + hitbox.height + height,
-                        powerStrings.NAME,
+                        hitbox.x + hitbox.width + 4*Settings.scale,
+                        hitbox.y + hitbox.height/2 + height/2 + 74 * Settings.scale,
+                        UIStrings.TEXT[0],
                         body
                 );
             }

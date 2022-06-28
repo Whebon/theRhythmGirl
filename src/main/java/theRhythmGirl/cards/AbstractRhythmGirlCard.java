@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.powers.BeatPower;
+import theRhythmGirl.RhythmGirlMod;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -79,25 +79,18 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         upgradedDefaultSecondMagicNumber = true; // Upgraded = true - which does what the above method does.
     }
 
-    //todo: refactor BeatPower to the new BeatUI
-
     public boolean onBeatTriggered(){
-        if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
-            return isOnBeat1;
-        int beatAmount = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
-        if (isOnBeat1 && beatAmount == 1)
+        if (isOnBeat1 && RhythmGirlMod.beatUI.currentBeat == 1)
             return true;
-        if (isOnBeat2 && beatAmount == 2)
+        if (isOnBeat2 && RhythmGirlMod.beatUI.currentBeat == 2)
             return true;
-        if (isOnBeat3 && beatAmount == 3)
+        if (isOnBeat3 && RhythmGirlMod.beatUI.currentBeat == 3)
             return true;
-        return isOnBeat4 && beatAmount == 4;
+        return isOnBeat4 && RhythmGirlMod.beatUI.currentBeat == 4;
     }
 
     public boolean onBeatTriggered(int beat){
-        if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
-            return beat == 1;
-        return beat == AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
+        return beat == RhythmGirlMod.beatUI.currentBeat;
     }
 
     @Override
