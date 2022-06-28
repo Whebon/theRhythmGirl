@@ -31,18 +31,11 @@
       "Select a card to bottle for "
     ]
   },
-  "theRhythmGirl:QuarterNote": {
-    "NAME": "Quarter Note",
-    "FLAVOR": "Keep the beats going.",
-    "DESCRIPTIONS": [
-      "After you play a card, gain #b1 #yBeat."
-    ]
-  },
   "theRhythmGirl:TimeSignature44": {
     "NAME": "4/4 Time Signature",
     "FLAVOR": "Easy enough. Feel free to clap along.",
     "DESCRIPTIONS": [
-      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeat and gain #b1 #yMeasure. NL At the start of each turn, set your #yBeat to #b1."
+      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeat and gain #b1 #yMeasure."
     ]
   }
 }

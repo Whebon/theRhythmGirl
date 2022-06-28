@@ -6,8 +6,6 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theRhythmGirl.powers.BeatPower;
-import theRhythmGirl.relics.TimeSignature44;
 
 //applies a power without any effects
 

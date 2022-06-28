@@ -9,11 +9,11 @@
 },
 "theRhythmGirl:BeatPower": {
         "NAME": "Beat",
-        "DESCRIPTIONS": ["Current beat. Has no effect of itself, but may affect the behaviour of other cards."]
+        "DESCRIPTIONS": ["After you play a card, gain #b1 #yBeat. At the start of each turn, reset your #yBeat to #b1."]
 },
 "theRhythmGirl:MeasurePower": {
         "NAME": "Measure",
-        "DESCRIPTIONS": ["Current Measure. Has no effect of itself, but may affect the behaviour of other cards."]
+        "DESCRIPTIONS": ["Has no effect of its own, but may affect the behaviour of other cards."]
 },
 "theRhythmGirl:DoubleUpPower": {
         "NAME": "Double Up",

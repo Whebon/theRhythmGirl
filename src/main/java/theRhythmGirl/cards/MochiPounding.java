@@ -1,15 +1,12 @@
 package theRhythmGirl.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.GainBeatAction;
+import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
@@ -49,7 +46,7 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("MOCHI_POUNDING_1"));
-        this.addToBot(new GainBeatAction(p, p, magicNumber));
+        this.addToBot(new GainAdditionalBeatsAction(p, p, magicNumber));
         /*
         Gain !M! additional Beats one by one. (deprecated)
         for (int i = 0; i <= magicNumber; i++) {

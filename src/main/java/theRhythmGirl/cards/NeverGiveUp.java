@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.GainBeatAction;
 import theRhythmGirl.actions.RemoveFromMasterDeckAction;
 import theRhythmGirl.characters.TheRhythmGirl;
 

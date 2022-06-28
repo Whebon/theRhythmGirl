@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.GainBeatAction;
+import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
@@ -45,7 +45,7 @@ public class Ready extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("READY"));
-        AbstractDungeon.actionManager.addToBottom(new GainBeatAction(p, p));
+        AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(p, p));
         if (upgraded)
             this.addToBot(new DrawCardAction(p, 1));
     }

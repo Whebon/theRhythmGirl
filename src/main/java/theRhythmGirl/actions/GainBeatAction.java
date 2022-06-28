@@ -5,12 +5,14 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.powers.BeatPower;
 import theRhythmGirl.powers.MeasurePower;
 import theRhythmGirl.relics.TimeSignature44;
 
 //adds a beat and takes time signatures into consideration
 
+@Deprecated
 public class GainBeatAction extends AbstractGameAction {
     int cap;
     int stacksToAdd;
@@ -31,7 +33,6 @@ public class GainBeatAction extends AbstractGameAction {
     }
 
     public void update() {
-        this.addToTop(new UpdateBeatRelicCounterAction());
         if (this.target != null && this.target.hasPower(BeatPower.POWER_ID)) {
             int currentAmount = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
             int beatsToAdd = (currentAmount+stacksToAdd-1)%cap+1-currentAmount;

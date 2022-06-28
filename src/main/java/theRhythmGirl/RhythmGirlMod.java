@@ -22,12 +22,13 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theRhythmGirl.actions.GainBeatAction;
+import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.cards.*;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.events.IdentityCrisisEvent;
 import theRhythmGirl.potions.PlaceholderPotion;
 import theRhythmGirl.relics.*;
+import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
 import theRhythmGirl.variables.DefaultCustomVariable;
@@ -46,7 +47,10 @@ public class RhythmGirlMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        AddAudioSubscriber{
+        OnCardUseSubscriber,
+        AddAudioSubscriber,
+        PostPlayerUpdateSubscriber,
+        OnPlayerTurnStartSubscriber{
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
@@ -107,12 +111,14 @@ public class RhythmGirlMod implements
     //public static final String THE_DEFAULT_SKELETON_JSON = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.json";
 
     //Whebon edit
+    public static BeatUI beatUI;
+    
+    // =============== MAKE IMAGE PATHS =================
+
     public static String makeAudioPath(String resourcePath) {
         return getModID() + "Resources/audio/sfx/" + resourcePath;
     }
-    
-    // =============== MAKE IMAGE PATHS =================
-    
+
     public static String makeCardPath(String resourcePath) {
         return getModID() + "Resources/images/cards/" + resourcePath;
     }
@@ -135,6 +141,10 @@ public class RhythmGirlMod implements
     
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
+    }
+
+    public static String makeUIPath(String resourcePath) {
+        return getModID() + "Resources/images/ui/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================
@@ -310,6 +320,9 @@ public class RhythmGirlMod implements
         // Add the event
         BaseMod.addEvent(eventParams);
 
+        // Add the beat ui
+        beatUI = new BeatUI();
+
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
     }
@@ -346,7 +359,6 @@ public class RhythmGirlMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new QuarterNote(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new TimeSignature44(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
@@ -521,5 +533,20 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("MOCHI_POUNDING_2", makeAudioPath("SFX_MochiPounding2.wav"));
         BaseMod.addAudio("MOCHI_POUNDING_3", makeAudioPath("SFX_MochiPounding3.wav"));
         BaseMod.addAudio("MOCHI_POUNDING_4", makeAudioPath("SFX_MochiPounding4.wav"));
+    }
+
+    @Override
+    public void receivePostPlayerUpdate() {
+        beatUI.update(AbstractDungeon.player);
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard abstractCard) {
+        AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        beatUI.reset();
     }
 }

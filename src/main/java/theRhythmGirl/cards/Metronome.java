@@ -43,6 +43,9 @@ public class Metronome extends AbstractRhythmGirlCard {
         this.exhaust = true;
     }
 
+    //todo: rework metronome to retain itself in hand after play instead of creating a copy
+    //todo: rework metronome to be limited to 8 uses per turn (to prevent tedious infinite combos)
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

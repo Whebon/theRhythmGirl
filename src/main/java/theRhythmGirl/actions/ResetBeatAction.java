@@ -10,6 +10,7 @@ import theRhythmGirl.relics.TimeSignature44;
 
 //resets the beat to 1
 
+@Deprecated
 public class ResetBeatAction extends AbstractGameAction {
     public ResetBeatAction(AbstractCreature target, AbstractCreature source) {
         this.actionType = ActionType.DEBUFF;
@@ -18,7 +19,6 @@ public class ResetBeatAction extends AbstractGameAction {
     }
 
     public void update() {
-        this.addToTop(new UpdateBeatRelicCounterAction());
         if (this.target != null && this.target.hasPower(BeatPower.POWER_ID)) {
             int currentAmount = AbstractDungeon.player.getPower(BeatPower.POWER_ID).amount;
             this.addToTop(new ReducePowerAction(target, source, BeatPower.POWER_ID, currentAmount-1));

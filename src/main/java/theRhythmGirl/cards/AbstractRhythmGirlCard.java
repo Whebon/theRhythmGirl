@@ -79,6 +79,8 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         upgradedDefaultSecondMagicNumber = true; // Upgraded = true - which does what the above method does.
     }
 
+    //todo: refactor BeatPower to the new BeatUI
+
     public boolean onBeatTriggered(){
         if (!AbstractDungeon.player.hasPower(BeatPower.POWER_ID))
             return isOnBeat1;

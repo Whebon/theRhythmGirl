@@ -2,9 +2,7 @@ package theRhythmGirl.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.ResetBeatAction;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
@@ -26,11 +24,8 @@ public class TimeSignature44 extends CustomRelic {
         return DESCRIPTIONS[0];
     }
 
-    public void atTurnStart() {
-        this.addToBot(new ResetBeatAction(AbstractDungeon.player, AbstractDungeon.player));
-    }
-
-    public void onVictory(){
+    @Override
+    public void onVictory() {
         this.counter = -1;
     }
 }

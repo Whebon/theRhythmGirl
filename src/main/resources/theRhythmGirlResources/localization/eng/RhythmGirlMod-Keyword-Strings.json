@@ -23,7 +23,7 @@
       "beat",
       "beats"
     ],
-    "DESCRIPTION": "Has no effect of its own, but may affect the behaviour of other cards."
+    "DESCRIPTION": "After you play a card, gain #b1 #yBeat. At the start of each turn, set your #yBeat to #b1."
   },
   {
     "PROPER_NAME": "On Beat X",
