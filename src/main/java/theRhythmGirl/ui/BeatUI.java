@@ -242,6 +242,8 @@ public class BeatUI
 
             for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
                 //draw the pillars
+                //todo: color the pillars black for CUED cards with matching beats
+                //todo: color the pillars orange for ON BEAT effects with matching beats
                 sb.setColor(Color.WHITE);
                 sb.draw(
                         pillarRegion,

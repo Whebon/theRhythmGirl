@@ -47,14 +47,6 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("MOCHI_POUNDING_1"));
         this.addToBot(new GainAdditionalBeatsAction(p, p, magicNumber));
-        /*
-        Gain !M! additional Beats one by one. (deprecated)
-        for (int i = 0; i <= magicNumber; i++) {
-            this.addToBot(new SFXAction("MOCHI_POUNDING_"+(i%4+1)));
-            if (i!=0)
-                this.addToBot(new GainBeatAction(p, p));
-        }
-        */
     }
 
     //Upgraded stats.

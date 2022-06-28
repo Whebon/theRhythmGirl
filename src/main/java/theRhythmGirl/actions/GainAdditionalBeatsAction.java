@@ -29,7 +29,6 @@ public class GainAdditionalBeatsAction extends AbstractGameAction {
         this.stacksToAdd = stacksToAdd;
     }
 
-    @Deprecated
     public void update() {
         RhythmGirlMod.beatUI.gainBeats(stacksToAdd);
         this.isDone = true;

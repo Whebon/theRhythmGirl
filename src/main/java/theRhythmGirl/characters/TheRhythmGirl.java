@@ -293,21 +293,4 @@ public class TheRhythmGirl extends CustomPlayer {
     public String getVampireText() {
         return TEXT[2];
     }
-
-    /*
-    //todo: remove this
-    @Override
-    public void applyStartOfTurnCards(){
-        super.applyStartOfTurnCards();
-        //replaces the 'set beat to 1' mechanic from TimeSignature relics
-        AbstractDungeon.actionManager.addToBottom(new ResetBeatAction(AbstractDungeon.player, AbstractDungeon.player));
-    }
-
-    @Override
-    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse){
-        super.useCard(c, monster, energyOnUse);
-        //replaces the Quarter Note relic
-        AbstractDungeon.actionManager.addToBottom(new GainBeatAction(AbstractDungeon.player, AbstractDungeon.player));
-    }
-    */
 }
