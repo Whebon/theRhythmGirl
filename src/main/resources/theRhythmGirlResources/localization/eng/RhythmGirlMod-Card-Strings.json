@@ -1,43 +1,4 @@
 {
-  "theRhythmGirl:DefaultCommonAttack": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL [#0000ff]This[] [#ff0000]Is[] [#ffff00]How[] [#88888]color[] [#ff00ff]works.[]"
-  },
-  "theRhythmGirl:DefaultCommonSkill": {
-    "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block. NL therhythmgirl:Multiword_Keyword."
-  },
-  "theRhythmGirl:DefaultCommonPower": {
-    "NAME": "Hold Place",
-    "DESCRIPTION": "Gain !M! therhythmgirl:Keyword.",
-    "UPGRADE_DESCRIPTION": "Gain !M! therhythmgirl:Keywords."
-  },
-  "theRhythmGirl:DefaultUncommonAttack": {
-    "NAME": "Big slap",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "theRhythmGirl:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
-  },
-  "theRhythmGirl:DefaultUncommonPower": {
-    "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X therhythmgirl:Keywords.",
-    "UPGRADE_DESCRIPTION": "Gain X +1 therhythmgirl:Keywords."
-  },
-  "theRhythmGirl:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "theRhythmGirl:DefaultRareSkill": {
-    "NAME": "For Each Loop x2",
-    "DESCRIPTION": "Apply !M! Vulnerable to all enemies, 2 times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to all enemies, 3 times."
-  },
-  "theRhythmGirl:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
-  },
   "theRhythmGirl:DefaultAttackWithVariable": {
     "NAME": "Special Strike",
     "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !theRhythmGirl:ENERGY_DAMAGE! damage total.)"
@@ -45,10 +6,6 @@
   "theRhythmGirl:DefaultSecondMagicNumberSkill": {
     "NAME": "Cool 2 Number Card",
     "DESCRIPTION": "Apply !M! Vulnerable and !theRhythmGirl:SecondMagic! poison to an enemy."
-  },
-  "theRhythmGirl:OrbSkill": {
-    "NAME": "Get Orb",
-    "DESCRIPTION": "Channel 1 Default Orb."
   },
   "theRhythmGirl:Strike": {
     "NAME": "Strike",

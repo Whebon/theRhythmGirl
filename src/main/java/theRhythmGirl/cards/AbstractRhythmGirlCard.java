@@ -105,11 +105,6 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
             return false;
         }
 
-        //todo: be more transparent about how 'mustBePlayedOnBeat' works to the player. maybe:
-        //      * "cued cards must be played on beat"
-        //      * "card that have no effect without their on beat effects cannot be played"
-        //      * [BEST OPTION] Let the player be able to play the card and say: "This card must be played on beat to have effect"
-
         if (mustBePlayedOnBeat && !onBeatTriggered()) {
             this.cantUseMessage = "This card must be played #rOn #rBeat.";
             return false;

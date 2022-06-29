@@ -176,15 +176,11 @@ public class TheRhythmGirl extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
 
         retVal.add(TimeSignature44.ID);
-        retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
         retVal.add(DefaultClickableRelic.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         UnlockTracker.markRelicAsSeen(TimeSignature44.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
         UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 
         return retVal;
@@ -239,7 +235,7 @@ public class TheRhythmGirl extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new DefaultCommonAttack();
+        return new Strike();
     }
 
     // The class name as it appears next to your player name in-game

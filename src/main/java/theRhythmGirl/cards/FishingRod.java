@@ -2,6 +2,7 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,7 +44,6 @@ public class FishingRod extends AbstractRhythmGirlCard {
         onBeatColor.put(1, BeatUI.BeatColor.ON_BEAT);
         mustBePlayedOnBeat = true;
         this.cardsToPreview = new Pausegill();
-        //todo: check if upgrade works
     }
 
     // Actions the card should do.
@@ -51,7 +51,10 @@ public class FishingRod extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("PAUSEGILL_CUE"));
         this.addToBot(new GainAdditionalBeatsAction(p, p));
-        this.addToBot(new MakeTempCardInHandAction(new Pausegill(), 1));
+        Pausegill pausegill = new Pausegill();
+        if (upgraded)
+            pausegill.upgrade();
+        this.addToBot(new MakeTempCardInHandAction(pausegill, 1));
     }
 
     //Upgraded stats.

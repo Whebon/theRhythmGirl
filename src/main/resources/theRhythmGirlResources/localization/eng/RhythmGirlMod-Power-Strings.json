@@ -1,12 +1,4 @@
 {
-"theRhythmGirl:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"theRhythmGirl:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-},
 "theRhythmGirl:MeasurePower": {
         "NAME": "Measure",
         "DESCRIPTIONS": ["Has no effect of its own, but may affect the behaviour of other cards."]
