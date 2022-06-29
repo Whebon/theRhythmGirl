@@ -23,11 +23,8 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.powers.MeasurePower;
 import theRhythmGirl.relics.TimeSignature44;
 import theRhythmGirl.util.TextureLoader;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static theRhythmGirl.RhythmGirlMod.makeUIPath;
 
@@ -35,7 +32,8 @@ public class BeatUI
 {
     public int currentBeat;
 
-    private static final float MARSHAL_FEET_Y_OFFSET = 6.0f;
+    private static final float MAX_FLOATY_OFFSET = 2.0f;
+    private static final float MARSHAL_FEET_Y_OFFSET = 0.0f;
     private static final float PILLAR_SPACING_MARGIN = 6.0f;
     private static final float X_OFFSET = 16;
     private static final float Y_OFFSET = 196;
@@ -56,29 +54,62 @@ public class BeatUI
     private TextureAtlas.AtlasRegion marshalRegion;
 
     private final List<TextureAtlas.AtlasRegion> marshalRegions;
-    private static final float MARSHAL_ANIMATION_TOTAL_IMAGES = 11;
-    private final Map<Float, Integer> MARSHAL_ANIMATION_JUMP_KEYFRAMES = new HashMap<Float, Integer>() {{
-        put(0.0f, 1);
-        put(0.3125f, 2);
-        put(0.375f, 3);
-        put(0.4375f, 4);
-        put(0.5f, 5);
-        put(0.75f, 4);
-        put(0.8125f, 3);
-        put(0.875f, 2);
-        put(0.9375f, 1);
+    private static final float MARSHAL_ANIMATION_TOTAL_IMAGES = 34;
+    private static class Keyframe{
+        Integer frame;
+        Float until;
+        Keyframe(Integer frame, Float until){
+            this.frame = frame;
+            this.until = until;
+        }
+    }
+    private static final int MARSHAL_ANIMATION_IDLE_NUMBER_OF_FRAMES = 6;
+    List<Keyframe> MARSHAL_ANIMATION_IDLE_KEYFRAMES = new ArrayList<Keyframe>() {{
+        add(new Keyframe(10,0.1666f));
+        add(new Keyframe(11, 0.3333f));
+        add(new Keyframe(12, 0.5f));
+        add(new Keyframe(13, 0.666f));
+        add(new Keyframe(14, 0.8333f));
+        add(new Keyframe(15, 1.0f));
+    }};
+    private static final int MARSHAL_ANIMATION_WALK_NUMBER_OF_FRAMES = 6;
+    List<Keyframe> MARSHAL_ANIMATION_WALK_KEYFRAMES = new ArrayList<Keyframe>() {{
+        add(new Keyframe(22,0.1666f));
+        add(new Keyframe(23, 0.3333f));
+        add(new Keyframe(24, 0.5f));
+        add(new Keyframe(25, 0.666f));
+        add(new Keyframe(26, 0.8333f));
+        add(new Keyframe(27, 1.0f));
+    }};
+    private static final int MARSHAL_ANIMATION_JUMP_NUMBER_OF_FRAMES = 5;
+    List<Keyframe> MARSHAL_ANIMATION_JUMP_KEYFRAMES = new ArrayList<Keyframe>() {{
+        add(new Keyframe(0, 0.3125f));
+        add(new Keyframe(1, 0.375f));
+        add(new Keyframe(2, 0.4375f));
+        add(new Keyframe(3, 0.5f));
+        add(new Keyframe(4, 0.75f));
+        add(new Keyframe(3, 0.8125f));
+        add(new Keyframe(2, 0.875f));
+        add(new Keyframe(1, 0.9375f));
+        add(new Keyframe(0, 1.0f));
     }};
 
-    private static final float MARSHAL_ANIMATION_JUMP_HEIGHT = 80;
-    private static final float MARSHAL_ANIMATION_DURATION = 0.4f;
-    private static final float MARSHAL_ANIMATION_DURATION_FAST = 0.05f;
-    private boolean marshalAnimationJumpLeft;
+    private static final float MARSHAL_ANIMATION_IDLE_DURATION = 0.6f;
+    private static final float MARSHAL_ANIMATION_IDLE_DURATION_FAST = 0.05f;
+    private static final float MARSHAL_ANIMATION_WALK_DURATION = 0.4f;
+    private static final float MARSHAL_ANIMATION_WALK_DURATION_FAST = 0.05f;
+    private static final float MARSHAL_ANIMATION_JUMP_DURATION = 0.4f;
+    private static final float MARSHAL_ANIMATION_JUMP_DURATION_FAST = 0.05f;
+    private boolean marshalAnimationIsFast;
     private float marshalAnimationDuration;
     private float marshalAnimationTimeElapsed;
+
+    private static final float MARSHAL_ANIMATION_JUMP_HEIGHT = 80;
+    private boolean marshalAnimationLeft;
     private float marshalAnimationX;
     private float marshalAnimationY;
 
-    private enum MarshalAnimationTypes {NONE, WALKING, JUMPING}
+    private enum MarshalAnimationTypes {IDLE, WALKING, JUMPING}
     private static class MarshalAnimation{
         public MarshalAnimationTypes type;
         public int target;
@@ -101,13 +132,14 @@ public class BeatUI
             marshalRegions.add(new TextureAtlas.AtlasRegion(marshalTex, 55*i, 0, 55,85));
         }
 
-        marshalAnimationActive = new MarshalAnimation(MarshalAnimationTypes.NONE, 1);
+        marshalAnimationLeft = false;
+        marshalAnimationActive = new MarshalAnimation(MarshalAnimationTypes.IDLE, 1);
         currentBeat = 1;
         reset();
     }
 
     public void reset(){
-        marshalAnimationJumpLeft = false;
+        marshalAnimationIsFast = false;
         marshalAnimationQueue = new ArrayList<>();
         for (int i = currentBeat-1; i > 0; i--) {
             marshalAnimationQueue.add(new MarshalAnimation(MarshalAnimationTypes.WALKING, i));
@@ -117,21 +149,29 @@ public class BeatUI
         marshalAnimationY = 0;
         currentBeat = 1;
         updateTimeSignatureRelicCounters();
-        setMarshalAnimationDuration(false);
+        setMarshalAnimationDuration();
         setMarshalRegion();
     }
 
     private void updateMarshalAnimation(){
-        if (marshalAnimationActive.type == MarshalAnimationTypes.NONE){
+        //animation timing
+        setMarshalAnimationDuration();
+        marshalAnimationTimeElapsed += Gdx.graphics.getDeltaTime();
+        if (marshalAnimationTimeElapsed > marshalAnimationDuration || (marshalAnimationQueue.size() > 0 && marshalAnimationActive.type == MarshalAnimationTypes.IDLE)){
+            marshalAnimationLeft = !marshalAnimationLeft;
+            marshalAnimationTimeElapsed = 0;
             if (marshalAnimationQueue.size() > 0){
-                marshalAnimationTimeElapsed = 0;
+                //next animation in queue
                 marshalAnimationActive = marshalAnimationQueue.get(0);
                 marshalAnimationQueue.remove(0);
-                }
+            }
             else{
-                setMarshalAnimationDuration(false);
+                //back to idle
+                marshalAnimationIsFast = false;
+                marshalAnimationActive.type = MarshalAnimationTypes.IDLE;
             }
         }
+        setMarshalRegion();
 
         //set target X, Y
         int target = marshalAnimationActive.target;
@@ -140,15 +180,6 @@ public class BeatUI
         marshalAnimationX = getX()+(target-1)*getPillarSpacing()*Settings.scale
                 -marshalRegion.getRegionWidth()/2.0f*Settings.scale;
         marshalAnimationY = getY()+MARSHAL_FEET_Y_OFFSET*Settings.scale;
-
-        //animation timing
-        marshalAnimationTimeElapsed += Gdx.graphics.getDeltaTime();
-        if (marshalAnimationTimeElapsed > marshalAnimationDuration){
-            marshalAnimationJumpLeft = !marshalAnimationJumpLeft;
-            marshalAnimationTimeElapsed = 0;
-            marshalAnimationActive.type = MarshalAnimationTypes.NONE;
-        }
-        setMarshalRegion();
 
         //walking animation (to the left)
         if(marshalAnimationActive.type == MarshalAnimationTypes.WALKING){
@@ -166,50 +197,52 @@ public class BeatUI
 
     private void setMarshalRegion(){
         float t = marshalAnimationTimeElapsed/marshalAnimationDuration;
+        List<Keyframe> keyframes = null;
+        int leftStartsAtFrame = 0;
         switch (marshalAnimationActive.type) {
-            case NONE:
-                for (Map.Entry<Float, Integer> keyframe : MARSHAL_ANIMATION_JUMP_KEYFRAMES.entrySet()) {
-                    if (t <= keyframe.getKey()) {
-                        int frame = keyframe.getValue();
-                        if (marshalAnimationJumpLeft)
-                            frame += 5;
-                        marshalRegion = marshalRegions.get(frame);
-                        return;
-                    }
-                }
+            case IDLE:
+                leftStartsAtFrame = MARSHAL_ANIMATION_IDLE_NUMBER_OF_FRAMES;
+                keyframes = MARSHAL_ANIMATION_IDLE_KEYFRAMES;
+                break;
             case WALKING:
-                for (Map.Entry<Float, Integer> keyframe : MARSHAL_ANIMATION_JUMP_KEYFRAMES.entrySet()) {
-                    if (t <= keyframe.getKey()) {
-                        int frame = keyframe.getValue();
-                        if (marshalAnimationJumpLeft)
-                            frame += 5;
-                        marshalRegion = marshalRegions.get(frame);
-                        return;
-                    }
-                }
+                leftStartsAtFrame = MARSHAL_ANIMATION_WALK_NUMBER_OF_FRAMES;
+                keyframes = MARSHAL_ANIMATION_WALK_KEYFRAMES;
                 break;
             case JUMPING:
-                for (Map.Entry<Float, Integer> keyframe : MARSHAL_ANIMATION_JUMP_KEYFRAMES.entrySet()) {
-                    if (t <= keyframe.getKey()) {
-                        int frame = keyframe.getValue();
-                        if (marshalAnimationJumpLeft)
-                            frame += 5;
-                        marshalRegion = marshalRegions.get(frame);
-                        return;
-                    }
-                }
+                leftStartsAtFrame = MARSHAL_ANIMATION_JUMP_NUMBER_OF_FRAMES;
+                keyframes = MARSHAL_ANIMATION_JUMP_KEYFRAMES;
                 break;
+        }
+        for (Keyframe keyframe : keyframes) {
+            if (t < keyframe.until) {
+                int frame = keyframe.frame;
+                System.out.println(frame);
+                if (marshalAnimationLeft)
+                    frame += leftStartsAtFrame;
+                System.out.println(frame);
+                marshalRegion = marshalRegions.get(frame);
+                return;
+            }
         }
     }
 
-    private void setMarshalAnimationDuration(boolean fast){
-        marshalAnimationDuration = fast ? MARSHAL_ANIMATION_DURATION_FAST : MARSHAL_ANIMATION_DURATION;
+    private void setMarshalAnimationDuration(){
+        switch (marshalAnimationActive.type) {
+            case IDLE:
+                marshalAnimationDuration = marshalAnimationIsFast ? MARSHAL_ANIMATION_IDLE_DURATION_FAST : MARSHAL_ANIMATION_IDLE_DURATION;
+                break;
+            case WALKING:
+                marshalAnimationDuration = marshalAnimationIsFast ? MARSHAL_ANIMATION_WALK_DURATION_FAST : MARSHAL_ANIMATION_WALK_DURATION;
+                break;
+            case JUMPING:
+                marshalAnimationDuration = marshalAnimationIsFast ? MARSHAL_ANIMATION_JUMP_DURATION_FAST : MARSHAL_ANIMATION_JUMP_DURATION;
+                break;
+        }
     }
 
     public void gainBeats(int amount){
-        if (amount > 4){
-            setMarshalAnimationDuration(true);
-        }
+        if (amount > 4)
+            marshalAnimationIsFast = true;
         int n = getNumberOfPillars();
         if (n <= 0)
             throw new AssertionError("getNumberOfPillars must be positive to prevent an infinite loop");
@@ -296,7 +329,7 @@ public class BeatUI
 
             //set the offset for the floaty effect
             floatyTimer += Gdx.graphics.getDeltaTime() * 2;
-            float floatyOffset = 1.5f * (float) Math.sin(floatyTimer - 1.2) * Settings.scale;
+            float floatyOffset = MAX_FLOATY_OFFSET * (float) Math.sin(floatyTimer - 1.2) * Settings.scale;
 
             for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
                 //draw the pillars
