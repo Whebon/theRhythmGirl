@@ -1,22 +1,26 @@
 package theRhythmGirl.cards;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class MicroRowSwim extends AbstractRhythmGirlCard {
-
+public class FishingRod extends AbstractRhythmGirlCard {
     // TEXT DECLARATION
 
-    public static final String ID = RhythmGirlMod.makeID(MicroRowSwim.class.getSimpleName());
-    public static final String IMG = makeCardPath("MicroRowSwim.png");
+    public static final String ID = RhythmGirlMod.makeID(FishingRod.class.getSimpleName());
+    public static final String IMG = makeCardPath("FishingRod.png");
+
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -28,28 +32,26 @@ public class MicroRowSwim extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 1;
-    private static final int BLOCK = 9;
-    private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
-    public MicroRowSwim() {
+    public FishingRod() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
 
-        pillarTypeOnBeat.put(2, BeatUI.PillarTypes.YELLOW);
-        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.YELLOW);
+        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.YELLOW);
+        mustBePlayedOnBeat = true;
+        this.cardsToPreview = new Pausegill();
+        //todo: check if upgrade works
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (onBeatTriggered()){
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("MICRO_ROW_SWIM"));
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        }
+        this.addToBot(new SFXAction("PAUSEGILL_CUE"));
+        this.addToBot(new GainAdditionalBeatsAction(p, p));
+        this.addToBot(new MakeTempCardInHandAction(new Pausegill(), 1));
     }
 
     //Upgraded stats.
@@ -57,7 +59,8 @@ public class MicroRowSwim extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            cardsToPreview.upgrade();
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

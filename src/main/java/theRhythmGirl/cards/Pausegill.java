@@ -10,21 +10,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.CuedModifier;
-import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class HomeRun extends AbstractRhythmGirlCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     */
+public class Pausegill extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = RhythmGirlMod.makeID(HomeRun.class.getSimpleName());
-    public static final String IMG = makeCardPath("HomeRun.png");
+    public static final String ID = RhythmGirlMod.makeID(Pausegill.class.getSimpleName());
+    public static final String IMG = makeCardPath("Pausegill.png");
 
     // /TEXT DECLARATION/
 
@@ -36,17 +31,17 @@ public class HomeRun extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 3;
-    private static final int DAMAGE = 50;
-    private static final int UPGRADE_PLUS_DMG = 25;
+    private static final int COST = 1;
+    private static final int DAMAGE = 12;
+    private static final int UPGRADE_PLUS_DMG = 4;
 
     // /STAT DECLARATION/
 
-    public HomeRun() {
+    public Pausegill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.BLACK);
+        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.BLACK);
         mustBePlayedOnBeat = true;
         CardModifierManager.addModifier(this, new CuedModifier());
     }
@@ -54,10 +49,10 @@ public class HomeRun extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("HOME_RUN"));
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("PAUSEGILL_CATCH"));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                        AbstractGameAction.AttackEffect.BLUNT_HEAVY, false, true));
+                        AbstractGameAction.AttackEffect.SLASH_VERTICAL, false, true));
     }
 
     // Upgraded stats.

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -41,7 +42,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = MAGIC;
 
-        isOnBeat3 = true;
+        pillarTypeOnBeat.put(3, BeatUI.PillarTypes.YELLOW);
 
         this.tags.add(CardTags.STRIKE);
     }

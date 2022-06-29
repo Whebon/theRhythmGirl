@@ -1,11 +1,13 @@
 package theRhythmGirl.ui;
 
+import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -20,10 +22,13 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.cardmodifiers.CuedModifier;
+import theRhythmGirl.cards.AbstractRhythmGirlCard;
 import theRhythmGirl.powers.MeasurePower;
 import theRhythmGirl.relics.TimeSignature44;
 import theRhythmGirl.util.TextureLoader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static theRhythmGirl.RhythmGirlMod.makeUIPath;
@@ -41,6 +46,8 @@ public class BeatUI
     private float floatyTimer = 0;
     private final Hitbox hitbox;
 
+    private int previousHandSize = 0;
+
     public static final String UI_ID = RhythmGirlMod.makeID("BeatUI");
     private static final UIStrings UIStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
@@ -49,11 +56,13 @@ public class BeatUI
     private static final Texture pillarTex = TextureLoader.getTexture(makeUIPath("Pillar.png"));
     private static final Texture lineTex = TextureLoader.getTexture(makeUIPath("Line.png"));
     private static final Texture marshalTex = TextureLoader.getTexture(makeUIPath("Marshal.png"));
-    private final TextureAtlas.AtlasRegion pillarRegion;
+    private final HashMap<Integer, TextureAtlas.AtlasRegion> pillarRegions;
     private final TextureAtlas.AtlasRegion lineRegion;
     private TextureAtlas.AtlasRegion marshalRegion;
 
-    private final List<TextureAtlas.AtlasRegion> marshalRegions;
+    public enum PillarTypes {NORMAL, RED, WHITE, YELLOW, BLACK}
+    private final HashMap<PillarTypes, TextureAtlas.AtlasRegion> allPillarRegions;
+    private final List<TextureAtlas.AtlasRegion> allMarshalRegions;
     private static final float MARSHAL_ANIMATION_TOTAL_IMAGES = 34;
     private static class Keyframe{
         Integer frame;
@@ -125,11 +134,17 @@ public class BeatUI
         //actual dimensions will be set in the update function
         hitbox = new Hitbox(32, 32);
 
-        pillarRegion = new TextureAtlas.AtlasRegion(pillarTex, 0, 0, 18, 67);
+        pillarRegions = new HashMap<>();
+        allPillarRegions = new HashMap<>();
+        allPillarRegions.put(PillarTypes.NORMAL, new TextureAtlas.AtlasRegion(pillarTex, 0, 0, 18, 67));
+        allPillarRegions.put(PillarTypes.RED, new TextureAtlas.AtlasRegion(pillarTex, 18, 0, 18, 67));
+        allPillarRegions.put(PillarTypes.WHITE, new TextureAtlas.AtlasRegion(pillarTex, 36, 0, 18, 67));
+        allPillarRegions.put(PillarTypes.YELLOW, new TextureAtlas.AtlasRegion(pillarTex, 54, 0, 18, 67));
+        allPillarRegions.put(PillarTypes.BLACK, new TextureAtlas.AtlasRegion(pillarTex, 72, 0, 18, 67));
         lineRegion = new TextureAtlas.AtlasRegion(lineTex, 0, 0, 63, 9);
-        marshalRegions = new ArrayList<>();
+        allMarshalRegions = new ArrayList<>();
         for (int i = 0; i < MARSHAL_ANIMATION_TOTAL_IMAGES; i++) {
-            marshalRegions.add(new TextureAtlas.AtlasRegion(marshalTex, 55*i, 0, 55,85));
+            allMarshalRegions.add(new TextureAtlas.AtlasRegion(marshalTex, 55*i, 0, 55,85));
         }
 
         marshalAnimationLeft = false;
@@ -216,11 +231,9 @@ public class BeatUI
         for (Keyframe keyframe : keyframes) {
             if (t < keyframe.until) {
                 int frame = keyframe.frame;
-                System.out.println(frame);
                 if (marshalAnimationLeft)
                     frame += leftStartsAtFrame;
-                System.out.println(frame);
-                marshalRegion = marshalRegions.get(frame);
+                marshalRegion = allMarshalRegions.get(frame);
                 return;
             }
         }
@@ -237,6 +250,26 @@ public class BeatUI
             case JUMPING:
                 marshalAnimationDuration = marshalAnimationIsFast ? MARSHAL_ANIMATION_JUMP_DURATION_FAST : MARSHAL_ANIMATION_JUMP_DURATION;
                 break;
+        }
+    }
+
+    private void updatePillarRegions() {
+        for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
+            pillarRegions.put(iPillar, allPillarRegions.get(PillarTypes.NORMAL));
+        }
+        AbstractPlayer player = AbstractDungeon.player;
+        for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
+            PillarTypes highestPriorityPillarType = PillarTypes.NORMAL;
+            for (AbstractCard handAbstractCard : player.hand.group) {
+                if (handAbstractCard instanceof AbstractRhythmGirlCard) {
+                    AbstractRhythmGirlCard handCard = ((AbstractRhythmGirlCard) handAbstractCard);
+                    PillarTypes pillarType = handCard.pillarTypeOnBeat.get(iPillar+1);
+                    if (pillarType.ordinal() > highestPriorityPillarType.ordinal()){
+                        highestPriorityPillarType = pillarType;
+                        pillarRegions.put(iPillar, allPillarRegions.get(pillarType));
+                    }
+                }
+            }
         }
     }
 
@@ -266,7 +299,7 @@ public class BeatUI
     }
 
     public float getPillarSpacing(){
-        return (lineRegion.getRegionWidth()+pillarRegion.getRegionWidth()+PILLAR_SPACING_MARGIN);
+        return (lineRegion.getRegionWidth()+allPillarRegions.get(PillarTypes.NORMAL).getRegionWidth()+PILLAR_SPACING_MARGIN);
     }
 
     public int getNumberOfPillars() {
@@ -286,8 +319,8 @@ public class BeatUI
         float yPos = Y_OFFSET * Settings.scale + player.drawY + player.hb_h / 2.0f;
         if (!player.orbs.isEmpty()) {
             for (AbstractOrb orb : player.orbs) {
-                if (orb.cY + orb.hb.height / 2f + pillarRegion.getRegionHeight() > yPos) {
-                    yPos = orb.cY + orb.hb.height / 2f + pillarRegion.getRegionHeight();
+                if (orb.cY + orb.hb.height / 2f + allPillarRegions.get(PillarTypes.NORMAL).getRegionHeight() > yPos) {
+                    yPos = orb.cY + orb.hb.height / 2f + allPillarRegions.get(PillarTypes.NORMAL).getRegionHeight();
                 }
             }
         }
@@ -295,6 +328,8 @@ public class BeatUI
     }
 
     public void update(AbstractPlayer player) {
+        //update the hitbox
+        TextureAtlas.AtlasRegion pillarRegion = allPillarRegions.get(PillarTypes.NORMAL);
         hitbox.resize(
                 ((getNumberOfPillars()-1)*getPillarSpacing()+pillarRegion.getRegionWidth())*Settings.scale,
                 (pillarRegion.getRegionHeight()+marshalRegion.getRegionHeight()*2.0f)*Settings.scale
@@ -303,6 +338,12 @@ public class BeatUI
                 getX()-pillarRegion.getRegionWidth()/2.0f*Settings.scale,
                 getY()-pillarRegion.getRegionHeight()*Settings.scale);
         hitbox.update();
+
+        //update the pillar regions whenever the hand size is modified (the colors on the beat UI indicating if you have ON_BEAT cards for that beat)
+        if (AbstractDungeon.player.hand.size() != previousHandSize){
+            updatePillarRegions();
+            previousHandSize = AbstractDungeon.player.hand.size();
+        }
     }
 
     public void render(SpriteBatch sb, AbstractPlayer player) {
@@ -333,8 +374,7 @@ public class BeatUI
 
             for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
                 //draw the pillars
-                //todo: color the pillars black for CUED cards with matching beats
-                //todo: color the pillars orange for ON BEAT effects with matching beats
+                TextureAtlas.AtlasRegion pillarRegion = pillarRegions.getOrDefault(iPillar, allPillarRegions.get(PillarTypes.NORMAL));
                 sb.setColor(Color.WHITE);
                 sb.draw(
                         pillarRegion,

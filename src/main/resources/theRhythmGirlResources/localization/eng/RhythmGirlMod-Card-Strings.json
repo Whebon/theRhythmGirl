@@ -136,5 +136,14 @@
     "NAME": "Built To Scale",
     "DESCRIPTION": "Gain Block equal to your therhythmgirl:Measure.",
     "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
+  },
+  "theRhythmGirl:FishingRod": {
+    "NAME": "Fishing Rod",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill to your hand. Gain 1 additional therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill+ to your hand. Gain 1 additional therhythmgirl:Beat."
+  },
+  "theRhythmGirl:Pausegill": {
+    "NAME": "Pausegill",
+    "DESCRIPTION": "therhythmgirl:On_Beat 4: deal !D! damage."
   }
 }

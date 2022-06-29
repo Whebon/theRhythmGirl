@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -51,21 +52,20 @@ public class AirRally extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = STACKS;
 
-        isOnBeat1 = true;
-        isOnBeat2 = true;
-        isOnBeat3 = true;
-        isOnBeat4 = true;
+        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.WHITE);
+        pillarTypeOnBeat.put(2, BeatUI.PillarTypes.RED);
+        pillarTypeOnBeat.put(3, BeatUI.PillarTypes.WHITE);
+        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.RED);
     }
+
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         if (this.onBeatTriggered(1) || this.onBeatTriggered(3)){
             this.loadCardImage(IMG_13);
-            this.glowColor = Color.GRAY.cpy();
         }
         else {
             this.loadCardImage(IMG_24);
-            this.glowColor = Color.RED.cpy();
         }
     }
 

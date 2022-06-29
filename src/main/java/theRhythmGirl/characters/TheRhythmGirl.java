@@ -166,7 +166,7 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(NeverGiveUp.ID);
         retVal.add(MochiPounding.ID);
         retVal.add(BuiltToScale.ID);
-        retVal.add(Anger.ID);
+        retVal.add(FishingRod.ID);
 
         return retVal;
     }

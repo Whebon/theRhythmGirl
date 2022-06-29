@@ -1,10 +1,14 @@
 package theRhythmGirl.cards;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.ui.BeatUI;
+
+import java.util.HashMap;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -23,11 +27,16 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
     public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
 
+
     public boolean mustBePlayedOnBeat = false;
-    public boolean isOnBeat1 = false;
-    public boolean isOnBeat2 = false;
-    public boolean isOnBeat3 = false;
-    public boolean isOnBeat4 = false;
+    public HashMap<Integer, BeatUI.PillarTypes> pillarTypeOnBeat;
+    public HashMap<BeatUI.PillarTypes, com.badlogic.gdx.graphics.Color> pillarTypeToGlow = new HashMap<BeatUI.PillarTypes, com.badlogic.gdx.graphics.Color>(){{
+        put(BeatUI.PillarTypes.NORMAL, AbstractCard.BLUE_BORDER_GLOW_COLOR);
+        put(BeatUI.PillarTypes.RED, Color.RED.cpy());
+        put(BeatUI.PillarTypes.WHITE, Color.GRAY.cpy());
+        put(BeatUI.PillarTypes.YELLOW, AbstractCard.GOLD_BORDER_GLOW_COLOR);
+        put(BeatUI.PillarTypes.BLACK, AbstractCard.BLUE_BORDER_GLOW_COLOR);
+    }};
 
     public static String originalImg;
 
@@ -63,7 +72,13 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         isMagicNumberModified = false;
         isDefaultSecondMagicNumberModified = false;
         originalImg = img;
-    }
+
+        pillarTypeOnBeat = new HashMap<>();
+        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.NORMAL);
+        pillarTypeOnBeat.put(2, BeatUI.PillarTypes.NORMAL);
+        pillarTypeOnBeat.put(3, BeatUI.PillarTypes.NORMAL);
+        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.NORMAL);
+}
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
         super.displayUpgrades();
@@ -80,26 +95,22 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     }
 
     public boolean onBeatTriggered(){
-        if (isOnBeat1 && RhythmGirlMod.beatUI.currentBeat == 1)
-            return true;
-        if (isOnBeat2 && RhythmGirlMod.beatUI.currentBeat == 2)
-            return true;
-        if (isOnBeat3 && RhythmGirlMod.beatUI.currentBeat == 3)
-            return true;
-        return isOnBeat4 && RhythmGirlMod.beatUI.currentBeat == 4;
+        return pillarTypeOnBeat.get(RhythmGirlMod.beatUI.currentBeat) != BeatUI.PillarTypes.NORMAL;
     }
 
     public boolean onBeatTriggered(int beat){
-        return beat == RhythmGirlMod.beatUI.currentBeat;
+        return RhythmGirlMod.beatUI.currentBeat == beat;
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (this.onBeatTriggered())
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        else
+        if (this.onBeatTriggered()){
+            this.glowColor = pillarTypeToGlow.get(pillarTypeOnBeat.get(RhythmGirlMod.beatUI.currentBeat)).cpy();
+        }
+        else{
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     @Override
@@ -111,6 +122,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         //todo: be more transparent about how 'mustBePlayedOnBeat' works to the player. maybe:
         //      * "cued cards must be played on beat"
         //      * "card that have no effect without their on beat effects cannot be played"
+        //      * [BEST OPTION] Let the player be able to play the card and say: "This card must be played on beat to have effect"
 
         if (mustBePlayedOnBeat && !onBeatTriggered()) {
             this.cantUseMessage = "This card must be played #rOn #rBeat.";

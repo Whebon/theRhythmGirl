@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -45,7 +46,7 @@ public class Pitch extends AbstractRhythmGirlCard {
     public Pitch() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        isOnBeat1 = true;
+        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.YELLOW);
         mustBePlayedOnBeat = true;
         this.cardsToPreview = new HomeRun();
         //todo: add tooltip about 'cued' keyword

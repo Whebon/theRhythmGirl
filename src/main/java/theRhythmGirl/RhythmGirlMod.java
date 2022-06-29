@@ -537,6 +537,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("MOCHI_POUNDING_2", makeAudioPath("SFX_MochiPounding2.wav"));
         BaseMod.addAudio("MOCHI_POUNDING_3", makeAudioPath("SFX_MochiPounding3.wav"));
         BaseMod.addAudio("MOCHI_POUNDING_4", makeAudioPath("SFX_MochiPounding4.wav"));
+        BaseMod.addAudio("PAUSEGILL_CUE", makeAudioPath("SFX_PausegillCue.wav"));
+        BaseMod.addAudio("PAUSEGILL_CATCH", makeAudioPath("SFX_PausegillCatch.wav"));
     }
 
     @Override
