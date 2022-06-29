@@ -40,7 +40,7 @@ public class FishingRod extends AbstractRhythmGirlCard {
     public FishingRod() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.YELLOW);
+        onBeatColor.put(1, BeatUI.BeatColor.ON_BEAT);
         mustBePlayedOnBeat = true;
         this.cardsToPreview = new Pausegill();
         //todo: check if upgrade works

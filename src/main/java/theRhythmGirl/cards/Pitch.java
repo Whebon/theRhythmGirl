@@ -46,7 +46,7 @@ public class Pitch extends AbstractRhythmGirlCard {
     public Pitch() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.YELLOW);
+        onBeatColor.put(1, BeatUI.BeatColor.ON_BEAT);
         mustBePlayedOnBeat = true;
         this.cardsToPreview = new HomeRun();
         //todo: add tooltip about 'cued' keyword

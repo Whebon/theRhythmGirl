@@ -14,28 +14,19 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractRhythmGirlCard extends CustomCard {
 
-    // Custom Abstract Cards can be a bit confusing. While this is a simple base for simply adding a second magic number,
-    // if you're new to modding I suggest you skip this file until you know what unique things that aren't provided
-    // by default, that you need in your own cards.
-
-    // In this example, we use a custom Abstract Card in order to define a new magic number. From here on out, we can
-    // simply use that in our cards, so long as we put "extends AbstractDynamicCard" instead of "extends CustomCard" at the start.
-    // In simple terms, it's for things that we don't want to define again and again in every single card we make.
-
     public int defaultSecondMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
     public int defaultBaseSecondMagicNumber;    // And our base stat - the number in its base state. It will reset to that by default.
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
     public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
 
-
     public boolean mustBePlayedOnBeat = false;
-    public HashMap<Integer, BeatUI.PillarTypes> pillarTypeOnBeat;
-    public HashMap<BeatUI.PillarTypes, com.badlogic.gdx.graphics.Color> pillarTypeToGlow = new HashMap<BeatUI.PillarTypes, com.badlogic.gdx.graphics.Color>(){{
-        put(BeatUI.PillarTypes.NORMAL, AbstractCard.BLUE_BORDER_GLOW_COLOR);
-        put(BeatUI.PillarTypes.RED, Color.RED.cpy());
-        put(BeatUI.PillarTypes.WHITE, Color.GRAY.cpy());
-        put(BeatUI.PillarTypes.YELLOW, AbstractCard.GOLD_BORDER_GLOW_COLOR);
-        put(BeatUI.PillarTypes.BLACK, AbstractCard.BLUE_BORDER_GLOW_COLOR);
+    public HashMap<Integer, BeatUI.BeatColor> onBeatColor;
+    public static HashMap<BeatUI.BeatColor, com.badlogic.gdx.graphics.Color> beatColorToGlow = new HashMap<BeatUI.BeatColor, com.badlogic.gdx.graphics.Color>(){{
+        put(BeatUI.BeatColor.NORMAL, AbstractCard.BLUE_BORDER_GLOW_COLOR);
+        put(BeatUI.BeatColor.RED, Color.RED.cpy());
+        put(BeatUI.BeatColor.WHITE, Color.GRAY.cpy());
+        put(BeatUI.BeatColor.ON_BEAT, AbstractCard.GOLD_BORDER_GLOW_COLOR);
+        put(BeatUI.BeatColor.CUED, AbstractCard.BLUE_BORDER_GLOW_COLOR);
     }};
 
     public static String originalImg;
@@ -64,7 +55,6 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
 
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
 
-        // Set all the things to their default values.
         isCostModified = false;
         isCostModifiedForTurn = false;
         isDamageModified = false;
@@ -73,11 +63,12 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         isDefaultSecondMagicNumberModified = false;
         originalImg = img;
 
-        pillarTypeOnBeat = new HashMap<>();
-        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.NORMAL);
-        pillarTypeOnBeat.put(2, BeatUI.PillarTypes.NORMAL);
-        pillarTypeOnBeat.put(3, BeatUI.PillarTypes.NORMAL);
-        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.NORMAL);
+        //Any non-NORMAL BeatColor will trigger all "On Beat"-related mechanics for that beat
+        onBeatColor = new HashMap<>();
+        onBeatColor.put(1, BeatUI.BeatColor.NORMAL);
+        onBeatColor.put(2, BeatUI.BeatColor.NORMAL);
+        onBeatColor.put(3, BeatUI.BeatColor.NORMAL);
+        onBeatColor.put(4, BeatUI.BeatColor.NORMAL);
 }
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
@@ -95,7 +86,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     }
 
     public boolean onBeatTriggered(){
-        return pillarTypeOnBeat.get(RhythmGirlMod.beatUI.currentBeat) != BeatUI.PillarTypes.NORMAL;
+        return onBeatColor.get(RhythmGirlMod.beatUI.currentBeat) != BeatUI.BeatColor.NORMAL;
     }
 
     public boolean onBeatTriggered(int beat){
@@ -105,12 +96,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (this.onBeatTriggered()){
-            this.glowColor = pillarTypeToGlow.get(pillarTypeOnBeat.get(RhythmGirlMod.beatUI.currentBeat)).cpy();
-        }
-        else{
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
+        this.glowColor = beatColorToGlow.get(onBeatColor.get(RhythmGirlMod.beatUI.currentBeat)).cpy();
     }
 
     @Override

@@ -42,7 +42,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = MAGIC;
 
-        pillarTypeOnBeat.put(3, BeatUI.PillarTypes.YELLOW);
+        onBeatColor.put(3, BeatUI.BeatColor.ON_BEAT);
 
         this.tags.add(CardTags.STRIKE);
     }

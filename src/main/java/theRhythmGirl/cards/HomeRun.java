@@ -46,7 +46,7 @@ public class HomeRun extends AbstractRhythmGirlCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.BLACK);
+        onBeatColor.put(1, BeatUI.BeatColor.CUED);
         mustBePlayedOnBeat = true;
         CardModifierManager.addModifier(this, new CuedModifier());
     }

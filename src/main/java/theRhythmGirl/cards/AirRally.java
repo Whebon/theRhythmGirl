@@ -52,10 +52,10 @@ public class AirRally extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = STACKS;
 
-        pillarTypeOnBeat.put(1, BeatUI.PillarTypes.WHITE);
-        pillarTypeOnBeat.put(2, BeatUI.PillarTypes.RED);
-        pillarTypeOnBeat.put(3, BeatUI.PillarTypes.WHITE);
-        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.RED);
+        onBeatColor.put(1, BeatUI.BeatColor.WHITE);
+        onBeatColor.put(2, BeatUI.BeatColor.RED);
+        onBeatColor.put(3, BeatUI.BeatColor.WHITE);
+        onBeatColor.put(4, BeatUI.BeatColor.RED);
     }
 
     @Override

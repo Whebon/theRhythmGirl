@@ -41,7 +41,7 @@ public class Pausegill extends AbstractRhythmGirlCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.BLACK);
+        onBeatColor.put(4, BeatUI.BeatColor.CUED);
         mustBePlayedOnBeat = true;
         CardModifierManager.addModifier(this, new CuedModifier());
     }

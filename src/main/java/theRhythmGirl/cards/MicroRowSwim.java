@@ -39,8 +39,8 @@ public class MicroRowSwim extends AbstractRhythmGirlCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
 
-        pillarTypeOnBeat.put(2, BeatUI.PillarTypes.YELLOW);
-        pillarTypeOnBeat.put(4, BeatUI.PillarTypes.YELLOW);
+        onBeatColor.put(2, BeatUI.BeatColor.ON_BEAT);
+        onBeatColor.put(4, BeatUI.BeatColor.ON_BEAT);
     }
 
     // Actions the card should do.
