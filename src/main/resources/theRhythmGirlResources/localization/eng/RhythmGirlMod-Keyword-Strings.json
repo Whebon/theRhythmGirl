@@ -22,7 +22,7 @@
     "NAMES": [
       "measure"
     ],
-    "DESCRIPTION": "Has no effect of its own, but may affect the behaviour of other cards."
+    "DESCRIPTION": "#yMeasures can obtained by gaining enough #yBeats. They have no effect by themselves."
   },
   {
     "PROPER_NAME": "Repeat",

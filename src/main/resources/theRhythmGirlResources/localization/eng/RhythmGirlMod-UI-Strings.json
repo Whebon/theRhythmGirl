@@ -5,5 +5,10 @@
       "You have #b",
       " #yBeat. NL After you play a card, gain #b1 #yBeat. At the start of each turn, reset your #yBeat to #b1."
     ]
+  },
+  "theRhythmGirl:WarnNoMeasure": {
+    "TEXT": [
+      "I have no #rMeasure."
+    ]
   }
 }

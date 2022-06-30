@@ -523,12 +523,10 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("HOME_RUN", makeAudioPath("SFX_HomeRun.wav"));
         BaseMod.addAudio("READY", makeAudioPath("SFX_Ready.wav"));
         BaseMod.addAudio("NEVER_GIVE_UP", makeAudioPath("SFX_NeverGiveUp.wav"));
-        BaseMod.addAudio("MOCHI_POUNDING_1", makeAudioPath("SFX_MochiPounding1.wav"));
-        BaseMod.addAudio("MOCHI_POUNDING_2", makeAudioPath("SFX_MochiPounding2.wav"));
-        BaseMod.addAudio("MOCHI_POUNDING_3", makeAudioPath("SFX_MochiPounding3.wav"));
-        BaseMod.addAudio("MOCHI_POUNDING_4", makeAudioPath("SFX_MochiPounding4.wav"));
+        BaseMod.addAudio("MOCHI_POUNDING", makeAudioPath("SFX_MochiPounding.wav"));
         BaseMod.addAudio("PAUSEGILL_CUE", makeAudioPath("SFX_PausegillCue.wav"));
         BaseMod.addAudio("PAUSEGILL_CATCH", makeAudioPath("SFX_PausegillCatch.wav"));
+        BaseMod.addAudio("POSE_FOR_THE_FANS", makeAudioPath("SFX_PoseForTheFans.wav"));
     }
 
     @Override

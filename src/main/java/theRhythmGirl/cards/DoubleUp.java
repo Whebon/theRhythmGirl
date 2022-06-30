@@ -13,11 +13,7 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 public class DoubleUp extends AbstractRhythmGirlCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * In-Progress Form At the start of your turn, play a TOUCH.
-     */
+    //todo: rework this card's mechanics. think about it: it massively anti-synergises with half of the the rhythm girl's attacks (CUED/ON_BEAT)
 
     // TEXT DECLARATION
 

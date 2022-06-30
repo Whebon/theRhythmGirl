@@ -1,22 +1,23 @@
 package theRhythmGirl.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.GainAdditionalBeatsAction;
+import theRhythmGirl.actions.PoseForTheFansAction;
 import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class MochiPounding extends AbstractRhythmGirlCard {
+public class PoseForTheFans extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = RhythmGirlMod.makeID(MochiPounding.class.getSimpleName());
-    public static final String IMG = makeCardPath("MochiPounding.png");
+    public static final String ID = RhythmGirlMod.makeID(PoseForTheFans.class.getSimpleName());
+    public static final String IMG = makeCardPath("PoseForTheFans.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -25,28 +26,25 @@ public class MochiPounding extends AbstractRhythmGirlCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 2;
-    private static final int ADDITIONAL_BEATS = 15;
-    private static final int UPGRADE_ADDITIONAL_BEATS = 16;
 
     // /STAT DECLARATION/
 
 
-    public MochiPounding() {
+    public PoseForTheFans() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = ADDITIONAL_BEATS;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("MOCHI_POUNDING"));
-        this.addToBot(new GainAdditionalBeatsAction(p, p, magicNumber));
+        this.addToBot(new SFXAction("POSE_FOR_THE_FANS"));
+        this.addToBot(new PoseForTheFansAction());
     }
 
     //Upgraded stats.
@@ -54,7 +52,8 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_ADDITIONAL_BEATS);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            GraveField.grave.set(this, true);
             initializeDescription();
         }
     }

@@ -1,7 +1,7 @@
 {
 "theRhythmGirl:MeasurePower": {
         "NAME": "Measure",
-        "DESCRIPTIONS": ["Has no effect of its own, but may affect the behaviour of other cards."]
+        "DESCRIPTIONS": ["#yMeasures can obtained by gaining enough #yBeats. They have no effect by themselves."]
 },
 "theRhythmGirl:DoubleUpPower": {
         "NAME": "Double Up",
