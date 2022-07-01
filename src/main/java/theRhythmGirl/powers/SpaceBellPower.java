@@ -43,7 +43,7 @@ public class SpaceBellPower extends TwoAmountPower implements CloneablePowerInte
         this.amount = countdown;
         this.countdown = countdown;
         this.amount2 = block;
-        this.greenColor2 = Color.BLUE.cpy();
+        this.greenColor2 = Color.YELLOW.cpy();
 
         type = PowerType.BUFF;
         isTurnBased = false;

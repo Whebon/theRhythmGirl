@@ -20,8 +20,6 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
-//todo: maybe swap 'amount' and 'amount2'
-
 public class PartyCrackerPower extends TwoAmountPower implements CloneablePowerInterface, OnGainBeatSubscriber {
     public AbstractCreature source;
 

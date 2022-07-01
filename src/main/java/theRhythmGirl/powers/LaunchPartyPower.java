@@ -44,7 +44,7 @@ public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerIn
         this.amount = countdown;
         this.countdown = countdown;
         this.amount2 = damage;
-        this.greenColor2 = Color.BLUE.cpy();
+        this.greenColor2 = Color.YELLOW.cpy();
 
         type = PowerType.DEBUFF;
         isTurnBased = false;

@@ -40,7 +40,7 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
 
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
     private UUID uuidToRemove;
-    private static final int COST = 1;
+    private static final int COST = 3;
     private static final int PERCENTAGE_DISPLAYED_ON_CARD = 25;
     private static final int UPGRADE_PERCENTAGE_DISPLAYED_ON_CARD = 50;
 

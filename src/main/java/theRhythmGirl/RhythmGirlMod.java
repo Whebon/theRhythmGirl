@@ -38,6 +38,10 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
+//todo: add cards
+//todo: add relics
+//todo: add potions
+
 @SpireInitializer
 public class RhythmGirlMod implements
         EditCardsSubscriber,
@@ -71,7 +75,7 @@ public class RhythmGirlMod implements
     // Character Color
     // gray: CardHelper.getColor(64.0f, 70.0f, 70.0f);
     // skin: CardHelper.getColor(252.0f, 218.0f, 159.0f);
-    // redwood: CardHelper.getColor(164.0f, 90.0f, 82.0f);
+    // redwood: CardHelper.getColor(164.0f, 90.0f, 82.0f); (#a45a52)
     public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(164.0f, 90.0f, 82.0f);
     
     // Potion Colors in RGB
@@ -97,8 +101,10 @@ public class RhythmGirlMod implements
     
     // Character assets
     //todo: slightly reduce the size of the corpse asset
-    private static final String THE_RHYTHM_GIRL_BUTTON = "theRhythmGirlResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    //todo: create line-art for the button
+    //todo: choose a sound effect for on character select
+    private static final String THE_RHYTHM_GIRL_BUTTON = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterButton.png";
+    private static final String THE_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterPortraitBG.png";
     public static final String THE_RHYTHM_GIRL_SHOULDER_1 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder.png";
     public static final String THE_RHYTHM_GIRL_SHOULDER_2 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder2.png";
     public static final String THE_RHYTHM_GIRL_CORPSE = "theRhythmGirlResources/images/char/rhythmGirlCharacter/corpse.png";

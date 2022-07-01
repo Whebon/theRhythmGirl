@@ -34,8 +34,8 @@ public class SpaceBell extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 2;
-    private static final int BLOCK = 30;
-    private static final int UPGRADE_BLOCK = 20;
+    private static final int BLOCK = 40;
+    private static final int UPGRADE_BLOCK = 10;
 
     // /STAT DECLARATION/
 
