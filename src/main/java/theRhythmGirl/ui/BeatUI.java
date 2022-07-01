@@ -1,6 +1,5 @@
 package theRhythmGirl.ui;
 
-import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,14 +17,15 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.cardmodifiers.CuedModifier;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
 import theRhythmGirl.powers.MeasurePower;
+import theRhythmGirl.powers.OnGainBeatSubscriber;
 import theRhythmGirl.relics.TimeSignature44;
 import theRhythmGirl.util.TextureLoader;
 import java.util.ArrayList;
@@ -273,7 +274,25 @@ public class BeatUI
         }
     }
 
+    public void publishOnGainBeat(int numberOfBeatsGained){
+        logger.info("Publishing OnBeat");
+        for (AbstractCreature m : AbstractDungeon.getMonsters().monsters){
+            for (AbstractPower p : m.powers){
+                if (p instanceof OnGainBeatSubscriber){
+                    ((OnGainBeatSubscriber) p).onGainBeat(numberOfBeatsGained);
+                }
+            }
+        }
+        for (AbstractPower p : AbstractDungeon.player.powers){
+            if (p instanceof OnGainBeatSubscriber){
+                ((OnGainBeatSubscriber) p).onGainBeat(numberOfBeatsGained);
+            }
+        }
+        logger.info("Published OnBeat");
+    }
+
     public void gainBeats(int amount){
+        publishOnGainBeat(amount);
         if (amount > 4)
             marshalAnimationIsFast = true;
         int n = getNumberOfPillars();
@@ -305,7 +324,7 @@ public class BeatUI
     public int getNumberOfPillars() {
         if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
             return 4;
-        logger.error("Player has no time signature relic");
+        //logger.error("Player has no time signature relic");
         return DEFAULT_NUMBER_OF_PILLARS;
     }
 

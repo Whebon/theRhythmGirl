@@ -168,6 +168,7 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(BuiltToScale.ID);
         retVal.add(FishingRod.ID);
         retVal.add(PoseForTheFans.ID);
+        retVal.add(PartyCracker.ID);
 
         return retVal;
     }

@@ -33,7 +33,7 @@ public class Jab extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     // /STAT DECLARATION/

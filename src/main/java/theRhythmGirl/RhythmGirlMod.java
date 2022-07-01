@@ -85,6 +85,8 @@ public class RhythmGirlMod implements
     private static final String POWER_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_power_rhythm_girl_color.png";
 
     //todo: create custom energy orb
+    //todo: create custom character button
+    //todo: create custom character background
     private static final String ENERGY_ORB_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "theRhythmGirlResources/images/cardFrames/512/card_small_orb.png";
     
@@ -527,6 +529,12 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("PAUSEGILL_CUE", makeAudioPath("SFX_PausegillCue.wav"));
         BaseMod.addAudio("PAUSEGILL_CATCH", makeAudioPath("SFX_PausegillCatch.wav"));
         BaseMod.addAudio("POSE_FOR_THE_FANS", makeAudioPath("SFX_PoseForTheFans.wav"));
+        BaseMod.addAudio("LAUNCH_PARTY_APPLY", makeAudioPath("SFX_LaunchPartyApply.wav"));
+        BaseMod.addAudio("LAUNCH_PARTY_BLAST", makeAudioPath("SFX_LaunchPartyBlast.wav"));
+        BaseMod.addAudio("PARTY_CRACKER_APPLY", makeAudioPath("SFX_PartyCrackerApply.wav"));
+        BaseMod.addAudio("PARTY_CRACKER_BLAST", makeAudioPath("SFX_PartyCrackerBlast.wav"));
+        BaseMod.addAudio("SPACE_BELL_APPLY", makeAudioPath("SFX_SpaceBellApply.wav"));
+        BaseMod.addAudio("SPACE_BELL_BLAST", makeAudioPath("SFX_SpaceBellBlast.wav"));
     }
 
     @Override
@@ -536,6 +544,7 @@ public class RhythmGirlMod implements
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
+        //assures that a beat is gained whenever a card is played
         AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
     }
 

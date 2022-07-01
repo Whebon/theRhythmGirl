@@ -17,7 +17,7 @@
   },
   "theRhythmGirl:MandrillStrike": {
     "NAME": "Mandrill Strike",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 3: Deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: Deal !M! damage instead."
   },
   "theRhythmGirl:TallScrew": {
     "NAME": "Tall Screw",
@@ -107,5 +107,17 @@
     "NAME": "Pose For The Fans",
     "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength equal to the amount of therhythmgirl:Measure lost this way.",
     "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength equal to the amount of therhythmgirl:Measure lost this way. NL Grave."
+  },
+  "theRhythmGirl:LaunchParty": {
+    "NAME": "Launch Party",
+    "DESCRIPTION": "After you've gained 3 therhythmgirl:Beats, deal !D! damage."
+  },
+  "theRhythmGirl:PartyCracker": {
+    "NAME": "Party Cracker",
+    "DESCRIPTION": "After you've gained !M! therhythmgirl:Beats, deal !D! damage. Double the damage each turn this effect is delayed."
+  },
+  "theRhythmGirl:SpaceBell": {
+    "NAME": "Space Bell",
+    "DESCRIPTION": "After you've gained 7 therhythmgirl:Beats, everyone gains !B! Block. NL Exhaust."
   }
 }

@@ -20,20 +20,16 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
-//Beat tracker
-
 public class DoubleUpPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = RhythmGirlMod.makeID("DoubleUpPower");
+    public static final String POWER_ID = RhythmGirlMod.makeID(DoubleUpPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
-    // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("doubleup_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("doubleup_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(DoubleUpPower.class.getSimpleName()+"84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(DoubleUpPower.class.getSimpleName()+"32.png"));
 
     private int cardsDoubledThisTurn = 0;
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
@@ -49,7 +45,6 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        // We load those txtures here.
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 

@@ -32,7 +32,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 4;
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 8;
     private static final int UPGRADE_MAGIC = 4;
 
     // /STAT DECLARATION/
@@ -74,7 +74,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int totalDamage = damage;
         if (onBeatTriggered()){
-            totalDamage += magicNumber;
+            totalDamage = magicNumber;
             AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRILL_STRIKE_SWEET"));
         }
         else{

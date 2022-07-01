@@ -1,10 +1,22 @@
 {
-"theRhythmGirl:MeasurePower": {
-        "NAME": "Measure",
-        "DESCRIPTIONS": ["#yMeasures can obtained by gaining enough #yBeats. They have no effect by themselves."]
-},
-"theRhythmGirl:DoubleUpPower": {
-        "NAME": "Double Up",
-        "DESCRIPTIONS": ["The first attack you play each turn is played twice.", "The first #b", " attacks you play each turn are played twice."]
-}
+        "theRhythmGirl:MeasurePower": {
+                "NAME": "Measure",
+                "DESCRIPTIONS": ["#yMeasures can obtained by gaining enough #yBeats. They have no effect by themselves."]
+        },
+        "theRhythmGirl:DoubleUpPower": {
+                "NAME": "Double Up",
+                "DESCRIPTIONS": ["The first attack you play each turn is played twice.", "The first #b", " attacks you play each turn are played twice."]
+        },
+        "theRhythmGirl:LaunchPartyPower": {
+                "NAME": "Launch Party",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage."]
+        },
+        "theRhythmGirl:PartyCrackerPower": {
+                "NAME": "Party Cracker",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage. At the end of your turn, double the damage of this effect."]
+        },
+        "theRhythmGirl:SpaceBellPower": {
+                "NAME": "Space Bell",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "everyone gains #b", "Block."]
+        }
 }
