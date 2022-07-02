@@ -550,7 +550,9 @@ public class RhythmGirlMod implements
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
         //assures that a beat is gained whenever a card is played
-        AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+        if (!(abstractCard instanceof CoffeeBreak)){
+            AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+        }
     }
 
     @Override

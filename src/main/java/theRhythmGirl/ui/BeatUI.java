@@ -24,6 +24,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
+import theRhythmGirl.cards.CoffeeBreak;
+import theRhythmGirl.powers.CoffeeBreakPower;
 import theRhythmGirl.powers.MeasurePower;
 import theRhythmGirl.powers.OnGainBeatSubscriber;
 import theRhythmGirl.relics.TimeSignature44;
@@ -292,6 +294,9 @@ public class BeatUI
     }
 
     public void gainBeats(int amount){
+        if (AbstractDungeon.player.hasPower(CoffeeBreakPower.POWER_ID)){
+            return;
+        }
         publishOnGainBeat(amount);
         if (amount > 4)
             marshalAnimationIsFast = true;

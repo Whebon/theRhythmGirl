@@ -119,5 +119,10 @@
   "theRhythmGirl:SpaceBell": {
     "NAME": "Space Bell",
     "DESCRIPTION": "After you've gained 7 therhythmgirl:Beats, everyone gains !B! Block. NL Exhaust."
+  },
+  "theRhythmGirl:CoffeeBreak": {
+    "NAME": "Coffee Break",
+    "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn.",
+    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card."
   }
 }

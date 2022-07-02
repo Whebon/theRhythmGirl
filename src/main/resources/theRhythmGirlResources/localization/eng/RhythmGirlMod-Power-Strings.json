@@ -18,5 +18,9 @@
         "theRhythmGirl:SpaceBellPower": {
                 "NAME": "Space Bell",
                 "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "everyone gains #b", "Block."]
+        },
+        "theRhythmGirl:CoffeeBreakPower": {
+                "NAME": "Coffee Break",
+                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats ", "this turn", "for #b", " turns"]
         }
 }
