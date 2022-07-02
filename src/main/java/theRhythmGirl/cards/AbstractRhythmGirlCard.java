@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.ui.BeatUI;
 
@@ -13,6 +15,8 @@ import java.util.HashMap;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractRhythmGirlCard extends CustomCard {
+
+    public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
     public int defaultSecondMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
     public int defaultBaseSecondMagicNumber;    // And our base stat - the number in its base state. It will reset to that by default.
@@ -28,6 +32,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         put(BeatUI.BeatColor.ON_BEAT, AbstractCard.GOLD_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.CUED, AbstractCard.BLUE_BORDER_GLOW_COLOR);
     }};
+    public boolean fetchedFromCountIn = false;
 
     public static String originalImg;
 
@@ -93,6 +98,24 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         return RhythmGirlMod.beatUI.currentBeat == beat;
     }
 
+    public boolean hasOnBeatEffect(){
+        for (BeatUI.BeatColor color : onBeatColor.values()){
+            if (color != BeatUI.BeatColor.NORMAL)
+                return true;
+        }
+        return false;
+    }
+
+    public int getOnBeatIntegerX(){
+        for (Integer i : onBeatColor.keySet()){
+            if (onBeatColor.get(i) != BeatUI.BeatColor.NORMAL){
+                return i;
+            }
+        }
+        logger.warn("Expected this card to have an 'On Beat X' effect, but it hasn't.");
+        return -1;
+    }
+
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
@@ -125,5 +148,13 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         if (img != null) {
             super.loadCardImage(img);
         }
+    }
+
+    public void setFetchedFromCountIn(boolean state){
+        fetchedFromCountIn = state;
+    }
+
+    public boolean getFetchedFromCountIn(){
+        return fetchedFromCountIn;
     }
 }

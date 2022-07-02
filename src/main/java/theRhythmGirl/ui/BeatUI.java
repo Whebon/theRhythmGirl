@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
@@ -124,9 +125,15 @@ public class BeatUI
     private static class MarshalAnimation{
         public MarshalAnimationTypes type;
         public int target;
+        public boolean playCountingSfx;
         MarshalAnimation(MarshalAnimationTypes type, int target){
             this.type = type;
             this.target = target;
+        }
+        MarshalAnimation(MarshalAnimationTypes type, int target, boolean playCountingSfx){
+            this.type = type;
+            this.target = target;
+            this.playCountingSfx=playCountingSfx;
         }
     }
     private MarshalAnimation marshalAnimationActive;
@@ -181,6 +188,14 @@ public class BeatUI
             if (marshalAnimationQueue.size() > 0){
                 //next animation in queue
                 marshalAnimationActive = marshalAnimationQueue.get(0);
+                if (marshalAnimationActive.playCountingSfx){
+                    int n = getNumberOfPillars();
+                    int sfxIndex = (marshalAnimationActive.target+n-2)%n+1;
+                    if (sfxIndex >= 1 && sfxIndex<=4)
+                        CardCrawlGame.sound.play("COUNT_" + sfxIndex);
+                    else
+                        CardCrawlGame.sound.play("COWBELL");
+                }
                 marshalAnimationQueue.remove(0);
             }
             else{
@@ -293,8 +308,23 @@ public class BeatUI
         logger.info("Published OnBeat");
     }
 
+    public void gainBeatsUntil(int targetBeat){
+        while (targetBeat<=currentBeat){
+            targetBeat += getNumberOfPillars();
+        }
+        gainBeats(targetBeat-currentBeat, true);
+    }
+
     public void gainBeats(int amount){
+        this.gainBeats(amount, false);
+    }
+
+    public void gainBeats(int amount, boolean playCountingSfx){
+        if (amount <= 0){
+            return;
+        }
         if (AbstractDungeon.player.hasPower(CoffeeBreakPower.POWER_ID)){
+            AbstractDungeon.player.getPower(CoffeeBreakPower.POWER_ID).flashWithoutSound();
             return;
         }
         publishOnGainBeat(amount);
@@ -304,7 +334,7 @@ public class BeatUI
         if (n <= 0)
             throw new AssertionError("getNumberOfPillars must be positive to prevent an infinite loop");
         for (int i = currentBeat+1; i <= currentBeat+amount; i++) {
-            marshalAnimationQueue.add(new MarshalAnimation(MarshalAnimationTypes.JUMPING, (i-1)%n+1));
+            marshalAnimationQueue.add(new MarshalAnimation(MarshalAnimationTypes.JUMPING, (i-1)%n+1, playCountingSfx));
         }
         currentBeat += amount;
         while (currentBeat>n){
@@ -313,6 +343,7 @@ public class BeatUI
                     new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
         }
         updateTimeSignatureRelicCounters();
+        logger.info(String.format("BeatUI added %d beats", amount));
     }
 
     public void updateTimeSignatureRelicCounters(){

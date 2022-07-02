@@ -7,14 +7,20 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.GainAdditionalBeatsAction;
+import theRhythmGirl.cards.AbstractRhythmGirlCard;
 import theRhythmGirl.cards.PartyCracker;
+import theRhythmGirl.cards.Ready;
 import theRhythmGirl.util.TextureLoader;
+
+import java.util.List;
 
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
 import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
@@ -50,6 +56,13 @@ public class Cowbell extends CustomRelic implements ClickableRelic { // You must
             flash(); // Flash
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
             AbstractDungeon.actionManager.addToBottom(new SFXAction("COWBELL"));
+            /*List<AbstractCard> lst = AbstractDungeon.actionManager.cardsPlayedThisTurn;
+            if (lst != null && !lst.isEmpty()) {
+                AbstractCard card = lst.get(lst.size()-1);
+                if (card instanceof Ready){
+                    AbstractDungeon.actionManager.addToBottom(new SFXAction("COUNT_AND"));
+                }
+            }*/
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player));
         }
     }

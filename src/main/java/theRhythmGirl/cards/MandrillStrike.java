@@ -33,6 +33,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     private static final int COST = 1;
     private static final int DAMAGE = 4;
     private static final int MAGIC = 8;
+    private static final int UPGRADE_DAMAGE = 2;
     private static final int UPGRADE_MAGIC = 4;
 
     // /STAT DECLARATION/
@@ -90,6 +91,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_DAMAGE);
             upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }

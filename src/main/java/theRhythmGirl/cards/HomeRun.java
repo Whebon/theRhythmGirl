@@ -37,8 +37,8 @@ public class HomeRun extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 50;
-    private static final int UPGRADE_PLUS_DMG = 25;
+    private static final int DAMAGE = 35;
+    private static final int UPGRADE_PLUS_DMG = 15;
 
     // /STAT DECLARATION/
 

@@ -163,6 +163,18 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(FishingRod.ID);
         retVal.add(PoseForTheFans.ID);
         retVal.add(PartyCracker.ID);
+        retVal.add(MandrillStrike.ID);
+        retVal.add(MandrillStrike.ID);
+        retVal.add(MandrillStrike.ID);
+        retVal.add(MandrillStrike.ID);
+        retVal.add(Pitch.ID);
+        retVal.add(Pitch.ID);
+        retVal.add(Pitch.ID);
+        retVal.add(Pitch.ID);
+        retVal.add(CountIn.ID);
+        retVal.add(CountIn.ID);
+        retVal.add(CountIn.ID);
+        retVal.add(CountIn.ID);
 
         return retVal;
     }

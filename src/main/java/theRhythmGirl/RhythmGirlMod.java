@@ -12,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
@@ -540,6 +541,11 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("SPACE_BELL_BLAST", makeAudioPath("SFX_SpaceBellBlast.wav"));
         BaseMod.addAudio("BEAT_POTION", makeAudioPath("SFX_BeatPotion.wav"));
         BaseMod.addAudio("COWBELL", makeAudioPath("SFX_Cowbell.wav"));
+        BaseMod.addAudio("COUNT_1", makeAudioPath("SFX_Count1.wav"));
+        BaseMod.addAudio("COUNT_2", makeAudioPath("SFX_Count2.wav"));
+        BaseMod.addAudio("COUNT_3", makeAudioPath("SFX_Count3.wav"));
+        BaseMod.addAudio("COUNT_4", makeAudioPath("SFX_Count4.wav"));
+        BaseMod.addAudio("COUNT_GO", makeAudioPath("SFX_CountGo.wav"));
     }
 
     @Override
@@ -549,9 +555,19 @@ public class RhythmGirlMod implements
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
-        //assures that a beat is gained whenever a card is played
-        if (!(abstractCard instanceof CoffeeBreak)){
+        //usually, a beat is gained whenever a card is played
+        //the description of beat tells that a beat is gained after playing a card, but this is what actually happens behind the scenes:
+        //card checks current beat and applies actions accordingly --> gain 1 beat --> execute actions
+        if (!(abstractCard instanceof CoffeeBreak) && !(abstractCard instanceof CountIn)){
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+        }
+
+        //play a 'GO' sound effect when playing a card fetched with the 'Count In' card
+        if ((abstractCard instanceof AbstractRhythmGirlCard) && ((AbstractRhythmGirlCard)abstractCard).getFetchedFromCountIn()){
+            if (((AbstractRhythmGirlCard)abstractCard).onBeatTriggered()){
+                CardCrawlGame.sound.play("COUNT_GO");
+            }
+            ((AbstractRhythmGirlCard)abstractCard).setFetchedFromCountIn(false);
         }
     }
 

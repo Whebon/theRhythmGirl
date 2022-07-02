@@ -124,5 +124,11 @@
     "NAME": "Coffee Break",
     "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn.",
     "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card."
+  },
+  "theRhythmGirl:CountIn": {
+    "NAME": "Count In",
+    "DESCRIPTION": "Put a card with therhythmgirl:On [#e3be4e]Beat [#e3be4e]X[] from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with therhythmgirl:On [#e3be4e]Beat [#e3be4e]X[] from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "EXTENDED_DESCRIPTION": ["I have no cards with #rOn #rBeat #rX in my draw pile."]
   }
 }
