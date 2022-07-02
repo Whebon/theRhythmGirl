@@ -119,4 +119,11 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     public void loadOriginalCardImage(){
         this.loadCardImage(originalImg);
     }
+
+    public void loadCardImage(String img){
+        this.textureImg = img;
+        if (img != null) {
+            super.loadCardImage(img);
+        }
+    }
 }

@@ -53,13 +53,13 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
         this.purgeOnUse = true;
         this.tags.add(CardTags.HEALING);
         this.uuidToRemove = uuid;
-        logger.info("NeverGiveUp own uuid: "+uuid.toString());
+        //logger.info("NeverGiveUp own uuid: "+uuid.toString());
     }
 
     public NeverGiveUp(UUID uuidReference) {
         this();
         this.uuidToRemove = uuidReference;
-        logger.info("NeverGiveUp reference uuid: "+uuidToRemove.toString());
+        //logger.info("NeverGiveUp reference uuid: "+uuidToRemove.toString());
     }
 
     // Actions the card should do.
@@ -85,8 +85,8 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
 
     @Override
     public AbstractCard makeCopy() {
-        logger.info("NeverGiveUp gets copied");
-        if (AbstractDungeon.player.masterDeck.group.contains(this))
+        //logger.info("NeverGiveUp gets copied");
+        if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck != null  && AbstractDungeon.player.masterDeck.group.contains(this))
             return new NeverGiveUp(this.uuidToRemove);
         else
             return new NeverGiveUp();

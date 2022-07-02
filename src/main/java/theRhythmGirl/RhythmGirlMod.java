@@ -25,7 +25,7 @@ import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.cards.*;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.events.IdentityCrisisEvent;
-import theRhythmGirl.potions.PlaceholderPotion;
+import theRhythmGirl.potions.BeatPotion;
 import theRhythmGirl.relics.*;
 import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
@@ -79,9 +79,9 @@ public class RhythmGirlMod implements
     public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(164.0f, 90.0f, 82.0f);
     
     // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
+    public static final Color BEAT_POTION_LIQUID = CardHelper.getColor(164.0f, 90.0f, 82.0f); // Redwood
+    public static final Color BEAT_POTION_HYBRID = CardHelper.getColor(164.0f, 90.0f, 82.0f); // Redwood
+    public static final Color BEAT_POTION_SPOTS = CardHelper.getColor(10.0f, 10.0f, 10.0f); // Blackish
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_attack_rhythm_girl_color.png";
@@ -89,8 +89,6 @@ public class RhythmGirlMod implements
     private static final String POWER_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_power_rhythm_girl_color.png";
 
     //todo: create custom energy orb
-    //todo: create custom character button
-    //todo: create custom character background
     private static final String ENERGY_ORB_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "theRhythmGirlResources/images/cardFrames/512/card_small_orb.png";
     
@@ -100,7 +98,6 @@ public class RhythmGirlMod implements
     private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/card_default_gray_orb.png";
     
     // Character assets
-    //todo: slightly reduce the size of the corpse asset
     //todo: create line-art for the button
     //todo: choose a sound effect for on character select
     private static final String THE_RHYTHM_GIRL_BUTTON = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterButton.png";
@@ -340,8 +337,7 @@ public class RhythmGirlMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
-        
+        BaseMod.addPotion(BeatPotion.class, BEAT_POTION_LIQUID, BEAT_POTION_HYBRID, BEAT_POTION_SPOTS, BeatPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
         logger.info("Done editing potions");
     }
     
@@ -541,6 +537,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("PARTY_CRACKER_BLAST", makeAudioPath("SFX_PartyCrackerBlast.wav"));
         BaseMod.addAudio("SPACE_BELL_APPLY", makeAudioPath("SFX_SpaceBellApply.wav"));
         BaseMod.addAudio("SPACE_BELL_BLAST", makeAudioPath("SFX_SpaceBellBlast.wav"));
+        BaseMod.addAudio("BEAT_POTION", makeAudioPath("SFX_BeatPotion.wav"));
     }
 
     @Override
