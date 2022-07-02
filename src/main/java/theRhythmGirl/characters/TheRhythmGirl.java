@@ -7,20 +7,14 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.StormOfSteel;
-import com.megacrit.cardcrawl.cards.red.Anger;
-import com.megacrit.cardcrawl.cards.red.Armaments;
-import com.megacrit.cardcrawl.cards.red.Clash;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -178,12 +172,10 @@ public class TheRhythmGirl extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
 
         retVal.add(TimeSignature44.ID);
-        retVal.add(DefaultClickableRelic.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         UnlockTracker.markRelicAsSeen(TimeSignature44.ID);
-        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 
         return retVal;
     }

@@ -360,7 +360,7 @@ public class RhythmGirlMod implements
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new TimeSignature44(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
+        BaseMod.addRelicToCustomPool(new Cowbell(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new TimeSignature44(), RelicType.SHARED);
@@ -369,6 +369,7 @@ public class RhythmGirlMod implements
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
         UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(Cowbell.ID);
         logger.info("Done adding relics!");
     }
     
@@ -538,6 +539,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("SPACE_BELL_APPLY", makeAudioPath("SFX_SpaceBellApply.wav"));
         BaseMod.addAudio("SPACE_BELL_BLAST", makeAudioPath("SFX_SpaceBellBlast.wav"));
         BaseMod.addAudio("BEAT_POTION", makeAudioPath("SFX_BeatPotion.wav"));
+        BaseMod.addAudio("COWBELL", makeAudioPath("SFX_Cowbell.wav"));
     }
 
     @Override

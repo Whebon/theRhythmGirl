@@ -1,12 +1,4 @@
 {
-  "theRhythmGirl:DefaultClickableRelic": {
-    "NAME": "Right-Clicky Relic",
-    "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",
-    "DESCRIPTIONS": [
-      "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL #yEvoke your rightmost Orb.",
-      "YOU ARE MINE!"
-    ]
-  },
   "theRhythmGirl:BottledPlaceholderRelic": {
     "NAME": "Bottled Placeholder",
     "FLAVOR": "What is this?",
@@ -17,6 +9,14 @@
       "Select a card to bottle for "
     ]
   },
+  "theRhythmGirl:Cowbell": {
+  "NAME": "Cowbell",
+  "FLAVOR": "When you feel like you've lost the rhythm, you can always fall back on this cue to guide you.",
+  "DESCRIPTIONS": [
+    "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL Gain #b1 #yBeat.",
+    "YOU ARE MINE!"
+  ]
+},
   "theRhythmGirl:TimeSignature44": {
     "NAME": "4/4 Time Signature",
     "FLAVOR": "Easy enough. Feel free to clap along.",
