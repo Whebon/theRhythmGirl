@@ -20,6 +20,9 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
+//todo: test stack
+//todo: test on card that already has repeat
+
 public class DoubleUpPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
