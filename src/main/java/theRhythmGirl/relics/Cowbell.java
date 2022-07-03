@@ -56,13 +56,6 @@ public class Cowbell extends CustomRelic implements ClickableRelic { // You must
             flash(); // Flash
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
             AbstractDungeon.actionManager.addToBottom(new SFXAction("COWBELL"));
-            /*List<AbstractCard> lst = AbstractDungeon.actionManager.cardsPlayedThisTurn;
-            if (lst != null && !lst.isEmpty()) {
-                AbstractCard card = lst.get(lst.size()-1);
-                if (card instanceof Ready){
-                    AbstractDungeon.actionManager.addToBottom(new SFXAction("COUNT_AND"));
-                }
-            }*/
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player));
         }
     }

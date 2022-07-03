@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -29,9 +30,11 @@ import theRhythmGirl.cards.CoffeeBreak;
 import theRhythmGirl.powers.CoffeeBreakPower;
 import theRhythmGirl.powers.MeasurePower;
 import theRhythmGirl.powers.OnGainBeatSubscriber;
+import theRhythmGirl.powers.RhythmHeavenPower;
 import theRhythmGirl.relics.TimeSignature44;
 import theRhythmGirl.util.TextureLoader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -58,12 +61,14 @@ public class BeatUI
 
     private static final Texture pillarTex = TextureLoader.getTexture(makeUIPath("Pillar.png"));
     private static final Texture lineTex = TextureLoader.getTexture(makeUIPath("Line.png"));
+    private static final Texture lineTexRhythmHeaven = TextureLoader.getTexture(makeUIPath("LineRhythmHeaven.png"));
     private static final Texture marshalTex = TextureLoader.getTexture(makeUIPath("Marshal.png"));
     private final HashMap<Integer, TextureAtlas.AtlasRegion> pillarRegions;
     private final TextureAtlas.AtlasRegion lineRegion;
+    private final TextureAtlas.AtlasRegion lineRegionRhythmHeaven;
     private TextureAtlas.AtlasRegion marshalRegion;
 
-    public enum BeatColor {NORMAL, RED, WHITE, ON_BEAT, CUED}
+    public enum BeatColor {NORMAL, RED, WHITE, ON_BEAT, CUED, RHYTHM_HEAVEN}
     private final HashMap<BeatColor, TextureAtlas.AtlasRegion> allPillarRegions;
     private final List<TextureAtlas.AtlasRegion> allMarshalRegions;
     private static final float MARSHAL_ANIMATION_TOTAL_IMAGES = 34;
@@ -151,7 +156,9 @@ public class BeatUI
         allPillarRegions.put(BeatColor.WHITE, normalPillarRegion);
         allPillarRegions.put(BeatColor.ON_BEAT, new TextureAtlas.AtlasRegion(pillarTex, 18, 0, 18, 67));
         allPillarRegions.put(BeatColor.CUED, new TextureAtlas.AtlasRegion(pillarTex, 36, 0, 18, 67));
+        allPillarRegions.put(BeatColor.RHYTHM_HEAVEN, new TextureAtlas.AtlasRegion(pillarTex, 54, 0, 18, 67));
         lineRegion = new TextureAtlas.AtlasRegion(lineTex, 0, 0, 63, 9);
+        lineRegionRhythmHeaven = new TextureAtlas.AtlasRegion(lineTexRhythmHeaven, 0, 0, 63, 9);
         allMarshalRegions = new ArrayList<>();
         for (int i = 0; i < MARSHAL_ANIMATION_TOTAL_IMAGES; i++) {
             allMarshalRegions.add(new TextureAtlas.AtlasRegion(marshalTex, 55*i, 0, 55,85));
@@ -429,7 +436,8 @@ public class BeatUI
 
             for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
                 //draw the pillars
-                TextureAtlas.AtlasRegion pillarRegion = pillarRegions.getOrDefault(iPillar, allPillarRegions.get(BeatColor.NORMAL));
+                TextureAtlas.AtlasRegion pillarRegion = (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)) ?
+                        allPillarRegions.get(BeatColor.RHYTHM_HEAVEN) : pillarRegions.getOrDefault(iPillar, allPillarRegions.get(BeatColor.NORMAL));
                 sb.setColor(Color.WHITE);
                 sb.draw(
                         pillarRegion,
@@ -448,8 +456,7 @@ public class BeatUI
                 if (iPillar != 0) {
                     //draw lines between pillars
                     sb.setColor(Color.WHITE);
-                    sb.draw(
-                            lineRegion,
+                    sb.draw((AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)) ? lineRegionRhythmHeaven : lineRegion,
                             getX() + (iPillar - 0.5f) * getPillarSpacing() * Settings.scale
                                     - lineRegion.getRegionWidth() / 2.0f * Settings.scale,
                             getY() + floatyOffset
@@ -465,17 +472,32 @@ public class BeatUI
                 }
             }
 
-            // draw a tooltip
+            //tooltips
             if (hitbox.hovered && !AbstractDungeon.isScreenUp) {
                 String body = UIStrings.TEXT[1]+currentBeat+UIStrings.TEXT[2];
-
                 float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
+
+                ArrayList<PowerTip> tips = new ArrayList<>();
+                tips.add(new PowerTip(UIStrings.TEXT[0], body));
+                if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)){
+                    AbstractPower power = AbstractDungeon.player.getPower(RhythmHeavenPower.POWER_ID);
+                    tips.add(new PowerTip(power.name, power.description, power.region48));
+                }
+
+                TipHelper.queuePowerTips(
+                        hitbox.x + hitbox.width + 12*Settings.scale,
+                        hitbox.y + hitbox.height/2 + height/2 + 74 * Settings.scale,
+                        tips
+                );
+
+                /*
                 TipHelper.renderGenericTip(
-                        hitbox.x + hitbox.width + 4*Settings.scale,
+                        hitbox.x + hitbox.width + 12*Settings.scale,
                         hitbox.y + hitbox.height/2 + height/2 + 74 * Settings.scale,
                         UIStrings.TEXT[0],
                         body
                 );
+                */
             }
 
             hitbox.render(sb);

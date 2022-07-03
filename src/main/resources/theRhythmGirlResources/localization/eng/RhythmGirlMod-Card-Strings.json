@@ -96,8 +96,8 @@
   },
   "theRhythmGirl:FishingRod": {
     "NAME": "Fishing Rod",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill to your hand. Gain 1 additional therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill+ to your hand. Gain 1 additional therhythmgirl:Beat."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill to your hand. NL Gain 1 additional therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill+ to your hand. NL Gain 1 additional therhythmgirl:Beat."
   },
   "theRhythmGirl:Pausegill": {
     "NAME": "Pausegill",
@@ -127,8 +127,13 @@
   },
   "theRhythmGirl:CountIn": {
     "NAME": "Count In",
-    "DESCRIPTION": "Put a card with therhythmgirl:On [#e3be4e]Beat [#e3be4e]X[] from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with therhythmgirl:On [#e3be4e]Beat [#e3be4e]X[] from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
-    "EXTENDED_DESCRIPTION": ["I have no cards with #rOn #rBeat #rX in my draw pile."]
+    "DESCRIPTION": "Put a card with an therhythmgirl:On [#e3be4e]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with an therhythmgirl:On [#e3be4e]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "EXTENDED_DESCRIPTION": ["I have no cards with #rOn #rBeat effects in my draw pile."]
+  },
+  "theRhythmGirl:RhythmHeaven": {
+    "NAME": "Rhythm Heaven",
+    "DESCRIPTION": "This turn, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "For !M! turns, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat."
   }
 }

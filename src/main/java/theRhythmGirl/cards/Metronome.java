@@ -51,13 +51,10 @@ public class Metronome extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("METRONOME"));
         this.addToBot(new LoseHPAction(p, p, 1));
-        if (upgraded) {
-            AbstractCard s = (new Metronome()).makeCopy();
+        AbstractCard s = (new Metronome()).makeCopy();
+        if (upgraded)
             s.upgrade();
-            this.addToBot(new MakeTempCardInHandAction(s, 1));
-        } else {
-            this.addToBot(new MakeTempCardInHandAction(new Metronome(), 1));
-        }
+        this.addToBot(new MakeTempCardInHandAction(s, 1));
     }
 
     //Upgraded stats.

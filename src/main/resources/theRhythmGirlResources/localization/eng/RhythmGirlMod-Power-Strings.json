@@ -17,10 +17,14 @@
         },
         "theRhythmGirl:SpaceBellPower": {
                 "NAME": "Space Bell",
-                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "everyone gains #b", "Block."]
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "everyone gains #b", " Block."]
         },
         "theRhythmGirl:CoffeeBreakPower": {
                 "NAME": "Coffee Break",
-                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats ", "this turn", "for #b", " turns"]
+                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats ", "this turn.", "for #b", " turns."]
+        },
+        "theRhythmGirl:RhythmHeavenPower": {
+                "NAME": "Rhythm Heaven",
+                "DESCRIPTIONS": ["This turn, ", "For #b", " turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
         }
 }

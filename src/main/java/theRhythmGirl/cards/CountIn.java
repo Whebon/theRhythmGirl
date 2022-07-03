@@ -60,12 +60,12 @@ public class CountIn extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //todo: add a count-in sound effect based on which beats are gained: 1,2,3... 3,4...
         Predicate<AbstractCard> predicate = (AbstractCard c)->{
             if (c instanceof AbstractRhythmGirlCard)
                 return ((AbstractRhythmGirlCard)c).hasOnBeatEffect();
             return false;
         };
+        //todo: rework [card 'fetchedFromCountIn'] -> [beatUI 'fetchedFromCountIn'] with uuid of the fetched card. clear fetchedFromCountIn on beat gain
         Consumer<List<AbstractCard>> callback = (List<AbstractCard> lst)->{
             if (lst.size()>=1){
                 AbstractCard fetchedCard = lst.get(0);

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.powers.RhythmHeavenPower;
 import theRhythmGirl.ui.BeatUI;
 
 import java.util.HashMap;
@@ -31,6 +32,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         put(BeatUI.BeatColor.WHITE, Color.GRAY.cpy());
         put(BeatUI.BeatColor.ON_BEAT, AbstractCard.GOLD_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.CUED, AbstractCard.BLUE_BORDER_GLOW_COLOR);
+        put(BeatUI.BeatColor.RHYTHM_HEAVEN, Color.WHITE.cpy());
     }};
     public boolean fetchedFromCountIn = false;
 
@@ -91,10 +93,14 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     }
 
     public boolean onBeatTriggered(){
+        if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID))
+            return true;
         return onBeatColor.get(RhythmGirlMod.beatUI.currentBeat) != BeatUI.BeatColor.NORMAL;
     }
 
     public boolean onBeatTriggered(int beat){
+        if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID))
+            return true;
         return RhythmGirlMod.beatUI.currentBeat == beat;
     }
 
@@ -119,7 +125,12 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        this.glowColor = beatColorToGlow.get(onBeatColor.get(RhythmGirlMod.beatUI.currentBeat)).cpy();
+        if (hasOnBeatEffect() && (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID))){
+            this.glowColor = beatColorToGlow.get(BeatUI.BeatColor.RHYTHM_HEAVEN).cpy();
+        }
+        else {
+            this.glowColor = beatColorToGlow.get(onBeatColor.get(RhythmGirlMod.beatUI.currentBeat)).cpy();
+        }
     }
 
     @Override
@@ -127,7 +138,6 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         if (!super.canUse(p, m)){
             return false;
         }
-
         if (mustBePlayedOnBeat && !onBeatTriggered()) {
             this.cantUseMessage = "This card must be played #rOn #rBeat.";
             return false;

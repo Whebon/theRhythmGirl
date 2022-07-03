@@ -14,6 +14,7 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 public class DoubleUp extends AbstractRhythmGirlCard {
 
     //todo: rework this card's mechanics. think about it: it massively anti-synergises with half of the the rhythm girl's attacks (CUED/ON_BEAT)
+    // idea for new mechanic: "The repeat keyword triggers !M! additional time, times"
 
     // TEXT DECLARATION
 

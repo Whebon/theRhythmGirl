@@ -8,14 +8,14 @@
     "DESCRIPTION": "After you play a card, gain #b1 #yBeat. At the start of each turn, reset your #yBeat to #b1."
   },
   {
-    "PROPER_NAME": "On Beat X",
+    "PROPER_NAME": "On Beat",
     "NAMES": [
       "On Beat",
       "on_beat",
       "on",
       "on_beat_2_or_4"
     ],
-    "DESCRIPTION": "Card effects after 'On Beat X' will only occur if the player has exactly X #yBeat."
+    "DESCRIPTION": "Card effects after #yOn #yBeat X will only occur if the player has exactly X #yBeat."
   },
   {
     "PROPER_NAME": "Measure",

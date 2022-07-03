@@ -7,6 +7,9 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.RhythmGirlMod;
 
+//todo: rework cued? allow player to play attacks?
+// cued -> exhaust and ethereal.
+
 public class CuedModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:Cued";
 
