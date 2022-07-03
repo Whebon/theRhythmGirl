@@ -56,7 +56,7 @@
   },
   "theRhythmGirl:DoubleUp": {
     "NAME": "Double Up",
-    "DESCRIPTION": "The first attack you play each turn is played twice."
+    "DESCRIPTION": "The first card you play each turn gains therhythmgirl:Repeat."
   },
   "theRhythmGirl:OddFlamingo": {
     "NAME": "Odd Flamingo",

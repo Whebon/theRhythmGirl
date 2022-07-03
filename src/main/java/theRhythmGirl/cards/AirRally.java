@@ -19,10 +19,6 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 public class AirRally extends AbstractRhythmGirlCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     */
-
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(AirRally.class.getSimpleName());
