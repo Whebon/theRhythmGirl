@@ -10,6 +10,7 @@ import theRhythmGirl.RhythmGirlMod;
 //todo: rework cued? allow player to play attacks?
 // cued -> exhaust and ethereal.
 
+@Deprecated
 public class CuedModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:Cued";
 

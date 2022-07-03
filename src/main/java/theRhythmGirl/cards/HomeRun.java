@@ -9,8 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.cardmodifiers.CuedModifier;
-import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.cardmodifiers.ExhaustAndEtherealModifier;
 import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
@@ -48,7 +47,7 @@ public class HomeRun extends AbstractRhythmGirlCard {
 
         onBeatColor.put(1, BeatUI.BeatColor.CUED);
         mustBePlayedOnBeat = true;
-        CardModifierManager.addModifier(this, new CuedModifier());
+        CardModifierManager.addModifier(this, new ExhaustAndEtherealModifier());
     }
 
     // Actions the card should do.

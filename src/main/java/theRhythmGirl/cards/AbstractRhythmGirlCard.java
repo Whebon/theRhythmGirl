@@ -29,7 +29,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     public static HashMap<BeatUI.BeatColor, com.badlogic.gdx.graphics.Color> beatColorToGlow = new HashMap<BeatUI.BeatColor, com.badlogic.gdx.graphics.Color>(){{
         put(BeatUI.BeatColor.NORMAL, AbstractCard.BLUE_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.RED, Color.RED.cpy());
-        put(BeatUI.BeatColor.WHITE, Color.GRAY.cpy());
+        put(BeatUI.BeatColor.BLUE, Color.TEAL.cpy());
         put(BeatUI.BeatColor.ON_BEAT, AbstractCard.GOLD_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.CUED, AbstractCard.BLUE_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.RHYTHM_HEAVEN, Color.WHITE.cpy());

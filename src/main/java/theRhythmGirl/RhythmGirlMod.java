@@ -548,6 +548,10 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("COUNT_3", makeAudioPath("SFX_Count3.wav"));
         BaseMod.addAudio("COUNT_4", makeAudioPath("SFX_Count4.wav"));
         BaseMod.addAudio("COUNT_GO", makeAudioPath("SFX_CountGo.wav"));
+        BaseMod.addAudio("BOSSA_NOVA_1", makeAudioPath("SFX_BossaNova1.wav"));
+        BaseMod.addAudio("BOSSA_NOVA_2", makeAudioPath("SFX_BossaNova2.wav"));
+        BaseMod.addAudio("BOSSA_NOVA_3", makeAudioPath("SFX_BossaNova3.wav"));
+        BaseMod.addAudio("BOSSA_NOVA_4", makeAudioPath("SFX_BossaNova4.wav"));
     }
 
     @Override

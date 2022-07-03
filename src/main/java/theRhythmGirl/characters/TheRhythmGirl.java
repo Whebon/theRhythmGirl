@@ -154,27 +154,10 @@ public class TheRhythmGirl extends CustomPlayer {
         logger.info("Begin loading starter Deck Strings");
 
         retVal.add(IntoYou.ID);
-        retVal.add(NeverGiveUp.ID);
         retVal.add(MonkeySeeMonkeyDo.ID);
         retVal.add(Ready.ID);
-        retVal.add(NeverGiveUp.ID);
-        retVal.add(MochiPounding.ID);
-        retVal.add(BuiltToScale.ID);
-        retVal.add(FishingRod.ID);
-        retVal.add(PoseForTheFans.ID);
-        retVal.add(PartyCracker.ID);
-        retVal.add(MandrillStrike.ID);
-        retVal.add(MandrillStrike.ID);
-        retVal.add(MandrillStrike.ID);
-        retVal.add(MandrillStrike.ID);
-        retVal.add(Pitch.ID);
-        retVal.add(Pitch.ID);
-        retVal.add(Pitch.ID);
-        retVal.add(Pitch.ID);
-        retVal.add(CountIn.ID);
-        retVal.add(CountIn.ID);
-        retVal.add(CountIn.ID);
-        retVal.add(CountIn.ID);
+        retVal.add(BossaNova.ID);
+        retVal.add(BossaNova.ID);
 
         return retVal;
     }

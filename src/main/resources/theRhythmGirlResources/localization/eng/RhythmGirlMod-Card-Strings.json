@@ -135,5 +135,9 @@
     "NAME": "Rhythm Heaven",
     "DESCRIPTION": "This turn, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat.",
     "UPGRADE_DESCRIPTION": "For !M! turns, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat."
+  },
+  "theRhythmGirl:BossaNova": {
+    "NAME": "Bossa Nova",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Deal !D! damage. NL therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
   }
 }

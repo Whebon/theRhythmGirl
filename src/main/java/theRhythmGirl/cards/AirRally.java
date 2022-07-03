@@ -52,9 +52,9 @@ public class AirRally extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = STACKS;
 
-        onBeatColor.put(1, BeatUI.BeatColor.WHITE);
+        onBeatColor.put(1, BeatUI.BeatColor.BLUE);
         onBeatColor.put(2, BeatUI.BeatColor.RED);
-        onBeatColor.put(3, BeatUI.BeatColor.WHITE);
+        onBeatColor.put(3, BeatUI.BeatColor.BLUE);
         onBeatColor.put(4, BeatUI.BeatColor.RED);
     }
 
@@ -79,10 +79,11 @@ public class AirRally extends AbstractRhythmGirlCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new WeakPower(m, magicNumber, false), magicNumber));
         }
-        else{
+        if (onBeatTriggered(2) || onBeatTriggered(4)){
             AbstractDungeon.actionManager.addToBottom(new SFXAction("AIR_RALLY_24"));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
+            if (!(onBeatTriggered(1) || onBeatTriggered(3)))
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new VulnerablePower(m, magicNumber, false), magicNumber));
         }
