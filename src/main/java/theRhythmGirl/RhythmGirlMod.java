@@ -12,15 +12,12 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,8 +30,7 @@ import theRhythmGirl.relics.*;
 import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
-import theRhythmGirl.variables.DefaultCustomVariable;
-import theRhythmGirl.variables.DefaultSecondMagicNumber;
+import theRhythmGirl.variables.MagicNumber2;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -102,7 +98,6 @@ public class RhythmGirlMod implements
     
     // Character assets
     //todo: create line-art for the button
-    //todo: choose a sound effect for on character select
     private static final String THE_RHYTHM_GIRL_BUTTON = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterButton.png";
     private static final String THE_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterPortraitBG.png";
     public static final String THE_RHYTHM_GIRL_SHOULDER_1 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder.png";
@@ -389,8 +384,7 @@ public class RhythmGirlMod implements
         // Add the Custom Dynamic Variables
         logger.info("Add variables");
         // Add the Custom Dynamic variables
-        BaseMod.addDynamicVariable(new DefaultCustomVariable());
-        BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
+        BaseMod.addDynamicVariable(new MagicNumber2());
         
         logger.info("Adding cards");
         // Add the cards
@@ -553,6 +547,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("BOSSA_NOVA_2", makeAudioPath("SFX_BossaNova2.wav"));
         BaseMod.addAudio("BOSSA_NOVA_3", makeAudioPath("SFX_BossaNova3.wav"));
         BaseMod.addAudio("BOSSA_NOVA_4", makeAudioPath("SFX_BossaNova4.wav"));
+        BaseMod.addAudio("CLICK_BUTTON", makeAudioPath("SFX_ClickButton.wav"));
     }
 
     @Override

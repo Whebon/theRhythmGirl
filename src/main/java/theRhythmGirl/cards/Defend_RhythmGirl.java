@@ -9,19 +9,19 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class Defend extends AbstractRhythmGirlCard {
+public class Defend_RhythmGirl extends AbstractRhythmGirlCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
      *
-     * Defend Gain 5 (8) block.
+     * Defend_RhythmGirl Gain 5 (8) block.
      */
 
 
     // TEXT DECLARATION
 
-    public static final String ID = RhythmGirlMod.makeID(Defend.class.getSimpleName());
-    public static final String IMG = makeCardPath("Defend.png");
+    public static final String ID = RhythmGirlMod.makeID(Defend_RhythmGirl.class.getSimpleName());
+    public static final String IMG = makeCardPath("Defend_RhythmGirl.png");
 
     // /TEXT DECLARATION/
 
@@ -41,7 +41,7 @@ public class Defend extends AbstractRhythmGirlCard {
     // /STAT DECLARATION/
 
 
-    public Defend() {
+    public Defend_RhythmGirl() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
 

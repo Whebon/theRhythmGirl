@@ -39,8 +39,8 @@ public class BossaNova extends AbstractRhythmGirlCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 7;
-    private static final int UPGRADE_DAMAGE = 3;
+    private static final int DAMAGE = 4;
+    private static final int UPGRADE_DAMAGE = 2;
     private static final int BLOCK = 7;
     private static final int UPGRADE_BLOCK = 3;
 
@@ -82,7 +82,9 @@ public class BossaNova extends AbstractRhythmGirlCard {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("BOSSA_NOVA_"+sfxIndex));
         if (onBeatTriggered(1) || onBeatTriggered(3)){
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
+                            AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, true));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                    AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, true));
         }
         if (onBeatTriggered(2) || onBeatTriggered(4)){
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));

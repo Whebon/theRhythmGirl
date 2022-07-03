@@ -18,7 +18,6 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     public static final String ID = RhythmGirlMod.makeID(PartyCracker.class.getSimpleName());
     public static final String IMG = makeCardPath(PartyCracker.class.getSimpleName()+"5.png");
     public static final String IMG_UPGRADED = makeCardPath(PartyCracker.class.getSimpleName()+"10.png");
-    //todo: wrong image is shown at preview upgrade
 
     // /TEXT DECLARATION/
 
@@ -29,6 +28,7 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
+    //todo: nerf this card
     private static final int COST = 1;
     private static final int DAMAGE = 5;
     private static final int COUNTDOWN = 5;
@@ -38,16 +38,16 @@ public class PartyCracker extends AbstractRhythmGirlCard {
 
     public PartyCracker() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        //todo: maybe use a second magic number and let the damage be fixed instead of affected by damage multipliers
+        //todo: maybe use a magic number instead of damage
         baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = COUNTDOWN;
+        baseMagicNumber2 = magicNumber2 = COUNTDOWN;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("PARTY_CRACKER_APPLY"));
-        this.addToBot(new ApplyPowerAction(m, p, new PartyCrackerPower(m, p, magicNumber, damage), magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new PartyCrackerPower(m, p, magicNumber2, damage), magicNumber2));
     }
 
     // Upgraded stats.
@@ -55,8 +55,8 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            loadCardImage(IMG_UPGRADED);
-            upgradeMagicNumber(COUNTDOWN_UPGRADE);
+            loadCardImage(IMG_UPGRADED); //patched in CardPortraitUpgradeChange
+            upgradeMagicNumber2(COUNTDOWN_UPGRADE);
             initializeDescription();
         }
     }

@@ -1,17 +1,9 @@
 {
-  "theRhythmGirl:DefaultAttackWithVariable": {
-    "NAME": "Special Strike",
-    "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !theRhythmGirl:ENERGY_DAMAGE! damage total.)"
-  },
-  "theRhythmGirl:DefaultSecondMagicNumberSkill": {
-    "NAME": "Cool 2 Number Card",
-    "DESCRIPTION": "Apply !M! Vulnerable and !theRhythmGirl:SecondMagic! poison to an enemy."
-  },
-  "theRhythmGirl:Strike": {
+  "theRhythmGirl:Strike_RhythmGirl": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "theRhythmGirl:Defend": {
+  "theRhythmGirl:Defend_RhythmGirl": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
@@ -114,7 +106,7 @@
   },
   "theRhythmGirl:PartyCracker": {
     "NAME": "Party Cracker",
-    "DESCRIPTION": "After you've gained !M! therhythmgirl:Beats, deal !D! damage. Double the damage each turn this effect is delayed."
+    "DESCRIPTION": "After you've gained !theRhythmGirl:MagicNumber2! therhythmgirl:Beats, deal !D! damage. Double the damage each turn this effect is delayed."
   },
   "theRhythmGirl:SpaceBell": {
     "NAME": "Space Bell",
@@ -138,6 +130,6 @@
   },
   "theRhythmGirl:BossaNova": {
     "NAME": "Bossa Nova",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Deal !D! damage. NL therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Deal !D! damage twice. NL therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
   }
 }

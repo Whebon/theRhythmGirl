@@ -1,6 +1,5 @@
 package theRhythmGirl.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -25,6 +24,7 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
 
     public static final String ID = RhythmGirlMod.makeID(NeverGiveUp.class.getSimpleName());
     public static final String IMG = makeCardPath("NeverGiveUp.png");
+    public static final String IMG_UPGRADED = makeCardPath("NeverGiveUpUpgraded.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -79,6 +79,7 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PERCENTAGE_DISPLAYED_ON_CARD);
+            loadCardImage(IMG_UPGRADED); //patched in CardPortraitUpgradeChange
             initializeDescription();
         }
     }

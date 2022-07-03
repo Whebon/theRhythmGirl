@@ -49,7 +49,6 @@ public class Pitch extends AbstractRhythmGirlCard {
         onBeatColor.put(1, BeatUI.BeatColor.ON_BEAT);
         mustBePlayedOnBeat = true;
         this.cardsToPreview = new HomeRun();
-        //todo: add tooltip about 'cued' keyword (or alternatively, add a cued card to the starter deck as a tutorial)
     }
 
     // Actions the card should do.

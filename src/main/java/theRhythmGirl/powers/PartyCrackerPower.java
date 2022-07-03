@@ -30,7 +30,6 @@ public class PartyCrackerPower extends TwoAmountPower implements CloneablePowerI
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private static int uniqueID;
     private int countdown;
-    private int numberOfBlastSoundEffects = 1;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(PartyCrackerPower.class.getSimpleName()+"84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(PartyCrackerPower.class.getSimpleName()+"32.png"));
@@ -77,9 +76,7 @@ public class PartyCrackerPower extends TwoAmountPower implements CloneablePowerI
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this, numberOfBeatsGained));
             this.countdown -= numberOfBeatsGained;
             if (this.countdown <= 0) {
-                for (int i = 0; i < numberOfBlastSoundEffects; i++) {
-                    this.addToBot(new SFXAction("PARTY_CRACKER_BLAST"));
-                }
+                this.addToBot(new SFXAction("PARTY_CRACKER_BLAST"));
                 this.addToBot(new DamageAction(owner, new DamageInfo(this.source, amount2, DamageInfo.DamageType.THORNS),
                         AbstractGameAction.AttackEffect.FIRE, false, true));
             }
@@ -88,7 +85,6 @@ public class PartyCrackerPower extends TwoAmountPower implements CloneablePowerI
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        this.numberOfBlastSoundEffects += 1;
         this.amount2 *= 2;
         this.fontScale = 8.0F;
         updateDescription();

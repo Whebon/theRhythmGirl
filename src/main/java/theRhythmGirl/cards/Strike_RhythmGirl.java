@@ -2,67 +2,58 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class DefaultAttackWithVariable extends AbstractRhythmGirlCard {
+public class Strike_RhythmGirl extends AbstractRhythmGirlCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Special Strike: Deal 7 (*) damage times the energy you currently have.
      */
 
     // TEXT DECLARATION
 
-    public static final String ID = RhythmGirlMod.makeID(DefaultAttackWithVariable.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String ID = RhythmGirlMod.makeID(Strike_RhythmGirl.class.getSimpleName());
+    public static final String IMG = makeCardPath("Strike_RhythmGirl.png");
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 7;
-    private static final int UPGRADE_PLUS_DMG = 1;
-
-    //whebon edit:
-    //public int specialDamage; "never-used"
+    private static final int DAMAGE = 6;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 
-    public DefaultAttackWithVariable() {
+    public Strike_RhythmGirl() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        isMultiDamage = true;
+        this.tags.add(CardTags.STARTER_STRIKE);
+        this.tags.add(CardTags.STRIKE);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Create an int which equals to your current energy.
-        int effect = EnergyPanel.totalCount;
-
-        // For each energy, create 1 damage action.
-        for (int i = 0; i < effect; i++) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.FIRE));
-        }
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("STRIKE"));
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, true));
     }
 
     // Upgraded stats.

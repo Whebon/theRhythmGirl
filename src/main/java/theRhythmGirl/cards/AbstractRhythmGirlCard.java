@@ -19,11 +19,13 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
 
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
-    public int defaultSecondMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
-    public int defaultBaseSecondMagicNumber;    // And our base stat - the number in its base state. It will reset to that by default.
-    public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
-    public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
+    //variables for the second magic number
+    public int magicNumber2;
+    public int baseMagicNumber2;
+    public boolean upgradedMagicNumber2;
+    public boolean isMagicNumber2Modified;
 
+    //variables for 'On Beat' keyword
     public boolean mustBePlayedOnBeat = false;
     public HashMap<Integer, BeatUI.BeatColor> onBeatColor;
     public static HashMap<BeatUI.BeatColor, com.badlogic.gdx.graphics.Color> beatColorToGlow = new HashMap<BeatUI.BeatColor, com.badlogic.gdx.graphics.Color>(){{
@@ -67,7 +69,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
-        isDefaultSecondMagicNumberModified = false;
+        isMagicNumber2Modified = false;
         originalImg = img;
 
         //Any non-NORMAL BeatColor will trigger all "On Beat"-related mechanics for that beat
@@ -80,16 +82,16 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
         super.displayUpgrades();
-        if (upgradedDefaultSecondMagicNumber) { // If we set upgradedDefaultSecondMagicNumber = true in our card.
-            defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Show how the number changes, as out of combat, the base number of a card is shown.
-            isDefaultSecondMagicNumberModified = true; // Modified = true, color it green to highlight that the number is being changed.
+        if (upgradedMagicNumber2) { // If we set upgradedDefaultSecondMagicNumber = true in our card.
+            magicNumber2 = baseMagicNumber2; // Show how the number changes, as out of combat, the base number of a card is shown.
+            isMagicNumber2Modified = true; // Modified = true, color it green to highlight that the number is being changed.
         }
     }
 
-    public void upgradeDefaultSecondMagicNumber(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
-        defaultBaseSecondMagicNumber += amount; // Upgrade the number by the amount you provide in your card.
-        defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Set the number to be equal to the base value.
-        upgradedDefaultSecondMagicNumber = true; // Upgraded = true - which does what the above method does.
+    public void upgradeMagicNumber2(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
+        baseMagicNumber2 += amount; // Upgrade the number by the amount you provide in your card.
+        magicNumber2 = baseMagicNumber2; // Set the number to be equal to the base value.
+        upgradedMagicNumber2 = true; // Upgraded = true - which does what the above method does.
     }
 
     public boolean onBeatTriggered(){

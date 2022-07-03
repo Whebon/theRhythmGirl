@@ -3,6 +3,7 @@ package theRhythmGirl.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.DamageAllEnemiesExceptOneAction;
@@ -45,7 +46,6 @@ public class OddFlamingo extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //todo: other sound effect if only 1 enemy is alive
         this.addToBot(new SFXAction("ODD_FLAMINGO"));
         this.addToBot(new DamageAllEnemiesExceptOneAction(p, baseDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.LIGHTNING, m));
     }

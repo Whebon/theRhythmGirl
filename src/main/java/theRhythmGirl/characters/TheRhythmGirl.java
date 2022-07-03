@@ -153,11 +153,15 @@ public class TheRhythmGirl extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        retVal.add(IntoYou.ID);
-        retVal.add(MonkeySeeMonkeyDo.ID);
-        retVal.add(Ready.ID);
-        retVal.add(BossaNova.ID);
-        retVal.add(BossaNova.ID);
+        retVal.add(Strike_RhythmGirl.ID);
+        retVal.add(Strike_RhythmGirl.ID);
+        retVal.add(Strike_RhythmGirl.ID);
+        retVal.add(Strike_RhythmGirl.ID);
+        retVal.add(Defend_RhythmGirl.ID);
+        retVal.add(Defend_RhythmGirl.ID);
+        retVal.add(Defend_RhythmGirl.ID);
+        retVal.add(Defend_RhythmGirl.ID);
+        retVal.add(MandrillStrike.ID);
 
         return retVal;
     }
@@ -178,7 +182,7 @@ public class TheRhythmGirl extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
+        CardCrawlGame.sound.play(getCustomModeCharacterButtonSoundKey()); // Sound Effect
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false); // Screen Effect
     }
@@ -186,7 +190,7 @@ public class TheRhythmGirl extends CustomPlayer {
     // character Select on-button-press sound effect
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_DAGGER_1";
+        return "CLICK_BUTTON";
     }
 
     // Should return how much HP your maximum HP reduces by when starting a run at
@@ -224,7 +228,7 @@ public class TheRhythmGirl extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Strike();
+        return new Strike_RhythmGirl();
     }
 
     // The class name as it appears next to your player name in-game
@@ -258,6 +262,18 @@ public class TheRhythmGirl extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT,

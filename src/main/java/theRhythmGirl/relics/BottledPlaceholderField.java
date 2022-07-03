@@ -1,4 +1,4 @@
-package theRhythmGirl.patches.relics;
+package theRhythmGirl.relics;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.patches.relics.BottledPlaceholderField;
 import theRhythmGirl.util.TextureLoader;
 
 import java.util.Iterator;

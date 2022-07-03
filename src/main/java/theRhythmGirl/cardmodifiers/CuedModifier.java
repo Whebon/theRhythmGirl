@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.RhythmGirlMod;
 
+//todo: add tooltip about 'cued' keyword (or alternatively, add a cued card to the starter deck as a tutorial)
 //todo: rework cued? allow player to play attacks?
 // cued -> exhaust and ethereal.
 

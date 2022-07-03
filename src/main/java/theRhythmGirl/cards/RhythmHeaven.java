@@ -2,6 +2,7 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -49,6 +50,7 @@ public class RhythmHeaven extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("POWER_FLIGHT"));
         this.addToBot(new ApplyPowerAction(p, p, new RhythmHeavenPower(p, p, magicNumber), magicNumber));
     }
 
