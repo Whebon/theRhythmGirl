@@ -5,7 +5,7 @@
         },
         "theRhythmGirl:DoubleUpPower": {
                 "NAME": "Double Up",
-                "DESCRIPTIONS": ["The first attack you play each turn is played twice.", "The first #b", " attacks you play each turn are played twice."]
+                "DESCRIPTIONS": ["The first card you play each turn gains #yRepeat.", "The first #b", " cards you play each turn have #yRepeat."]
         },
         "theRhythmGirl:LaunchPartyPower": {
                 "NAME": "Launch Party",

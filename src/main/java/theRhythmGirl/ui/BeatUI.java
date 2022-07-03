@@ -196,12 +196,16 @@ public class BeatUI
                 //next animation in queue
                 marshalAnimationActive = marshalAnimationQueue.get(0);
                 if (marshalAnimationActive.playCountingSfx){
+                    CardCrawlGame.sound.play("COWBELL");
+                    /*
+                    //play sound based on current beat
                     int n = getNumberOfPillars();
                     int sfxIndex = (marshalAnimationActive.target+n-2)%n+1;
                     if (sfxIndex >= 1 && sfxIndex<=4)
                         CardCrawlGame.sound.play("COUNT_" + sfxIndex);
                     else
                         CardCrawlGame.sound.play("COWBELL");
+                     */
                 }
                 marshalAnimationQueue.remove(0);
             }

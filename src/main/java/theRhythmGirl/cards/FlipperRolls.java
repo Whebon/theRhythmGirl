@@ -30,7 +30,7 @@ public class FlipperRolls extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int BLOCK = 5;
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;

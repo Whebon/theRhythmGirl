@@ -45,7 +45,7 @@ public class SeeSaw extends AbstractRhythmGirlCard {
 
     private static final int COST = 0;
     private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     private HashMap<AbstractMonster, Integer> monsterHealthAtTurnStart;
 

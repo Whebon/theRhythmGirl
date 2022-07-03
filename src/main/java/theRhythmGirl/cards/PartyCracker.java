@@ -38,6 +38,7 @@ public class PartyCracker extends AbstractRhythmGirlCard {
 
     public PartyCracker() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        //todo: maybe use a second magic number and let the damage be fixed instead of affected by damage multipliers
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = COUNTDOWN;
     }

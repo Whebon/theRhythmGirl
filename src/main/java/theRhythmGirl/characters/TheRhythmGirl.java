@@ -56,11 +56,11 @@ public class TheRhythmGirl extends CustomPlayer {
 
     // =============== BASE STATS =================
 
-    public static final int ENERGY_PER_TURN = 99;
+    public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
-    public static final int STARTING_GOLD = 9999;
-    public static final int CARD_DRAW = 10;
+    public static final int STARTING_GOLD = 99;
+    public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
@@ -193,7 +193,7 @@ public class TheRhythmGirl extends CustomPlayer {
     // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
     @Override
     public int getAscensionMaxHPLoss() {
-        return 0;
+        return 4;
     }
 
     // Should return the card color enum to be associated with your character.
@@ -258,8 +258,9 @@ public class TheRhythmGirl extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY};
     }
 

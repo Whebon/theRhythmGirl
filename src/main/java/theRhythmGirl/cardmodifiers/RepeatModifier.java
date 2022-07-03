@@ -12,25 +12,46 @@ import theRhythmGirl.cards.AbstractRhythmGirlCard;
 
 public class RepeatModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:RepeatCardModifier";
+    private final boolean isTemp;
+
+    public RepeatModifier(boolean isTemp) {
+        this.isTemp = isTemp;
+    }
 
     public RepeatModifier() {
+        this.isTemp = false;
+    }
+
+    @Override
+    public boolean shouldApply(AbstractCard card){
+        //a card can have 'Repeat' twice
+        return true;
+        //a card cannot have 'Repeat' twice
+        //return !CardModifierManager.hasModifier(card, RepeatModifier.ID);
     }
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        ((AbstractRhythmGirlCard)card).loadAlternativeCardImage();
+        if (card instanceof AbstractRhythmGirlCard)
+            ((AbstractRhythmGirlCard)card).loadAlternativeCardImage();
         return rawDescription + " NL therhythmgirl:Repeat.";
     }
 
     @Override
     public void onRemove(AbstractCard card) {
-        ((AbstractRhythmGirlCard)card).loadOriginalCardImage();
+        if (card instanceof AbstractRhythmGirlCard)
+            ((AbstractRhythmGirlCard)card).loadOriginalCardImage();
+    }
+
+    @Override
+    public boolean removeOnCardPlayed(AbstractCard card){
+        return isTemp;
     }
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
         AbstractCard newCard = card.makeStatEquivalentCopy();
-        CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, true);
+        CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, false);
         CardModifierManager.addModifier(newCard, new ExhaustAndEtherealModifier());
         AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(newCard, 1));
     }

@@ -11,10 +11,11 @@ import theRhythmGirl.powers.DoubleUpPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class DoubleUp extends AbstractRhythmGirlCard {
+//old version: "The first attack you play each turn is played twice."
+//old version: "The repeat keyword triggers !M! additional times."
+//current version: "The first card you play each turn has 'Repeat'."
 
-    //todo: rework this card's mechanics. think about it: it massively anti-synergises with half of the the rhythm girl's attacks (CUED/ON_BEAT)
-    // idea for new mechanic: "The repeat keyword triggers !M! additional time, times"
+public class DoubleUp extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
@@ -31,8 +32,8 @@ public class DoubleUp extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 3;
-    private static final int UPGRADE_COST = 2;
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
 
     // /STAT DECLARATION/
 

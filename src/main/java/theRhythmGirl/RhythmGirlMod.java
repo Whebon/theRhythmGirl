@@ -524,6 +524,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("FLIPPER_ROLL_9", makeAudioPath("SFX_FlipperRoll9.wav"));
         BaseMod.addAudio("FLIPPER_ROLL_10", makeAudioPath("SFX_FlipperRoll10.wav"));
         BaseMod.addAudio("DOUBLE_UP", makeAudioPath("SFX_DoubleUp.wav"));
+        BaseMod.addAudio("DOUBLE_UP_TRIGGER", makeAudioPath("SFX_DoubleUpTrigger.wav"));
         BaseMod.addAudio("ODD_FLAMINGO", makeAudioPath("SFX_OddFlamingo.wav"));
         BaseMod.addAudio("SEESAW_REPEAT", makeAudioPath("SFX_SeeSawRepeat.wav"));
         BaseMod.addAudio("SEESAW_EXHAUST", makeAudioPath("SFX_SeeSawExhaust.wav"));
@@ -568,6 +569,8 @@ public class RhythmGirlMod implements
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
         }
 
+        //todo: completely remove everything related to 'fetchedFromCountIn'
+        /*
         //play a 'GO' sound effect when playing a card fetched with the 'Count In' card
         if ((abstractCard instanceof AbstractRhythmGirlCard) && ((AbstractRhythmGirlCard)abstractCard).getFetchedFromCountIn()){
             if (((AbstractRhythmGirlCard)abstractCard).onBeatTriggered()){
@@ -575,6 +578,7 @@ public class RhythmGirlMod implements
             }
             ((AbstractRhythmGirlCard)abstractCard).setFetchedFromCountIn(false);
         }
+         */
     }
 
     @Override
