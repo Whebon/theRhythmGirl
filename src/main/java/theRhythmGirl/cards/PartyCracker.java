@@ -10,13 +10,18 @@ import theRhythmGirl.powers.PartyCrackerPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//this used to be MAGIC instead of DAMAGE, but I prefer damage.
+//and since I'm using DAMAGE, I also won't be using the 'HealthBarRenderPower' interface
+//the old version also did 5 damage. I changed this to 3 damage,
+//because having 5's on the [damage, countdown and artwork] and was confusing. And... it was OP.
+
 public class PartyCracker extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(PartyCracker.class.getSimpleName());
     public static final String IMG = makeCardPath(PartyCracker.class.getSimpleName()+"5.png");
-    public static final String IMG_UPGRADED = makeCardPath(PartyCracker.class.getSimpleName()+"10.png");
+    public static final String IMG_UPGRADED = makeCardPath(PartyCracker.class.getSimpleName()+"8.png");
 
     // /TEXT DECLARATION/
 
@@ -27,17 +32,15 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    //todo: nerf this card
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 3;
     private static final int COUNTDOWN = 5;
-    private static final int COUNTDOWN_UPGRADE = 5;
+    private static final int COUNTDOWN_UPGRADE = 3;
 
     // /STAT DECLARATION/
 
     public PartyCracker() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        //todo: maybe use a magic number instead of damage
         baseDamage = damage = DAMAGE;
         baseMagicNumber2 = magicNumber2 = COUNTDOWN;
     }
