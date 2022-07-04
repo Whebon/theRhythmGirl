@@ -141,6 +141,10 @@ public class RhythmGirlMod implements
         return getModID() + "Resources/images/events/" + resourcePath;
     }
 
+    public static String makeScenePath(String resourcePath) {
+        return getModID() + "Resources/images/scenes/" + resourcePath;
+    }
+
     public static String makeUIPath(String resourcePath) {
         return getModID() + "Resources/images/ui/" + resourcePath;
     }
@@ -548,6 +552,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("BOSSA_NOVA_3", makeAudioPath("SFX_BossaNova3.wav"));
         BaseMod.addAudio("BOSSA_NOVA_4", makeAudioPath("SFX_BossaNova4.wav"));
         BaseMod.addAudio("CLICK_BUTTON", makeAudioPath("SFX_ClickButton.wav"));
+        BaseMod.addAudio("MARSHAL_JUMP_1", makeAudioPath("SFX_MarshalJump1.wav"));
+        BaseMod.addAudio("MARSHAL_JUMP_2", makeAudioPath("SFX_MarshalJump2.wav"));
     }
 
     @Override

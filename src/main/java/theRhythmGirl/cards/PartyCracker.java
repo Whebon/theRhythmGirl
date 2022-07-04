@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
-import theRhythmGirl.powers.LaunchPartyPower;
 import theRhythmGirl.powers.PartyCrackerPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
