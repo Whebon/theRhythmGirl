@@ -199,6 +199,8 @@ public class BeatUI
                     CardCrawlGame.sound.play("COWBELL");
                     /*
                     //play sound based on current beat
+                    //while cool on paper, shouting out beat numbers doesn't work with the vibe of the game
+                    //the girl shouting '3, 4, 1' for a card to be played 'on 2' is disorientating
                     int n = getNumberOfPillars();
                     int sfxIndex = (marshalAnimationActive.target+n-2)%n+1;
                     if (sfxIndex >= 1 && sfxIndex<=4)

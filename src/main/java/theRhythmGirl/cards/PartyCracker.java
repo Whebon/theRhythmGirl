@@ -10,8 +10,6 @@ import theRhythmGirl.powers.PartyCrackerPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//this used to be MAGIC instead of DAMAGE, but I prefer damage.
-//and since I'm using DAMAGE, I also won't be using the 'HealthBarRenderPower' interface
 //the old version also did 5 damage. I changed this to 3 damage,
 //because having 5's on the [damage, countdown and artwork] and was confusing. And... it was OP.
 

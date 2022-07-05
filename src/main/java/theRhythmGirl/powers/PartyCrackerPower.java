@@ -20,6 +20,9 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
+//this used to be hp loss instead of damage, but I prefer damage.
+//and since I'm using damage, I also won't be using the 'HealthBarRenderPower' interface anymore
+
 public class PartyCrackerPower extends TwoAmountPower implements CloneablePowerInterface, OnGainBeatSubscriber {
     public AbstractCreature source;
 

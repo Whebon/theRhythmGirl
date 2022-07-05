@@ -7,8 +7,7 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.relics.TimeSignature44;
 
 //adds a beat and takes time signatures into consideration
-
-//todo: reword cards with '15 additional beats', to something like 'gain 16 beats instead of 1'
+//idea: reword cards with '15 additional beats', to something like 'gain 16 beats instead of 1'
 
 public class GainAdditionalBeatsAction extends AbstractGameAction {
     int cap;

@@ -15,6 +15,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 public class Ready extends AbstractRhythmGirlCard {
 
+    //todo: fix this card or the measure mechanic. ready+ready infinite loop is broken.
+
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(Ready.class.getSimpleName());
@@ -35,7 +37,6 @@ public class Ready extends AbstractRhythmGirlCard {
     private static final int COST = 0;
 
     // /STAT DECLARATION/
-
 
     public Ready() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

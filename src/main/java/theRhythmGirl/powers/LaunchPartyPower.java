@@ -83,5 +83,3 @@ public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerIn
         }
     }
 }
-
-//todo: render damage in enemy hp bar (same goes for PartyCracker)

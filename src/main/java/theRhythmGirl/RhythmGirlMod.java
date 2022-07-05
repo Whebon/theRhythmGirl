@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -24,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.cards.*;
 import theRhythmGirl.characters.TheRhythmGirl;
-import theRhythmGirl.events.IdentityCrisisEvent;
+import theRhythmGirl.events.BossaNovaEvent;
 import theRhythmGirl.potions.BeatPotion;
 import theRhythmGirl.relics.*;
 import theRhythmGirl.ui.BeatUI;
@@ -36,10 +37,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
-
-//todo: add cards
-//todo: add relics
-//todo: add potions
 
 @SpireInitializer
 public class RhythmGirlMod implements
@@ -59,7 +56,7 @@ public class RhythmGirlMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    public static Properties theDefaultRhythmGirlSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
@@ -75,6 +72,7 @@ public class RhythmGirlMod implements
     // gray: CardHelper.getColor(64.0f, 70.0f, 70.0f);
     // skin: CardHelper.getColor(252.0f, 218.0f, 159.0f);
     // redwood: CardHelper.getColor(164.0f, 90.0f, 82.0f); (#a45a52)
+    // brown (orb): CardHelper.getColor(127.0f, 83.0f, 40.0f) (#7f5328)
     public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(164.0f, 90.0f, 82.0f);
     
     // Potion Colors in RGB
@@ -83,21 +81,19 @@ public class RhythmGirlMod implements
     public static final Color BEAT_POTION_SPOTS = CardHelper.getColor(10.0f, 10.0f, 10.0f); // Blackish
 
     // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_attack_rhythm_girl_color.png";
-    private static final String SKILL_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_skill_rhythm_girl_color.png";
-    private static final String POWER_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/bg_power_rhythm_girl_color.png";
+    private static final String ATTACK_RHYTHM_GIRL = "theRhythmGirlResources/images/cardFrames/512/bg_attack_rhythm_girl_color.png";
+    private static final String SKILL_RHYTHM_GIRL = "theRhythmGirlResources/images/cardFrames/512/bg_skill_rhythm_girl_color.png";
+    private static final String POWER_RHYTHM_GIRL = "theRhythmGirlResources/images/cardFrames/512/bg_power_rhythm_girl_color.png";
 
-    //todo: create custom energy orb
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "theRhythmGirlResources/images/cardFrames/512/card_default_gray_orb.png";
+    private static final String ENERGY_ORB_RHYTHM_GIRL = "theRhythmGirlResources/images/cardFrames/512/card_rhythm_girl_orb.png";
     private static final String CARD_ENERGY_ORB = "theRhythmGirlResources/images/cardFrames/512/card_small_orb.png";
     
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_attack_rhythm_girl_color.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_skill_rhythm_girl_color.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_power_rhythm_girl_color.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/card_default_gray_orb.png";
+    private static final String ATTACK_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_attack_rhythm_girl_color.png";
+    private static final String SKILL_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_skill_rhythm_girl_color.png";
+    private static final String POWER_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/bg_power_rhythm_girl_color.png";
+    private static final String ENERGY_ORB_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/cardFrames/1024/card_rhythm_girl_orb.png";
     
     // Character assets
-    //todo: create line-art for the button
     private static final String THE_RHYTHM_GIRL_BUTTON = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterButton.png";
     private static final String THE_RHYTHM_GIRL_PORTRAIT = "theRhythmGirlResources/images/charSelect/RhythmGirlCharacterPortraitBG.png";
     public static final String THE_RHYTHM_GIRL_SHOULDER_1 = "theRhythmGirlResources/images/char/rhythmGirlCharacter/shoulder.png";
@@ -106,13 +102,8 @@ public class RhythmGirlMod implements
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "theRhythmGirlResources/images/Badge.png";
-    
-    // Atlas and JSON files for the Animations
-    //whebon edit (atlas):
-    //public static final String THE_DEFAULT_SKELETON_ATLAS = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.atlas";
-    //public static final String THE_DEFAULT_SKELETON_JSON = "theRhythmGirlResources/images/char/defaultCharacter/skeleton.json";
 
-    //Whebon edit
+    //singleton beatUI
     public static BeatUI beatUI;
     
     // =============== MAKE IMAGE PATHS =================
@@ -169,9 +160,9 @@ public class RhythmGirlMod implements
         
         BaseMod.addColor(TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL, RHYTHM_GIRL_CHARACTER_COLOR, RHYTHM_GIRL_CHARACTER_COLOR, RHYTHM_GIRL_CHARACTER_COLOR,
                 RHYTHM_GIRL_CHARACTER_COLOR, RHYTHM_GIRL_CHARACTER_COLOR, RHYTHM_GIRL_CHARACTER_COLOR, RHYTHM_GIRL_CHARACTER_COLOR,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
-                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
+                ATTACK_RHYTHM_GIRL, SKILL_RHYTHM_GIRL, POWER_RHYTHM_GIRL, ENERGY_ORB_RHYTHM_GIRL,
+                ATTACK_RHYTHM_GIRL_PORTRAIT, SKILL_RHYTHM_GIRL_PORTRAIT, POWER_RHYTHM_GIRL_PORTRAIT,
+                ENERGY_ORB_RHYTHM_GIRL_PORTRAIT, CARD_ENERGY_ORB);
         
         logger.info("Done creating the color");
         
@@ -179,9 +170,9 @@ public class RhythmGirlMod implements
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
-        theDefaultDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+        theDefaultRhythmGirlSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
         try {
-            SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
@@ -196,12 +187,13 @@ public class RhythmGirlMod implements
     // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
     // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
 
-    //todo: clean up the mess in the 'no edit area'
+    //it's really tempting to edit this area, but I feel pretty threatened :O
     
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
         InputStream in = RhythmGirlMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
+        assert in != null;
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // OR THIS, DON'T EDIT IT
         logger.info("You are attempting to set your mod ID as: " + ID); // NO WHY
         if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) { // DO *NOT* CHANGE THIS ESPECIALLY, TO EDIT YOUR MOD ID, SCROLL UP JUST A LITTLE, IT'S JUST ABOVE
@@ -222,6 +214,7 @@ public class RhythmGirlMod implements
         Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
         InputStream in = RhythmGirlMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
+        assert in != null;
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
         String packageName = RhythmGirlMod.class.getPackage().getName(); // STILL NO EDIT ZONE
         FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
@@ -287,7 +280,7 @@ public class RhythmGirlMod implements
             enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
             try {
                 // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultDefaultSettings);
+                SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings);
                 config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
                 config.save();
             } catch (Exception e) {
@@ -301,31 +294,19 @@ public class RhythmGirlMod implements
 
         
         // =============== EVENTS =================
-        // https://github.com/daviscook477/BaseMod/wiki/Custom-Events
 
-        // You can add the event like so:
-        // BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-        // Then, this event will be exclusive to the City (act 2), and will show up for all characters.
-        // If you want an event that's present at any part of the game, simply don't include the dungeon ID
-
-        // If you want to have more specific event spawning (e.g. character-specific or so)
-        // deffo take a look at that basemod wiki link as well, as it explains things very in-depth
-        // btw if you don't provide event type, normal is assumed by default
-
-        // Create a new event builder
-        // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
-        AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
-            .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-            .playerClass(TheRhythmGirl.Enums.THE_RHYTHM_GIRL) // Character specific event
+        //adding the bossa nova event
+        AddEventParams bossaNovaEventParams = new AddEventParams.Builder(BossaNovaEvent.ID, BossaNovaEvent.class)
+            .dungeonID(Exordium.ID)
+            .playerClass(TheRhythmGirl.Enums.THE_RHYTHM_GIRL)
             .create();
-
-        // Add the event
-        BaseMod.addEvent(eventParams);
+        BaseMod.addEvent(bossaNovaEventParams);
 
         // Add the beat ui
         beatUI = new BeatUI();
 
         // =============== /EVENTS/ =================
+
         logger.info("Done loading badge Image and mod options");
     }
     
@@ -477,7 +458,6 @@ public class RhythmGirlMod implements
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
                 //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
 
-                // whebon edit:
                 // note to self: added keywords do not get parsed correctly in relic strings.
                 // expected behavior: therhythmgirl:beat -> `Beat` [Beat, description]
                 // actual behavior: therhythmgirl:beat -> therhythmgirl:beat [Beat, description]
@@ -497,8 +477,7 @@ public class RhythmGirlMod implements
 
     @Override
     public void receiveAddAudio() {
-        // whebon edit
-        // please automate somehow
+        // please automate this somehow
         BaseMod.addAudio("STRIKE", makeAudioPath("SFX_Strike.wav"));
         BaseMod.addAudio("MANDRILL_STRIKE_SOUR", makeAudioPath("SFX_MandrillStrikeSour.wav"));
         BaseMod.addAudio("MANDRILL_STRIKE_SWEET", makeAudioPath("SFX_MandrillStrikeSweet.wav"));
@@ -569,17 +548,6 @@ public class RhythmGirlMod implements
         if (!(abstractCard instanceof CoffeeBreak) && !(abstractCard instanceof CountIn)){
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
         }
-
-        //todo: completely remove everything related to 'fetchedFromCountIn'
-        /*
-        //play a 'GO' sound effect when playing a card fetched with the 'Count In' card
-        if ((abstractCard instanceof AbstractRhythmGirlCard) && ((AbstractRhythmGirlCard)abstractCard).getFetchedFromCountIn()){
-            if (((AbstractRhythmGirlCard)abstractCard).onBeatTriggered()){
-                CardCrawlGame.sound.play("COUNT_GO");
-            }
-            ((AbstractRhythmGirlCard)abstractCard).setFetchedFromCountIn(false);
-        }
-         */
     }
 
     @Override

@@ -84,17 +84,17 @@ public class TheRhythmGirl extends CustomPlayer {
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
     public static final String[] orbTextures = {
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer1.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer2.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer3.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer4.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer5.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer6.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer1d.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer2d.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer3d.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer4d.png",
-            "theRhythmGirlResources/images/char/defaultCharacter/orb/layer5d.png",};
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer1.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer2.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer3.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer4.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer5.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer6.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer1d.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer2d.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer3d.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer4d.png",
+            "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer5d.png",};
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
@@ -117,20 +117,6 @@ public class TheRhythmGirl extends CustomPlayer {
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
-
-
-        // =============== ANIMATIONS =================  
-
-        //whebon edit (atlas):
-//        loadAnimation(
-//                THE_DEFAULT_SKELETON_ATLAS,
-//                THE_DEFAULT_SKELETON_JSON,
-//                1.0f);
-//        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-//        e.setTime(e.getEndTime() * MathUtils.random());
-
-        // =============== /ANIMATIONS/ =================
-
 
         // =============== TEXT BUBBLE LOCATION =================
 

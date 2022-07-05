@@ -36,7 +36,6 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         put(BeatUI.BeatColor.CUED, AbstractCard.BLUE_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.RHYTHM_HEAVEN, Color.WHITE.cpy());
     }};
-    public boolean fetchedFromCountIn = false;
 
     public static String originalImg;
 
@@ -80,18 +79,18 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         onBeatColor.put(4, BeatUI.BeatColor.NORMAL);
 }
 
-    public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
+    public void displayUpgrades() {
         super.displayUpgrades();
-        if (upgradedMagicNumber2) { // If we set upgradedDefaultSecondMagicNumber = true in our card.
-            magicNumber2 = baseMagicNumber2; // Show how the number changes, as out of combat, the base number of a card is shown.
-            isMagicNumber2Modified = true; // Modified = true, color it green to highlight that the number is being changed.
+        if (upgradedMagicNumber2) {
+            magicNumber2 = baseMagicNumber2;
+            isMagicNumber2Modified = true;
         }
     }
 
-    public void upgradeMagicNumber2(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
-        baseMagicNumber2 += amount; // Upgrade the number by the amount you provide in your card.
-        magicNumber2 = baseMagicNumber2; // Set the number to be equal to the base value.
-        upgradedMagicNumber2 = true; // Upgraded = true - which does what the above method does.
+    public void upgradeMagicNumber2(int amount) {
+        baseMagicNumber2 += amount;
+        magicNumber2 = baseMagicNumber2;
+        upgradedMagicNumber2 = true;
     }
 
     public boolean onBeatTriggered(){
@@ -160,13 +159,5 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         if (img != null) {
             super.loadCardImage(img);
         }
-    }
-
-    public void setFetchedFromCountIn(boolean state){
-        fetchedFromCountIn = state;
-    }
-
-    public boolean getFetchedFromCountIn(){
-        return fetchedFromCountIn;
     }
 }

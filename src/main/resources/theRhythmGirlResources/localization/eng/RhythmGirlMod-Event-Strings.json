@@ -1,21 +1,20 @@
 {
-  "theRhythmGirl:IdentityCrisisEvent": {
-    "NAME": "Identity Crisis",
+  "theRhythmGirl:BossaNovaEvent": {
+    "NAME": "Bossa Nova",
     "DESCRIPTIONS": [
-      "As you move through ~The~ ~City~ you come across a #pPurple #pMirror. NL You look at it, but you see no reflection.",
-      "You see no one but #g~You~ #g~wish~ #g~to~ #g~become~ #g~someone.~",
-      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
-      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
-      "You have no hands."
+      "You stumble upon two suspicious looking flowers. NL A voice emerged from the ground. \"Hey there young one, your style looks pretty #rBasic to us. For a small price, we can teach you a #b~Groovy~ rhythm.\"",
+      "Bossa & Nova happily joined the party.",
+      "We just don't seem to be in sync."
     ],
     "OPTIONS": [
-      "[Inspiration] #gGain #ga #gRandom #gStarting #gRelic.",
-      "[Denial] #rLose #r",
-      " #rMax #rHP. #gRemove #ga #gCard #gfrom #gyour #gdeck.",
-      "[Acceptance] #gGain #gApotheosis.",
-      "[TOUCH THE MIRROR] TOUCH TOUCH TO#C# TOUCH TO UCH TOUCH #rTOUCH TOUCH",
-      "[Leave]",
-      "Select card to remove."
+      "[Accept] #y",
+      " #ygold: #gTransform #ga #gBasic #gCard #ginto #gBossa #gNova.",
+      "[Locked] Requires: Basic Cards",
+      "[Locked] Requires: ",
+      " gold.",
+      "Select basic card to remove.",
+      "[Refuse]",
+      "[Leave]"
     ]
   }
 }

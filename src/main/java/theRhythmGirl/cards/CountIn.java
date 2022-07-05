@@ -65,18 +65,18 @@ public class CountIn extends AbstractRhythmGirlCard {
                 return ((AbstractRhythmGirlCard)c).hasOnBeatEffect();
             return false;
         };
-        //todo: rework [card 'fetchedFromCountIn'] -> [beatUI 'fetchedFromCountIn'] with uuid of the fetched card. clear fetchedFromCountIn on beat gain
         Consumer<List<AbstractCard>> callback = (List<AbstractCard> lst)->{
             if (lst.size()>=1){
                 AbstractCard fetchedCard = lst.get(0);
                 if (fetchedCard instanceof AbstractRhythmGirlCard){
                     int targetBeat = ((AbstractRhythmGirlCard)fetchedCard).getOnBeatIntegerX();
-                    ((AbstractRhythmGirlCard) fetchedCard).setFetchedFromCountIn(true);
                     RhythmGirlMod.beatUI.gainBeatsUntil(targetBeat);
                 }
             }
         };
         this.addToBot(new FetchAction(p.drawPile, predicate, callback));
+        //the game used to play a 'GO' sound effect when playing a card fetched with the 'Count In' card (with uuids)
+        //I removed this feature because the 'GO' sound effect may be considered annoying
     }
 
     //Upgraded stats.
