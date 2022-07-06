@@ -73,6 +73,7 @@ public class Pterodactyl extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("VO_CULTIST_1A", -0.25F, true));
         if (m != null) {
             this.addToBot(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY)));
         }

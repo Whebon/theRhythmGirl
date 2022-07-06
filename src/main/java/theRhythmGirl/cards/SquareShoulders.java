@@ -82,7 +82,7 @@ public class SquareShoulders extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.baseDamage = getBaseDamage(p);
         this.calculateCardDamage(m);
-        this.addToBot(new SFXAction("STRIKE", 0.5F));
+        this.addToBot(new SFXAction("STRIKE", -0.25F, true));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, true));

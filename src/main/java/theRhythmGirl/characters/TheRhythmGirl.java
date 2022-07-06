@@ -144,7 +144,6 @@ public class TheRhythmGirl extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        /*
         retVal.add(Strike_RhythmGirl.ID);
         retVal.add(Strike_RhythmGirl.ID);
         retVal.add(Strike_RhythmGirl.ID);
@@ -154,19 +153,6 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(Defend_RhythmGirl.ID);
         retVal.add(Defend_RhythmGirl.ID);
         retVal.add(MandrillStrike.ID);
-         */
-
-        retVal.add(PeaFlick.ID);
-        retVal.add(Pterodactyl.ID);
-        retVal.add(AirRally.ID);
-        retVal.add(SquareShoulders.ID);
-        retVal.add(Screwbot.ID);
-        retVal.add(PeaFlick.ID);
-        retVal.add(Pterodactyl.ID);
-        retVal.add(AirRally.ID);
-        retVal.add(SquareShoulders.ID);
-        retVal.add(Screwbot.ID);
-
 
         return retVal;
     }

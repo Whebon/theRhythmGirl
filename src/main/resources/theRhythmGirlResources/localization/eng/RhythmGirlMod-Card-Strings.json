@@ -75,7 +75,7 @@
   },
   "theRhythmGirl:NeverGiveUp": {
     "NAME": "Never Give Up",
-    "DESCRIPTION": "Restore !M! % of NL your Max HP. NL Permanently remove this card from your deck."
+    "DESCRIPTION": "Heal for !M! % of your NL Max HP. NL Permanently remove this card from your deck."
   },
   "theRhythmGirl:MochiPounding": {
     "NAME": "Mochi Pounding",

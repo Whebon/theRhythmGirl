@@ -24,6 +24,7 @@ public class Screwbot extends AbstractRhythmGirlCard {
 
     public static final String IMG_13 = makeCardPath("Screwbot_13.png");
     public static final String IMG_24 = makeCardPath("Screwbot_24.png");
+    public static final String IMG_1234 = makeCardPath("Screwbot_1234.png");
 
     // /TEXT DECLARATION/
 
@@ -43,7 +44,7 @@ public class Screwbot extends AbstractRhythmGirlCard {
     // /STAT DECLARATION/
 
     public Screwbot() {
-        super(ID, IMG_24, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG_1234, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = STACKS;
 
@@ -57,7 +58,12 @@ public class Screwbot extends AbstractRhythmGirlCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         if (this.onBeatTriggered(1) || this.onBeatTriggered(3)){
-            this.loadCardImage(IMG_13);
+            if (this.onBeatTriggered(2) || this.onBeatTriggered(4)){
+                this.loadCardImage(IMG_1234);
+            }
+            else{
+                this.loadCardImage(IMG_13);
+            }
         }
         else {
             this.loadCardImage(IMG_24);
