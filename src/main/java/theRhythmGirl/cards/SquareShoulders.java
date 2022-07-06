@@ -16,6 +16,9 @@ import theRhythmGirl.powers.MeasurePower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//Measure-based decks can be frustrating as you need to play 100s of cards to gain a reasonable amount of measure.
+//That's why this card ramps up instead of growing linearly
+
 public class SquareShoulders extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
@@ -47,8 +50,8 @@ public class SquareShoulders extends AbstractRhythmGirlCard {
     }
 
     private int getBaseDamage(AbstractCreature owner){
-        int measures = owner.hasPower(MeasurePower.POWER_ID) ? owner.getPower(MeasurePower.POWER_ID).amount : 0;
-        return measures*measures;
+        int measure = owner.hasPower(MeasurePower.POWER_ID) ? owner.getPower(MeasurePower.POWER_ID).amount : 0;
+        return measure*measure;
     }
 
     @Override

@@ -11,6 +11,8 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: buff this card?
+
 public class TallScrew extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

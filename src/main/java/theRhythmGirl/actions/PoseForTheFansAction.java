@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import theRhythmGirl.RhythmGirlMod;
@@ -25,6 +26,7 @@ public class PoseForTheFansAction extends AbstractGameAction {
         if (p.hasPower(MeasurePower.POWER_ID)){
             int amount = p.getPower(MeasurePower.POWER_ID).amount;
             this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amount), amount));
+            this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, amount), amount));
             this.addToTop(new RemoveSpecificPowerAction(p, p, MeasurePower.POWER_ID));
         }
         else{

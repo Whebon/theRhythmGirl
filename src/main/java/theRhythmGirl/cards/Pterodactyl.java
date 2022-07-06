@@ -44,7 +44,7 @@ public class Pterodactyl extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 2;
-    private static final int MEASURES_NEEDED = 2;
+    private static final int MEASURE_NEEDED = 2;
     private static final int DAMAGE = 28;
     private static final int UPGRADE_PLUS_DMG = 8;
 
@@ -53,7 +53,7 @@ public class Pterodactyl extends AbstractRhythmGirlCard {
     public Pterodactyl() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = MEASURES_NEEDED;
+        baseMagicNumber = magicNumber = MEASURE_NEEDED;
     }
 
     @Override
@@ -61,8 +61,8 @@ public class Pterodactyl extends AbstractRhythmGirlCard {
         if (!super.canUse(p, m)) {
             return false;
         } else {
-            int measures = p.hasPower(MeasurePower.POWER_ID) ? p.getPower(MeasurePower.POWER_ID).amount : 0;
-            if (measures < magicNumber){
+            int measure = p.hasPower(MeasurePower.POWER_ID) ? p.getPower(MeasurePower.POWER_ID).amount : 0;
+            if (measure < magicNumber){
                 this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
                 return false;
             }

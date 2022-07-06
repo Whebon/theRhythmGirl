@@ -14,6 +14,9 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: nerf: repeat on upgrade
+//idea: nerf: less damage
+
 public class Jab extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
