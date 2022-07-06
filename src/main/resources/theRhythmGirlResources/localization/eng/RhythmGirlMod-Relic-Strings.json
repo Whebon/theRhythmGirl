@@ -1,14 +1,4 @@
 {
-  "theRhythmGirl:BottledPlaceholderRelic": {
-    "NAME": "Bottled Placeholder",
-    "FLAVOR": "What is this?",
-    "DESCRIPTIONS": [
-      "Choose a card. Whenever you take play any card, draw the chosen card.",
-      "Whenever you play a card, draw ",
-      ".",
-      "Select a card to bottle for "
-    ]
-  },
   "theRhythmGirl:Cowbell": {
   "NAME": "Cowbell",
   "FLAVOR": "When you feel like you've lost the rhythm, you can always fall back on this cue to guide you.",
@@ -21,7 +11,7 @@
     "NAME": "4/4 Time Signature",
     "FLAVOR": "Easy enough. Feel free to clap along.",
     "DESCRIPTIONS": [
-      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeat and gain #b1 #yMeasure."
+      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeats and gain #b1 #yMeasure."
     ]
   }
 }

@@ -12,6 +12,9 @@ import theRhythmGirl.powers.MeasurePower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//old version: 2-cost, upgrade: 1-cost
+//new version: 1-cost, upgrade: double the effect
+
 public class BuiltToScale extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
@@ -31,8 +34,7 @@ public class BuiltToScale extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
+    private static final int COST = 1;
 
     // /STAT DECLARATION/
 
@@ -45,6 +47,8 @@ public class BuiltToScale extends AbstractRhythmGirlCard {
     public void applyPowers() {
         this.baseBlock = AbstractDungeon.player.hasPower(MeasurePower.POWER_ID) ?
                 AbstractDungeon.player.getPower(MeasurePower.POWER_ID).amount : 0;
+        if (upgraded)
+            baseBlock *= 2;
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
@@ -69,7 +73,7 @@ public class BuiltToScale extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

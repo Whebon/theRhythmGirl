@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CtBehavior;
 import theRhythmGirl.cards.NeverGiveUp;
 import theRhythmGirl.cards.PartyCracker;
+import theRhythmGirl.cards.PeaFlick;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,7 +20,8 @@ public class CardPortraitUpgradeChange
 {
     private static final List<String> cardIDs = Arrays.asList(
             NeverGiveUp.ID,
-            PartyCracker.ID
+            PartyCracker.ID,
+            PeaFlick.ID
     );
 
     @SpirePatch(

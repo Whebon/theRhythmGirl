@@ -11,6 +11,9 @@ import theRhythmGirl.powers.LaunchPartyPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//the card says: 'damage', but it is actually magic damage
+//I had to change damage to magic because the card was broken with attack relics like Akabeko
+
 public class LaunchParty extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
@@ -35,14 +38,14 @@ public class LaunchParty extends AbstractRhythmGirlCard {
 
     public LaunchParty() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = DAMAGE;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("LAUNCH_PARTY_APPLY"));
-        this.addToBot(new ApplyPowerAction(m, p, new LaunchPartyPower(m, p, 3, damage), 3));
+        this.addToBot(new ApplyPowerAction(m, p, new LaunchPartyPower(m, p, 3, magicNumber), 3));
     }
 
     // Upgraded stats.
@@ -50,7 +53,7 @@ public class LaunchParty extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

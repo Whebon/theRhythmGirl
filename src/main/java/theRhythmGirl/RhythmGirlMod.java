@@ -342,7 +342,6 @@ public class RhythmGirlMod implements
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new TimeSignature44(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Cowbell(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
@@ -351,7 +350,6 @@ public class RhythmGirlMod implements
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
         UnlockTracker.markRelicAsSeen(Cowbell.ID);
         logger.info("Done adding relics!");
     }
@@ -483,8 +481,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("MANDRILL_STRIKE_SWEET", makeAudioPath("SFX_MandrillStrikeSweet.wav"));
         BaseMod.addAudio("TALL_SCREW", makeAudioPath("SFX_TallScrew.wav"));
         BaseMod.addAudio("METRONOME", makeAudioPath("SFX_Metronome.wav"));
-        BaseMod.addAudio("AIR_RALLY_13", makeAudioPath("SFX_AirRally13.wav"));
-        BaseMod.addAudio("AIR_RALLY_24", makeAudioPath("SFX_AirRally24.wav"));
+        BaseMod.addAudio("AIR_RALLY_REPEAT", makeAudioPath("SFX_AirRallyRepeat.wav"));
+        BaseMod.addAudio("AIR_RALLY_EXHAUST", makeAudioPath("SFX_AirRallyExhaust.wav"));
         BaseMod.addAudio("MICRO_ROW_SWIM", makeAudioPath("SFX_MicroRowSwim.wav"));
         BaseMod.addAudio("JAB_REPEAT", makeAudioPath("SFX_JabRepeat.wav"));
         BaseMod.addAudio("JAB_EXHAUST", makeAudioPath("SFX_JabExhaust.wav"));
@@ -533,6 +531,10 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("CLICK_BUTTON", makeAudioPath("SFX_ClickButton.wav"));
         BaseMod.addAudio("MARSHAL_JUMP_1", makeAudioPath("SFX_MarshalJump1.wav"));
         BaseMod.addAudio("MARSHAL_JUMP_2", makeAudioPath("SFX_MarshalJump2.wav"));
+        BaseMod.addAudio("SCREWBOT_13", makeAudioPath("SFX_Screwbot13.wav"));
+        BaseMod.addAudio("SCREWBOT_24", makeAudioPath("SFX_Screwbot24.wav"));
+        BaseMod.addAudio("PEA_FLICK", makeAudioPath("SFX_PeaFlick.wav"));
+        BaseMod.addAudio("PEA_FORK", makeAudioPath("SFX_PeaFork.wav"));
     }
 
     @Override

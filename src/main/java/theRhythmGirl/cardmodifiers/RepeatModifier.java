@@ -13,18 +13,26 @@ import theRhythmGirl.cards.AbstractRhythmGirlCard;
 public class RepeatModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:RepeatCardModifier";
     private final boolean isTemp;
+    private final boolean hasLineBreak;
+
+    public RepeatModifier(boolean isTemp, boolean hasLineBreak) {
+        this.isTemp = isTemp;
+        this.hasLineBreak = hasLineBreak;
+    }
 
     public RepeatModifier(boolean isTemp) {
         this.isTemp = isTemp;
+        this.hasLineBreak = true;
     }
 
     public RepeatModifier() {
         this.isTemp = false;
+        this.hasLineBreak = true;
     }
 
     @Override
     public boolean shouldApply(AbstractCard card){
-        //a card can have 'Repeat' twice
+        //a card can have 'Repeat' multiple times
         return true;
         //a card cannot have 'Repeat' twice
         //return !CardModifierManager.hasModifier(card, RepeatModifier.ID);
@@ -34,7 +42,8 @@ public class RepeatModifier extends AbstractCardModifier {
     public String modifyDescription(String rawDescription, AbstractCard card) {
         if (card instanceof AbstractRhythmGirlCard)
             ((AbstractRhythmGirlCard)card).loadAlternativeCardImage();
-        return rawDescription + " NL therhythmgirl:Repeat.";
+        String linebreak = hasLineBreak ? " NL " : " ";
+        return rawDescription + linebreak + "therhythmgirl:Repeat.";
     }
 
     @Override
@@ -53,7 +62,7 @@ public class RepeatModifier extends AbstractCardModifier {
         AbstractCard newCard = card.makeStatEquivalentCopy();
         CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, false);
         CardModifierManager.addModifier(newCard, new ExhaustAndEtherealModifier());
-        AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(newCard, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(newCard, 1));
     }
 
     @Override
@@ -63,6 +72,6 @@ public class RepeatModifier extends AbstractCardModifier {
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new RepeatModifier();
+        return new RepeatModifier(isTemp, hasLineBreak);
     }
 }

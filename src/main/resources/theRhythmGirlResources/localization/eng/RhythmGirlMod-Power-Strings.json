@@ -1,7 +1,7 @@
 {
         "theRhythmGirl:MeasurePower": {
                 "NAME": "Measure",
-                "DESCRIPTIONS": ["#yMeasures can obtained by gaining enough #yBeats. They have no effect by themselves."]
+                "DESCRIPTIONS": ["#yMeasures are obtained by gaining enough #yBeats. They have no effect by themselves."]
         },
         "theRhythmGirl:DoubleUpPower": {
                 "NAME": "Double Up",

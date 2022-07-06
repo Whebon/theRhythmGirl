@@ -37,7 +37,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         put(BeatUI.BeatColor.RHYTHM_HEAVEN, Color.WHITE.cpy());
     }};
 
-    public static String originalImg;
+    public String originalImg;
 
     public AbstractRhythmGirlCard(final String id,
                                final String img,
@@ -77,6 +77,8 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         onBeatColor.put(2, BeatUI.BeatColor.NORMAL);
         onBeatColor.put(3, BeatUI.BeatColor.NORMAL);
         onBeatColor.put(4, BeatUI.BeatColor.NORMAL);
+        onBeatColor.put(5, BeatUI.BeatColor.NORMAL);
+        onBeatColor.put(6, BeatUI.BeatColor.NORMAL);
 }
 
     public void displayUpgrades() {

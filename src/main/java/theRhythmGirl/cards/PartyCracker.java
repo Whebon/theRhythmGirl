@@ -12,6 +12,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //the old version also did 5 damage. I changed this to 3 damage,
 //because having 5's on the [damage, countdown and artwork] and was confusing. And... it was OP.
+//also, the card says: 'damage', but it is actually magic damage
+//I had to change damage to magic because the card was broken with attack relics like Akabeko
 
 public class PartyCracker extends AbstractRhythmGirlCard {
 
@@ -39,7 +41,7 @@ public class PartyCracker extends AbstractRhythmGirlCard {
 
     public PartyCracker() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
+        baseMagicNumber = magicNumber = DAMAGE;
         baseMagicNumber2 = magicNumber2 = COUNTDOWN;
     }
 
@@ -47,7 +49,7 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("PARTY_CRACKER_APPLY"));
-        this.addToBot(new ApplyPowerAction(m, p, new PartyCrackerPower(m, p, magicNumber2, damage), magicNumber2));
+        this.addToBot(new ApplyPowerAction(m, p, new PartyCrackerPower(m, p, magicNumber2, magicNumber), magicNumber2));
     }
 
     // Upgraded stats.

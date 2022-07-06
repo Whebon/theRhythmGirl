@@ -22,7 +22,7 @@
   },
   "theRhythmGirl:AirRally": {
     "NAME": "Air Rally",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "theRhythmGirl:MicroRowSwim": {
     "NAME": "Micro Row Swim",
@@ -84,6 +84,7 @@
   "theRhythmGirl:BuiltToScale": {
     "NAME": "Built To Scale",
     "DESCRIPTION": "Gain Block equal to your therhythmgirl:Measure.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to twice your therhythmgirl:Measure.",
     "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
   },
   "theRhythmGirl:FishingRod": {
@@ -102,11 +103,11 @@
   },
   "theRhythmGirl:LaunchParty": {
     "NAME": "Launch Party",
-    "DESCRIPTION": "After you've gained 3 therhythmgirl:Beats, deal !D! damage."
+    "DESCRIPTION": "After you've gained 3 therhythmgirl:Beats, deal !M! damage."
   },
   "theRhythmGirl:PartyCracker": {
     "NAME": "Party Cracker",
-    "DESCRIPTION": "After you've gained !theRhythmGirl:MagicNumber2! therhythmgirl:Beats, deal !D! damage. Double the damage each turn this effect is delayed."
+    "DESCRIPTION": "After you've gained !theRhythmGirl:MagicNumber2! therhythmgirl:Beats, deal !M! damage. Double the damage each turn this effect is delayed."
   },
   "theRhythmGirl:SpaceBell": {
     "NAME": "Space Bell",
@@ -131,5 +132,27 @@
   "theRhythmGirl:BossaNova": {
     "NAME": "Bossa Nova",
     "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Deal !D! damage twice. NL therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+  },
+  "theRhythmGirl:Screwbot": {
+    "NAME": "Screwbot",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable."
+  },
+  "theRhythmGirl:PeaFlick": {
+    "NAME": "Pea Flick",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: Add a [#e3be4e]Pea [#e3be4e]Fork to your hand. NL Exhaust."
+  },
+  "theRhythmGirl:PeaFork": {
+    "NAME": "Pea Fork",
+    "DESCRIPTION": "therhythmgirl:On_Beat 3 or 4: NL Heal !M! HP."
+  },
+  "theRhythmGirl:Pterodactyl": {
+    "NAME": "Pterodactyl",
+    "DESCRIPTION": "Can only be played if you have at least !M! therhythmgirl:Measures. NL Deal !D! damage.",
+    "EXTENDED_DESCRIPTION": ["Not enough #rMeasures."]
+  },
+  "theRhythmGirl:SquareShoulders": {
+    "NAME": "Square Shoulders",
+    "DESCRIPTION": "Deal damage damage equal to your therhythmgirl:Measure squared.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   }
 }
