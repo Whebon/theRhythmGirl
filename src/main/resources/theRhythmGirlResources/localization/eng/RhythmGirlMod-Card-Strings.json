@@ -83,7 +83,7 @@
   },
   "theRhythmGirl:BuiltToScale": {
     "NAME": "Built To Scale",
-    "DESCRIPTION": "Gain Block equal to !M! times your number of therhythmgirl:Measures.",
+    "DESCRIPTION": "Gain Block equal to your therhythmgirl:Measure times !M!.",
     "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
   },
   "theRhythmGirl:FishingRod": {
@@ -97,8 +97,8 @@
   },
   "theRhythmGirl:PoseForTheFans": {
     "NAME": "Pose For The Fans",
-    "DESCRIPTION": "Lose all therhythmgirl:Measures. Gain Strength and Dexterity equal to the number of therhythmgirl:Measures lost this way.",
-    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measures. Gain Strength and Dexterity equal to the number of therhythmgirl:Measures lost this way. NL Grave."
+    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength and Dexterity equal to the amount of therhythmgirl:Measure lost this way.",
+    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength and Dexterity equal to the amount of therhythmgirl:Measure lost this way. NL Grave."
   },
   "theRhythmGirl:LaunchParty": {
     "NAME": "Launch Party",
@@ -151,7 +151,7 @@
   },
   "theRhythmGirl:SquareShoulders": {
     "NAME": "Square Shoulders",
-    "DESCRIPTION": "Deal damage equal to your number of therhythmgirl:Measures squared.",
+    "DESCRIPTION": "Deal damage equal to your therhythmgirl:Measure squared.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   }
 }
