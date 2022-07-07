@@ -378,7 +378,6 @@ public class RhythmGirlMod implements
         
         logger.info("Adding cards");
         // Add the cards
-        // Don't delete these default cards yet. You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
 
         // This method automatically adds any cards so you don't have to manually load them 1 by 1

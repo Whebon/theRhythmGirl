@@ -11,7 +11,7 @@ import java.sql.Time;
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
 import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
 
-public class TimeSignature44 extends CustomRelic implements TimeSignature {
+public class TimeSignature44 extends AbstractTimeSignatureRelic {
 
     public static final String ID = RhythmGirlMod.makeID("TimeSignature44");
 

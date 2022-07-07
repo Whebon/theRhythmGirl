@@ -369,15 +369,15 @@ public class BeatUI
         return (lineRegion.getRegionWidth()+allPillarRegions.get(BeatColor.NORMAL).getRegionWidth()+PILLAR_SPACING_MARGIN);
     }
 
-    public TimeSignature getTimeSignatureRelic(){
+    public AbstractTimeSignatureRelic getTimeSignatureRelic(){
         if (AbstractDungeon.player.hasRelic(TimeSignature24.ID))
-            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature24.ID);
+            return (AbstractTimeSignatureRelic)AbstractDungeon.player.getRelic(TimeSignature24.ID);
         if (AbstractDungeon.player.hasRelic(TimeSignature34.ID))
-            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature34.ID);
+            return (AbstractTimeSignatureRelic)AbstractDungeon.player.getRelic(TimeSignature34.ID);
         if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
-            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature44.ID);
+            return (AbstractTimeSignatureRelic)AbstractDungeon.player.getRelic(TimeSignature44.ID);
         if (AbstractDungeon.player.hasRelic(TimeSignature54.ID))
-            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature54.ID);
+            return (AbstractTimeSignatureRelic)AbstractDungeon.player.getRelic(TimeSignature54.ID);
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2), new TimeSignature54());
         return getTimeSignatureRelic();
     }
@@ -499,7 +499,7 @@ public class BeatUI
                     tips.add(new PowerTip(power.name, power.description, power.region48));
                 }
 
-                AbstractRelic timeSignatureRelic = ((AbstractRelic)getTimeSignatureRelic());
+                AbstractRelic timeSignatureRelic = getTimeSignatureRelic();
                 tips.add(new PowerTip(timeSignatureRelic.name, timeSignatureRelic.description, timeSignatureRelic.largeImg));
 
                 TipHelper.queuePowerTips(

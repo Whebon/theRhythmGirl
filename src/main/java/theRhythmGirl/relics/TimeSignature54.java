@@ -10,7 +10,7 @@ import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
 
 //this relic is held by the BeatUI and used whenever the player does not have an actual 'Time Signature' relic.
 
-public class TimeSignature54 extends CustomRelic implements TimeSignature {
+public class TimeSignature54 extends AbstractTimeSignatureRelic {
 
     public static final String ID = RhythmGirlMod.makeID("TimeSignature54");
 

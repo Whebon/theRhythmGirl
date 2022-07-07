@@ -1,7 +1,7 @@
 {
   "theRhythmGirl:TimeSignature54": {
     "NAME": "5/4 Time Signature",
-    "FLAVOR": "This relic doesn't exist, but its effects are used when the player has no other 'Time Signature' relic.",
+    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
     "DESCRIPTIONS": [
       "Whenever you have more than #b5 #yBeat, lose #b5 #yBeats and gain #b1 #yMeasure."
     ]
@@ -17,14 +17,14 @@
     "NAME": "3/4 Time Signature",
     "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
     "DESCRIPTIONS": [
-      "Replaces [#a45a52]4/4 [#a45a52]Time [#a45a52]Signature[]. Whenever you have more than #b3 #yBeat, lose #b3 #yBeats and gain #b1 #yMeasure."
+      "Whenever you have more than #b3 #yBeat, lose #b3 #yBeats and gain #b1 #yMeasure."
     ]
   },
   "theRhythmGirl:TimeSignature24": {
     "NAME": "2/4 Time Signature",
     "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
     "DESCRIPTIONS": [
-      "Replaces [#a45a52]4/4 [#a45a52]Time [#a45a52]Signature[]. Whenever you have more than #b2 #yBeat, lose #b2 #yBeats and gain #b1 #yMeasure."
+      "Whenever you have more than #b2 #yBeat, lose #b2 #yBeats and gain #b1 #yMeasure."
     ]
   },
   "theRhythmGirl:Cowbell": {

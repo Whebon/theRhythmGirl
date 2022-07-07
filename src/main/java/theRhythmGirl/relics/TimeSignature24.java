@@ -9,7 +9,7 @@ import theRhythmGirl.util.TextureLoader;
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
 import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
 
-public class TimeSignature24 extends CustomRelic implements TimeSignature {
+public class TimeSignature24 extends AbstractTimeSignatureRelic {
 
     public static final String ID = RhythmGirlMod.makeID("TimeSignature24");
 
@@ -23,21 +23,6 @@ public class TimeSignature24 extends CustomRelic implements TimeSignature {
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
-    }
-
-    @Override
-    public void obtain() {
-        // Overwrite TimeSignature44, or just give the relic if no time signature is found
-        if (AbstractDungeon.player.hasRelic(TimeSignature44.ID)) {
-            for (int i=0; i<AbstractDungeon.player.relics.size(); ++i) {
-                if (AbstractDungeon.player.relics.get(i).relicId.equals(TimeSignature44.ID)) {
-                    instantObtain(AbstractDungeon.player, i, true);
-                    break;
-                }
-            }
-        } else {
-            super.obtain();
-        }
     }
 
     @Override
