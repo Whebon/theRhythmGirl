@@ -16,9 +16,12 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
@@ -27,18 +30,15 @@ import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
 import theRhythmGirl.cards.CoffeeBreak;
-import theRhythmGirl.powers.CoffeeBreakPower;
-import theRhythmGirl.powers.MeasurePower;
-import theRhythmGirl.powers.OnGainBeatSubscriber;
-import theRhythmGirl.powers.RhythmHeavenPower;
-import theRhythmGirl.relics.TimeSignature44;
+import theRhythmGirl.powers.*;
+import theRhythmGirl.relics.*;
 import theRhythmGirl.util.TextureLoader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import static theRhythmGirl.RhythmGirlMod.makeUIPath;
+import static theRhythmGirl.RhythmGirlMod.*;
 
 public class BeatUI
 {
@@ -50,7 +50,6 @@ public class BeatUI
     private static final float PILLAR_SPACING_MARGIN = 6.0f;
     private static final float X_OFFSET = 16;
     private static final float Y_OFFSET = 196;
-    private static final int DEFAULT_NUMBER_OF_PILLARS = 4;
     private float floatyTimer = 0;
     private final Hitbox hitbox;
 
@@ -222,7 +221,7 @@ public class BeatUI
         //set target X, Y
         int target = marshalAnimationActive.target;
         if (target == 1 && marshalAnimationActive.type == MarshalAnimationTypes.JUMPING &&  marshalAnimationTimeElapsed <= marshalAnimationDuration/2)
-            target = 5;
+            target = getNumberOfPillars()+1;
         marshalAnimationX = getX()+(target-1)*getPillarSpacing()*Settings.scale
                 -marshalRegion.getRegionWidth()/2.0f*Settings.scale;
         marshalAnimationY = getY()+MARSHAL_FEET_Y_OFFSET*Settings.scale;
@@ -370,11 +369,21 @@ public class BeatUI
         return (lineRegion.getRegionWidth()+allPillarRegions.get(BeatColor.NORMAL).getRegionWidth()+PILLAR_SPACING_MARGIN);
     }
 
-    public int getNumberOfPillars() {
+    public TimeSignature getTimeSignatureRelic(){
+        if (AbstractDungeon.player.hasRelic(TimeSignature24.ID))
+            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature24.ID);
+        if (AbstractDungeon.player.hasRelic(TimeSignature34.ID))
+            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature34.ID);
         if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
-            return 4;
-        //logger.error("Player has no time signature relic");
-        return DEFAULT_NUMBER_OF_PILLARS;
+            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature44.ID);
+        if (AbstractDungeon.player.hasRelic(TimeSignature54.ID))
+            return (TimeSignature)AbstractDungeon.player.getRelic(TimeSignature54.ID);
+        AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2), new TimeSignature54());
+        return getTimeSignatureRelic();
+    }
+
+    public int getNumberOfPillars() {
+        return getTimeSignatureRelic().getNumberOfBeatsPerMeasure();
     }
 
     public float getX() {
@@ -490,8 +499,11 @@ public class BeatUI
                     tips.add(new PowerTip(power.name, power.description, power.region48));
                 }
 
+                AbstractRelic timeSignatureRelic = ((AbstractRelic)getTimeSignatureRelic());
+                tips.add(new PowerTip(timeSignatureRelic.name, timeSignatureRelic.description, timeSignatureRelic.largeImg));
+
                 TipHelper.queuePowerTips(
-                        hitbox.x + hitbox.width + 12*Settings.scale,
+                        hitbox.x + hitbox.width + 16*Settings.scale,
                         hitbox.y + hitbox.height/2 + height/2 + 74 * Settings.scale,
                         tips
                 );

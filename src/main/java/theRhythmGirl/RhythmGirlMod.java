@@ -341,7 +341,10 @@ public class RhythmGirlMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
+        BaseMod.addRelicToCustomPool(new TimeSignature24(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
+        BaseMod.addRelicToCustomPool(new TimeSignature34(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new TimeSignature44(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
+        BaseMod.addRelicToCustomPool(new TimeSignature54(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Cowbell(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
@@ -350,6 +353,10 @@ public class RhythmGirlMod implements
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
+        UnlockTracker.markRelicAsSeen(TimeSignature24.ID);
+        UnlockTracker.markRelicAsSeen(TimeSignature34.ID);
+        UnlockTracker.markRelicAsSeen(TimeSignature44.ID);
+        UnlockTracker.markRelicAsSeen(TimeSignature54.ID);
         UnlockTracker.markRelicAsSeen(Cowbell.ID);
         logger.info("Done adding relics!");
     }
