@@ -48,6 +48,7 @@ public class Screwbot extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = STACKS;
 
+        mustBePlayedOnBeat = true;
         onBeatColor.put(1, BeatUI.BeatColor.BLUE);
         onBeatColor.put(2, BeatUI.BeatColor.RED);
         onBeatColor.put(3, BeatUI.BeatColor.BLUE);

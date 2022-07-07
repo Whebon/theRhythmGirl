@@ -5,8 +5,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import theRhythmGirl.RhythmGirlMod;
 
 public abstract class AbstractTimeSignatureRelic extends CustomRelic {
+
+    public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
+
     public AbstractTimeSignatureRelic(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx) {
         super(id, texture, outline, tier, sfx);
     }
@@ -21,7 +27,8 @@ public abstract class AbstractTimeSignatureRelic extends CustomRelic {
             for (int i = 0; i < AbstractDungeon.player.relics.size(); i++) {
                 AbstractRelic otherTimeSignature = AbstractDungeon.player.relics.get(i);
                 if (otherTimeSignature instanceof AbstractTimeSignatureRelic) {
-                    if (((AbstractTimeSignatureRelic) otherTimeSignature).getNumberOfBeatsPerMeasure() >= getNumberOfBeatsPerMeasure()) {
+                    //bug fixed: this used to be '>=', obtained relics would overwrite themselves...
+                    if (((AbstractTimeSignatureRelic) otherTimeSignature).getNumberOfBeatsPerMeasure() > getNumberOfBeatsPerMeasure()){
                         super.instantObtain(AbstractDungeon.player, i, true);
                         return true;
                     }

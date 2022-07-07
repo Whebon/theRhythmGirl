@@ -153,5 +153,10 @@
     "NAME": "Square Shoulders",
     "DESCRIPTION": "Deal damage equal to your therhythmgirl:Measure squared.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+  },
+  "theRhythmGirl:KaratekaForm": {
+    "NAME": "Karateka Form",
+    "DESCRIPTION": "Your attacks deal 100% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "Your attacks deal 150% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat."
   }
 }

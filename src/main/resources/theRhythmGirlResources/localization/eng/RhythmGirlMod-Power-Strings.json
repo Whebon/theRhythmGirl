@@ -26,5 +26,9 @@
         "theRhythmGirl:RhythmHeavenPower": {
                 "NAME": "Rhythm Heaven",
                 "DESCRIPTIONS": ["This turn, ", "For #b", " turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
+        },
+        "theRhythmGirl:KaratekaFormPower": {
+                "NAME": "Karateka Form",
+                "DESCRIPTIONS": ["Your attacks deal ", "% more damage. You can only play attacks if you have exactly 1 #yBeat."]
         }
 }

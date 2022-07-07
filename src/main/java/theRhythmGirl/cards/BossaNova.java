@@ -51,6 +51,7 @@ public class BossaNova extends AbstractRhythmGirlCard {
         baseDamage = damage = DAMAGE;
         baseBlock = block = BLOCK;
 
+        mustBePlayedOnBeat = true;
         onBeatColor.put(1, BeatUI.BeatColor.ON_BEAT);
         onBeatColor.put(2, BeatUI.BeatColor.BLUE);
         onBeatColor.put(3, BeatUI.BeatColor.ON_BEAT);
@@ -62,6 +63,7 @@ public class BossaNova extends AbstractRhythmGirlCard {
         super.triggerOnGlowCheck();
         if (this.onBeatTriggered(1) || this.onBeatTriggered(3)){
             this.target = CardTarget.ENEMY;
+            this.type = CardType.ATTACK;
             if (this.onBeatTriggered(2) || this.onBeatTriggered(4)){
                 this.loadCardImage(IMG_1234);
             }
@@ -71,6 +73,7 @@ public class BossaNova extends AbstractRhythmGirlCard {
         }
         else {
             this.target = CardTarget.SELF;
+            this.type = CardType.SKILL;
             this.loadCardImage(IMG_24);
         }
     }

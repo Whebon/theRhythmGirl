@@ -10,5 +10,10 @@
     "TEXT": [
       "I have no #rMeasure."
     ]
+  },
+  "theRhythmGirl:WarnKaratekaForm": {
+    "TEXT": [
+      "I can only play attacks #rOn #rBeat #r1."
+    ]
   }
 }

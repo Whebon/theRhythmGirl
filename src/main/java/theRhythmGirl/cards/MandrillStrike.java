@@ -13,6 +13,8 @@ import theRhythmGirl.ui.BeatUI;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//fixed bug: apply powers doesn't work
+
 public class MandrillStrike extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
@@ -31,10 +33,10 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
-    private static final int MAGIC = 8;
-    private static final int UPGRADE_DAMAGE = 2;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int DAMAGE = 5;
+    private static final int MAGIC = 10;
+    private static final int UPGRADE_DAMAGE = 3;
+    private static final int UPGRADE_MAGIC = 6;
 
     // /STAT DECLARATION/
 
@@ -53,7 +55,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
         this.baseDamage = this.baseMagicNumber;
         super.applyPowers();
         this.baseDamage = realBaseDamage;
-        this.magicNumber =this.damage;
+        this.magicNumber = this.damage;
         this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
         super.applyPowers();
         this.isDamageModified = this.damage != this.baseDamage;

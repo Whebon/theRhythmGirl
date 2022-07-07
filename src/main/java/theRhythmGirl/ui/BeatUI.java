@@ -179,7 +179,6 @@ public class BeatUI
         marshalAnimationX = 0;
         marshalAnimationY = 0;
         currentBeat = 1;
-        updateTimeSignatureRelicCounters();
         setMarshalAnimationDuration();
         setMarshalRegion();
     }
@@ -354,15 +353,7 @@ public class BeatUI
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
         }
-        updateTimeSignatureRelicCounters();
         logger.info(String.format("BeatUI added %d beats", amount));
-    }
-
-    public void updateTimeSignatureRelicCounters(){
-        if (AbstractDungeon.player != null){
-            if (AbstractDungeon.player.hasRelic(TimeSignature44.ID))
-                AbstractDungeon.player.getRelic(TimeSignature44.ID).counter = currentBeat;
-        }
     }
 
     public float getPillarSpacing(){
@@ -378,6 +369,7 @@ public class BeatUI
             return (AbstractTimeSignatureRelic)AbstractDungeon.player.getRelic(TimeSignature44.ID);
         if (AbstractDungeon.player.hasRelic(TimeSignature54.ID))
             return (AbstractTimeSignatureRelic)AbstractDungeon.player.getRelic(TimeSignature54.ID);
+        logger.info("No TimeSignature Relic found. The player will now obtain a 'TimeSignature54'");
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2), new TimeSignature54());
         return getTimeSignatureRelic();
     }
@@ -406,18 +398,19 @@ public class BeatUI
 
     public void update(AbstractPlayer player) {
         //update the hitbox
+        //if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {}
         TextureAtlas.AtlasRegion pillarRegion = allPillarRegions.get(BeatColor.NORMAL);
         hitbox.resize(
-                ((getNumberOfPillars()-1)*getPillarSpacing()+pillarRegion.getRegionWidth())*Settings.scale,
-                (pillarRegion.getRegionHeight()+marshalRegion.getRegionHeight()*2.0f)*Settings.scale
+                ((getNumberOfPillars() - 1) * getPillarSpacing() + pillarRegion.getRegionWidth()) * Settings.scale,
+                (pillarRegion.getRegionHeight() + marshalRegion.getRegionHeight() * 2.0f) * Settings.scale
         );
         hitbox.translate(
-                getX()-pillarRegion.getRegionWidth()/2.0f*Settings.scale,
-                getY()-pillarRegion.getRegionHeight()*Settings.scale);
+                getX() - pillarRegion.getRegionWidth() / 2.0f * Settings.scale,
+                getY() - pillarRegion.getRegionHeight() * Settings.scale);
         hitbox.update();
 
         //update the pillar regions whenever the hand size is modified (the colors on the beat UI indicating if you have ON_BEAT cards for that beat)
-        if (AbstractDungeon.player.hand.size() != previousHandSize){
+        if (AbstractDungeon.player.hand.size() != previousHandSize) {
             updatePillarRegions();
             previousHandSize = AbstractDungeon.player.hand.size();
         }
