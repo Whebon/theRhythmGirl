@@ -19,6 +19,7 @@ import theRhythmGirl.powers.SpaceBellPower;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //intended to combine with PartyCracker or Pitch
+//idea: for the upgrade, 2 stacks instead of draw a card
 
 public class CoffeeBreak extends AbstractRhythmGirlCard {
 

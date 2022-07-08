@@ -12,6 +12,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //idea: buff this card?
+//idea: gain 2 additional beats
 
 public class TallScrew extends AbstractRhythmGirlCard {
 

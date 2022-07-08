@@ -116,11 +116,22 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     }
 
     public int getOnBeatIntegerX(){
+        //get the closest on beat effect, with respect to the current beat
+        int n = RhythmGirlMod.beatUI.getNumberOfPillars();
+        for (int i = 0; i < n; i++) {
+            int beat = (RhythmGirlMod.beatUI.currentBeat+i)%n+1;
+            if (onBeatColor.get(beat) != BeatUI.BeatColor.NORMAL){
+                return beat;
+            }
+        }
+        /*
+        //get the lowest on beat effect
         for (Integer i : onBeatColor.keySet()){
             if (onBeatColor.get(i) != BeatUI.BeatColor.NORMAL){
                 return i;
             }
         }
+         */
         logger.warn("Expected this card to have an 'On Beat X' effect, but it hasn't.");
         return -1;
     }
