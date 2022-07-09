@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import javassist.CtBehavior;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.powers.KaratekaFormPower;
+import theRhythmGirl.powers.KarateTimingPower;
 
 public class KaratekaFormPatch {
 
@@ -25,7 +25,7 @@ public class KaratekaFormPatch {
     {
         public static SpireReturn<Boolean> Prefix(AbstractCard __instance, AbstractPlayer p, AbstractMonster m)
         {
-            if (p.hasPower(KaratekaFormPower.POWER_ID) && RhythmGirlMod.beatUI.currentBeat!=1 && __instance.type == AbstractCard.CardType.ATTACK) {
+            if (p.hasPower(KarateTimingPower.POWER_ID) && RhythmGirlMod.beatUI.currentBeat!=1 && __instance.type == AbstractCard.CardType.ATTACK) {
                 __instance.cantUseMessage = uiStrings.TEXT[0];
                 return SpireReturn.Return(false);
             }
@@ -44,8 +44,8 @@ public class KaratekaFormPatch {
         )
         public static void PatchMethod(AbstractPlayer __instance)
         {
-            if (AbstractDungeon.player.hasPower(KaratekaFormPower.POWER_ID) && uiStrings.TEXT[0].equals(__instance.hoveredCard.cantUseMessage)){
-                AbstractDungeon.player.getPower(KaratekaFormPower.POWER_ID).flashWithoutSound();
+            if (AbstractDungeon.player.hasPower(KarateTimingPower.POWER_ID) && uiStrings.TEXT[0].equals(__instance.hoveredCard.cantUseMessage)){
+                AbstractDungeon.player.getPower(KarateTimingPower.POWER_ID).flashWithoutSound();
             }
         }
     }
@@ -61,8 +61,8 @@ public class KaratekaFormPatch {
         )
         public static void PatchMethod(AbstractPlayer __instance)
         {
-            if (AbstractDungeon.player.hasPower(KaratekaFormPower.POWER_ID) && uiStrings.TEXT[0].equals(__instance.hoveredCard.cantUseMessage)){
-                AbstractDungeon.player.getPower(KaratekaFormPower.POWER_ID).flashWithoutSound();
+            if (AbstractDungeon.player.hasPower(KarateTimingPower.POWER_ID) && uiStrings.TEXT[0].equals(__instance.hoveredCard.cantUseMessage)){
+                AbstractDungeon.player.getPower(KarateTimingPower.POWER_ID).flashWithoutSound();
             }
         }
     }

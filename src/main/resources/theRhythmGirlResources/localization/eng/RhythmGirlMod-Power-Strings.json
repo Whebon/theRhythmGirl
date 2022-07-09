@@ -27,8 +27,12 @@
                 "NAME": "Rhythm Heaven",
                 "DESCRIPTIONS": ["This turn, ", "For #b", " turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
         },
-        "theRhythmGirl:KaratekaFormPower": {
-                "NAME": "Karateka Form",
-                "DESCRIPTIONS": ["Your attacks deal ", "% more damage. You can only play attacks if you have exactly 1 #yBeat."]
+        "theRhythmGirl:KarateBoostPower": {
+                "NAME": "Karate Boost",
+                "DESCRIPTIONS": ["Your attacks deal #b", "% more damage."]
+        },
+        "theRhythmGirl:KarateTimingPower": {
+                "NAME": "Karate Timing",
+                "DESCRIPTIONS": ["You can only play attacks if you have exactly #b1 #yBeat. This power doesn't stack beyond #b1."]
         }
 }

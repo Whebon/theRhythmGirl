@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
-import theRhythmGirl.powers.DoubleUpPower;
-import theRhythmGirl.powers.KaratekaFormPower;
+import theRhythmGirl.powers.KarateBoostPower;
+import theRhythmGirl.powers.KarateTimingPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -50,7 +50,10 @@ public class KaratekaForm extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("KARATEKA_FORM"));
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new KaratekaFormPower(p, p, magicNumber), magicNumber));
+                new ApplyPowerAction(p, p, new KarateBoostPower(p, p, magicNumber), magicNumber));
+        if (!p.hasPower(KarateTimingPower.POWER_ID))
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new KarateTimingPower(p, p, 1), 0));
     }
 
     //Upgraded stats.

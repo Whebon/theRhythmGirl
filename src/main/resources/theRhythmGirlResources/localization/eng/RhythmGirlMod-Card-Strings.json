@@ -13,7 +13,8 @@
   },
   "theRhythmGirl:TallScrew": {
     "NAME": "Tall Screw",
-    "DESCRIPTION": "Gain !B! Block. Gain 1 additional therhythmgirl:Beat."
+    "DESCRIPTION": "Gain !B! Block. Gain !M! additional therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Gain !M! additional therhythmgirl:Beats."
   },
   "theRhythmGirl:Metronome": {
     "NAME": "Metronome",

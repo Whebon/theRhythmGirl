@@ -485,6 +485,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("MANDRILL_STRIKE_SOUR", makeAudioPath("SFX_MandrillStrikeSour.wav"));
         BaseMod.addAudio("MANDRILL_STRIKE_SWEET", makeAudioPath("SFX_MandrillStrikeSweet.wav"));
         BaseMod.addAudio("TALL_SCREW", makeAudioPath("SFX_TallScrew.wav"));
+        BaseMod.addAudio("TALL_SCREW_UPGRADED", makeAudioPath("SFX_TallScrewUpgraded.wav"));
         BaseMod.addAudio("METRONOME", makeAudioPath("SFX_Metronome.wav"));
         BaseMod.addAudio("AIR_RALLY_REPEAT", makeAudioPath("SFX_AirRallyRepeat.wav"));
         BaseMod.addAudio("AIR_RALLY_EXHAUST", makeAudioPath("SFX_AirRallyExhaust.wav"));

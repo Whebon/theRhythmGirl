@@ -48,7 +48,6 @@ public class Screwbot extends AbstractRhythmGirlCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = STACKS;
 
-        mustBePlayedOnBeat = true;
         onBeatColor.put(1, BeatUI.BeatColor.BLUE);
         onBeatColor.put(2, BeatUI.BeatColor.RED);
         onBeatColor.put(3, BeatUI.BeatColor.BLUE);
@@ -88,6 +87,11 @@ public class Screwbot extends AbstractRhythmGirlCard {
                                 AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new VulnerablePower(m, magicNumber, false), magicNumber));
+        }
+        if (!onBeatTriggered()){
+            //beat 5 basically
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                    AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
         }
     }
 
