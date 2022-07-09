@@ -303,7 +303,7 @@ public class BeatUI
     }
 
     public void publishOnGainBeat(int numberOfBeatsGained){
-        logger.info("Publishing OnBeat");
+        logger.info("Publishing OnBeat (for powers)");
         for (AbstractCreature m : AbstractDungeon.getMonsters().monsters){
             for (AbstractPower p : m.powers){
                 if (p instanceof OnGainBeatSubscriber){
@@ -316,7 +316,15 @@ public class BeatUI
                 ((OnGainBeatSubscriber) p).onGainBeat(numberOfBeatsGained);
             }
         }
-        logger.info("Published OnBeat");
+        logger.info("Published OnBeat (for powers)");
+    }
+
+    public void publishOnGainMeasure(int numberOfMeasuresGained){
+        logger.info("Publishing OnMeasure");
+        for (AbstractRelic r : AbstractDungeon.player.relics)
+            if (r instanceof OnGainMeasureSubscriber)
+                ((OnGainMeasureSubscriber)r).onGainMeasure(numberOfMeasuresGained);
+        logger.info("Published OnMeasure");
     }
 
     public void gainBeatsUntil(int targetBeat){
@@ -350,6 +358,7 @@ public class BeatUI
         currentBeat += amount;
         while (currentBeat>n){
             currentBeat -= n;
+            publishOnGainMeasure(1);
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
         }

@@ -33,5 +33,12 @@
   "DESCRIPTIONS": [
     "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL Gain #b1 #yBeat."
   ]
+  },
+  "theRhythmGirl:Widget": {
+    "NAME": "Widget",
+    "FLAVOR": "Word about the high quality of our widgets has gotten out, so we need more! Pick up the pace!",
+    "DESCRIPTIONS": [
+      "Whenever you gain a #yMeasure, gain 3 #yBlock."
+    ]
   }
 }
