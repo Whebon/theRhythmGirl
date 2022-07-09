@@ -17,6 +17,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //Lose 1 hp. Add a copy of this card to your hand. Exhaust.
 //idea: rework metronome to retain itself in hand after play instead of creating a copy (to prevent overflowing the exhaust pile)
 //idea: rework metronome to be limited to 8 uses per turn (to prevent tedious infinite combos)
+//todo: maximum number of uses (tungsten rod)
+//todo: no self damage
 
 public class Metronome extends AbstractRhythmGirlCard {
 

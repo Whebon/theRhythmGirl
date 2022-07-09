@@ -40,5 +40,12 @@
     "DESCRIPTIONS": [
       "Whenever you gain a #yMeasure, gain 3 #yBlock."
     ]
+  },
+  "theRhythmGirl:Quicknibble": {
+    "NAME": "Quicknibble",
+    "FLAVOR": "Dinner's on me!",
+    "DESCRIPTIONS": [
+      "The first time you gain a #yMeasure each turn, gain 1 [E] ."
+    ]
   }
 }
