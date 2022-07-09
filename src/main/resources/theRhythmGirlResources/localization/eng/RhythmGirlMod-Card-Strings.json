@@ -159,5 +159,14 @@
     "NAME": "Karateka Form",
     "DESCRIPTION": "Your attacks deal 100% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat.",
     "UPGRADE_DESCRIPTION": "Your attacks deal 150% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat."
+  },
+  "theRhythmGirl:RollCall": {
+  "NAME": "Roll Call",
+  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting to your hand.",
+  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting+ to your hand."
+  },
+  "theRhythmGirl:BoardMeeting": {
+    "NAME": "Board Meeting",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: deal !D! damage to ALL enemies."
   }
 }

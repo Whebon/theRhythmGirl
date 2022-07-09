@@ -548,6 +548,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("PEA_FORK", makeAudioPath("SFX_PeaFork.wav"));
         BaseMod.addAudio("KARATEKA_FORM", makeAudioPath("SFX_KaratekaForm.wav"));
         BaseMod.addAudio("QUICKNIBBLE", makeAudioPath("SFX_Quicknibble.wav"));
+        BaseMod.addAudio("ROLL_CALL", makeAudioPath("SFX_RollCall.wav"));
+        BaseMod.addAudio("BOARD_MEETING", makeAudioPath("SFX_BoardMeeting.wav"));
     }
 
     @Override
