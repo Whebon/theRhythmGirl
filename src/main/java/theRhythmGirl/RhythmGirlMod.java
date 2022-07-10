@@ -550,6 +550,10 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("QUICKNIBBLE", makeAudioPath("SFX_Quicknibble.wav"));
         BaseMod.addAudio("ROLL_CALL", makeAudioPath("SFX_RollCall.wav"));
         BaseMod.addAudio("BOARD_MEETING", makeAudioPath("SFX_BoardMeeting.wav"));
+        BaseMod.addAudio("COMBO", makeAudioPath("SFX_Combo.wav"));
+        BaseMod.addAudio("COMBO_UPGRADED", makeAudioPath("SFX_ComboUpgraded.wav"));
+        BaseMod.addAudio("BARREL", makeAudioPath("SFX_Barrel.wav"));
+        BaseMod.addAudio("BARREL_OBTAIN", makeAudioPath("SFX_BarrelObtain.wav"));
     }
 
     @Override

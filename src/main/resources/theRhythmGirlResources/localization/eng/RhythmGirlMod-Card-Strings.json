@@ -168,5 +168,13 @@
   "theRhythmGirl:BoardMeeting": {
     "NAME": "Board Meeting",
     "DESCRIPTION": "therhythmgirl:On_Beat 1: deal !D! damage to ALL enemies."
+  },
+  "theRhythmGirl:Combo": {
+    "NAME": "Combo",
+    "DESCRIPTION": "The first time you play !M! consecutive attacks each turn, add a Barrel to your hand."
+  },
+  "theRhythmGirl:Barrel": {
+    "NAME": "Barrel",
+    "DESCRIPTION": "Deal 12 damage."
   }
 }

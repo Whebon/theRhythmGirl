@@ -34,5 +34,9 @@
         "theRhythmGirl:KarateTimingPower": {
                 "NAME": "Karate Timing",
                 "DESCRIPTIONS": ["You can only play attacks if you have exactly #b1 #yBeat. This power doesn't stack beyond #b1."]
+        },
+        "theRhythmGirl:ComboPower": {
+                "NAME": "Hit ",
+                "DESCRIPTIONS": ["!", "The first time you play #b", " consecutive attacks each turn, add #b", " Barrel to your hand.", " Barrels to your hand."]
         }
 }
