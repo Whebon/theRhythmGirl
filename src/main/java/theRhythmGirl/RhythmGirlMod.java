@@ -554,6 +554,10 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("COMBO_UPGRADED", makeAudioPath("SFX_ComboUpgraded.wav"));
         BaseMod.addAudio("BARREL", makeAudioPath("SFX_Barrel.wav"));
         BaseMod.addAudio("BARREL_OBTAIN", makeAudioPath("SFX_BarrelObtain.wav"));
+        BaseMod.addAudio("FAN_CLUB_APPLY", makeAudioPath("SFX_FanClubApply.wav"));
+        BaseMod.addAudio("FAN_CLUB_TRIGGER", makeAudioPath("SFX_FanClubTrigger.wav"));
+
+
     }
 
     @Override

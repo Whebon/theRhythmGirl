@@ -38,5 +38,9 @@
         "theRhythmGirl:ComboPower": {
                 "NAME": "Hit ",
                 "DESCRIPTIONS": ["!", "The first time you play #b", " consecutive attacks each turn, add #b", " Barrel to your hand.", " Barrels to your hand."]
+        },
+        "theRhythmGirl:FanClubPower": {
+                "NAME": "Fan Club",
+                "DESCRIPTIONS": ["Whenever you gain a #yMeasure, deal #b", " damage to ALL enemies"]
         }
 }

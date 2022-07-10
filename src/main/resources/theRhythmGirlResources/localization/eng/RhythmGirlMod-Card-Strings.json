@@ -176,5 +176,9 @@
   "theRhythmGirl:Barrel": {
     "NAME": "Barrel",
     "DESCRIPTION": "Deal 12 damage."
+  },
+  "theRhythmGirl:FanClub": {
+    "NAME": "Fan Club",
+    "DESCRIPTION": "Whenever you gain a therhythmgirl:Measure, deal !M! damage to ALL enemies"
   }
 }
