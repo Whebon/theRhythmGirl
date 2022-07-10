@@ -16,19 +16,22 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
-public class FanClubPower extends AbstractPower implements CloneablePowerInterface {
+//note that popularity is an endgame mechanic and usually belongs to high rarity cards
+//todo: fix ordering of 'gain beat' and 'gain popularity'
+
+public class PopularityPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = RhythmGirlMod.makeID(FanClubPower.class.getSimpleName());
+    public static final String POWER_ID = RhythmGirlMod.makeID(PopularityPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(FanClubPower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(FanClubPower.class.getSimpleName() + "32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(PopularityPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(PopularityPower.class.getSimpleName() + "32.png"));
 
-    public FanClubPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public PopularityPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -54,13 +57,13 @@ public class FanClubPower extends AbstractPower implements CloneablePowerInterfa
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.ID.equals(MeasurePower.POWER_ID) && target == this.owner) {
             this.flash();
-            this.addToBot(new CustomSFXAction("FAN_CLUB_TRIGGER"));
+            this.addToBot(new CustomSFXAction("POPULARITY"));
             this.addToBot(new DamageAllEnemiesAction(this.source, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new FanClubPower(owner, source, amount);
+        return new PopularityPower(owner, source, amount);
     }
 }

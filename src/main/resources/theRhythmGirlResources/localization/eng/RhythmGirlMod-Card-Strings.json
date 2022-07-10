@@ -96,8 +96,8 @@
     "NAME": "Pausegill",
     "DESCRIPTION": "therhythmgirl:On_Beat 4: deal !D! damage."
   },
-  "theRhythmGirl:PoseForTheFans": {
-    "NAME": "Pose For The Fans",
+  "theRhythmGirl:BigFlex": {
+    "NAME": "Big Flex",
     "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength and Dexterity equal to the amount of therhythmgirl:Measure lost this way.",
     "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength and Dexterity equal to the amount of therhythmgirl:Measure lost this way. NL Grave."
   },
@@ -179,6 +179,15 @@
   },
   "theRhythmGirl:FanClub": {
     "NAME": "Fan Club",
-    "DESCRIPTION": "Whenever you gain a therhythmgirl:Measure, deal !M! damage to ALL enemies"
+    "DESCRIPTION": "Gain !M! therhythmgirl:Popularity."
+  },
+  "theRhythmGirl:PoseForTheFans": {
+    "NAME": "Pose For The Fans",
+    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to the amount of therhythmgirl:Measure lost this way.",
+    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to the amount of therhythmgirl:Measure lost this way. NL Grave."
+  },
+  "theRhythmGirl:GrowingFanbase": {
+    "NAME": "Growing Fanbase",
+    "DESCRIPTION": "At the end of your turn, gain !M! therhythmgirl:Popularity."
   }
 }

@@ -12,21 +12,21 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.powers.MeasurePower;
-import theRhythmGirl.powers.PopularityPower;
 
-public class PoseForTheFansAction extends AbstractGameAction {
+public class BigFlexAction extends AbstractGameAction {
 
     public static final String UI_ID = RhythmGirlMod.makeID("WarnNoMeasure");
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
-    public PoseForTheFansAction() {
+    public BigFlexAction() {
     }
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
         if (p.hasPower(MeasurePower.POWER_ID)){
             int amount = p.getPower(MeasurePower.POWER_ID).amount;
-            this.addToTop(new ApplyPowerAction(p, p, new PopularityPower(p, p, amount), amount));
+            this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amount), amount));
+            this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, amount), amount));
             this.addToTop(new RemoveSpecificPowerAction(p, p, MeasurePower.POWER_ID));
         }
         else{

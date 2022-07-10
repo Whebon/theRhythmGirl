@@ -269,7 +269,7 @@ public class RhythmGirlMod implements
         ModPanel settingsPanel = new ModPanel();
         
         // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("Enable Sound Effects from Rhythm Heaven",
+        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("Enable Custom Sound Effects from Rhythm Heaven",
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
                 enableCustomSoundEffects, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
@@ -521,7 +521,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("MOCHI_POUNDING", makeAudioPath("SFX_MochiPounding.wav"));
         BaseMod.addAudio("PAUSEGILL_CUE", makeAudioPath("SFX_PausegillCue.wav"));
         BaseMod.addAudio("PAUSEGILL_CATCH", makeAudioPath("SFX_PausegillCatch.wav"));
-        BaseMod.addAudio("POSE_FOR_THE_FANS", makeAudioPath("SFX_PoseForTheFans.wav"));
+        BaseMod.addAudio("BIG_FLEX", makeAudioPath("SFX_BigFlex.wav"));
         BaseMod.addAudio("LAUNCH_PARTY_APPLY", makeAudioPath("SFX_LaunchPartyApply.wav"));
         BaseMod.addAudio("LAUNCH_PARTY_BLAST", makeAudioPath("SFX_LaunchPartyBlast.wav"));
         BaseMod.addAudio("PARTY_CRACKER_APPLY", makeAudioPath("SFX_PartyCrackerApply.wav"));
@@ -554,10 +554,10 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("COMBO_UPGRADED", makeAudioPath("SFX_ComboUpgraded.wav"));
         BaseMod.addAudio("BARREL", makeAudioPath("SFX_Barrel.wav"));
         BaseMod.addAudio("BARREL_OBTAIN", makeAudioPath("SFX_BarrelObtain.wav"));
-        BaseMod.addAudio("FAN_CLUB_APPLY", makeAudioPath("SFX_FanClubApply.wav"));
-        BaseMod.addAudio("FAN_CLUB_TRIGGER", makeAudioPath("SFX_FanClubTrigger.wav"));
-
-
+        BaseMod.addAudio("FAN_CLUB", makeAudioPath("SFX_FanClub.wav"));
+        BaseMod.addAudio("POPULARITY", makeAudioPath("SFX_Popularity.wav"));
+        BaseMod.addAudio("POSE_FOR_THE_FANS", makeAudioPath("SFX_PoseForTheFans.wav"));
+        BaseMod.addAudio("GROWING_FANBASE", makeAudioPath("SFX_GrowingFanbase.wav"));
     }
 
     @Override
@@ -571,6 +571,7 @@ public class RhythmGirlMod implements
         //the description of beat tells that a beat is gained after playing a card, but this is what actually happens behind the scenes:
         //card checks current beat and applies actions accordingly --> gain 1 beat --> execute actions
         if (!(abstractCard instanceof CoffeeBreak) && !(abstractCard instanceof CountIn)){
+            logger.info("Gain 1 Beat (played a card)");
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
         }
     }

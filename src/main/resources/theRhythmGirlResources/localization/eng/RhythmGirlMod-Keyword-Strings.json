@@ -38,5 +38,12 @@
       "cued"
     ],
     "DESCRIPTION": "#yCued cards exhaust whenever you play another attack. #yCued cards are also equipped with #yExhaust and #yEthereal."
+  },
+  {
+    "PROPER_NAME": "Popularity",
+    "NAMES": [
+      "popularity"
+    ],
+    "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
   }
 ]
