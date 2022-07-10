@@ -4,10 +4,9 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
@@ -41,7 +40,7 @@ public class Quicknibble extends CustomRelic implements OnGainMeasureSubscriber 
         if (!this.triggeredThisTurn) {
             this.triggeredThisTurn = true;
             this.flash();
-            this.addToBot(new SFXAction("QUICKNIBBLE"));
+            this.addToBot(new CustomSFXAction("QUICKNIBBLE"));
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new GainEnergyAction(1));
         }

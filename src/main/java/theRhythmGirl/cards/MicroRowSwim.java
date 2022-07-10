@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -48,7 +48,7 @@ public class MicroRowSwim extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (onBeatTriggered()){
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("MICRO_ROW_SWIM"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("MICRO_ROW_SWIM"));
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         }
     }

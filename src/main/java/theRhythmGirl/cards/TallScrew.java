@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -54,9 +54,9 @@ public class TallScrew extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded)
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("TALL_SCREW_UPGRADED"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("TALL_SCREW_UPGRADED"));
         else
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("TALL_SCREW"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("TALL_SCREW"));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(p, p, magicNumber));
     }

@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -47,10 +47,10 @@ public class Combo extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded){
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("COMBO_UPGRADED"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("COMBO_UPGRADED"));
         }
        else{
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("COMBO"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("COMBO"));
         }
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new ComboPower(p, p, magicNumber, 1), 1));

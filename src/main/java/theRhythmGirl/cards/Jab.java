@@ -3,7 +3,7 @@ package theRhythmGirl.cards;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,6 +12,7 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.RepeatModifier;
 import theRhythmGirl.characters.TheRhythmGirl;
 
+import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //idea: nerf: repeat on upgrade
@@ -57,12 +58,12 @@ public class Jab extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_REPEAT"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("JAB_REPEAT"));
         else
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("JAB_EXHAUST"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("JAB_EXHAUST"));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, true));
+                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, false, enableCustomSoundEffects));
     }
 
     // Upgraded stats.

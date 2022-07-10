@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -75,7 +75,7 @@ public class SpaceBellPower extends TwoAmountPower implements CloneablePowerInte
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this, numberOfBeatsGained));
             this.countdown -= numberOfBeatsGained;
             if (this.countdown <= 0) {
-                this.addToBot(new SFXAction("SPACE_BELL_BLAST"));
+                this.addToBot(new CustomSFXAction("SPACE_BELL_BLAST"));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, source, amount2));
                 for (AbstractMonster m : AbstractDungeon.getMonsters().monsters){
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, source, amount2));

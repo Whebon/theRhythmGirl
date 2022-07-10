@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -54,7 +54,7 @@ public class Pitch extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("PITCH"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("PITCH"));
         HomeRun homerun = new HomeRun();
         if (upgraded)
             homerun.upgrade();

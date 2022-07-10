@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -48,7 +48,7 @@ public class KaratekaForm extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("KARATEKA_FORM"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("KARATEKA_FORM"));
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new KarateBoostPower(p, p, magicNumber), magicNumber));
         if (!p.hasPower(KarateTimingPower.POWER_ID))

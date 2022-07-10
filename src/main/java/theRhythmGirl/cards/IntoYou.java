@@ -2,7 +2,7 @@ package theRhythmGirl.cards;
 
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -53,9 +53,9 @@ public class IntoYou extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("INTO_YOU_REPEAT"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_REPEAT"));
         else
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("INTO_YOU_EXHAUST"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_EXHAUST"));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 

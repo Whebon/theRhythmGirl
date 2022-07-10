@@ -2,7 +2,7 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -52,7 +52,7 @@ public class Metronome extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("METRONOME"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("METRONOME"));
         this.addToBot(new LoseHPAction(p, p, 1));
         AbstractCard s = (new Metronome()).makeCopy();
         if (upgraded)

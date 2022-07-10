@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -48,7 +48,7 @@ public class FanClub extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("FAN_CLUB_APPLY"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("FAN_CLUB_APPLY"));
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new FanClubPower(p, p, magicNumber), magicNumber));
     }

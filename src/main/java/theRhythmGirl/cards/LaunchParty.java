@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -44,7 +44,7 @@ public class LaunchParty extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("LAUNCH_PARTY_APPLY"));
+        this.addToBot(new CustomSFXAction("LAUNCH_PARTY_APPLY"));
         this.addToBot(new ApplyPowerAction(m, p, new LaunchPartyPower(m, p, 3, magicNumber), 3));
     }
 

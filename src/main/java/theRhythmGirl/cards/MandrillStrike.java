@@ -2,7 +2,7 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +11,7 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.ui.BeatUI;
 
+import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //fixed bug: apply powers doesn't work
@@ -78,14 +79,14 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
         int totalDamage = damage;
         if (onBeatTriggered()){
             totalDamage = magicNumber;
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRILL_STRIKE_SWEET"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("MANDRILL_STRIKE_SWEET"));
         }
         else{
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("MANDRILL_STRIKE_SOUR"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("MANDRILL_STRIKE_SOUR"));
         }
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, totalDamage, damageTypeForTurn),
-                        AbstractGameAction.AttackEffect.BLUNT_HEAVY, false, true));
+                        AbstractGameAction.AttackEffect.BLUNT_HEAVY, false, enableCustomSoundEffects));
     }
 
     // Upgraded stats.

@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -43,7 +43,7 @@ public class PoseForTheFans extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("POSE_FOR_THE_FANS"));
+        this.addToBot(new CustomSFXAction("POSE_FOR_THE_FANS"));
         this.addToBot(new PoseForTheFansAction());
     }
 

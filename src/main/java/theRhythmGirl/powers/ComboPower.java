@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -71,7 +71,7 @@ public class ComboPower extends TwoAmountPower implements CloneablePowerInterfac
                 amount2 = totalNumberOfAttacksToPlay;
             if (amount2 <= 0){
                 triggeredThisTurn = true;
-                this.addToBot(new SFXAction("BARREL_OBTAIN"));
+                this.addToBot(new CustomSFXAction("BARREL_OBTAIN"));
                 this.addToBot(new MakeTempCardInHandAction(new Barrel(), this.amount));
             }
         }

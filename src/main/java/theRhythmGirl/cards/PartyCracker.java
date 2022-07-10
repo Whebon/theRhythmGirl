@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
@@ -48,7 +48,7 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("PARTY_CRACKER_APPLY"));
+        this.addToBot(new CustomSFXAction("PARTY_CRACKER_APPLY"));
         this.addToBot(new ApplyPowerAction(m, p, new PartyCrackerPower(m, p, magicNumber2, magicNumber), magicNumber2));
     }
 

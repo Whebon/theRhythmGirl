@@ -1,7 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -45,7 +45,7 @@ public class DoubleUp extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("DOUBLE_UP"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("DOUBLE_UP"));
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new DoubleUpPower(p, p, 1), 1));
     }

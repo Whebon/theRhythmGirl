@@ -1,7 +1,7 @@
 package theRhythmGirl.potions;
 
 import basemod.abstracts.CustomPotion;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -47,7 +47,7 @@ public class BeatPotion extends CustomPotion {
     @Override
     public void use(AbstractCreature target) {
         target = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("BEAT_POTION"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("BEAT_POTION"));
         // If you are in combat, gain beats equal to the potency of this potion.
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(target, target, potency));

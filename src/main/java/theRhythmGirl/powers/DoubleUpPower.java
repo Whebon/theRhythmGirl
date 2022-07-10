@@ -4,7 +4,7 @@ import basemod.helpers.CardModifierManager;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -66,7 +66,7 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
         logger.info(String.format("'DoubleUpPower' will apply Repeat on '%s' (card %d/%d)",
                 card.name, AbstractDungeon.actionManager.cardsPlayedThisTurn.size(), this.amount));
         this.flash();
-        addToBot(new SFXAction("DOUBLE_UP_TRIGGER"));
+        addToBot(new CustomSFXAction("DOUBLE_UP_TRIGGER"));
         CardModifierManager.addModifier(card, new RepeatModifier(true));
     }
 

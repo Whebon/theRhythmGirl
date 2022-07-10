@@ -4,18 +4,15 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.util.TextureLoader;
-
-import java.util.Random;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
@@ -57,7 +54,7 @@ public class FanClubPower extends AbstractPower implements CloneablePowerInterfa
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.ID.equals(MeasurePower.POWER_ID) && target == this.owner) {
             this.flash();
-            this.addToBot(new SFXAction("FAN_CLUB_TRIGGER"));
+            this.addToBot(new CustomSFXAction("FAN_CLUB_TRIGGER"));
             this.addToBot(new DamageAllEnemiesAction(this.source, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }

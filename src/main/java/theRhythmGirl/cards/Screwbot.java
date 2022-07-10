@@ -3,7 +3,7 @@ package theRhythmGirl.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,6 +14,7 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.ui.BeatUI;
 
+import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 public class Screwbot extends AbstractRhythmGirlCard {
@@ -74,17 +75,17 @@ public class Screwbot extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (onBeatTriggered(1) || onBeatTriggered(3)){
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("SCREWBOT_13"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("SCREWBOT_13"));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
+                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, enableCustomSoundEffects));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new WeakPower(m, magicNumber, false), magicNumber));
         }
         if (onBeatTriggered(2) || onBeatTriggered(4)){
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("SCREWBOT_24"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("SCREWBOT_24"));
             if (!(onBeatTriggered(1) || onBeatTriggered(3)))
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, true));
+                                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true, enableCustomSoundEffects));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p,
                     new VulnerablePower(m, magicNumber, false), magicNumber));
         }

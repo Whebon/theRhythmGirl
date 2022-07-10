@@ -8,7 +8,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.util.TextureLoader;
 
+import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
 public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerInterface, OnGainBeatSubscriber {
@@ -76,9 +77,9 @@ public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerIn
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this, numberOfBeatsGained));
             this.countdown -= numberOfBeatsGained;
             if (this.countdown <= 0) {
-                this.addToBot(new SFXAction("LAUNCH_PARTY_BLAST"));
+                this.addToBot(new CustomSFXAction("LAUNCH_PARTY_BLAST"));
                 this.addToBot(new DamageAction(owner, new DamageInfo(this.source, amount2, DamageInfo.DamageType.THORNS),
-                        AbstractGameAction.AttackEffect.FIRE, false, true));
+                        AbstractGameAction.AttackEffect.FIRE, false, enableCustomSoundEffects));
             }
         }
     }

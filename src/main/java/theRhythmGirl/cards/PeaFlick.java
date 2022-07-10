@@ -2,7 +2,7 @@ package theRhythmGirl.cards;
 
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -57,7 +57,7 @@ public class PeaFlick extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("PEA_FLICK"));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("PEA_FLICK"));
         PeaFork peaFork = new PeaFork(RhythmGirlMod.beatUI.currentBeat);
         this.addToBot(new MakeTempCardInHandAction(peaFork, 1));
     }

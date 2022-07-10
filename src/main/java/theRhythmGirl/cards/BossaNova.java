@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,6 +15,7 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.ui.BeatUI;
 
+import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 public class BossaNova extends AbstractRhythmGirlCard {
@@ -82,12 +83,12 @@ public class BossaNova extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int sfxIndex = Math.max(1, Math.min(4, RhythmGirlMod.beatUI.currentBeat));
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("BOSSA_NOVA_"+sfxIndex));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("BOSSA_NOVA_"+sfxIndex));
         if (onBeatTriggered(1) || onBeatTriggered(3)){
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, true));
+                            AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, enableCustomSoundEffects));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                    AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, true));
+                    AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, enableCustomSoundEffects));
         }
         if (onBeatTriggered(2) || onBeatTriggered(4)){
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
