@@ -18,8 +18,8 @@
   },
   "theRhythmGirl:Metronome": {
     "NAME": "Metronome",
-    "DESCRIPTION": "Lose 1 hp. Add a copy of this card to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Lose 1 hp. Add a copy of this card to your hand. NL Exhaust."
+    "DESCRIPTION": "This card returns to your hand after play. NL Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "Retain. NL This card returns to your hand after play. NL Exhaustive !stslib:ex!."
   },
   "theRhythmGirl:AirRally": {
     "NAME": "Air Rally",

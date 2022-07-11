@@ -1,5 +1,6 @@
 package theRhythmGirl.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import theRhythmGirl.actions.CustomSFXAction;
@@ -14,11 +15,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//Lose 1 hp. Add a copy of this card to your hand. Exhaust.
-//idea: rework metronome to retain itself in hand after play instead of creating a copy (to prevent overflowing the exhaust pile)
-//idea: rework metronome to be limited to 8 uses per turn (to prevent tedious infinite combos)
-//todo: maximum number of uses (tungsten rod)
-//todo: no self damage
+//old version: Lose 1 hp. Add a copy of this card to your hand. Exhaust.
 
 public class Metronome extends AbstractRhythmGirlCard {
 
@@ -26,6 +23,7 @@ public class Metronome extends AbstractRhythmGirlCard {
 
     public static final String ID = RhythmGirlMod.makeID(Metronome.class.getSimpleName());
     public static final String IMG = makeCardPath("Metronome.png");
+    public static final String IMG_MIRRORED = makeCardPath("MetronomeMirrored.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -40,24 +38,31 @@ public class Metronome extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
+    private static final int EXHAUSTIVE_USES = 8;
 
     // /STAT DECLARATION/
 
+    private boolean isMirrored;
 
     public Metronome() {
+        this(EXHAUSTIVE_USES);
+    }
+
+    public Metronome(int usesLeft) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        this.returnToHand = true;
+        this.isMirrored = false;
+        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, EXHAUSTIVE_USES);
+        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, usesLeft);
+        ExhaustiveField.ExhaustiveFields.isExhaustiveUpgraded.set(this, false);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("METRONOME"));
-        this.addToBot(new LoseHPAction(p, p, 1));
-        AbstractCard s = (new Metronome()).makeCopy();
-        if (upgraded)
-            s.upgrade();
-        this.addToBot(new MakeTempCardInHandAction(s, 1));
+        loadCardImage(isMirrored ? IMG : IMG_MIRRORED);
+        this.isMirrored = !this.isMirrored;
+        this.addToBot(new CustomSFXAction("METRONOME"));
     }
 
     //Upgraded stats.
@@ -69,5 +74,9 @@ public class Metronome extends AbstractRhythmGirlCard {
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+    }
+
+    public AbstractCard makeCopy() {
+        return new Metronome(ExhaustiveField.ExhaustiveFields.exhaustive.get(this));
     }
 }
