@@ -16,8 +16,8 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
-//note that popularity is an endgame mechanic and usually belongs to high rarity cards
-//todo: fix ordering of 'gain beat' and 'gain popularity'
+//important note: card effects related to 'apply popularity' should be applied BEFORE a beat is gained.
+//also note that popularity is an endgame mechanic and usually belongs to high rarity cards
 
 public class PopularityPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;

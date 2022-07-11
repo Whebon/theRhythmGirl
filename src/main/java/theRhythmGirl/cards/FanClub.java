@@ -47,8 +47,9 @@ public class FanClub extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new CustomSFXAction("FAN_CLUB"));
-        this.addToBot(new ApplyPowerAction(p, p, new PopularityPower(p, p, magicNumber), magicNumber));
+        //important note: card effects related to 'apply popularity' should be applied BEFORE a beat is gained.
+        this.addToTop(new CustomSFXAction("FAN_CLUB"));
+        this.addToTop(new ApplyPowerAction(p, p, new PopularityPower(p, p, magicNumber), magicNumber));
     }
 
     //Upgraded stats.

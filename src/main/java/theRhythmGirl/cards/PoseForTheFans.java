@@ -44,8 +44,9 @@ public class PoseForTheFans extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new CustomSFXAction("POSE_FOR_THE_FANS"));
-        this.addToBot(new PoseForTheFansAction());
+        //important note: card effects related to 'apply popularity' should be applied BEFORE a beat is gained.
+        this.addToTop(new CustomSFXAction("POSE_FOR_THE_FANS"));
+        this.addToTop(new PoseForTheFansAction());
     }
 
     //Upgraded stats.
