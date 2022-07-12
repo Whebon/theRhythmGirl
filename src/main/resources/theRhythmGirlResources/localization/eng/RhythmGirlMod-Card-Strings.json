@@ -189,5 +189,9 @@
   "theRhythmGirl:GrowingFanbase": {
     "NAME": "Growing Fanbase",
     "DESCRIPTION": "At the end of your turn, gain !M! therhythmgirl:Popularity."
+  },
+  "theRhythmGirl:CropStomp": {
+    "NAME": "Crop Stomp",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Draw !M! cards. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! [E] and Exhaust."
   }
 }

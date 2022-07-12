@@ -558,6 +558,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("POPULARITY", makeAudioPath("SFX_Popularity.wav"));
         BaseMod.addAudio("POSE_FOR_THE_FANS", makeAudioPath("SFX_PoseForTheFans.wav"));
         BaseMod.addAudio("GROWING_FANBASE", makeAudioPath("SFX_GrowingFanbase.wav"));
+        BaseMod.addAudio("CROP_STOMP_13", makeAudioPath("SFX_CropStomp13.wav"));
+        BaseMod.addAudio("CROP_STOMP_24", makeAudioPath("SFX_CropStomp24.wav"));
     }
 
     @Override
