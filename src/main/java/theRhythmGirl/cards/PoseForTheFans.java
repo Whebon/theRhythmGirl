@@ -33,12 +33,15 @@ public class PoseForTheFans extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
+    private static final int MAGIC = 3;
+
 
     // /STAT DECLARATION/
 
 
     public PoseForTheFans() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = MAGIC;
     }
 
     // Actions the card should do.
@@ -46,7 +49,7 @@ public class PoseForTheFans extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //important note: card effects related to 'apply popularity' should be applied BEFORE a beat is gained.
         this.addToTop(new CustomSFXAction("POSE_FOR_THE_FANS"));
-        this.addToTop(new PoseForTheFansAction());
+        this.addToTop(new PoseForTheFansAction(magicNumber));
     }
 
     //Upgraded stats.

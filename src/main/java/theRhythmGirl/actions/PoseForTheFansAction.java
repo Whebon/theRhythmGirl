@@ -19,13 +19,16 @@ public class PoseForTheFansAction extends AbstractGameAction {
     public static final String UI_ID = RhythmGirlMod.makeID("WarnNoMeasure");
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
-    public PoseForTheFansAction() {
+    private final int multiplier;
+
+    public PoseForTheFansAction(int multiplier) {
+        this.multiplier = multiplier;
     }
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
         if (p.hasPower(MeasurePower.POWER_ID)){
-            int amount = p.getPower(MeasurePower.POWER_ID).amount;
+            int amount = p.getPower(MeasurePower.POWER_ID).amount * this.multiplier;
             this.addToTop(new ApplyPowerAction(p, p, new PopularityPower(p, p, amount), amount));
             this.addToTop(new RemoveSpecificPowerAction(p, p, MeasurePower.POWER_ID));
         }

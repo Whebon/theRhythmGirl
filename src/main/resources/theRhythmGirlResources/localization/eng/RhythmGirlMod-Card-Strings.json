@@ -183,8 +183,8 @@
   },
   "theRhythmGirl:PoseForTheFans": {
     "NAME": "Pose For The Fans",
-    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to the amount of therhythmgirl:Measure lost this way.",
-    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to the amount of therhythmgirl:Measure lost this way. NL Grave."
+    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to !M! times the amount of therhythmgirl:Measure lost this way.",
+    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to !M! times the amount of therhythmgirl:Measure lost this way. NL Grave."
   },
   "theRhythmGirl:GrowingFanbase": {
     "NAME": "Growing Fanbase",

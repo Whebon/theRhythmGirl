@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CtBehavior;
+import theRhythmGirl.cards.MochiPounding;
 import theRhythmGirl.cards.NeverGiveUp;
 import theRhythmGirl.cards.PartyCracker;
 import theRhythmGirl.cards.PeaFlick;
@@ -21,7 +22,8 @@ public class CardPortraitUpgradeChange
     private static final List<String> cardIDs = Arrays.asList(
             NeverGiveUp.ID,
             PartyCracker.ID,
-            PeaFlick.ID
+            PeaFlick.ID,
+            MochiPounding.ID
     );
 
     @SpirePatch(

@@ -2,6 +2,7 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.green.SneakyStrike;
@@ -88,6 +89,8 @@ public class SneakySpirit extends AbstractRhythmGirlCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, totalDamage, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY, false, enableCustomSoundEffects));
+        if (onBeatTriggered())
+            this.addToBot(new GainEnergyAction(2));
     }
 
     // Upgraded stats.
