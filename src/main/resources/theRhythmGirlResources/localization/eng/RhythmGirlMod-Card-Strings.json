@@ -193,5 +193,9 @@
   "theRhythmGirl:CropStomp": {
     "NAME": "Crop Stomp",
     "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Draw !M! cards. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! [E] and Exhaust."
+  },
+  "theRhythmGirl:SneakySpirit": {
+    "NAME": "Sneaky Spirit",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 4: NL Gain [E] [E]."
   }
 }
