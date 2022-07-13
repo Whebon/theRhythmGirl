@@ -45,7 +45,7 @@
   "theRhythmGirl:MonkeySeeMonkeyDo": {
     "NAME": "Monkey Business",
     "DESCRIPTION": "Put a card from your discard pile into your hand.",
-    "UPGRADE_DESCRIPTION": "Put a copy of a card from your discard pile into your hand."
+    "UPGRADE_DESCRIPTION": "Put a copy of a non-healing card from your discard pile into your hand."
   },
   "theRhythmGirl:DoubleUp": {
     "NAME": "Double Up",
@@ -89,8 +89,8 @@
   },
   "theRhythmGirl:FishingRod": {
     "NAME": "Fishing Rod",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill to your hand. NL Gain 1 additional therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: add a [#e3be4e]Pausegill+ to your hand. NL Gain 1 additional therhythmgirl:Beat."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#e3be4e]Pausegill to NL your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#e3be4e]Pausegill+ to NL your hand."
   },
   "theRhythmGirl:Pausegill": {
     "NAME": "Pausegill",
@@ -162,8 +162,8 @@
   },
   "theRhythmGirl:RollCall": {
   "NAME": "Roll Call",
-  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting to your hand.",
-  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting+ to your hand."
+  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting to NL your hand.",
+  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting+ to NL your hand."
   },
   "theRhythmGirl:BoardMeeting": {
     "NAME": "Board Meeting",
@@ -175,7 +175,7 @@
   },
   "theRhythmGirl:Barrel": {
     "NAME": "Barrel",
-    "DESCRIPTION": "Deal 12 damage."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "theRhythmGirl:FanClub": {
     "NAME": "Fan Club",

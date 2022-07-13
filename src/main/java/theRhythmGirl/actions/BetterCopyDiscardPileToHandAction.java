@@ -7,6 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import theRhythmGirl.RhythmGirlMod;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -17,6 +21,8 @@ public class BetterCopyDiscardPileToHandAction extends AbstractGameAction {
     private final boolean optional;
     private int newCost;
     private final boolean setCost;
+
+    public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
     public BetterCopyDiscardPileToHandAction(int numberOfCards, boolean optional) {
         this.newCost = 0;
@@ -45,10 +51,17 @@ public class BetterCopyDiscardPileToHandAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startDuration) {
-            if (!this.player.discardPile.isEmpty() && this.numberOfCards > 0) {
-                if (this.player.discardPile.size() <= this.numberOfCards && !this.optional) {
+            //whebon edit:
+            CardGroup nonHealingDiscardPile = new CardGroup(CardGroup.CardGroupType.DISCARD_PILE);
+            for (AbstractCard discardedCard : this.player.discardPile.group){
+                if (!discardedCard.hasTag(AbstractCard.CardTags.HEALING))
+                    nonHealingDiscardPile.addToTop(discardedCard);
+            }
+
+            if (!nonHealingDiscardPile.isEmpty() && this.numberOfCards > 0) {
+                if (nonHealingDiscardPile.size() <= this.numberOfCards && !this.optional) {
                     ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
-                    Iterator<AbstractCard> var5 = this.player.discardPile.group.iterator();
+                    Iterator<AbstractCard> var5 = nonHealingDiscardPile.group.iterator();
 
                     AbstractCard c;
                     while(var5.hasNext()) {
@@ -80,14 +93,14 @@ public class BetterCopyDiscardPileToHandAction extends AbstractGameAction {
                 } else {
                     if (this.numberOfCards == 1) {
                         if (this.optional) {
-                            AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, true, TEXT[0]);
+                            AbstractDungeon.gridSelectScreen.open(nonHealingDiscardPile, this.numberOfCards, true, TEXT[0]);
                         } else {
-                            AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, TEXT[0], false);
+                            AbstractDungeon.gridSelectScreen.open(nonHealingDiscardPile, this.numberOfCards, TEXT[0], false);
                         }
                     } else if (this.optional) {
-                        AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
+                        AbstractDungeon.gridSelectScreen.open(nonHealingDiscardPile, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
                     } else {
-                        AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
+                        AbstractDungeon.gridSelectScreen.open(nonHealingDiscardPile, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
                     }
 
                     this.tickDuration();

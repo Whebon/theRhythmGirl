@@ -11,11 +11,9 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-public class OddFlamingo extends AbstractRhythmGirlCard {
+//idea: rework this card. it's too situational.
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     */
+public class OddFlamingo extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 

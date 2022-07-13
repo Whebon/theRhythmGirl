@@ -18,6 +18,8 @@ import theRhythmGirl.ui.BeatUI;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: keep this an attack on block gain to work with combo?
+
 public class BossaNova extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

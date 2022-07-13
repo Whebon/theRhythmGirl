@@ -15,6 +15,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //old version: "The repeat keyword triggers !M! additional times."
 //current version: "The first card you play each turn has 'Repeat'."
 
+//idea: buff to standard 1-cost
+
 public class DoubleUp extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
