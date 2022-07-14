@@ -13,8 +13,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//idea: buff this card?
-//idea: gain 2 additional beats
+//old version: also upgraded block by 3
 
 public class TallScrew extends AbstractRhythmGirlCard {
 
@@ -22,6 +21,7 @@ public class TallScrew extends AbstractRhythmGirlCard {
 
     public static final String ID = RhythmGirlMod.makeID(TallScrew.class.getSimpleName());
     public static final String IMG = makeCardPath("TallScrew.png");
+    public static final String IMG_UPGRADED = makeCardPath("TallScrewUpgraded.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -37,7 +37,6 @@ public class TallScrew extends AbstractRhythmGirlCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 8;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
     private static final int STACKS = 1;
     private static final int UPGRADE_STACKS = 1;
 
@@ -46,7 +45,7 @@ public class TallScrew extends AbstractRhythmGirlCard {
 
     public TallScrew() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
+        baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = STACKS;
     }
 
@@ -66,8 +65,8 @@ public class TallScrew extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_STACKS);
+            loadCardImage(IMG_UPGRADED); //patched in CardPortraitUpgradeChange
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

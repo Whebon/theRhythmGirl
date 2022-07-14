@@ -93,7 +93,7 @@ public class SeeSaw extends AbstractRhythmGirlCard {
         }
         if (m != null){
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return monsterHealthAtTurnStart.containsKey(m) && monsterHealthAtTurnStart.get(m) == m.currentHealth;
+            return monsterHealthAtTurnStart.containsKey(m) && monsterHealthAtTurnStart.get(m) <= m.currentHealth;
         }
         for (AbstractMonster mm : AbstractDungeon.getCurrRoom().monsters.monsters){
             if (canUse(p, mm)){

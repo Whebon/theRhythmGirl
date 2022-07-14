@@ -18,6 +18,8 @@ import java.util.UUID;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: make this rare?
+
 public class NeverGiveUp extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

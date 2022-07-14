@@ -564,6 +564,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("CROP_STOMP_24", makeAudioPath("SFX_CropStomp24.wav"));
         BaseMod.addAudio("SNEAKY_SPIRIT_SOUR", makeAudioPath("SFX_SneakySpiritSour.wav"));
         BaseMod.addAudio("SNEAKY_SPIRIT_SWEET", makeAudioPath("SFX_SneakySpiritSweet.wav"));
+        BaseMod.addAudio("EARLY_BIRD", makeAudioPath("SFX_EarlyBird.wav"));
+        BaseMod.addAudio("EARLY_BIRD_UPGRADED", makeAudioPath("SFX_EarlyBirdUpgraded.wav"));
     }
 
     @Override

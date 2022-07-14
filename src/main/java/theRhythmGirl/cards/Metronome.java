@@ -36,7 +36,7 @@ public class Metronome extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
-    private static final int EXHAUSTIVE_USES = 8;
+    private static final int EXHAUSTIVE_USES = 6;
 
     // /STAT DECLARATION/
 

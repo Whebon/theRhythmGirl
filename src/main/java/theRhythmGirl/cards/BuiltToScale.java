@@ -35,8 +35,8 @@ public class BuiltToScale extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -51,8 +51,7 @@ public class BuiltToScale extends AbstractRhythmGirlCard {
     public void applyPowers() {
         this.baseBlock = AbstractDungeon.player.hasPower(MeasurePower.POWER_ID) ?
                 AbstractDungeon.player.getPower(MeasurePower.POWER_ID).amount : 0;
-        if (upgraded)
-            baseBlock *= 2;
+        baseBlock *= magicNumber;
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();

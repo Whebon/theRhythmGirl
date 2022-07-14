@@ -14,6 +14,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //old version: gain 12 additional beats (upgrade: 24)
+//old version: gain 12 beats with repeat
 
 public class MochiPounding extends AbstractRhythmGirlCard {
 
@@ -34,7 +35,7 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int ADDITIONAL_BEATS = 12;
+    private static final int ADDITIONAL_BEATS = 8;
 
     // /STAT DECLARATION/
 

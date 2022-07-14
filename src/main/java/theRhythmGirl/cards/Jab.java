@@ -15,8 +15,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//idea: nerf: repeat on upgrade
-//idea: nerf: less damage
+//old version: 3 damage repeat. upgrade +2
 
 public class Jab extends AbstractRhythmGirlCard {
 
@@ -37,16 +36,13 @@ public class Jab extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 3;
-    private static final int UPGRADE_PLUS_DMG = 2;
+    private static final int DAMAGE = 5;
 
     // /STAT DECLARATION/
 
     public Jab() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-
-        CardModifierManager.addModifier(this, new RepeatModifier());
     }
 
     @Override
@@ -71,7 +67,7 @@ public class Jab extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            CardModifierManager.addModifier(this, new RepeatModifier());
             initializeDescription();
         }
     }
