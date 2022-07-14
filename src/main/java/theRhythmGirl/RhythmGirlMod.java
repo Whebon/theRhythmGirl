@@ -347,6 +347,7 @@ public class RhythmGirlMod implements
         BaseMod.addRelicToCustomPool(new Cowbell(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Widget(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Quicknibble(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
+        BaseMod.addRelicToCustomPool(new Freepeat(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new TimeSignature44(), RelicType.SHARED);
@@ -361,6 +362,7 @@ public class RhythmGirlMod implements
         UnlockTracker.markRelicAsSeen(Cowbell.ID);
         UnlockTracker.markRelicAsSeen(Widget.ID);
         UnlockTracker.markRelicAsSeen(Quicknibble.ID);
+        UnlockTracker.markRelicAsSeen(Freepeat.ID);
 
         logger.info("Done adding relics");
     }

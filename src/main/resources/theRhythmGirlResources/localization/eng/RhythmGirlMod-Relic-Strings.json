@@ -47,5 +47,12 @@
     "DESCRIPTIONS": [
       "The first time you gain a #yMeasure each turn, gain 1 [E] ."
     ]
+  },
+  "theRhythmGirl:Freepeat": {
+    "NAME": "Freepeat",
+    "FLAVOR": "\"Buy 1, get 1 free!\" ~NotTheMerchant",
+    "DESCRIPTIONS": [
+      "Cards created by the #yRepeat keyword cost #b0 that turn."
+    ]
   }
 }

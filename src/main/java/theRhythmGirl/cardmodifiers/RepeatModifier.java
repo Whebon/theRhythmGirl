@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
+import theRhythmGirl.relics.Freepeat;
 
 
 public class RepeatModifier extends AbstractCardModifier {
@@ -62,6 +63,10 @@ public class RepeatModifier extends AbstractCardModifier {
         AbstractCard newCard = card.makeStatEquivalentCopy();
         CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, false);
         CardModifierManager.addModifier(newCard, new ExhaustAndEtherealModifier());
+        if (AbstractDungeon.player.hasRelic(Freepeat.ID) && newCard.cost!=0){
+            AbstractDungeon.player.getRelic(Freepeat.ID).flash();
+            newCard.setCostForTurn(0);
+        }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(newCard, 1));
     }
 
