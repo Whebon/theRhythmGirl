@@ -153,6 +153,7 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(Defend_RhythmGirl.ID);
         retVal.add(Defend_RhythmGirl.ID);
         retVal.add(MandrillStrike.ID);
+        //todo: add one more basic card
 
         return retVal;
     }

@@ -10,7 +10,7 @@ import theRhythmGirl.powers.PartyCrackerPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//the old version also did 5 damage. I changed this to 3 damage,
+//the old version also did 5 damage. I changed this to 3 damage, but later changed it back to 4
 //because having 5's on the [damage, countdown and artwork] and was confusing. And... it was OP.
 //also, the card says: 'damage', but it is actually magic damage
 //I had to change damage to magic because the card was broken with attack relics like Akabeko
@@ -33,7 +33,7 @@ public class PartyCracker extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 4;
     private static final int COUNTDOWN = 5;
     private static final int COUNTDOWN_UPGRADE = 3;
 

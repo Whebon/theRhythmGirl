@@ -32,8 +32,8 @@ public class PoseForTheFans extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 1;
-    private static final int MAGIC = 3;
+    private static final int COST = 2;
+    private static final int MAGIC = 4;
 
 
     // /STAT DECLARATION/

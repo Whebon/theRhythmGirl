@@ -16,6 +16,8 @@ import java.util.function.Predicate;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: buff this card (maybe add more "On Beat"-cards)
+
 public class CountIn extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

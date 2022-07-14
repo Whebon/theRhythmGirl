@@ -37,6 +37,8 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
+//todo: more cards for the coffee archetype
+
 @SpireInitializer
 public class RhythmGirlMod implements
         EditCardsSubscriber,
