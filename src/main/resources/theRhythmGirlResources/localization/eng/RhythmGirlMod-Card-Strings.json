@@ -197,5 +197,10 @@
   "theRhythmGirl:SneakySpirit": {
     "NAME": "Sneaky Spirit",
     "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 4: NL Gain [E] [E]."
+  },
+  "theRhythmGirl:EarlyBird": {
+    "NAME": "Early Bird",
+    "DESCRIPTION": "Can only be played if you have no therhythmgirl:Measure. NL Draw !M! cards.",
+    "EXTENDED_DESCRIPTION": ["Too much #rMeasures."]
   }
 }
