@@ -18,6 +18,8 @@ import theRhythmGirl.ui.BeatUI;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: make the block work with karateka form?
+
 public class BossaNova extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

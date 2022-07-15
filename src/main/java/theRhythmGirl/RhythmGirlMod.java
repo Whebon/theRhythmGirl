@@ -38,6 +38,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 //todo: more cards for the coffee archetype
+//todo: an attack on 1, for coffee and karateka form
 
 @SpireInitializer
 public class RhythmGirlMod implements
@@ -568,6 +569,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("SNEAKY_SPIRIT_SWEET", makeAudioPath("SFX_SneakySpiritSweet.wav"));
         BaseMod.addAudio("EARLY_BIRD", makeAudioPath("SFX_EarlyBird.wav"));
         BaseMod.addAudio("EARLY_BIRD_UPGRADED", makeAudioPath("SFX_EarlyBirdUpgraded.wav"));
+        BaseMod.addAudio("TRY_AGAIN", makeAudioPath("SFX_TryAgain.wav"));
     }
 
     @Override
@@ -580,7 +582,7 @@ public class RhythmGirlMod implements
         //usually, a beat is gained whenever a card is played
         //the description of beat tells that a beat is gained after playing a card, but this is what actually happens behind the scenes:
         //card checks current beat and applies actions accordingly --> gain 1 beat --> execute actions
-        if (!(abstractCard instanceof CoffeeBreak) && !(abstractCard instanceof CountIn)){
+        if (!(abstractCard instanceof CoffeeBreak) && !(abstractCard instanceof TryAgain) && !(abstractCard instanceof CountIn)){
             logger.info("Gain 1 Beat (played a card)");
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
         }

@@ -202,5 +202,10 @@
     "NAME": "Early Bird",
     "DESCRIPTION": "Can only be played if you have no therhythmgirl:Measure. NL Draw !M! cards.",
     "EXTENDED_DESCRIPTION": ["Too much #rMeasures."]
+  },
+  "theRhythmGirl:TryAgain": {
+    "NAME": "Try Again",
+    "DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
   }
 }
