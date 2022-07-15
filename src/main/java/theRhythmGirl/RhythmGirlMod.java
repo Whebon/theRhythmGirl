@@ -570,10 +570,6 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("EARLY_BIRD", makeAudioPath("SFX_EarlyBird.wav"));
         BaseMod.addAudio("EARLY_BIRD_UPGRADED", makeAudioPath("SFX_EarlyBirdUpgraded.wav"));
         BaseMod.addAudio("TRY_AGAIN", makeAudioPath("SFX_TryAgain.wav"));
-        BaseMod.addAudio("DARK_PORTAL_1", makeAudioPath("SFX_DarkPortal1.wav"));
-        BaseMod.addAudio("DARK_PORTAL_2", makeAudioPath("SFX_DarkPortal2.wav"));
-        BaseMod.addAudio("SAMURAI_SLICE_3", makeAudioPath("SFX_SamuraiSlice3.wav"));
-        BaseMod.addAudio("SAMURAI_SLICE_4", makeAudioPath("SFX_SamuraiSlice4.wav"));
     }
 
     @Override
