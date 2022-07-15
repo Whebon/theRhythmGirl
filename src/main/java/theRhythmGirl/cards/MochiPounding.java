@@ -61,7 +61,7 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            CardModifierManager.addModifier(this, new RepeatModifier(false, false));
+            CardModifierManager.addModifier(this, new RepeatModifier());
             initializeDescription();
         }
     }

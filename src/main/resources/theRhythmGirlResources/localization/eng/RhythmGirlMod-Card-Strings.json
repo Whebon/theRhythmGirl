@@ -207,5 +207,14 @@
     "NAME": "Try Again",
     "DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
     "UPGRADE_DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
+  },
+  "theRhythmGirl:DarkPortal": {
+    "NAME": "Dark Portal",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: NL Add a [#e3be4e]Samurai [#e3be4e]Slice NL to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: NL Add a [#e3be4e]Samurai [#e3be4e]Slice+ NL to your hand."
+  },
+  "theRhythmGirl:SamuraiSlice": {
+    "NAME": "Samurai Slice",
+    "DESCRIPTION": "therhythmgirl:On_Beat 3 or 4: NL Deal !D! damage."
   }
 }

@@ -56,7 +56,10 @@ public class SneakySpirit extends AbstractRhythmGirlCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (this.onBeatTriggered(1)){
+        if (this.onBeatTriggered(4)) {
+            this.loadCardImage(IMG_4);
+        }
+        else if (this.onBeatTriggered(1)){
             this.loadCardImage(IMG_1);
         }
         else if (this.onBeatTriggered(2)) {
@@ -64,9 +67,6 @@ public class SneakySpirit extends AbstractRhythmGirlCard {
         }
         else if (this.onBeatTriggered(3)) {
             this.loadCardImage(IMG_3);
-        }
-        else if (this.onBeatTriggered(4)) {
-            this.loadCardImage(IMG_4);
         }
         else if (this.onBeatTriggered(5)) {
             this.loadCardImage(IMG_5);
