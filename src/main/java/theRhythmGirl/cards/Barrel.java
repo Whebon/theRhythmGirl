@@ -15,6 +15,8 @@ import theRhythmGirl.ui.BeatUI;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: nerf barrel?
+
 public class Barrel extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

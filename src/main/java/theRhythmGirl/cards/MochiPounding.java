@@ -14,15 +14,14 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //old version: gain 12 additional beats (upgrade: 24)
-//old version: gain 12 beats with repeat
+//old version: gain 8 beats (upgrade: repeat)
 
 public class MochiPounding extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(MochiPounding.class.getSimpleName());
-    public static final String IMG = makeCardPath(MochiPounding.class.getSimpleName()+"_Exhaust.png");
-    public static final String IMG_REPEAT = makeCardPath(MochiPounding.class.getSimpleName()+"_Repeat.png");
+    public static final String IMG = makeCardPath(MochiPounding.class.getSimpleName()+".png");
 
     // /TEXT DECLARATION/
 
@@ -36,17 +35,13 @@ public class MochiPounding extends AbstractRhythmGirlCard {
 
     private static final int COST = 1;
     private static final int ADDITIONAL_BEATS = 8;
+    private static final int UPGRADE_ADDITIONAL_BEATS = 4;
 
     // /STAT DECLARATION/
 
     public MochiPounding() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ADDITIONAL_BEATS;
-    }
-
-    @Override
-    public void loadAlternativeCardImage(){
-        this.loadCardImage(IMG_REPEAT);
     }
 
     // Actions the card should do.
@@ -61,7 +56,7 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            CardModifierManager.addModifier(this, new RepeatModifier());
+            upgradeMagicNumber(UPGRADE_ADDITIONAL_BEATS);
             initializeDescription();
         }
     }

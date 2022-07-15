@@ -21,7 +21,6 @@ public class CardPortraitUpgradeChange
             PartyCracker.ID,
             PeaFlick.ID,
             TallScrew.ID,
-            MochiPounding.ID,
             Jab.ID
     );
 

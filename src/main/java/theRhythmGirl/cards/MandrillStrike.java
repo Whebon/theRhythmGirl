@@ -15,6 +15,7 @@ import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //fixed bug: apply powers doesn't work
+//idea: nerf mandrill strike
 
 public class MandrillStrike extends AbstractRhythmGirlCard {
 

@@ -12,6 +12,8 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//old version: gain 7 (10) block
+
 public class IntoYou extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
@@ -32,7 +34,7 @@ public class IntoYou extends AbstractRhythmGirlCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 7;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
     // /STAT DECLARATION/
 
