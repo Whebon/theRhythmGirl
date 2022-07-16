@@ -43,6 +43,7 @@ import static theRhythmGirl.RhythmGirlMod.*;
 public class BeatUI
 {
     public int currentBeat;
+    public int measuresGainedThisTurn = 0;
     private int previousHandSize = 0;
 
     private static final float MAX_FLOATY_OFFSET = 2.0f;
@@ -166,6 +167,13 @@ public class BeatUI
         marshalAnimationLeft = false;
         marshalAnimationActive = new MarshalAnimation(MarshalAnimationTypes.IDLE, 1);
         currentBeat = 1;
+        reset();
+    }
+
+    public void reset(boolean atTurnStart){
+        if (atTurnStart){
+            measuresGainedThisTurn = 0;
+        }
         reset();
     }
 
@@ -359,6 +367,7 @@ public class BeatUI
         while (currentBeat>n){
             currentBeat -= n;
             publishOnGainMeasure(1);
+            measuresGainedThisTurn += 1;
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
         }

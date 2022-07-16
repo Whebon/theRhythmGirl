@@ -75,7 +75,7 @@ public class GoForAPerfect extends CustomRelic {
     public void onVictory() {
         if (!tookDamageThisTurn){
             this.flash();
-            RewardItem rewardItem = new RewardItem(50, true);
+            RewardItem rewardItem = new RewardItem(GOLD, true);
             rewardItem.text = rewardItem.goldAmt + DESCRIPTIONS[1];
             AbstractDungeon.getCurrRoom().rewards.add(rewardItem);
         }

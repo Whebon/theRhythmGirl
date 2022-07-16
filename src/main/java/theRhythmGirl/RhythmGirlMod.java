@@ -573,6 +573,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("EARLY_BIRD_UPGRADED", makeAudioPath("SFX_EarlyBirdUpgraded.wav"));
         BaseMod.addAudio("TRY_AGAIN", makeAudioPath("SFX_TryAgain.wav"));
         BaseMod.addAudio("PERFECT_BREAKS", makeAudioPath("SFX_PerfectBreaks.wav"));
+        BaseMod.addAudio("RAT_RACE", makeAudioPath("SFX_RatRace.wav"));
     }
 
     @Override
@@ -593,6 +594,6 @@ public class RhythmGirlMod implements
 
     @Override
     public void receiveOnPlayerTurnStart() {
-        beatUI.reset();
+        beatUI.reset(true);
     }
 }

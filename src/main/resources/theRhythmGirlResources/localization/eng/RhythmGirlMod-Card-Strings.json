@@ -207,5 +207,9 @@
     "NAME": "Try Again",
     "DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
     "UPGRADE_DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
+  },
+  "theRhythmGirl:RatRace": {
+    "NAME": "Rat Race",
+    "DESCRIPTION": "At the end of your turn, if you didn't gain any therhythmgirl:Measure this turn, gain !M! Block."
   }
 }
