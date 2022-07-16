@@ -11,6 +11,8 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: make this a rare
+
 public class MonkeySeeMonkeyDo extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

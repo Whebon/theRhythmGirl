@@ -351,6 +351,7 @@ public class RhythmGirlMod implements
         BaseMod.addRelicToCustomPool(new Widget(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Quicknibble(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Freepeat(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
+        BaseMod.addRelicToCustomPool(new GoForAPerfect(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new TimeSignature44(), RelicType.SHARED);
@@ -366,6 +367,7 @@ public class RhythmGirlMod implements
         UnlockTracker.markRelicAsSeen(Widget.ID);
         UnlockTracker.markRelicAsSeen(Quicknibble.ID);
         UnlockTracker.markRelicAsSeen(Freepeat.ID);
+        UnlockTracker.markRelicAsSeen(GoForAPerfect.ID);
 
         logger.info("Done adding relics");
     }
@@ -570,6 +572,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("EARLY_BIRD", makeAudioPath("SFX_EarlyBird.wav"));
         BaseMod.addAudio("EARLY_BIRD_UPGRADED", makeAudioPath("SFX_EarlyBirdUpgraded.wav"));
         BaseMod.addAudio("TRY_AGAIN", makeAudioPath("SFX_TryAgain.wav"));
+        BaseMod.addAudio("PERFECT_BREAKS", makeAudioPath("SFX_PerfectBreaks.wav"));
     }
 
     @Override
