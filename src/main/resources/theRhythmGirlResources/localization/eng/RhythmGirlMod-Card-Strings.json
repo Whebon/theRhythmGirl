@@ -211,5 +211,11 @@
   "theRhythmGirl:RatRace": {
     "NAME": "Rat Race",
     "DESCRIPTION": "At the end of your turn, if you didn't gain any therhythmgirl:Measure this turn, gain !M! Block."
+  },
+  "theRhythmGirl:WorkingDough": {
+    "NAME": "Working Dough",
+    "DESCRIPTION": "While in your hand, this card is a copy of the previous card you played this turn.",
+    "UPGRADE_DESCRIPTION": "While in your hand, this card is an upgraded copy of the previous card you played this turn.",
+    "EXTENDED_DESCRIPTION": ["No cards to copy."]
   }
 }
