@@ -1,5 +1,7 @@
 package theRhythmGirl.cards;
 
+import basemod.cardmods.ExhaustMod;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -11,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.cardmodifiers.ExhaustAndEtherealModifier;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.powers.MeasurePower;
 
@@ -18,6 +21,10 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //Measure-based decks can be frustrating as you need to play 100s of cards to gain a reasonable amount of measure.
 //That's why this card ramps up instead of growing linearly
+
+//idea: scale linearly, because it scales too fast
+
+//old version: 2 (1) cost
 
 public class SquareShoulders extends AbstractRhythmGirlCard {
 
@@ -38,15 +45,14 @@ public class SquareShoulders extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
+    private static final int COST = 3;
 
     // /STAT DECLARATION/
 
     public SquareShoulders() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        CardModifierManager.addModifier(this, new ExhaustMod());
         baseDamage = 0;
-        this.exhaust = true;
     }
 
     private int getBaseDamage(AbstractCreature owner){
@@ -93,7 +99,7 @@ public class SquareShoulders extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            CardModifierManager.removeModifiersById(this, ExhaustMod.ID, true);
             initializeDescription();
         }
     }

@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,7 +52,8 @@ public class RhythmGirlMod implements
         OnCardUseSubscriber,
         AddAudioSubscriber,
         PostPlayerUpdateSubscriber,
-        OnPlayerTurnStartSubscriber{
+        OnPlayerTurnStartSubscriber,
+        PostBattleSubscriber{
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
@@ -596,4 +598,7 @@ public class RhythmGirlMod implements
     public void receiveOnPlayerTurnStart() {
         beatUI.reset(true);
     }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {beatUI.reset(false);}
 }

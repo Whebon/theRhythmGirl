@@ -14,6 +14,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //old version: Lose 1 hp. Add a copy of this card to your hand. Exhaust.
+//old version: Exhaustive 4
 
 public class Metronome extends AbstractRhythmGirlCard {
 
@@ -36,7 +37,7 @@ public class Metronome extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
-    private static final int EXHAUSTIVE_USES = 6;
+    private static final int EXHAUSTIVE_USES = 4;
 
     // /STAT DECLARATION/
 
@@ -48,6 +49,7 @@ public class Metronome extends AbstractRhythmGirlCard {
 
     public Metronome(int usesLeft) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        //known bug: returnToHand ignores the maximum hand size
         this.returnToHand = true;
         this.isMirrored = false;
         ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, EXHAUSTIVE_USES);

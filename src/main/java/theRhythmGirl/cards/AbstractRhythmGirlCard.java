@@ -33,7 +33,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         put(BeatUI.BeatColor.RED, Color.RED.cpy());
         put(BeatUI.BeatColor.BLUE, AbstractCard.BLUE_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.ON_BEAT, AbstractCard.GOLD_BORDER_GLOW_COLOR);
-        put(BeatUI.BeatColor.CUED, AbstractCard.BLUE_BORDER_GLOW_COLOR);
+        put(BeatUI.BeatColor.CUED, AbstractCard.GOLD_BORDER_GLOW_COLOR);
         put(BeatUI.BeatColor.RHYTHM_HEAVEN, Color.WHITE.cpy());
     }};
 

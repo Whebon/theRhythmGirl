@@ -12,9 +12,7 @@ import theRhythmGirl.powers.PopularityPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//old version: "The first attack you play each turn is played twice."
-//old version: "The repeat keyword triggers !M! additional times."
-//current version: "The first card you play each turn has 'Repeat'."
+//old version: 1 cost
 
 public class GrowingFanbase extends AbstractRhythmGirlCard {
 
@@ -33,7 +31,7 @@ public class GrowingFanbase extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int MAGIC = 4;
     private static final int UPGRADE_MAGIC = 2;
 

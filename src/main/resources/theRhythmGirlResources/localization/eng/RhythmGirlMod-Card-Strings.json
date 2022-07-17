@@ -62,12 +62,12 @@
   },
   "theRhythmGirl:Pitch": {
     "NAME": "Pitch",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#e3be4e]Home [#e3be4e]Run to your hand.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#e3be4e]Home [#e3be4e]Run+ to your hand."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#dba620]Home [#dba620]Run to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#dba620]Home [#dba620]Run+ to your hand."
   },
   "theRhythmGirl:HomeRun": {
     "NAME": "Home Run",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: deal !D! damage."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Deal !D! damage."
   },
   "theRhythmGirl:Ready": {
     "NAME": "Rea--dy",
@@ -89,12 +89,12 @@
   },
   "theRhythmGirl:FishingRod": {
     "NAME": "Fishing Rod",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#e3be4e]Pausegill to NL your hand.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#e3be4e]Pausegill+ to NL your hand."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#dba620]Pausegill to NL your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#dba620]Pausegill+ to NL your hand."
   },
   "theRhythmGirl:Pausegill": {
     "NAME": "Pausegill",
-    "DESCRIPTION": "therhythmgirl:On_Beat 4: deal !D! damage."
+    "DESCRIPTION": "therhythmgirl:On_Beat 4: NL Deal !D! damage."
   },
   "theRhythmGirl:BigFlex": {
     "NAME": "Big Flex",
@@ -120,8 +120,8 @@
   },
   "theRhythmGirl:CountIn": {
     "NAME": "Count In",
-    "DESCRIPTION": "Put a card with an therhythmgirl:On [#e3be4e]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with an therhythmgirl:On [#e3be4e]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "DESCRIPTION": "Put a card with an therhythmgirl:On [#dba620]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with an therhythmgirl:On [#dba620]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
     "EXTENDED_DESCRIPTION": ["I have no cards with #rOn #rBeat effects in my draw pile."]
   },
   "theRhythmGirl:RhythmHeaven": {
@@ -139,7 +139,7 @@
   },
   "theRhythmGirl:PeaFlick": {
     "NAME": "Pea Flick",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: Add a [#e3be4e]Pea [#e3be4e]Fork to your hand. NL Exhaust."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: Add a [#dba620]Pea [#dba620]Fork to your hand. NL Exhaust."
   },
   "theRhythmGirl:PeaFork": {
     "NAME": "Pea Fork",
@@ -162,12 +162,12 @@
   },
   "theRhythmGirl:RollCall": {
   "NAME": "Roll Call",
-  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting to NL your hand.",
-  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#e3be4e]Board [#e3be4e]Meeting+ to NL your hand."
+  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#dba620]Board [#dba620]Meeting to NL your hand.",
+  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#dba620]Board [#dba620]Meeting+ to NL your hand."
   },
   "theRhythmGirl:BoardMeeting": {
     "NAME": "Board Meeting",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: deal !D! damage to ALL enemies."
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Deal !D! damage to ALL enemies."
   },
   "theRhythmGirl:Combo": {
     "NAME": "Combo",

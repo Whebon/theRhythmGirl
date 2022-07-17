@@ -17,6 +17,8 @@ import theRhythmGirl.ui.BeatUI;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: make the border yellow, not red
+
 public class Screwbot extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

@@ -1,3 +1,5 @@
+//todo: this card is too funky. rework it to: "0, put a copy of the previous card you played into your hand. Exhaust"
+/*
 package theRhythmGirl.cards;
 
 import basemod.helpers.CardModifierManager;
@@ -19,7 +21,6 @@ import java.util.ArrayList;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//todo: this card is too funky. rework it to: "0, put a copy of the previous card you played into your hand. Exhaust"
 //todo: check how this card work in combination with the Repeat keyword!
 
 public class WorkingDough extends AbstractRhythmGirlCard {
@@ -224,3 +225,4 @@ public class WorkingDough extends AbstractRhythmGirlCard {
         }
     }
 }
+*/

@@ -34,8 +34,8 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int ADDITIONAL_BEATS = 8;
-    private static final int UPGRADE_ADDITIONAL_BEATS = 4;
+    private static final int ADDITIONAL_BEATS = 4;
+    private static final int UPGRADE_ADDITIONAL_BEATS = 2;
 
     // /STAT DECLARATION/
 

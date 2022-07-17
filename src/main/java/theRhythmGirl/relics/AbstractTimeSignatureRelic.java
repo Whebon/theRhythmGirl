@@ -50,5 +50,9 @@ public abstract class AbstractTimeSignatureRelic extends CustomRelic {
             super.instantObtain(p, slot, callOnEquip);
     }
 
+    public String getTooltip(){
+        return DESCRIPTIONS[0];
+    }
+
     public abstract int getNumberOfBeatsPerMeasure();
 }

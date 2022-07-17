@@ -1,15 +1,14 @@
 package theRhythmGirl.relics;
 
-import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
 import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
+
+//old version: was a shop relic
 
 public class TimeSignature34 extends AbstractTimeSignatureRelic {
 
@@ -19,12 +18,12 @@ public class TimeSignature34 extends AbstractTimeSignatureRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath(TimeSignature34.class.getSimpleName()+".png"));
 
     public TimeSignature34() {
-        super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.MAGICAL);
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[1] + DESCRIPTIONS[0];
     }
 
     @Override

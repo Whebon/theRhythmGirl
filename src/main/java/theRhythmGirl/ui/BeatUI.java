@@ -510,8 +510,8 @@ public class BeatUI
                     tips.add(new PowerTip(power.name, power.description, power.region48));
                 }
 
-                AbstractRelic timeSignatureRelic = getTimeSignatureRelic();
-                tips.add(new PowerTip(timeSignatureRelic.name, timeSignatureRelic.description, timeSignatureRelic.largeImg));
+                AbstractTimeSignatureRelic timeSignatureRelic = getTimeSignatureRelic();
+                tips.add(new PowerTip(timeSignatureRelic.name, timeSignatureRelic.getTooltip(), timeSignatureRelic.largeImg));
 
                 TipHelper.queuePowerTips(
                         hitbox.x + hitbox.width + 16*Settings.scale,

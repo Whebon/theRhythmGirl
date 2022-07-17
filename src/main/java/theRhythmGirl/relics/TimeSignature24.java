@@ -1,6 +1,5 @@
 package theRhythmGirl.relics;
 
-import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theRhythmGirl.RhythmGirlMod;
@@ -8,6 +7,10 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
 import static theRhythmGirl.RhythmGirlMod.makeRelicPath;
+
+//old version: replaced the 44 time signature relic instead of the 43 time signature relic.
+
+//idea: add an act 3 event that replaces 34 time signature into 24 for a high price (curse, 30% ,max hp, 300 gold)
 
 public class TimeSignature24 extends AbstractTimeSignatureRelic {
 
@@ -22,11 +25,11 @@ public class TimeSignature24 extends AbstractTimeSignatureRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[1] + DESCRIPTIONS[0];
     }
 
     @Override
-    public boolean canSpawn() {return AbstractDungeon.player.hasRelic(TimeSignature44.ID);}
+    public boolean canSpawn() {return AbstractDungeon.player.hasRelic(TimeSignature34.ID);}
 
     @Override
     public void onVictory() {
