@@ -20,8 +20,7 @@ public class CardPortraitUpgradeChange
             NeverGiveUp.ID,
             PartyCracker.ID,
             PeaFlick.ID,
-            TallScrew.ID,
-            Jab.ID
+            TallScrew.ID
     );
 
     @SpirePatch(

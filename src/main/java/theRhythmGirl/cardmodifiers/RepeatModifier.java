@@ -7,14 +7,19 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
+import theRhythmGirl.cards.WorkingDough;
 import theRhythmGirl.relics.Freepeat;
-
 
 public class RepeatModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:RepeatCardModifier";
     private final boolean isTemp;
     private final boolean hasLineBreak;
+
+    public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
     public RepeatModifier(boolean isTemp, boolean hasLineBreak) {
         this.isTemp = isTemp;
@@ -60,13 +65,18 @@ public class RepeatModifier extends AbstractCardModifier {
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        AbstractCard newCard = card.makeStatEquivalentCopy();
+        AbstractCard newCard;
+        if (card instanceof WorkingDough && card.cardsToPreview != null)
+            newCard = card.cardsToPreview.makeStatEquivalentCopy();
+        else
+            newCard = card.makeStatEquivalentCopy();
         CardModifierManager.removeModifiersById(newCard, RepeatModifier.ID, false);
         CardModifierManager.addModifier(newCard, new ExhaustAndEtherealModifier());
         if (AbstractDungeon.player.hasRelic(Freepeat.ID) && newCard.cost!=0){
             AbstractDungeon.player.getRelic(Freepeat.ID).flash();
             newCard.setCostForTurn(0);
         }
+
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(newCard, 1));
     }
 

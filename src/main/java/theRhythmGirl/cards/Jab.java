@@ -16,6 +16,7 @@ import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //old version: 3 damage repeat. upgrade +2
+//old version: 5 damage. upgrade repeat. (but this was confusing with the switching artwork on repeat, so I reverted it to the old version)
 
 public class Jab extends AbstractRhythmGirlCard {
 
@@ -36,13 +37,15 @@ public class Jab extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 3;
+    private static final int UPGRADE_DAMAGE = 2;
 
     // /STAT DECLARATION/
 
     public Jab() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        CardModifierManager.addModifier(this, new RepeatModifier());
     }
 
     @Override
@@ -67,7 +70,7 @@ public class Jab extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            CardModifierManager.addModifier(this, new RepeatModifier());
+            upgradeDamage(UPGRADE_DAMAGE);
             initializeDescription();
         }
     }

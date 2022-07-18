@@ -12,6 +12,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //idea: rework this card. it's too situational.
+//idea: remove this card.
 
 public class OddFlamingo extends AbstractRhythmGirlCard {
 

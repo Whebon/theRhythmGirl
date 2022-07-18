@@ -1,5 +1,3 @@
-//todo: this card is too funky. rework it to: "0, put a copy of the previous card you played into your hand. Exhaust"
-/*
 package theRhythmGirl.cards;
 
 import basemod.helpers.CardModifierManager;
@@ -21,14 +19,14 @@ import java.util.ArrayList;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//todo: check how this card work in combination with the Repeat keyword!
-
 public class WorkingDough extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(WorkingDough.class.getSimpleName());
-    public static final String IMG = makeCardPath(WorkingDough.class.getSimpleName()+".png");
+    public static final String IMG_ATTACK = makeCardPath(WorkingDough.class.getSimpleName()+"Attack.png");
+    public static final String IMG_SKILL = makeCardPath(WorkingDough.class.getSimpleName()+"Skill.png");
+    public static final String IMG_POWER = makeCardPath(WorkingDough.class.getSimpleName()+"Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -44,7 +42,7 @@ public class WorkingDough extends AbstractRhythmGirlCard {
 
     private static final int COST = -2;
 
-    private AbstractCard previousCard = null;
+    //private AbstractCard cardsToPreview = null;
     private boolean shouldDowngrade = false;
 
     HashMap<Integer, BeatUI.BeatColor> ON_BEAT_COLOR = new HashMap<Integer, BeatUI.BeatColor>() {{
@@ -60,24 +58,35 @@ public class WorkingDough extends AbstractRhythmGirlCard {
     // /STAT DECLARATION/
 
     public WorkingDough() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG_SKILL, COST, TYPE, COLOR, RARITY, TARGET);
         resetCard();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         setPreviousCard(m);
-        if (this.previousCard != null){
-            this.previousCard.use(p, m);
+        if (this.cardsToPreview != null){
+            this.cardsToPreview.use(p, m);
         }
     }
 
     private void setCardImage(){
-        //todo: set card images based on this.type (attack, power or skill)
+        switch(this.type){
+            case ATTACK:
+                loadCardImage(IMG_ATTACK);
+                break;
+            case SKILL:
+                loadCardImage(IMG_SKILL);
+                break;
+            case POWER:
+                loadCardImage(IMG_POWER);
+                break;
+        }
     }
 
     private void resetCard(){
-        this.previousCard = null;
+        this.cardsToPreview = null;
+        this.purgeOnUse = false;
         if (shouldDowngrade)
             this.upgraded = false;
         this.name = cardStrings.NAME;
@@ -99,62 +108,54 @@ public class WorkingDough extends AbstractRhythmGirlCard {
     private void setPreviousCard(AbstractMonster targetMonster) {
         List<AbstractCard> list = AbstractDungeon.actionManager.cardsPlayedThisTurn;
         for (int i = 0; i < list.size(); i++) {
-            AbstractCard c = list.get(list.size()-1-i);
+            AbstractCard c = list.get(list.size() - 1 - i);
             if (!c.cardID.equals(this.cardID)) {
-                //todo: reintroduce uuids
-                this.previousCard = c.makeStatEquivalentCopy();
-                logger.info(String.format("'WorkingDough' transforms into a new copy of '%s'", this.previousCard.name));
+                logger.info("WorkingDough transforms into "+c.name);
+                this.cardsToPreview = c.makeStatEquivalentCopy();
+                CardModifierManager.removeAllModifiers(this, true);
+                CardModifierManager.copyModifiers(c, this, true, false, false);
                 if (shouldDowngrade)
                     this.upgraded = false;
                 if (upgraded)
-                    this.previousCard.upgrade();
+                    this.cardsToPreview.upgrade();
                 else
                     shouldDowngrade = true;
-                CardModifierManager.removeAllModifiers(this, true);
-                CardModifierManager.copyModifiers(c, this, true, false, false);
-                //todo: add more stats
-                //todo: fix interaction with repeat
-                //todo: fix infinite loops? maybe this is already fixed?
-                this.returnToHand = this.previousCard.returnToHand;
-                this.exhaust = this.previousCard.exhaust;
-                this.retain = this.previousCard.retain;
-                this.name = this.previousCard.name;
-                this.cost = this.previousCard.cost;
-                this.target = this.previousCard.target;
-                this.type = this.previousCard.type;
-                this.baseBlock = this.previousCard.baseBlock;
-                this.baseDamage = this.previousCard.baseDamage;
-                this.baseMagicNumber = this.previousCard.baseMagicNumber;
-                if (this.previousCard instanceof AbstractRhythmGirlCard){
-                    this.baseMagicNumber2 = ((AbstractRhythmGirlCard)this.previousCard).baseMagicNumber2;
-                    this.onBeatColor = ((AbstractRhythmGirlCard)this.previousCard).onBeatColor;
+                this.returnToHand = this.cardsToPreview.returnToHand;
+                this.exhaust = this.cardsToPreview.exhaust;
+                this.retain = this.cardsToPreview.retain;
+                this.isEthereal = this.cardsToPreview.isEthereal;
+                this.selfRetain = this.cardsToPreview.selfRetain;
+                this.shuffleBackIntoDrawPile = this.cardsToPreview.shuffleBackIntoDrawPile;
+                this.name = this.cardsToPreview.name;
+                this.cost = this.cardsToPreview.cost;
+                this.target = this.cardsToPreview.target;
+                this.type = this.cardsToPreview.type;
+                this.baseHeal = this.cardsToPreview.baseHeal;
+                this.baseDiscard = this.cardsToPreview.baseDiscard;
+                this.baseBlock = this.cardsToPreview.baseBlock;
+                this.baseDamage = this.cardsToPreview.baseDamage;
+                this.baseMagicNumber = this.cardsToPreview.baseMagicNumber;
+                this.purgeOnUse = this.cardsToPreview.purgeOnUse;
+                if (this.cardsToPreview instanceof AbstractRhythmGirlCard){
+                    this.baseMagicNumber2 = ((AbstractRhythmGirlCard)this.cardsToPreview).baseMagicNumber2;
+                    this.onBeatColor = ((AbstractRhythmGirlCard)this.cardsToPreview).onBeatColor;
                 }
-                this.upgraded = this.previousCard.upgraded;
-                this.timesUpgraded = this.previousCard.timesUpgraded;
-                this.isLocked = this.previousCard.isLocked;
-                this.misc = this.previousCard.misc;
-                this.freeToPlayOnce = this.previousCard.freeToPlayOnce;
-                this.previousCard.applyPowers();
-                if (targetMonster!=null)
-                    this.previousCard.calculateCardDamage(targetMonster);
-                this.damage = this.previousCard.damage;
-                this.block = this.previousCard.block;
-                this.magicNumber = this.previousCard.magicNumber;
-                if (this.previousCard instanceof AbstractRhythmGirlCard){
-                    this.magicNumber2 = ((AbstractRhythmGirlCard)this.previousCard).magicNumber2;
-                }
-                this.isDamageModified = this.previousCard.isDamageModified;
-                this.isBlockModified = this.previousCard.isBlockModified;
-                this.rawDescription = this.previousCard.rawDescription;
-                if (ExhaustiveField.ExhaustiveFields.baseExhaustive.get(this.previousCard) > 0){
+                this.upgraded = this.cardsToPreview.upgraded;
+                this.timesUpgraded = this.cardsToPreview.timesUpgraded;
+                this.isLocked = this.cardsToPreview.isLocked;
+                this.misc = this.cardsToPreview.misc;
+                this.freeToPlayOnce = this.cardsToPreview.freeToPlayOnce;
+                this.rawDescription = this.cardsToPreview.rawDescription;
+                if (ExhaustiveField.ExhaustiveFields.baseExhaustive.get(this.cardsToPreview) > 0){
+                    //copying a card with exhaustive sets the exhaustive field to 1 to prevent funky interactions
                     ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 1);
                     ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 1);
                     this.exhaust = true;
                 }
-                this.costForTurn = this.previousCard.costForTurn;
-                this.isCostModified = this.previousCard.isCostModified;
-                this.isCostModifiedForTurn = this.previousCard.isCostModifiedForTurn;
-                //todo: this.useSmallTitleFont = false;
+                this.costForTurn = this.cardsToPreview.costForTurn;
+                this.isCostModified = this.cardsToPreview.isCostModified;
+                this.isCostModifiedForTurn = this.cardsToPreview.isCostModifiedForTurn;
+                setDynamicVariables(targetMonster);
                 setCardImage();
                 initializeTitle();
                 initializeDescription();
@@ -162,6 +163,22 @@ public class WorkingDough extends AbstractRhythmGirlCard {
             }
         }
         resetCard();
+    }
+
+    private void setDynamicVariables(AbstractMonster targetMonster){
+        this.cardsToPreview.applyPowers();
+        if (targetMonster != null)
+            this.cardsToPreview.calculateCardDamage(targetMonster);
+        this.damage = this.cardsToPreview.damage;
+        this.block = this.cardsToPreview.block;
+        this.heal = this.cardsToPreview.heal;
+        this.discard = this.cardsToPreview.discard;
+        this.magicNumber = this.cardsToPreview.magicNumber;
+        if (this.cardsToPreview instanceof AbstractRhythmGirlCard) {
+            this.magicNumber2 = ((AbstractRhythmGirlCard) this.cardsToPreview).magicNumber2;
+        }
+        this.isDamageModified = this.cardsToPreview.isDamageModified;
+        this.isBlockModified = this.cardsToPreview.isBlockModified;
     }
 
     @Override
@@ -176,37 +193,43 @@ public class WorkingDough extends AbstractRhythmGirlCard {
 
     @Override
     public void applyPowers() {
-        setPreviousCard(null);
+        if (this.cardsToPreview != null)
+            setDynamicVariables(null);
+        else
+            setPreviousCard(null);
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        setPreviousCard(mo);
+        if (this.cardsToPreview != null)
+            setDynamicVariables(mo);
+        else
+            setPreviousCard(mo);
     }
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (this.previousCard == null) {
+        if (this.cardsToPreview == null) {
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return false;
         }
-        boolean canUsePreviousCard = this.previousCard.canUse(p, m);
-        this.cantUseMessage = this.previousCard.cantUseMessage;
+        boolean canUsePreviousCard = this.cardsToPreview.canUse(p, m);
+        this.cantUseMessage = this.cardsToPreview.cantUseMessage;
         return canUsePreviousCard;
     }
 
     @Override
     public void triggerOnGlowCheck(){
-        if (this.previousCard != null){
-            previousCard.triggerOnGlowCheck();
-            this.glowColor = previousCard.glowColor;
+        if (this.cardsToPreview != null){
+            cardsToPreview.triggerOnGlowCheck();
+            this.glowColor = cardsToPreview.glowColor;
         }
     }
 
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         ArrayList<TooltipInfo> toolTipList = new ArrayList<>();
-        toolTipList.add(new TooltipInfo(cardStrings.NAME, cardStrings.DESCRIPTION));
+        toolTipList.add(new TooltipInfo(cardStrings.NAME, cardStrings.UPGRADE_DESCRIPTION));
         return toolTipList;
     }
 
@@ -224,5 +247,8 @@ public class WorkingDough extends AbstractRhythmGirlCard {
             initializeDescription();
         }
     }
+
+    public AbstractCard makeCopy() {
+        return new WorkingDough();
+    }
 }
-*/
