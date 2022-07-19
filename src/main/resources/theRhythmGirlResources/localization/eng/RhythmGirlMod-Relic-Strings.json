@@ -59,9 +59,9 @@
   },
   "theRhythmGirl:GoForAPerfect": {
     "NAME": "Go for a Perfect",
-    "FLAVOR": "If you get a Perfect on 'Card Crawl Game' right now, you'll receive 50 gold!",
+    "FLAVOR": "If you get a Perfect on 'Card Crawl Game' right now, you'll receive 35 gold!",
     "DESCRIPTIONS": [
-      "At the end of combat, if you didn't lose any HP that combat, gain #y50 #ygold.",
+      "At the end of combat, if you didn't lose any HP that combat, gain #y35 #ygold.",
       " Gold (Perfect)"
     ]
   }

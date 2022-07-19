@@ -15,7 +15,8 @@ import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //fixed bug: apply powers doesn't work
-//idea: nerf mandrill strike
+
+//old version: deal 6 (9) damage, on beat 3: deal 12 (18) damage instead.
 
 public class MandrillStrike extends AbstractRhythmGirlCard {
 
@@ -35,10 +36,10 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
-    private static final int MAGIC = 12;
-    private static final int UPGRADE_DAMAGE = 3;
-    private static final int UPGRADE_MAGIC = 6;
+    private static final int DAMAGE = 4;
+    private static final int MAGIC = 8;
+    private static final int UPGRADE_DAMAGE = 2;
+    private static final int UPGRADE_MAGIC = 4;
 
     // /STAT DECLARATION/
 
@@ -49,6 +50,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
 
         onBeatColor.put(3, BeatUI.BeatColor.ON_BEAT);
 
+        this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
     }
 

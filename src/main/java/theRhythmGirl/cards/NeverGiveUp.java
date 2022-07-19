@@ -18,7 +18,7 @@ import java.util.UUID;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//idea: make this rare?
+//old version: uncommon
 
 public class NeverGiveUp extends AbstractRhythmGirlCard {
 
@@ -35,7 +35,7 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;

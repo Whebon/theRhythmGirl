@@ -16,6 +16,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //old version: Lose 1 hp. Add a copy of this card to your hand. Exhaust.
 //old version: Exhaustive 4
 
+//idea: nerf to 3
+
 public class Metronome extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

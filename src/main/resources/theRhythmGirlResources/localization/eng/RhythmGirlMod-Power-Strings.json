@@ -45,7 +45,7 @@
         },
         "theRhythmGirl:GrowingFanbasePower": {
                 "NAME": "Growing Fanbase",
-                "DESCRIPTIONS": ["At the end of your turn, gain #b", " #yPopularity"]
+                "DESCRIPTIONS": ["At the start of your turn, gain #b", " #yPopularity"]
         },
         "theRhythmGirl:RatRacePower": {
                 "NAME": "Rat Race",

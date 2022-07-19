@@ -27,7 +27,7 @@ public class GoForAPerfect extends CustomRelic {
     private static final Texture IMG_BROKE = TextureLoader.getTexture(makeRelicPath(GoForAPerfect.class.getSimpleName()+"Broke.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath(GoForAPerfect.class.getSimpleName()+".png"));
 
-    private static final int GOLD = 50;
+    private static final int GOLD = 35;
 
     private boolean tookDamageThisTurn;
 

@@ -13,15 +13,18 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//old version: also upgraded block by 3
+//old version: upgraded block by 3
+
+//idea: fix the art of this card, it looks too similar to screwbot, which does something completely different
+//maybe make this uncommon?
 
 public class TallScrew extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(TallScrew.class.getSimpleName());
-    public static final String IMG = makeCardPath("TallScrew.png");
-    public static final String IMG_UPGRADED = makeCardPath("TallScrewUpgraded.png");
+    public static final String IMG = makeCardPath(TallScrew.class.getSimpleName()+".png");
+    public static final String IMG_UPGRADED = makeCardPath(TallScrew.class.getSimpleName()+"Upgraded.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 

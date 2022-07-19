@@ -14,6 +14,9 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //the card says: 'damage', but it is actually magic damage
 //I had to change damage to magic because the card was broken with attack relics like Akabeko
 
+//note: I changed "This cards effects are applied on a target and trigger after you've gained X beats." into a keyword "Countdown X"
+//however, I don't feel like the rhythm girl needs Countdown synergy and converting it into a keyword may lead to disappointing builds
+
 public class LaunchParty extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

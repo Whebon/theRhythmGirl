@@ -1,3 +1,11 @@
+//deprecated, too situational and has no synergy with the other cards
+
+/*
+  "theRhythmGirl:OddFlamingo": {
+    "NAME": "Odd Flamingo",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies except the targeted enemy."
+  },
+
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -11,8 +19,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//idea: rework this card. it's too situational.
-//idea: remove this card.
+
 
 public class OddFlamingo extends AbstractRhythmGirlCard {
 
@@ -59,3 +66,4 @@ public class OddFlamingo extends AbstractRhythmGirlCard {
         }
     }
 }
+ */

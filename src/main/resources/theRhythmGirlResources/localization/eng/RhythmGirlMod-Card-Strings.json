@@ -51,10 +51,6 @@
     "NAME": "Double Up",
     "DESCRIPTION": "The first card you play each turn gains therhythmgirl:Repeat."
   },
-  "theRhythmGirl:OddFlamingo": {
-    "NAME": "Odd Flamingo",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies except the targeted enemy."
-  },
   "theRhythmGirl:SeeSaw": {
     "NAME": "See Saw",
     "DESCRIPTION": "Deal !D! damage to an enemy that did not take damage this turn.",
@@ -188,7 +184,7 @@
   },
   "theRhythmGirl:GrowingFanbase": {
     "NAME": "Growing Fanbase",
-    "DESCRIPTION": "At the end of your turn, gain !M! therhythmgirl:Popularity."
+    "DESCRIPTION": "At the start of your turn, gain !M! therhythmgirl:Popularity."
   },
   "theRhythmGirl:CropStomp": {
     "NAME": "Crop Stomp",
