@@ -65,6 +65,7 @@ public class RepeatModifier extends AbstractCardModifier {
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
+        logger.info("Repeat Modifier triggers for "+card.name);
         AbstractCard newCard;
         if (card instanceof WorkingDough && card.cardsToPreview != null)
             newCard = card.cardsToPreview.makeStatEquivalentCopy();

@@ -9,14 +9,9 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//defend has no SFX, but on second thought, I think that's ok.
+
 public class Defend_RhythmGirl extends AbstractRhythmGirlCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Defend_RhythmGirl Gain 5 (8) block.
-     */
-
 
     // TEXT DECLARATION
 

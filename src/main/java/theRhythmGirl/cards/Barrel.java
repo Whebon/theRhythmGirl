@@ -15,8 +15,6 @@ import theRhythmGirl.ui.BeatUI;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//idea: nerf barrel?
-
 public class Barrel extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION
@@ -35,8 +33,8 @@ public class Barrel extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 20;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int DAMAGE = 12;
+    private static final int UPGRADE_PLUS_DMG = 4;
 
     // /STAT DECLARATION/
 

@@ -64,9 +64,11 @@ public class WorkingDough extends AbstractRhythmGirlCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        setPreviousCard(m);
         if (this.cardsToPreview != null){
             this.cardsToPreview.use(p, m);
+        }
+        else{
+            logger.error("WorkingDough has not copied any card");
         }
     }
 
@@ -110,7 +112,7 @@ public class WorkingDough extends AbstractRhythmGirlCard {
         for (int i = 0; i < list.size(); i++) {
             AbstractCard c = list.get(list.size() - 1 - i);
             if (!c.cardID.equals(this.cardID)) {
-                logger.info("WorkingDough transforms into "+c.name);
+                logger.info("WorkingDough transforms into a copy of "+c.name);
                 this.cardsToPreview = c.makeStatEquivalentCopy();
                 CardModifierManager.removeAllModifiers(this, true);
                 CardModifierManager.copyModifiers(c, this, true, false, false);

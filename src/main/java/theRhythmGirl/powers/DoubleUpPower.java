@@ -18,6 +18,9 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.RepeatModifier;
 import theRhythmGirl.util.TextureLoader;
 
+//note: 2x DoubleUpPower + <AnyCard> + <WorkingDough> gives 3 copies of <AnyCard>
+//this is funky, yet intended, behavior.
+
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
 public class DoubleUpPower extends AbstractPower implements CloneablePowerInterface {
