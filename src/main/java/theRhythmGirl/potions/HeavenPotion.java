@@ -2,47 +2,48 @@ package theRhythmGirl.potions;
 
 import basemod.abstracts.CustomPotion;
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import theRhythmGirl.actions.CustomSFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.actions.GainAdditionalBeatsAction;
+import theRhythmGirl.powers.RhythmHeavenPower;
 
-public class BeatPotion extends CustomPotion {
+public class HeavenPotion extends CustomPotion {
 
-    public static final String POTION_ID = RhythmGirlMod.makeID("BeatPotion");
+    public static final String POTION_ID = RhythmGirlMod.makeID("HeavenPotion");
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 
     public static final String NAME = potionStrings.NAME;
     public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
     // Potion Colors in RGB
-    public static final Color LIQUID = CardHelper.getColor(164.0f, 90.0f, 82.0f); // Redwood
-    public static final Color HYBRID = CardHelper.getColor(164.0f, 90.0f, 82.0f); // Redwood
-    public static final Color SPOTS = CardHelper.getColor(10.0f, 10.0f, 10.0f); // Blackish
+    public static final Color LIQUID = CardHelper.getColor(255.0f, 255.0f, 255.0f); // White
+    public static final Color HYBRID = CardHelper.getColor(231.0f, 231.0f, 0.0f); // Yellow
+    public static final Color SPOTS = null;
 
-    //possible time signatures: {2, 3, 4, 6}
-    //drinking the beat potion gives 13 beats
-    //13%2 = 13%3 = 13%4 = 13%6 = 1
-    //so you will always end up 1 beat further than before drinking the potion
-    public static final int POTENCY = 13;
-    public static final int UPGRADE_POTENCY = 13;
+    //Gain 1 Rhythm Heaven Power
+    public static final int POTENCY = 1;
+    public static final int UPGRADE_POTENCY = 1;
 
-    public BeatPotion() {
+    public HeavenPotion() {
         // The bottle shape and inside is determined by potion size and color. The actual colors are the main RhythmGirlMod.java
-        super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.SPHERE, PotionColor.SMOKE);
+        super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.MOON, PotionColor.WHITE);
 
         // Potency is the damage/magic number equivalent of potions.
         potency = getPotency();
 
         // Initialize the Description
-        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + DESCRIPTIONS[2];
 
         // Do you throw this potion at an enemy or do you just consume it
         isThrown = false;
@@ -54,16 +55,29 @@ public class BeatPotion extends CustomPotion {
     @Override
     public void use(AbstractCreature target) {
         target = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("BEAT_POTION"));
-        // If you are in combat, gain beats equal to the potency of this potion.
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("POWER_FLIGHT"));
+        // If you are in combat, enter rhythm heaven
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(target, target, potency));
+            this.addToBot(new ApplyPowerAction(target, target, new RhythmHeavenPower(target, target, potency), potency));
         }
     }
 
     @Override
+    public void initializeData() {
+        this.potency = this.getPotency();
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic("SacredBark")) {
+            this.description = potionStrings.DESCRIPTIONS[1] + potionStrings.DESCRIPTIONS[2];
+        } else {
+            this.description = potionStrings.DESCRIPTIONS[0] + potionStrings.DESCRIPTIONS[2];
+        }
+
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+    }
+
+    @Override
     public AbstractPotion makeCopy() {
-        return new BeatPotion();
+        return new HeavenPotion();
     }
 
     // This is your potency.
@@ -75,6 +89,7 @@ public class BeatPotion extends CustomPotion {
     public void upgradePotion()
     {
       potency += UPGRADE_POTENCY;
+      this.description = potionStrings.DESCRIPTIONS[1] + potionStrings.DESCRIPTIONS[2];
       tips.clear();
       tips.add(new PowerTip(name, description));
     }

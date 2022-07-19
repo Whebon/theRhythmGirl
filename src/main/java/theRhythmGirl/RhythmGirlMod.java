@@ -27,6 +27,7 @@ import theRhythmGirl.cards.*;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.events.BossaNovaEvent;
 import theRhythmGirl.potions.BeatPotion;
+import theRhythmGirl.potions.HeavenPotion;
 import theRhythmGirl.relics.*;
 import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
@@ -78,11 +79,6 @@ public class RhythmGirlMod implements
     // redwood: CardHelper.getColor(164.0f, 90.0f, 82.0f); (#a45a52)
     // brown (orb): CardHelper.getColor(127.0f, 83.0f, 40.0f) (#7f5328)
     public static final Color RHYTHM_GIRL_CHARACTER_COLOR = CardHelper.getColor(164.0f, 90.0f, 82.0f);
-    
-    // Potion Colors in RGB
-    public static final Color BEAT_POTION_LIQUID = CardHelper.getColor(164.0f, 90.0f, 82.0f); // Redwood
-    public static final Color BEAT_POTION_HYBRID = CardHelper.getColor(164.0f, 90.0f, 82.0f); // Redwood
-    public static final Color BEAT_POTION_SPOTS = CardHelper.getColor(10.0f, 10.0f, 10.0f); // Blackish
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_RHYTHM_GIRL = "theRhythmGirlResources/images/cardFrames/512/bg_attack_rhythm_girl_color.png";
@@ -324,7 +320,8 @@ public class RhythmGirlMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(BeatPotion.class, BEAT_POTION_LIQUID, BEAT_POTION_HYBRID, BEAT_POTION_SPOTS, BeatPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
+        BaseMod.addPotion(BeatPotion.class, BeatPotion.LIQUID, BeatPotion.HYBRID, BeatPotion.SPOTS, BeatPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
+        BaseMod.addPotion(HeavenPotion.class, HeavenPotion.LIQUID, HeavenPotion.HYBRID, HeavenPotion.SPOTS, HeavenPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
         logger.info("Done editing potions");
     }
     
