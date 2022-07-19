@@ -213,5 +213,10 @@
     "DESCRIPTION": "While in your hand, this card is a copy of the previous card you played this turn.",
     "UPGRADE_DESCRIPTION": "While in your hand, this card is an upgraded copy of the previous card you played this turn.",
     "EXTENDED_DESCRIPTION": ["No cards to copy."]
+  },
+  "theRhythmGirl:Fillbots": {
+    "NAME": "Fillbots",
+    "DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure. Gain 1 Block per therhythmgirl:Beat gained this way."
   }
 }

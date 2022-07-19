@@ -111,6 +111,7 @@ public class BeatUI
         add(new Keyframe(0, 1.0f));
     }};
 
+    private static final int MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE = 6;
     private static final float MARSHAL_ANIMATION_IDLE_DURATION = 0.6f;
     private static final float MARSHAL_ANIMATION_IDLE_DURATION_FAST = 0.05f;
     private static final float MARSHAL_ANIMATION_WALK_DURATION = 0.4f;
@@ -290,6 +291,10 @@ public class BeatUI
         }
     }
 
+    public boolean isAnimationPlaying(){
+        return (marshalAnimationQueue.size() > 0 || !(marshalAnimationActive.type == MarshalAnimationTypes.IDLE));
+    }
+
     private void updatePillarRegions() {
         for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
             pillarRegions.put(iPillar, allPillarRegions.get(BeatColor.NORMAL));
@@ -355,7 +360,7 @@ public class BeatUI
             return;
         }
         publishOnGainBeat(amount);
-        if (amount > 4)
+        if (amount >= MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE)
             marshalAnimationIsFast = true;
         int n = getNumberOfPillars();
         if (n <= 0)

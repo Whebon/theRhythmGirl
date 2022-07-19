@@ -575,6 +575,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("TRY_AGAIN", makeAudioPath("SFX_TryAgain.wav"));
         BaseMod.addAudio("PERFECT_BREAKS", makeAudioPath("SFX_PerfectBreaks.wav"));
         BaseMod.addAudio("RAT_RACE", makeAudioPath("SFX_RatRace.wav"));
+        BaseMod.addAudio("FILLBOTS_BEAT", makeAudioPath("SFX_FillbotsBeat.wav"));
+        BaseMod.addAudio("FILLBOTS_FINAL_BEAT", makeAudioPath("SFX_FillbotsFinalBeat.wav"));
     }
 
     @Override

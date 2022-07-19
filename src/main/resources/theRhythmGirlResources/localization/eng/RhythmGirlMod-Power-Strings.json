@@ -50,5 +50,9 @@
         "theRhythmGirl:RatRacePower": {
                 "NAME": "Rat Race",
                 "DESCRIPTIONS": ["At the end of your turn, if you didn't gain any #yMeasure this turn, gain #b", " #yBlock.", " (Gains #b0 #yBlock this turn.)"]
+        },
+        "theRhythmGirl:FillbotsPower": {
+                "NAME": "Fillbots",
+                "DESCRIPTIONS": ["At the end of your turn, gain #yBeats until you gain a #yMeasure.", " Gain #b", " #yBlock for every #yBeat gained this way."]
         }
 }
