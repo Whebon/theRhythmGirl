@@ -218,5 +218,11 @@
     "NAME": "Fillbots",
     "DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure.",
     "UPGRADE_DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure. Gain 1 Block per therhythmgirl:Beat gained this way."
+  },
+  "theRhythmGirl:DonkDonk": {
+    "NAME": "Donk Donk",
+    "DESCRIPTION": "Deal damage equal to the size of your Exhaust pile, twice.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the size of your Exhaust pile + !M!, twice.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage twice.)"]
   }
 }
