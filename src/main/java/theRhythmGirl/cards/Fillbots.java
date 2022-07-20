@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.characters.TheRhythmGirl;
-import theRhythmGirl.powers.CoffeeBreakPower;
 import theRhythmGirl.powers.FillbotsPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;

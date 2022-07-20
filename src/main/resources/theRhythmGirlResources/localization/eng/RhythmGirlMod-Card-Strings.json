@@ -99,15 +99,15 @@
   },
   "theRhythmGirl:LaunchParty": {
     "NAME": "Launch Party",
-    "DESCRIPTION": "After you've gained 3 therhythmgirl:Beats, deal !M! damage."
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage."
   },
   "theRhythmGirl:PartyCracker": {
     "NAME": "Party Cracker",
-    "DESCRIPTION": "After you've gained !theRhythmGirl:MagicNumber2! therhythmgirl:Beats, deal !M! damage. Double the damage each turn this effect is delayed."
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage. Double the damage each turn this effect is delayed."
   },
   "theRhythmGirl:SpaceBell": {
     "NAME": "Space Bell",
-    "DESCRIPTION": "After you've gained 7 therhythmgirl:Beats, everyone gains !B! Block. NL Exhaust."
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Everyone gains !B! Block. NL Exhaust."
   },
   "theRhythmGirl:CoffeeBreak": {
     "NAME": "Coffee Break",

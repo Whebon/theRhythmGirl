@@ -45,5 +45,19 @@
       "popularity"
     ],
     "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
+  },
+  {
+    "PROPER_NAME": "Popularity",
+    "NAMES": [
+      "popularity"
+    ],
+    "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
+  },
+  {
+    "PROPER_NAME": "Countdown X",
+    "NAMES": [
+      "countdown"
+    ],
+    "DESCRIPTION": "Apply this card's effect on a creature. After you've gained X #yBeats, trigger this effect. (Excluding the #yBeat gained from this card.)"
   }
 ]

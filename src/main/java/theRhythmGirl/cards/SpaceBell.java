@@ -34,6 +34,7 @@ public class SpaceBell extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 2;
+    private static final int COUNTDOWN = 7;
     private static final int BLOCK = 40;
     private static final int UPGRADE_BLOCK = 20;
 
@@ -41,7 +42,8 @@ public class SpaceBell extends AbstractRhythmGirlCard {
 
     public SpaceBell() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        block=baseBlock=BLOCK;
+        block = baseBlock = BLOCK;
+        baseMagicNumber2 = magicNumber2 = COUNTDOWN;
         this.exhaust = true;
     }
 
@@ -49,7 +51,7 @@ public class SpaceBell extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new CustomSFXAction("SPACE_BELL_APPLY"));
-        this.addToBot(new ApplyPowerAction(p, p, new SpaceBellPower(p, p, 7, block), 7));
+        this.addToBot(new ApplyPowerAction(p, p, new SpaceBellPower(p, p, magicNumber2, block), magicNumber2));
     }
 
     // Upgraded stats.
