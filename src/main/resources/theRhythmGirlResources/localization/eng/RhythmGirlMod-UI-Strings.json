@@ -15,5 +15,11 @@
     "TEXT": [
       "I can only play attacks #rOn #rBeat #r1."
     ]
+  },
+  "theRhythmGirl:SendDataPopup": {
+    "TEXT": [
+      "Share deck?",
+      "Do you want to contribute to improving this mod by sending your gameplay data anonymously?"
+    ]
   }
 }

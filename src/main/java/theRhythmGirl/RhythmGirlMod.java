@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.screens.options.ConfirmPopup;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +31,7 @@ import theRhythmGirl.events.BossaNovaEvent;
 import theRhythmGirl.potions.BeatPotion;
 import theRhythmGirl.potions.HeavenPotion;
 import theRhythmGirl.relics.*;
-import theRhythmGirl.senddata.SendData;
+import theRhythmGirl.senddata.SendDataPopup;
 import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
@@ -66,8 +68,7 @@ public class RhythmGirlMod implements
     public static final String ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS = "enableCustomSoundEffects";
     public static boolean enableCustomSoundEffects = true; // The boolean we'll be setting on/off (true/false)
     public static final String ENABLE_SEND_RUN_DATA_SETTINGS = "sendRunData";
-    public static boolean sendRunData = true;
-    //todo: turn "sendRunData" into a config option
+    public static boolean sendRunData = false;
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Rhythm Girl";
@@ -109,6 +110,9 @@ public class RhythmGirlMod implements
 
     //singleton beatUI
     public static BeatUI beatUI;
+
+    public static ConfirmPopup sendDataPopup;
+    public static ModLabeledToggleButton enableButtonSendData;
     
     // =============== MAKE IMAGE PATHS =================
 
@@ -181,7 +185,7 @@ public class RhythmGirlMod implements
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enableCustomSoundEffects = config.getBool(ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS);
-            enableCustomSoundEffects = config.getBool(ENABLE_SEND_RUN_DATA_SETTINGS);
+            sendRunData = config.getBool(ENABLE_SEND_RUN_DATA_SETTINGS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -296,15 +300,16 @@ public class RhythmGirlMod implements
         settingsPanel.addUIElement(enableButtonSoundEffects); // Add the button to the settings panel. Button is a go.
 
         // Create on/off button for sendRunData
-        ModLabeledToggleButton enableButtonSendData = new ModLabeledToggleButton("Contribute to balancing this mod by sending anonymous deck data",
-                359.0f, 749.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
-                sendRunData, // Boolean it uses
-                settingsPanel, // The mod panel in which this button will be in
-                (label) -> {}, // thing??????? idk
-                (button) -> { // The actual button:
-                    sendRunData = button.enabled; // The boolean true/false will be whether the button is enabled or not
+        // sendDataPopup and enableButtonSendData are public static fields, because they need to be accessed in the SendDataPopup
+        sendDataPopup = new SendDataPopup();
+        enableButtonSendData = new ModLabeledToggleButton("Contribute to balancing this mod by sending anonymous deck data",
+                359.0f, 749.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                sendRunData,
+                settingsPanel,
+                (label) -> {},
+                (button) -> {
+                    sendRunData = button.enabled;
                     try {
-                        // And based on that boolean, set the settings and save them
                         SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings);
                         config.setBool(ENABLE_SEND_RUN_DATA_SETTINGS, sendRunData);
                         config.save();

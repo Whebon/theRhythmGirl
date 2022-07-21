@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.screens.GameOverScreen;
 import com.megacrit.cardcrawl.screens.VictoryScreen;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
@@ -34,6 +35,9 @@ public class MetricsPatch {
     public static class DeathScreenPatch {
         @SpirePostfixPatch
         public static void Postfix() {
+            if (!RhythmGirlMod.sendRunData) {
+                RhythmGirlMod.sendDataPopup.show();
+            }
             if (!RhythmGirlMod.sendRunData)
                 return;
             RunDetails runDetails = MetricsPatch.generateRunDetails();
@@ -48,6 +52,9 @@ public class MetricsPatch {
     public static class VictoryScreenPatch {
         @SpirePostfixPatch
         public static void Postfix() {
+            if (!RhythmGirlMod.sendRunData) {
+                RhythmGirlMod.sendDataPopup.show();
+            }
             if (!RhythmGirlMod.sendRunData)
                 return;
             RunDetails runDetails = MetricsPatch.generateRunDetails();
