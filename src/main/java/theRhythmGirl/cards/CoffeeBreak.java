@@ -21,6 +21,10 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //intended to combine with PartyCracker or Pitch
 //idea: for the upgrade, 2 stacks instead of draw a card
 
+//idea: make coffee beat based instead of turn based
+//"Ignore the next #b incoming #yBeats, wears off at the end of your turn."
+//downside: playing this card would already consume 1 stack.
+
 public class CoffeeBreak extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

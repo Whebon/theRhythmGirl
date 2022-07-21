@@ -29,6 +29,7 @@ import theRhythmGirl.events.BossaNovaEvent;
 import theRhythmGirl.potions.BeatPotion;
 import theRhythmGirl.potions.HeavenPotion;
 import theRhythmGirl.relics.*;
+import theRhythmGirl.senddata.SendData;
 import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
 import theRhythmGirl.util.TextureLoader;
@@ -64,6 +65,9 @@ public class RhythmGirlMod implements
     public static Properties theDefaultRhythmGirlSettings = new Properties();
     public static final String ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS = "enableCustomSoundEffects";
     public static boolean enableCustomSoundEffects = true; // The boolean we'll be setting on/off (true/false)
+    public static final String ENABLE_SEND_RUN_DATA_SETTINGS = "sendRunData";
+    public static boolean sendRunData = true;
+    //todo: turn "sendRunData" into a config option
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Rhythm Girl";
@@ -171,11 +175,13 @@ public class RhythmGirlMod implements
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
         theDefaultRhythmGirlSettings.setProperty(ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS, "TRUE"); // This is the default setting. It's actually set...
+        theDefaultRhythmGirlSettings.setProperty(ENABLE_SEND_RUN_DATA_SETTINGS, "TRUE");
         try {
             SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enableCustomSoundEffects = config.getBool(ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS);
+            enableCustomSoundEffects = config.getBool(ENABLE_SEND_RUN_DATA_SETTINGS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -269,9 +275,9 @@ public class RhythmGirlMod implements
         // Create the Mod Menu
         ModPanel settingsPanel = new ModPanel();
         
-        // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("Enable Custom Sound Effects from Rhythm Heaven",
-                350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
+        // Create on/off button for enableCustomSoundEffects
+        ModLabeledToggleButton enableButtonSoundEffects = new ModLabeledToggleButton("Enable Custom Sound Effects from Rhythm Heaven",
+                359.0f, 708.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
                 enableCustomSoundEffects, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
                 (label) -> {}, // thing??????? idk
@@ -287,8 +293,26 @@ public class RhythmGirlMod implements
                 e.printStackTrace();
             }
         });
-        
-        settingsPanel.addUIElement(enableNormalsButton); // Add the button to the settings panel. Button is a go.
+        settingsPanel.addUIElement(enableButtonSoundEffects); // Add the button to the settings panel. Button is a go.
+
+        // Create on/off button for sendRunData
+        ModLabeledToggleButton enableButtonSendData = new ModLabeledToggleButton("Contribute to balancing this mod by sending anonymous deck data",
+                359.0f, 749.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
+                sendRunData, // Boolean it uses
+                settingsPanel, // The mod panel in which this button will be in
+                (label) -> {}, // thing??????? idk
+                (button) -> { // The actual button:
+                    sendRunData = button.enabled; // The boolean true/false will be whether the button is enabled or not
+                    try {
+                        // And based on that boolean, set the settings and save them
+                        SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings);
+                        config.setBool(ENABLE_SEND_RUN_DATA_SETTINGS, sendRunData);
+                        config.save();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        settingsPanel.addUIElement(enableButtonSendData);
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 

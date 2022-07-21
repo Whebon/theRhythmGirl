@@ -224,6 +224,9 @@ public class WorkingDough extends AbstractRhythmGirlCard {
     public void triggerOnGlowCheck(){
         if (this.cardsToPreview != null){
             cardsToPreview.triggerOnGlowCheck();
+            this.target = cardsToPreview.target;
+            this.type = cardsToPreview.type;
+            this.exhaust = cardsToPreview.exhaust;
             this.glowColor = cardsToPreview.glowColor;
         }
     }
