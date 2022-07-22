@@ -54,5 +54,9 @@
         "theRhythmGirl:FillbotsPower": {
                 "NAME": "Fillbots",
                 "DESCRIPTIONS": ["At the end of your turn, gain #yBeats until you gain a #yMeasure.", " Gain #b", " #yBlock for every #yBeat gained this way."]
+        },
+        "theRhythmGirl:SeeingHeavenPower": {
+                "NAME": "Seeing Heaven",
+                "DESCRIPTIONS": ["#yOn #yBeat effects of your next ", "card", "cards", " always trigger regardless of your current #yBeat."]
         }
 }

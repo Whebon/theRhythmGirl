@@ -236,5 +236,10 @@
   "theRhythmGirl:WanderingSamurai": {
     "NAME": "Wandering Samurai",
     "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Gain !M! Strength. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! Dexterity."
+  },
+  "theRhythmGirl:SeeingHeaven": {
+    "NAME": "Seeing Heaven",
+    "DESCRIPTION": "therhythmgirl:On_Beat effects of your next card always trigger regardless of your current therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat effects of the next !M! cards always trigger regardless of your current therhythmgirl:Beat."
   }
 }

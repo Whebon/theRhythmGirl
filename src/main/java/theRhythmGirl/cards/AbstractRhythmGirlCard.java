@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.powers.RhythmHeavenPower;
+import theRhythmGirl.powers.SeeingHeavenPower;
 import theRhythmGirl.ui.BeatUI;
 
 import java.util.HashMap;
@@ -96,13 +97,13 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     }
 
     public boolean onBeatTriggered(){
-        if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID))
+        if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID))
             return true;
         return onBeatColor.get(RhythmGirlMod.beatUI.currentBeat) != BeatUI.BeatColor.NORMAL;
     }
 
     public boolean onBeatTriggered(int beat){
-        if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID))
+        if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID))
             return true;
         return RhythmGirlMod.beatUI.currentBeat == beat;
     }
@@ -139,7 +140,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (hasOnBeatEffect() && (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID))){
+        if (hasOnBeatEffect() && (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID))){
             this.glowColor = beatColorToGlow.get(BeatUI.BeatColor.RHYTHM_HEAVEN).cpy();
         }
         else {

@@ -467,7 +467,7 @@ public class BeatUI
 
             for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
                 //draw the pillars
-                TextureAtlas.AtlasRegion pillarRegion = (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)) ?
+                TextureAtlas.AtlasRegion pillarRegion = (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) ?
                         allPillarRegions.get(BeatColor.RHYTHM_HEAVEN) : pillarRegions.getOrDefault(iPillar, allPillarRegions.get(BeatColor.NORMAL));
                 sb.setColor(Color.WHITE);
                 sb.draw(
@@ -487,7 +487,8 @@ public class BeatUI
                 if (iPillar != 0) {
                     //draw lines between pillars
                     sb.setColor(Color.WHITE);
-                    sb.draw((AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)) ? lineRegionRhythmHeaven : lineRegion,
+                    sb.draw((AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) ?
+                                    lineRegionRhythmHeaven : lineRegion,
                             getX() + (iPillar - 0.5f) * getPillarSpacing() * Settings.scale
                                     - lineRegion.getRegionWidth() / 2.0f * Settings.scale,
                             getY() + floatyOffset
@@ -512,6 +513,10 @@ public class BeatUI
                 tips.add(new PowerTip(UIStrings.TEXT[0], body));
                 if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)){
                     AbstractPower power = AbstractDungeon.player.getPower(RhythmHeavenPower.POWER_ID);
+                    tips.add(new PowerTip(power.name, power.description, power.region48));
+                }
+                else if (AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)){
+                    AbstractPower power = AbstractDungeon.player.getPower(SeeingHeavenPower.POWER_ID);
                     tips.add(new PowerTip(power.name, power.description, power.region48));
                 }
 
