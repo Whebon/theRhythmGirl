@@ -232,5 +232,9 @@
     "EXTENDED_DESCRIPTION": [
       "There are no Powers NL in my draw pile."
     ]
+  },
+  "theRhythmGirl:WanderingSamurai": {
+    "NAME": "Wandering Samurai",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Gain !M! Strength. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! Dexterity."
   }
 }
