@@ -3,7 +3,6 @@ package theRhythmGirl.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;

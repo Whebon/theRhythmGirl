@@ -241,5 +241,10 @@
     "NAME": "Seeing Heaven",
     "DESCRIPTION": "therhythmgirl:On_Beat effects of your next card always trigger regardless of your current therhythmgirl:Beat.",
     "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat effects of the next !M! cards always trigger regardless of your current therhythmgirl:Beat."
+  },
+  "theRhythmGirl:PreParty": {
+    "NAME": "Pre-Party",
+    "DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects. NL If there are none, draw a card.",
+    "UPGRADE_DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects. NL Draw a card."
   }
 }

@@ -16,25 +16,20 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
-import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
-import theRhythmGirl.cards.CoffeeBreak;
 import theRhythmGirl.powers.*;
 import theRhythmGirl.relics.*;
 import theRhythmGirl.util.TextureLoader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -316,28 +311,29 @@ public class BeatUI
     }
 
     public void publishOnGainBeat(int numberOfBeatsGained){
-        logger.info("Publishing OnBeat (for powers)");
+        logger.info("Publishing OnBeat (for AbstractCountdownPower)");
         for (AbstractCreature m : AbstractDungeon.getMonsters().monsters){
             for (AbstractPower p : m.powers){
-                if (p instanceof OnGainBeatSubscriber){
-                    ((OnGainBeatSubscriber) p).onGainBeat(numberOfBeatsGained);
+                if (p instanceof AbstractCountdownPower){
+                    ((AbstractCountdownPower) p).onGainBeat(numberOfBeatsGained);
                 }
             }
         }
         for (AbstractPower p : AbstractDungeon.player.powers){
-            if (p instanceof OnGainBeatSubscriber){
-                ((OnGainBeatSubscriber) p).onGainBeat(numberOfBeatsGained);
+            if (p instanceof AbstractCountdownPower){
+                ((AbstractCountdownPower) p).onGainBeat(numberOfBeatsGained);
             }
         }
-        logger.info("Published OnBeat (for powers)");
+        logger.info("Published OnBeat (for AbstractCountdownPower)");
     }
 
     public void publishOnGainMeasure(int numberOfMeasuresGained){
-        logger.info("Publishing OnMeasure");
+        //note: this can be refactored into 'onPowerGain' instead publishing 'onGainMeasure' specifically
+        logger.info("Publishing OnMeasure (for relics)");
         for (AbstractRelic r : AbstractDungeon.player.relics)
             if (r instanceof OnGainMeasureSubscriber)
                 ((OnGainMeasureSubscriber)r).onGainMeasure(numberOfMeasuresGained);
-        logger.info("Published OnMeasure");
+        logger.info("Published OnMeasure (for relics)");
     }
 
     public void gainBeatsUntil(int targetBeat){

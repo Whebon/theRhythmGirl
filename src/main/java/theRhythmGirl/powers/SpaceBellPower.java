@@ -4,9 +4,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,7 +17,7 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
-public class SpaceBellPower extends TwoAmountPower implements CloneablePowerInterface, OnGainBeatSubscriber {
+public class SpaceBellPower extends AbstractCountdownPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
     public static final String POWER_ID = RhythmGirlMod.makeID(SpaceBellPower.class.getSimpleName());
@@ -28,7 +26,6 @@ public class SpaceBellPower extends TwoAmountPower implements CloneablePowerInte
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private static int uniqueID;
-    private int countdown;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(SpaceBellPower.class.getSimpleName()+"84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(SpaceBellPower.class.getSimpleName()+"32.png"));
@@ -43,7 +40,7 @@ public class SpaceBellPower extends TwoAmountPower implements CloneablePowerInte
         this.amount = countdown;
         this.countdown = countdown;
         this.amount2 = block;
-        this.greenColor2 = Color.YELLOW.cpy();
+        this.greenColor2 = Color.GOLD.cpy();
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -70,17 +67,11 @@ public class SpaceBellPower extends TwoAmountPower implements CloneablePowerInte
     }
 
     @Override
-    public void onGainBeat(int numberOfBeatsGained) {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && this.countdown>0) {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, this, numberOfBeatsGained));
-            this.countdown -= numberOfBeatsGained;
-            if (this.countdown <= 0) {
-                this.addToBot(new CustomSFXAction("SPACE_BELL_BLAST"));
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, source, amount2));
-                for (AbstractMonster m : AbstractDungeon.getMonsters().monsters){
-                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, source, amount2));
-                }
-            }
+    public void onCountdownTrigger() {
+        this.addToBot(new CustomSFXAction("SPACE_BELL_BLAST"));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, source, amount2));
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters){
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, source, amount2));
         }
     }
 }

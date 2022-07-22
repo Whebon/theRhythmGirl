@@ -4,15 +4,12 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
@@ -21,7 +18,7 @@ import theRhythmGirl.util.TextureLoader;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
-public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerInterface, OnGainBeatSubscriber {
+public class LaunchPartyPower extends AbstractCountdownPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
     public static final String POWER_ID = RhythmGirlMod.makeID(LaunchPartyPower.class.getSimpleName());
@@ -30,7 +27,6 @@ public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerIn
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private static int uniqueID;
-    private int countdown;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(LaunchPartyPower.class.getSimpleName()+"84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(LaunchPartyPower.class.getSimpleName()+"32.png"));
@@ -45,7 +41,7 @@ public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerIn
         this.amount = countdown;
         this.countdown = countdown;
         this.amount2 = damage;
-        this.greenColor2 = Color.YELLOW.cpy();
+        this.greenColor2 = Color.GOLD.cpy();
 
         type = PowerType.DEBUFF;
         isTurnBased = false;
@@ -72,15 +68,9 @@ public class LaunchPartyPower extends TwoAmountPower implements CloneablePowerIn
     }
 
     @Override
-    public void onGainBeat(int numberOfBeatsGained) {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && this.countdown>0) {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, this, numberOfBeatsGained));
-            this.countdown -= numberOfBeatsGained;
-            if (this.countdown <= 0) {
-                this.addToBot(new CustomSFXAction("LAUNCH_PARTY_BLAST"));
-                this.addToBot(new DamageAction(owner, new DamageInfo(this.source, amount2, DamageInfo.DamageType.THORNS),
-                        AbstractGameAction.AttackEffect.FIRE, false, enableCustomSoundEffects));
-            }
-        }
+    public void onCountdownTrigger() {
+        this.addToBot(new CustomSFXAction("LAUNCH_PARTY_BLAST"));
+        this.addToBot(new DamageAction(owner, new DamageInfo(this.source, amount2, DamageInfo.DamageType.THORNS),
+                AbstractGameAction.AttackEffect.FIRE, false, enableCustomSoundEffects));
     }
 }
