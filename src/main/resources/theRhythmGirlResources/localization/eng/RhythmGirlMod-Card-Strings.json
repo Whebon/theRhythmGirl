@@ -246,5 +246,9 @@
     "NAME": "Pre-Party",
     "DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects. NL If there are none, draw a card.",
     "UPGRADE_DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects. NL Draw a card."
+  },
+  "theRhythmGirl:Lumbearjack": {
+    "NAME": "Lumbearjack",
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: NL This card gains therhythmgirl:Repeat. therhythmgirl:On_Beat 4: NL Deal !M! damage instead."
   }
 }

@@ -2,16 +2,12 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import theRhythmGirl.actions.CustomSFXAction;
-import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
-import theRhythmGirl.powers.CoffeeBreakPower;
-import theRhythmGirl.powers.DoubleUpPower;
 import theRhythmGirl.powers.RhythmHeavenPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
