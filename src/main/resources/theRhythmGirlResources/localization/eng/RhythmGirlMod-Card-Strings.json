@@ -249,6 +249,7 @@
   },
   "theRhythmGirl:Lumbearjack": {
     "NAME": "Lumbearjack",
-    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: NL This card gains therhythmgirl:Repeat. therhythmgirl:On_Beat 4: NL Deal !M! damage instead."
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: therhythmgirl:Repeat. NL therhythmgirl:On_Beat 4: Deal !M! damage instead.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 4: Deal !M! damage instead."
   }
 }
