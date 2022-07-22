@@ -30,12 +30,13 @@ import theRhythmGirl.senddata.SendData;
 
 public class MetricsPatch {
     public static Logger logger = LogManager.getLogger(RhythmGirlMod.class);
+    public static int SEND_DATA_POPUP_MINIMUM_FLOORS = 17;
 
     @SpirePatch(clz = DeathScreen.class, method = "<ctor>", paramtypez = {MonsterGroup.class})
     public static class DeathScreenPatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            if (!RhythmGirlMod.sendRunData) {
+            if (!RhythmGirlMod.sendRunData && AbstractDungeon.floorNum >= SEND_DATA_POPUP_MINIMUM_FLOORS) {
                 RhythmGirlMod.sendDataPopup.show();
             }
             if (!RhythmGirlMod.sendRunData)
@@ -65,6 +66,7 @@ public class MetricsPatch {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static RunDetails generateRunDetails() {
         RunDetails runDetails = new RunDetails();
         runDetails.characterName = AbstractDungeon.player.name;

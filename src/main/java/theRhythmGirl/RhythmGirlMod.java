@@ -7,7 +7,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -604,6 +603,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("FILLBOTS_BEAT", makeAudioPath("SFX_FillbotsBeat.wav"));
         BaseMod.addAudio("FILLBOTS_FINAL_BEAT", makeAudioPath("SFX_FillbotsFinalBeat.wav"));
         BaseMod.addAudio("DONK_DONK", makeAudioPath("SFX_DonkDonk.wav"));
+        BaseMod.addAudio("POWER_CALLIGRAPHY", makeAudioPath("SFX_PowerCalligraphy.wav"));
     }
 
     @Override

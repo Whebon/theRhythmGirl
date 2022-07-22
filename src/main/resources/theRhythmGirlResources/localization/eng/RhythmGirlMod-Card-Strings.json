@@ -224,5 +224,13 @@
     "DESCRIPTION": "Deal damage equal to the size of your Exhaust pile, twice.",
     "UPGRADE_DESCRIPTION": "Deal damage equal to the size of your Exhaust pile + !M!, twice.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage twice.)"]
+  },
+  "theRhythmGirl:PowerCalligraphy": {
+    "NAME": "Power Calligraphy",
+    "DESCRIPTION": "therhythmgirl:On_Beat 3: NL Put a Power from your draw pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put a Power from your draw pile into your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "There are no Powers NL in my draw pile."
+    ]
   }
 }
