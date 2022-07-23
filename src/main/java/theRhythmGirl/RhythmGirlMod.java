@@ -610,6 +610,7 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("LUMBEARJACK_3", makeAudioPath("SFX_Lumbearjack3.wav"));
         BaseMod.addAudio("LUMBEARJACK_4", makeAudioPath("SFX_Lumbearjack4.wav"));
         BaseMod.addAudio("OK_ITS_ON", makeAudioPath("SFX_OkItsOn.wav"));
+        BaseMod.addAudio("MARCHING_ORDERS", makeAudioPath("SFX_MarchingOrders.wav"));
     }
 
     @Override

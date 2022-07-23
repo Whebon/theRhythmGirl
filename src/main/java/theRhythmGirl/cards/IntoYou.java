@@ -12,7 +12,8 @@ import theRhythmGirl.characters.TheRhythmGirl;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//old version: gain 7 (10) block
+//old version: common. gain 7 (10) block. repeat
+//old version: common. gain 7 (9) block. repeat.
 
 public class IntoYou extends AbstractRhythmGirlCard {
 
@@ -27,14 +28,14 @@ public class IntoYou extends AbstractRhythmGirlCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int BLOCK = 7;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int BLOCK = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
 
     // /STAT DECLARATION/
 
@@ -55,9 +56,9 @@ public class IntoYou extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
-            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_REPEAT"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_REPEAT", 0.05F));
         else
-            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_EXHAUST"));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_EXHAUST", 0.05F));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 

@@ -257,5 +257,9 @@
     "NAME": "OK, it's on!",
     "DESCRIPTION": "Gain !M! Strength. NL Fleeting.",
     "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
+  },
+  "theRhythmGirl:MarchingOrders": {
+    "NAME": "Marching Orders",
+    "DESCRIPTION": "Attack cards created during combat deal !M! additional damage."
   }
 }

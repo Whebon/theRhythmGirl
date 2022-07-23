@@ -154,7 +154,7 @@ public class TheRhythmGirl extends CustomPlayer {
         retVal.add(Defend_RhythmGirl.ID);
         retVal.add(Defend_RhythmGirl.ID);
         retVal.add(MandrillStrike.ID);
-        //todo: add one more basic card (maybe turn bossa nova into a basic card, and remove the bossa nova event)
+        retVal.add(IntoYou.ID);
 
         return retVal;
     }
