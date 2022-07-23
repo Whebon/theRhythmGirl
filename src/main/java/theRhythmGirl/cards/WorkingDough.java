@@ -3,6 +3,7 @@ package theRhythmGirl.cards;
 import basemod.helpers.CardModifierManager;
 import basemod.helpers.TooltipInfo;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -99,6 +100,9 @@ public class WorkingDough extends AbstractRhythmGirlCard {
         this.costForTurn = COST;
         this.target = TARGET;
         this.type = TYPE;
+        FleetingField.fleeting.set(this, false);
+        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, -1);
+        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, -1);
         this.exhaust = false;
         this.onBeatColor = ON_BEAT_COLOR;
         CardModifierManager.removeAllModifiers(this, true);
@@ -138,6 +142,7 @@ public class WorkingDough extends AbstractRhythmGirlCard {
                 this.baseDamage = this.cardsToPreview.baseDamage;
                 this.baseMagicNumber = this.cardsToPreview.baseMagicNumber;
                 this.purgeOnUse = this.cardsToPreview.purgeOnUse;
+                FleetingField.fleeting.set(this, FleetingField.fleeting.get(this.cardsToPreview));
                 if (this.cardsToPreview instanceof AbstractRhythmGirlCard){
                     this.baseMagicNumber2 = ((AbstractRhythmGirlCard)this.cardsToPreview).baseMagicNumber2;
                     this.onBeatColor = ((AbstractRhythmGirlCard)this.cardsToPreview).onBeatColor;
@@ -153,6 +158,10 @@ public class WorkingDough extends AbstractRhythmGirlCard {
                     ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 1);
                     ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 1);
                     this.exhaust = true;
+                }
+                else{
+                    ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, -1);
+                    ExhaustiveField.ExhaustiveFields.exhaustive.set(this, -1);
                 }
                 this.costForTurn = this.cardsToPreview.costForTurn;
                 this.isCostModified = this.cardsToPreview.isCostModified;
