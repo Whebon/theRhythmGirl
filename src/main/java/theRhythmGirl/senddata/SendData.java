@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net;
 import com.badlogic.gdx.net.HttpRequestBuilder;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -53,6 +54,9 @@ public class SendData {
         run.score = 99;
         run.win = true;
         run.seed = "MOCK123";
+        run.goldPerFloor = new ArrayList<>();
+        run.itemsPurchased = new ArrayList<>();
+        run.itemsPurged = new ArrayList<>();
         run.relicDetails = new ArrayList<>();
         run.cardDetails = new ArrayList<>();
         run.chosenCards = new ArrayList<>();

@@ -49,18 +49,27 @@ public class BossaNovaEvent extends AbstractImageEvent {
         //dialog options in the intro screen
         if (AbstractDungeon.ascensionLevel >= 15) {
             //price for 'worse events' ascension level
-            price = 50;
+            price = 75;
         } else {
-            price = 25;
+            price = 50;
         }
 
-        if (getBasicCardGroup().size() <= 0)
-            imageEventText.setDialogOption(OPTIONS[2], true);
+        //transform 2
+        if (getBasicCardGroup().size() <= 1)
+            imageEventText.setDialogOption(OPTIONS[3], true);
         else if (AbstractDungeon.player.gold < price)
-            imageEventText.setDialogOption(OPTIONS[3]+ price +OPTIONS[4], true);
+            imageEventText.setDialogOption(OPTIONS[4]+ price +OPTIONS[5], true);
         else
             imageEventText.setDialogOption(OPTIONS[0]+ price +OPTIONS[1], new BossaNova());
-        imageEventText.setDialogOption(OPTIONS[6]);
+
+        //transform 1
+        if (getBasicCardGroup().size() <= 0)
+            imageEventText.setDialogOption(OPTIONS[3], true);
+        else
+            imageEventText.setDialogOption(OPTIONS[2], new BossaNova());
+
+        //leave
+        imageEventText.setDialogOption(OPTIONS[7]);
     }
 
     private CardGroup getBasicCardGroup(){
@@ -79,23 +88,33 @@ public class BossaNovaEvent extends AbstractImageEvent {
             case INTRO:
                 switch (buttonPressed) {
                     case 0:
-                        this.choice = BossaNovaEvent.Choice.ACCEPT;
-                        CardGroup group = getBasicCardGroup();
-                        if (group.size() > 0) {
+                        this.choice = BossaNovaEvent.Choice.INVEST;
+                        CardGroup group2 = getBasicCardGroup();
+                        if (group2.size() > 1) {
                             AbstractDungeon.player.loseGold(price);
-                            AbstractDungeon.gridSelectScreen.open(group, 1, OPTIONS[5], false, false, false, true);
+                            AbstractDungeon.gridSelectScreen.open(group2, 2, OPTIONS[6], false, false, false, true);
                         }
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         this.imageEventText.clearRemainingOptions();
-                        this.imageEventText.updateDialogOption(0, OPTIONS[7]);
+                        this.imageEventText.updateDialogOption(0, OPTIONS[8]);
                         break;
                     case 1:
+                        this.choice = BossaNovaEvent.Choice.ACCEPT;
+                        CardGroup group = getBasicCardGroup();
+                        if (group.size() > 0) {
+                            AbstractDungeon.gridSelectScreen.open(group, 1, OPTIONS[6], false, false, false, true);
+                        }
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+                        this.imageEventText.clearRemainingOptions();
+                        this.imageEventText.updateDialogOption(0, OPTIONS[8]);
+                        break;
+                    case 2:
                         this.choice = BossaNovaEvent.Choice.REJECT;
                         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.MED, false);
                         imageEventText.loadImage(IMG_REJECT);
                         this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
                         this.imageEventText.clearRemainingOptions();
-                        this.imageEventText.updateDialogOption(0, OPTIONS[7]);
+                        this.imageEventText.updateDialogOption(0, OPTIONS[8]);
                         break;
                 }
                 this.screen = Screen.RESULT;
@@ -108,12 +127,14 @@ public class BossaNovaEvent extends AbstractImageEvent {
 
     public void update() {
         super.update();
-        if (this.choice == Choice.ACCEPT) {
+        if (this.choice == Choice.INVEST || this.choice == Choice.ACCEPT ) {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-                AbstractDungeon.player.masterDeck.removeCard(AbstractDungeon.gridSelectScreen.selectedCards.get(0));
-                AbstractCard c = new BossaNova().makeCopy();
+                for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards){
+                    AbstractDungeon.player.masterDeck.removeCard(card);
+                    AbstractCard c = new BossaNova().makeCopy();
+                    AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2)));
+                }
                 this.imageEventText.loadImage(IMG_ACCEPT);
-                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2)));
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
             }
         }
@@ -121,6 +142,7 @@ public class BossaNovaEvent extends AbstractImageEvent {
     }
 
     private enum Choice {
+        INVEST,
         ACCEPT,
         REJECT
     }

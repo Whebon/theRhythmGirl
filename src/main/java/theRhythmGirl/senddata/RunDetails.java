@@ -1,5 +1,7 @@
 package theRhythmGirl.senddata;
 
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+
 import java.util.ArrayList;
 
 public class RunDetails {
@@ -18,6 +20,12 @@ public class RunDetails {
     public boolean win;
 
     public String seed;
+
+    public ArrayList<Integer> goldPerFloor;
+
+    public ArrayList<String> itemsPurchased;
+
+    public ArrayList<String> itemsPurged;
 
     public ArrayList<String> relicDetails;
 

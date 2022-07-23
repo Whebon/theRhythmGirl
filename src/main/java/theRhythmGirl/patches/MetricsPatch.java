@@ -36,8 +36,9 @@ public class MetricsPatch {
     public static class DeathScreenPatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            if (!RhythmGirlMod.sendRunData && AbstractDungeon.floorNum >= SEND_DATA_POPUP_MINIMUM_FLOORS) {
+            if (!RhythmGirlMod.sendDataPopupAlreadyShown && !RhythmGirlMod.sendRunData && AbstractDungeon.floorNum >= SEND_DATA_POPUP_MINIMUM_FLOORS) {
                 RhythmGirlMod.sendDataPopup.show();
+                RhythmGirlMod.sendDataPopupAlreadyShown = true;
             }
             if (!RhythmGirlMod.sendRunData)
                 return;
@@ -53,8 +54,9 @@ public class MetricsPatch {
     public static class VictoryScreenPatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            if (!RhythmGirlMod.sendRunData) {
+            if (!RhythmGirlMod.sendDataPopupAlreadyShown && !RhythmGirlMod.sendRunData) {
                 RhythmGirlMod.sendDataPopup.show();
+                RhythmGirlMod.sendDataPopupAlreadyShown = true;
             }
             if (!RhythmGirlMod.sendRunData)
                 return;
@@ -90,6 +92,9 @@ public class MetricsPatch {
             cardDetail.upgrade = card.timesUpgraded;
             cardDetails.add(cardDetail);
         }
+        runDetails.goldPerFloor = CardCrawlGame.metricData.gold_per_floor;
+        runDetails.itemsPurchased = CardCrawlGame.metricData.items_purchased;
+        runDetails.itemsPurged = CardCrawlGame.metricData.items_purged;
         runDetails.relicDetails = new ArrayList<>();
         for (AbstractRelic relic : AbstractDungeon.player.relics) {
             runDetails.relicDetails.add(relic.relicId);

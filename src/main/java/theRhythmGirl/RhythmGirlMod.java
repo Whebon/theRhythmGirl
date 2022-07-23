@@ -68,6 +68,7 @@ public class RhythmGirlMod implements
     public static boolean enableCustomSoundEffects = true; // The boolean we'll be setting on/off (true/false)
     public static final String ENABLE_SEND_RUN_DATA_SETTINGS = "sendRunData";
     public static boolean sendRunData = false;
+    public static boolean sendDataPopupAlreadyShown = false; // Only show the sendDataPopup once per application launch (nee=nee)
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Rhythm Girl";

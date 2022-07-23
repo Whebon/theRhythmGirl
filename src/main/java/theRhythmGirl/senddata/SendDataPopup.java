@@ -16,18 +16,15 @@ public class SendDataPopup extends ConfirmPopup {
 
     public SendDataPopup() {
         super(uiStrings.TEXT[0], uiStrings.TEXT[1], ConfirmPopup.ConfirmType.EXIT);
-        System.out.println("Initialized the SendDataPopup");
     }
 
     @Override
     protected void noButtonEffect(){
-        System.out.println("No");
         this.shown = false;
     }
 
     @Override
     protected void yesButtonEffect(){
-        System.out.println("Yes");
         sendRunData = true;
         enableButtonSendData.toggle.enabled = true;
         try {

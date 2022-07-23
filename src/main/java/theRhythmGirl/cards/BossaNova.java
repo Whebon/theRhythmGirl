@@ -87,7 +87,7 @@ public class BossaNova extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int sfxIndex = Math.max(1, Math.min(4, RhythmGirlMod.beatUI.currentBeat));
-        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("BOSSA_NOVA_"+sfxIndex));
+        AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("BOSSA_NOVA_"+sfxIndex, 0.05F));
         if (onBeatTriggered(1) || onBeatTriggered(3)){
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true, enableCustomSoundEffects));
