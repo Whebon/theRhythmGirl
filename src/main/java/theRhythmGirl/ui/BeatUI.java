@@ -63,7 +63,7 @@ public class BeatUI
     private final TextureAtlas.AtlasRegion lineRegionRhythmHeaven;
     private TextureAtlas.AtlasRegion marshalRegion;
 
-    public enum BeatColor {NORMAL, RED, BLUE, ON_BEAT, CUED, RHYTHM_HEAVEN}
+    public enum BeatColor {NORMAL, RED, GREEN, BLUE, ON_BEAT, CUED, RHYTHM_HEAVEN}
     private final HashMap<BeatColor, TextureAtlas.AtlasRegion> allPillarRegions;
     private final List<TextureAtlas.AtlasRegion> allMarshalRegions;
     private static final float MARSHAL_ANIMATION_TOTAL_IMAGES = 34;
@@ -149,6 +149,7 @@ public class BeatUI
         TextureAtlas.AtlasRegion normalPillarRegion = new TextureAtlas.AtlasRegion(pillarTex, 0, 0, 18, 67);
         allPillarRegions.put(BeatColor.NORMAL, normalPillarRegion);
         allPillarRegions.put(BeatColor.RED, normalPillarRegion);
+        allPillarRegions.put(BeatColor.GREEN, normalPillarRegion);
         allPillarRegions.put(BeatColor.BLUE, normalPillarRegion);
         allPillarRegions.put(BeatColor.ON_BEAT, new TextureAtlas.AtlasRegion(pillarTex, 18, 0, 18, 67));
         allPillarRegions.put(BeatColor.CUED, new TextureAtlas.AtlasRegion(pillarTex, 36, 0, 18, 67));

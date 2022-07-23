@@ -56,9 +56,9 @@ public class IntoYou extends AbstractRhythmGirlCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (CardModifierManager.hasModifier(this, RepeatModifier.ID))
-            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_REPEAT", 0.05F));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_REPEAT", 0.03F));
         else
-            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_EXHAUST", 0.05F));
+            AbstractDungeon.actionManager.addToBottom(new CustomSFXAction("INTO_YOU_EXHAUST", 0.03F));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 

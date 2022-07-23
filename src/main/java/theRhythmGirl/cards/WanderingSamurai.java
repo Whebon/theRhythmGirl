@@ -52,9 +52,9 @@ public class WanderingSamurai extends AbstractRhythmGirlCard {
         baseMagicNumber2 = magicNumber2 = DEXTERITY;
 
         onBeatColor.put(1, BeatUI.BeatColor.RED);
-        onBeatColor.put(2, BeatUI.BeatColor.BLUE);
+        onBeatColor.put(2, BeatUI.BeatColor.GREEN);
         onBeatColor.put(3, BeatUI.BeatColor.RED);
-        onBeatColor.put(4, BeatUI.BeatColor.BLUE);
+        onBeatColor.put(4, BeatUI.BeatColor.GREEN);
     }
 
     @Override

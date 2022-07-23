@@ -1,12 +1,14 @@
 package theRhythmGirl.senddata;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.options.ConfirmPopup;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.patches.MetricsPatch;
 
 import static theRhythmGirl.RhythmGirlMod.*;
 
@@ -34,6 +36,12 @@ public class SendDataPopup extends ConfirmPopup {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        RunDetails runDetails = MetricsPatch.generateRunDetails();
+        runDetails.win = (AbstractDungeon.getCurrRoom() instanceof com.megacrit.cardcrawl.rooms.VictoryRoom || CardCrawlGame.dungeon instanceof com.megacrit.cardcrawl.dungeons.TheEnding);
+        RhythmGirlMod.logger.info("Send Data Prompt accepted");
+        RhythmGirlMod.logger.info("Sending gameplay data");
+        SendData.sendData(runDetails);
+        RhythmGirlMod.logger.info("Gameplay data sent");
         this.shown = false;
     }
 }

@@ -7,8 +7,8 @@
                 "NAME": "Double Up",
                 "DESCRIPTIONS": ["The first card you play each turn gains #yRepeat.", "The first #b", " cards you play each turn have #yRepeat."]
         },
-        "theRhythmGirl:LaunchPartyPower": {
-                "NAME": "Launch Party",
+        "theRhythmGirl:PartyRocketPower": {
+                "NAME": "Party Rocket",
                 "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage."]
         },
         "theRhythmGirl:PartyCrackerPower": {
