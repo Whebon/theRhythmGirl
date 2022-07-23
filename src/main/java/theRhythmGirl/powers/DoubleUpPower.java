@@ -4,6 +4,8 @@ import basemod.helpers.CardModifierManager;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
+import com.evacipated.cardcrawl.mod.stslib.patches.FleetingPatch;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -55,10 +57,13 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
+        /*
+        //repeating a purgeOnUse card is fine I guess
         if (card.purgeOnUse){
             logger.info(String.format("'DoubleUpPower' does not consider applying Repeat on '%s'", card.name));
             return;
         }
+         */
 
         if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > this.amount){
             logger.info(String.format("'DoubleUpPower' does not apply Repeat on '%s' because that would be card %d/%d.",

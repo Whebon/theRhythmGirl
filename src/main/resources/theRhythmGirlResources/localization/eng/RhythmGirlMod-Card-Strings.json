@@ -72,7 +72,8 @@
   },
   "theRhythmGirl:NeverGiveUp": {
     "NAME": "Never Give Up",
-    "DESCRIPTION": "Heal for !M! % of your NL Max HP. NL Permanently remove this card from your deck."
+    "DESCRIPTION": "Heal for !M! % of your NL Max HP. NL Fleeting.",
+    "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
   },
   "theRhythmGirl:MochiPounding": {
     "NAME": "Mochi Pounding",
@@ -251,5 +252,10 @@
     "NAME": "Lumbearjack",
     "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: therhythmgirl:Repeat. NL therhythmgirl:On_Beat 4: Deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 4: Deal !M! damage instead."
+  },
+  "theRhythmGirl:OkItsOn": {
+    "NAME": "OK, it's on!",
+    "DESCRIPTION": "Gain !M! Strength. NL Fleeting.",
+    "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
   }
 }

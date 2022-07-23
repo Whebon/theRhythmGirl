@@ -29,6 +29,8 @@ public class Lumbearjack extends AbstractRhythmGirlCard {
     public static final String IMG_12 = makeCardPath(Lumbearjack.class.getSimpleName()+"_12.png");
     public static final String IMG_3 = makeCardPath(Lumbearjack.class.getSimpleName()+"_3.png");
     public static final String IMG_4 = makeCardPath(Lumbearjack.class.getSimpleName()+"_4.png");
+    public static final String IMG_EXHAUST_123 = makeCardPath(Lumbearjack.class.getSimpleName()+"_Exhaust_123.png");
+    public static final String IMG_EXHAUST_4 = makeCardPath(Lumbearjack.class.getSimpleName()+"_Exhaust_4.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -61,6 +63,7 @@ public class Lumbearjack extends AbstractRhythmGirlCard {
     public void initializeDescription(){
         if (CardModifierManager.hasModifier(this, ExhaustAndEtherealModifier.ID)){
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            onBeatColor.put(3, BeatUI.BeatColor.NORMAL);
         }
         else{
             this.rawDescription = cardStrings.DESCRIPTION;
@@ -71,15 +74,22 @@ public class Lumbearjack extends AbstractRhythmGirlCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        if (onBeatTriggered(3) && !CardModifierManager.hasModifier(this, ExhaustAndEtherealModifier.ID)){
-            this.loadCardImage(IMG_3);
-            return;
+        if (CardModifierManager.hasModifier(this, ExhaustAndEtherealModifier.ID)) {
+            if (onBeatTriggered(4)) {
+                this.loadCardImage(IMG_EXHAUST_4);
+            } else {
+                this.loadCardImage(IMG_EXHAUST_123);
+            }
         }
-        if (onBeatTriggered(4)){
-            this.loadCardImage(IMG_4);
-            return;
+        else{
+            if (onBeatTriggered(4)) {
+                this.loadCardImage(IMG_4);
+            } else if (onBeatTriggered(3)) {
+                this.loadCardImage(IMG_3);
+            } else {
+                this.loadCardImage(IMG_12);
+            }
         }
-        loadOriginalCardImage();
     }
 
     public void applyPowers() {

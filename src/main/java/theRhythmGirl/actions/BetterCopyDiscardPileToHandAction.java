@@ -14,6 +14,8 @@ import theRhythmGirl.RhythmGirlMod;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//old version: the original card was placed into your hand and a copy was placed into the discard pile
+
 public class BetterCopyDiscardPileToHandAction extends AbstractGameAction {
     public static final String[] TEXT;
     private final AbstractPlayer player;
@@ -74,15 +76,11 @@ public class BetterCopyDiscardPileToHandAction extends AbstractGameAction {
                     while(var5.hasNext()) {
                         c = var5.next();
                         if (this.player.hand.size() < 10) {
-                            this.player.hand.addToHand(c);
+                            //whebon edit
+                            this.player.hand.addToHand(c.makeStatEquivalentCopy());
                             if (this.setCost) {
                                 c.setCostForTurn(this.newCost);
                             }
-
-                            //whebon edit:
-                            this.player.discardPile.addToTop(c.makeStatEquivalentCopy());
-                            this.player.discardPile.removeCard(c);
-
                         }
 
                         c.lighten(false);
@@ -117,14 +115,11 @@ public class BetterCopyDiscardPileToHandAction extends AbstractGameAction {
                 while(var1.hasNext()) {
                     c = var1.next();
                     if (this.player.hand.size() < 10) {
-                        this.player.hand.addToHand(c);
+                        //whebon edit
+                        this.player.hand.addToHand(c.makeStatEquivalentCopy());
                         if (this.setCost) {
                             c.setCostForTurn(this.newCost);
                         }
-
-                        //whebon edit:
-                        this.player.discardPile.addToTop(c.makeStatEquivalentCopy());
-                        this.player.discardPile.removeCard(c);
                     }
 
                     c.lighten(false);

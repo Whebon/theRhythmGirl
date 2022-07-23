@@ -1,24 +1,23 @@
 package theRhythmGirl.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import theRhythmGirl.actions.CustomSFXAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import theRhythmGirl.actions.CustomSFXAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.RemoveFromMasterDeckAction;
 import theRhythmGirl.characters.TheRhythmGirl;
-
-import java.util.UUID;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //old version: uncommon
+//old version: "Permanently remove this card from your deck." instead of "Fleeting"
+//old version: 3 cost
 
 public class NeverGiveUp extends AbstractRhythmGirlCard {
 
@@ -41,10 +40,12 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
-    private UUID uuidToRemove;
-    private static final int COST = 3;
+
+    private static final int COST = 2;
     private static final int PERCENTAGE_DISPLAYED_ON_CARD = 25;
     private static final int UPGRADE_PERCENTAGE_DISPLAYED_ON_CARD = 50;
+
+    private boolean descriptionUpdated = false;
 
     // /STAT DECLARATION/
 
@@ -52,16 +53,28 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
     public NeverGiveUp() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = PERCENTAGE_DISPLAYED_ON_CARD;
-        this.purgeOnUse = true;
         this.tags.add(CardTags.HEALING);
-        this.uuidToRemove = uuid;
-        //logger.info("NeverGiveUp own uuid: "+uuid.toString());
+
+        FleetingField.fleeting.set(this, true);
     }
 
-    public NeverGiveUp(UUID uuidReference) {
-        this();
-        this.uuidToRemove = uuidReference;
-        //logger.info("NeverGiveUp reference uuid: "+uuidToRemove.toString());
+    private void updateDescription(){
+        //GOAL: marks the card as "copied" if it is not in the master deck.
+        //uuids are copied after initialization, so running this in the constructor doesn't work.
+        if (!this.descriptionUpdated){
+            if (StSLib.getMasterDeckEquivalent(this) != null)
+                this.rawDescription = cardStrings.DESCRIPTION;
+            else
+                this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
+            super.initializeDescription();
+            this.descriptionUpdated = true;
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        updateDescription();
+        super.applyPowers();
     }
 
     // Actions the card should do.
@@ -72,7 +85,6 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
             this.addToBot(new HealAction(p, p, p.maxHealth*3/4));
         else
             this.addToBot(new HealAction(p, p, p.maxHealth/4));
-        this.addToBot(new RemoveFromMasterDeckAction(uuidToRemove));
     }
 
     //Upgraded stats.
@@ -84,14 +96,5 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
             loadCardImage(IMG_UPGRADED); //patched in CardPortraitUpgradeChange
             initializeDescription();
         }
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        //logger.info("NeverGiveUp gets copied");
-        if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck != null  && AbstractDungeon.player.masterDeck.group.contains(this))
-            return new NeverGiveUp(this.uuidToRemove);
-        else
-            return new NeverGiveUp();
     }
 }
