@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -194,7 +195,7 @@ public class BeatUI
         marshalAnimationTimeElapsed += Gdx.graphics.getDeltaTime();
         if (marshalAnimationTimeElapsed > marshalAnimationDuration || (marshalAnimationQueue.size() > 0 && marshalAnimationActive.type == MarshalAnimationTypes.IDLE)){
             marshalAnimationLeft = !marshalAnimationLeft;
-            marshalAnimationTimeElapsed = 0;
+            marshalAnimationTimeElapsed = Math.max(0, marshalAnimationTimeElapsed-marshalAnimationDuration);
             if (marshalAnimationQueue.size() > 0){
                 //next animation in queue
                 marshalAnimationActive = marshalAnimationQueue.get(0);

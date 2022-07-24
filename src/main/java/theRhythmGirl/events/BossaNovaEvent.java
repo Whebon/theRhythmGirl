@@ -22,8 +22,6 @@ import java.util.Iterator;
 
 import static theRhythmGirl.RhythmGirlMod.makeEventPath;
 
-//todo: improve the variety of this event
-
 public class BossaNovaEvent extends AbstractImageEvent {
 
 
