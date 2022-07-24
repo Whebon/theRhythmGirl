@@ -33,7 +33,7 @@ public class BigFlex extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 2;
-    private static final int MULTIPLIER = 4;
+    private static final int MULTIPLIER = 3;
 
     // /STAT DECLARATION/
 
