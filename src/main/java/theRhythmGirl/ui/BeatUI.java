@@ -112,7 +112,7 @@ public class BeatUI
     private static final float MARSHAL_ANIMATION_IDLE_DURATION_FAST = 0.05f;
     private static final float MARSHAL_ANIMATION_WALK_DURATION = 0.4f;
     private static final float MARSHAL_ANIMATION_WALK_DURATION_FAST = 0.05f;
-    private static final float MARSHAL_ANIMATION_JUMP_DURATION = 0.4f;
+    private static final float MARSHAL_ANIMATION_JUMP_DURATION = 60.0f/145.0f;
     private static final float MARSHAL_ANIMATION_JUMP_DURATION_FAST = 0.05f;
     private boolean marshalAnimationIsFast;
     private float marshalAnimationDuration;
