@@ -33,12 +33,14 @@ public class BigFlex extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 2;
+    private static final int MULTIPLIER = 4;
 
     // /STAT DECLARATION/
 
 
     public BigFlex() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = MULTIPLIER;
     }
 
     // Actions the card should do.
@@ -47,7 +49,7 @@ public class BigFlex extends AbstractRhythmGirlCard {
         //important note: card effects related to 'apply popularity' should be applied BEFORE a beat is gained.
         //this card is very indirectly related to a 'apply popularity', namely by having the same kind of behavior as "PoseForTheFans"
         this.addToTop(new CustomSFXAction("BIG_FLEX"));
-        this.addToTop(new BigFlexAction());
+        this.addToTop(new BigFlexAction(magicNumber));
     }
 
     //Upgraded stats.

@@ -7,26 +7,31 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.powers.MeasurePower;
+
+//old version: Lose all Measure. Gain Strength and Dexterity equal to the amount of Measure lost this way.
+//However, Dexterity gain is boring.
 
 public class BigFlexAction extends AbstractGameAction {
 
     public static final String UI_ID = RhythmGirlMod.makeID("WarnNoMeasure");
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
-    public BigFlexAction() {
+    private final int multiplier;
+
+    public BigFlexAction(int multiplier) {
+        this.multiplier = multiplier;
     }
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
         if (p.hasPower(MeasurePower.POWER_ID)){
-            int amount = p.getPower(MeasurePower.POWER_ID).amount;
+            int amount = p.getPower(MeasurePower.POWER_ID).amount * this.multiplier;
             this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amount), amount));
-            this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, amount), amount));
+            //this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, amount), amount));
             this.addToTop(new RemoveSpecificPowerAction(p, p, MeasurePower.POWER_ID));
         }
         else{

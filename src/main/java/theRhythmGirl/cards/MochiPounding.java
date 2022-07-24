@@ -43,6 +43,7 @@ public class MochiPounding extends AbstractRhythmGirlCard {
     public MochiPounding() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ADDITIONAL_BEATS;
+        this.exhaust = true;
     }
 
     // Actions the card should do.

@@ -107,7 +107,7 @@ public class BeatUI
         add(new Keyframe(0, 1.0f));
     }};
 
-    private static final int MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE = 6;
+    private static final int MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE = 4;
     private static final float MARSHAL_ANIMATION_IDLE_DURATION = 0.6f;
     private static final float MARSHAL_ANIMATION_IDLE_DURATION_FAST = 0.05f;
     private static final float MARSHAL_ANIMATION_WALK_DURATION = 0.4f;

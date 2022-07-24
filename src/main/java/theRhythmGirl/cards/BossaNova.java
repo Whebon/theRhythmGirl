@@ -27,7 +27,7 @@ public class BossaNova extends AbstractRhythmGirlCard {
     public static final String ID = RhythmGirlMod.makeID(BossaNova.class.getSimpleName());
 
     public static final String IMG_13 = makeCardPath("BossaNova_13.png");
-    public static final String IMG_24 = makeCardPath("BossaNova_24_Attack.png");
+    public static final String IMG_24 = makeCardPath("BossaNova_24_Skill.png");
     public static final String IMG_1234 = makeCardPath("BossaNova_1234.png");
 
     // /TEXT DECLARATION/
@@ -77,8 +77,9 @@ public class BossaNova extends AbstractRhythmGirlCard {
         else {
             this.target = CardTarget.SELF;
             //note: the line below turns BossaNova into a SKILL on 2 and 4 to match its blocking nature
-            //however, this feature was removed to support blocking in a 'Combo' deck
-            //this.type = CardType.SKILL;
+            //this feature was removed to support blocking in a 'Combo' deck
+            //this feature was reintroduced to support karateka form decks
+            this.type = CardType.SKILL;
             this.loadCardImage(IMG_24);
         }
     }

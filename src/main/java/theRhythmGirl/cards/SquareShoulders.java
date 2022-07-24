@@ -24,7 +24,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //idea: scale linearly, because it scales too fast
 
-//old version: 2 (1) cost
+//old version: 2 cost. (upgrade 1 cost)
+//old version: 3 cost. (upgrade no exhaust)
 
 public class SquareShoulders extends AbstractRhythmGirlCard {
 
@@ -45,7 +46,7 @@ public class SquareShoulders extends AbstractRhythmGirlCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
 
     // /STAT DECLARATION/
 
