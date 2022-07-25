@@ -15,6 +15,8 @@ public abstract class AbstractTimeSignatureRelic extends CustomRelic {
 
     public AbstractTimeSignatureRelic(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx) {
         super(id, texture, outline, tier, sfx);
+        if (RhythmGirlMod.beatUI != null)
+            RhythmGirlMod.beatUI.visible = true;
     }
 
     private boolean replaceOldTimeSignature(){

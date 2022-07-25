@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
@@ -71,6 +72,7 @@ public class LaunchPartyPower extends AbstractCountdownPower implements Cloneabl
 
     @Override
     public void onCountdownTrigger() {
+        CustomMetrics.increasePowerEffectiveness(this, this.amount2);
         this.addToBot(new CustomSFXAction("LAUNCH_PARTY_BLAST"));
         this.addToBot(new DamageAction(owner, new DamageInfo(this.source, amount2, DamageInfo.DamageType.THORNS),
                 AbstractGameAction.AttackEffect.FIRE, false, enableCustomSoundEffects));

@@ -42,6 +42,11 @@ public class PreParty extends AbstractRhythmGirlCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
+    @Override
+    public int getEffectiveness(){
+        return 0;
+    }
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

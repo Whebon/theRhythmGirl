@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -48,6 +49,7 @@ public class MarchingOrdersPower extends AbstractPower implements CloneablePower
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card){
         if (card.type == AbstractCard.CardType.ATTACK && type == DamageInfo.DamageType.NORMAL){
             if (StSLib.getMasterDeckEquivalent(card) == null) {
+                CustomMetrics.increasePowerEffectiveness(this, this.amount);
                 return damage + (float) this.amount;
             }
         }

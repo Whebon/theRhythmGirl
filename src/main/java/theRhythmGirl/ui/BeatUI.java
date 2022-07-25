@@ -141,6 +141,8 @@ public class BeatUI
     private MarshalAnimation marshalAnimationActive;
     private List<MarshalAnimation> marshalAnimationQueue;
 
+    public boolean visible = false;
+
     public BeatUI() {
         //actual dimensions will be set in the update function
         hitbox = new Hitbox(32, 32);
@@ -350,31 +352,33 @@ public class BeatUI
     }
 
     public void gainBeats(int amount, boolean playCountingSfx){
-        if (amount <= 0){
-            return;
+        if (this.visible) {
+            if (amount <= 0) {
+                return;
+            }
+            if (AbstractDungeon.player.hasPower(CoffeeBreakPower.POWER_ID)) {
+                AbstractDungeon.player.getPower(CoffeeBreakPower.POWER_ID).flashWithoutSound();
+                return;
+            }
+            publishOnGainBeat(amount);
+            if (amount >= MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE)
+                marshalAnimationIsFast = true;
+            int n = getNumberOfPillars();
+            if (n <= 0)
+                throw new AssertionError("getNumberOfPillars must be positive to prevent an infinite loop");
+            for (int i = currentBeat + 1; i <= currentBeat + amount; i++) {
+                marshalAnimationQueue.add(new MarshalAnimation(MarshalAnimationTypes.JUMPING, (i - 1) % n + 1, playCountingSfx));
+            }
+            currentBeat += amount;
+            while (currentBeat > n) {
+                currentBeat -= n;
+                publishOnGainMeasure(1);
+                measuresGainedThisTurn += 1;
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                        new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+            }
+            logger.info(String.format("BeatUI added %d beats", amount));
         }
-        if (AbstractDungeon.player.hasPower(CoffeeBreakPower.POWER_ID)){
-            AbstractDungeon.player.getPower(CoffeeBreakPower.POWER_ID).flashWithoutSound();
-            return;
-        }
-        publishOnGainBeat(amount);
-        if (amount >= MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE)
-            marshalAnimationIsFast = true;
-        int n = getNumberOfPillars();
-        if (n <= 0)
-            throw new AssertionError("getNumberOfPillars must be positive to prevent an infinite loop");
-        for (int i = currentBeat+1; i <= currentBeat+amount; i++) {
-            marshalAnimationQueue.add(new MarshalAnimation(MarshalAnimationTypes.JUMPING, (i-1)%n+1, playCountingSfx));
-        }
-        currentBeat += amount;
-        while (currentBeat>n){
-            currentBeat -= n;
-            publishOnGainMeasure(1);
-            measuresGainedThisTurn += 1;
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new MeasurePower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
-        }
-        logger.info(String.format("BeatUI added %d beats", amount));
     }
 
     public float getPillarSpacing(){
@@ -396,6 +400,8 @@ public class BeatUI
     }
 
     public int getNumberOfPillars() {
+        if (!this.visible)
+            return 1;
         return getTimeSignatureRelic().getNumberOfBeatsPerMeasure();
     }
 
@@ -438,94 +444,94 @@ public class BeatUI
     }
 
     public void render(SpriteBatch sb, AbstractPlayer player) {
-        if (AbstractDungeon.getCurrMapNode() != null
-                && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
-                || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
-                && !player.isDead
-        ) {
-            //draw marshal
-            updateMarshalAnimation();
-            sb.setColor(Color.WHITE);
-            sb.draw(
-                    marshalRegion,
-                    marshalAnimationX,
-                    marshalAnimationY,
-                    0,
-                    0,
-                    marshalRegion.getRegionWidth(),
-                    marshalRegion.getRegionHeight(),
-                    Settings.scale,
-                    Settings.scale,
-                    0
-            );
-
-            //set the offset for the floaty effect
-            floatyTimer += Gdx.graphics.getDeltaTime() * 2;
-            float floatyOffset = MAX_FLOATY_OFFSET * (float) Math.sin(floatyTimer - 1.2) * Settings.scale;
-
-            for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
-                //draw the pillars
-                TextureAtlas.AtlasRegion pillarRegion = (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) ?
-                        allPillarRegions.get(BeatColor.RHYTHM_HEAVEN) : pillarRegions.getOrDefault(iPillar, allPillarRegions.get(BeatColor.NORMAL));
+        updateMarshalAnimation();
+        if (this.visible) {
+            if (AbstractDungeon.getCurrMapNode() != null
+                    && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                    || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
+                    && !player.isDead
+            ) {
+                //draw marshal
                 sb.setColor(Color.WHITE);
                 sb.draw(
-                        pillarRegion,
-                        getX()+iPillar*getPillarSpacing()*Settings.scale
-                                - pillarRegion.getRegionWidth()/2.0f*Settings.scale,
-                        getY()+floatyOffset
-                                - pillarRegion.getRegionHeight()*Settings.scale,
+                        marshalRegion,
+                        marshalAnimationX,
+                        marshalAnimationY,
                         0,
                         0,
-                        pillarRegion.getRegionWidth(),
-                        pillarRegion.getRegionHeight(),
+                        marshalRegion.getRegionWidth(),
+                        marshalRegion.getRegionHeight(),
                         Settings.scale,
                         Settings.scale,
                         0
                 );
-                if (iPillar != 0) {
-                    //draw lines between pillars
+
+                //set the offset for the floaty effect
+                floatyTimer += Gdx.graphics.getDeltaTime() * 2;
+                float floatyOffset = MAX_FLOATY_OFFSET * (float) Math.sin(floatyTimer - 1.2) * Settings.scale;
+
+                for (int iPillar = 0; iPillar < getNumberOfPillars(); iPillar++) {
+                    //draw the pillars
+                    TextureAtlas.AtlasRegion pillarRegion = (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) ?
+                            allPillarRegions.get(BeatColor.RHYTHM_HEAVEN) : pillarRegions.getOrDefault(iPillar, allPillarRegions.get(BeatColor.NORMAL));
                     sb.setColor(Color.WHITE);
-                    sb.draw((AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) ?
-                                    lineRegionRhythmHeaven : lineRegion,
-                            getX() + (iPillar - 0.5f) * getPillarSpacing() * Settings.scale
-                                    - lineRegion.getRegionWidth() / 2.0f * Settings.scale,
+                    sb.draw(
+                            pillarRegion,
+                            getX() + iPillar * getPillarSpacing() * Settings.scale
+                                    - pillarRegion.getRegionWidth() / 2.0f * Settings.scale,
                             getY() + floatyOffset
-                                    - lineRegion.getRegionHeight() * Settings.scale,
+                                    - pillarRegion.getRegionHeight() * Settings.scale,
                             0,
                             0,
-                            lineRegion.getRegionWidth(),
-                            lineRegion.getRegionHeight(),
+                            pillarRegion.getRegionWidth(),
+                            pillarRegion.getRegionHeight(),
                             Settings.scale,
                             Settings.scale,
                             0
                     );
+                    if (iPillar != 0) {
+                        //draw lines between pillars
+                        sb.setColor(Color.WHITE);
+                        sb.draw((AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID) || AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) ?
+                                        lineRegionRhythmHeaven : lineRegion,
+                                getX() + (iPillar - 0.5f) * getPillarSpacing() * Settings.scale
+                                        - lineRegion.getRegionWidth() / 2.0f * Settings.scale,
+                                getY() + floatyOffset
+                                        - lineRegion.getRegionHeight() * Settings.scale,
+                                0,
+                                0,
+                                lineRegion.getRegionWidth(),
+                                lineRegion.getRegionHeight(),
+                                Settings.scale,
+                                Settings.scale,
+                                0
+                        );
+                    }
                 }
-            }
 
-            //tooltips
-            if (hitbox.hovered && !AbstractDungeon.isScreenUp) {
-                String body = UIStrings.TEXT[1]+currentBeat+UIStrings.TEXT[2];
-                float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
+                //tooltips
+                if (hitbox.hovered && !AbstractDungeon.isScreenUp) {
+                    String body = UIStrings.TEXT[1] + currentBeat + UIStrings.TEXT[2];
+                    float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
 
-                ArrayList<PowerTip> tips = new ArrayList<>();
-                tips.add(new PowerTip(UIStrings.TEXT[0], body));
-                if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)){
-                    AbstractPower power = AbstractDungeon.player.getPower(RhythmHeavenPower.POWER_ID);
-                    tips.add(new PowerTip(power.name, power.description, power.region48));
-                }
-                else if (AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)){
-                    AbstractPower power = AbstractDungeon.player.getPower(SeeingHeavenPower.POWER_ID);
-                    tips.add(new PowerTip(power.name, power.description, power.region48));
-                }
+                    ArrayList<PowerTip> tips = new ArrayList<>();
+                    tips.add(new PowerTip(UIStrings.TEXT[0], body));
+                    if (AbstractDungeon.player.hasPower(RhythmHeavenPower.POWER_ID)) {
+                        AbstractPower power = AbstractDungeon.player.getPower(RhythmHeavenPower.POWER_ID);
+                        tips.add(new PowerTip(power.name, power.description, power.region48));
+                    } else if (AbstractDungeon.player.hasPower(SeeingHeavenPower.POWER_ID)) {
+                        AbstractPower power = AbstractDungeon.player.getPower(SeeingHeavenPower.POWER_ID);
+                        tips.add(new PowerTip(power.name, power.description, power.region48));
+                    }
 
-                AbstractTimeSignatureRelic timeSignatureRelic = getTimeSignatureRelic();
-                tips.add(new PowerTip(timeSignatureRelic.name, timeSignatureRelic.getTooltip(), timeSignatureRelic.largeImg));
+                    AbstractTimeSignatureRelic timeSignatureRelic = getTimeSignatureRelic();
+                    tips.add(new PowerTip(timeSignatureRelic.name, timeSignatureRelic.getTooltip(), timeSignatureRelic.largeImg));
 
-                TipHelper.queuePowerTips(
-                        hitbox.x + hitbox.width + 16*Settings.scale,
-                        hitbox.y + hitbox.height/2 + height/2 + 74 * Settings.scale,
-                        tips
-                );
+                    TipHelper.queuePowerTips(
+                            hitbox.x + hitbox.width + 16 * Settings.scale,
+                            hitbox.y + hitbox.height / 2 + height / 2 + 74 * Settings.scale,
+                            tips
+                    );
 
                 /*
                 TipHelper.renderGenericTip(
@@ -535,9 +541,10 @@ public class BeatUI
                         body
                 );
                 */
-            }
+                }
 
-            hitbox.render(sb);
+                hitbox.render(sb);
+            }
         }
     }
 }

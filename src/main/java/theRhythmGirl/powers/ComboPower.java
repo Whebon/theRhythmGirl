@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cards.Barrel;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -73,6 +74,7 @@ public class ComboPower extends TwoAmountPower implements CloneablePowerInterfac
                 triggeredThisTurn = true;
                 this.addToBot(new CustomSFXAction("BARREL_OBTAIN"));
                 this.addToBot(new MakeTempCardInHandAction(new Barrel(), this.amount));
+                CustomMetrics.increasePowerEffectiveness(this, this.amount);
             }
         }
     }

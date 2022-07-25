@@ -3,24 +3,13 @@ package theRhythmGirl.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import theRhythmGirl.actions.CustomSFXAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.GainAdditionalBeatsAction;
-import theRhythmGirl.cards.AbstractRhythmGirlCard;
-import theRhythmGirl.cards.PartyCracker;
-import theRhythmGirl.cards.Ready;
 import theRhythmGirl.util.TextureLoader;
-
-import java.util.List;
 
 import static theRhythmGirl.RhythmGirlMod.makeRelicOutlinePath;
 import static theRhythmGirl.RhythmGirlMod.makeRelicPath;

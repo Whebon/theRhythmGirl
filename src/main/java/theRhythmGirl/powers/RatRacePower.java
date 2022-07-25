@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.CustomSFXAction;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -66,6 +67,7 @@ public class RatRacePower extends AbstractPower implements CloneablePowerInterfa
             if (RhythmGirlMod.beatUI.measuresGainedThisTurn == 0) {
                 this.flash();
                 this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
+                CustomMetrics.increasePowerEffectiveness(this, this.amount);
             }
         }
     }

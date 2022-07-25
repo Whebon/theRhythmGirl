@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -68,6 +69,7 @@ public class SpaceBellPower extends AbstractCountdownPower implements CloneableP
 
     @Override
     public void onCountdownTrigger() {
+        CustomMetrics.increasePowerEffectiveness(this, this.amount2);
         this.addToBot(new CustomSFXAction("SPACE_BELL_BLAST"));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, source, amount2));
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters){

@@ -81,7 +81,13 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
         onBeatColor.put(4, BeatUI.BeatColor.NORMAL);
         onBeatColor.put(5, BeatUI.BeatColor.NORMAL);
         onBeatColor.put(6, BeatUI.BeatColor.NORMAL);
-}
+    }
+
+    public int getEffectiveness(){
+        if (this.type == CardType.POWER)
+            return 0;
+        return Math.max(0, Math.max(this.damage, Math.max(this.block, this.magicNumber)));
+    }
 
     public void displayUpgrades() {
         super.displayUpgrades();

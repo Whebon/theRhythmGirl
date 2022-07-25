@@ -111,7 +111,10 @@ public class SeeSaw extends AbstractRhythmGirlCard {
     @Override
     public AbstractCard makeCopy() {
         SeeSaw that = new SeeSaw();
-        that.monsterHealthAtTurnStart = this.monsterHealthAtTurnStart;
+        if (this.monsterHealthAtTurnStart.isEmpty())
+            that.monsterHealthAtTurnStart = this.monsterHealthAtTurnStart;
+        else
+            that.atTurnStart();
         return that;
     }
 }

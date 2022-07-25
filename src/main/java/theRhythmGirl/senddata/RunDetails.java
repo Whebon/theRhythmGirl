@@ -1,13 +1,14 @@
 package theRhythmGirl.senddata;
 
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RunDetails {
     public String version;
 
     public String characterName;
+
+    public String sessionID;
 
     public int ascensionLevel;
 
@@ -34,4 +35,6 @@ public class RunDetails {
     public ArrayList<CardDetails> chosenCards = new ArrayList<>();
 
     public ArrayList<CardDetails> notChosenCards = new ArrayList<>();
+
+    public HashMap<String, CustomCardDetails> customCardDetails = new HashMap<>();
 }

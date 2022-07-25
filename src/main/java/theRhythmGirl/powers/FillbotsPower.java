@@ -14,6 +14,7 @@ import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.actions.WaitForMarshallAnimationAction;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.beatUI;
@@ -59,6 +60,7 @@ public class FillbotsPower extends AbstractPower implements CloneablePowerInterf
                 return;
             }
             int n = (RhythmGirlMod.beatUI.getNumberOfPillars() + 1 - RhythmGirlMod.beatUI.currentBeat);
+            CustomMetrics.increasePowerEffectiveness(this, n);
             for (int i = 0; i < n; i++) {
                 if (i == n-1)
                     this.addToBot(new CustomSFXAction("FILLBOTS_FINAL_BEAT"));

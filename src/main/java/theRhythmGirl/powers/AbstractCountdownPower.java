@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 //originally named "OnGainBeatSubscriber"
 //listens to beatUI::publishOnGainBeat
 abstract public class AbstractCountdownPower extends TwoAmountPower {
-    protected int countdown;
+    public int countdown;
 
     public void onGainBeat(int numberOfBeatsGained){
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && this.countdown>0) {

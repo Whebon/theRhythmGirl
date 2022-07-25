@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
@@ -79,6 +80,7 @@ public class PartyCrackerPower extends AbstractCountdownPower implements Cloneab
 
     @Override
     public void onCountdownTrigger() {
+        CustomMetrics.increasePowerEffectiveness(this, this.amount2);
         this.addToBot(new CustomSFXAction("PARTY_CRACKER_BLAST"));
         this.addToBot(new DamageAction(owner, new DamageInfo(this.source, amount2, DamageInfo.DamageType.THORNS),
                 AbstractGameAction.AttackEffect.FIRE, false, enableCustomSoundEffects));

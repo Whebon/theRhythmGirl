@@ -30,6 +30,7 @@ import theRhythmGirl.events.BossaNovaEvent;
 import theRhythmGirl.potions.BeatPotion;
 import theRhythmGirl.potions.HeavenPotion;
 import theRhythmGirl.relics.*;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.senddata.SendDataPopup;
 import theRhythmGirl.ui.BeatUI;
 import theRhythmGirl.util.IDCheckDontTouchPls;
@@ -40,6 +41,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.UUID;
 
 @SpireInitializer
 public class RhythmGirlMod implements
@@ -53,7 +55,8 @@ public class RhythmGirlMod implements
         AddAudioSubscriber,
         PostPlayerUpdateSubscriber,
         OnPlayerTurnStartSubscriber,
-        PostBattleSubscriber{
+        PostBattleSubscriber,
+        StartGameSubscriber{
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
@@ -61,11 +64,12 @@ public class RhythmGirlMod implements
 
     // Mod-settings settings. This is if you want an on/off savable button
     public static Properties theDefaultRhythmGirlSettings = new Properties();
+    public static final String SESSION_ID = "sessionID";
     public static final String ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS = "enableCustomSoundEffects";
     public static boolean enableCustomSoundEffects = true; // The boolean we'll be setting on/off (true/false)
     public static final String ENABLE_SEND_RUN_DATA_SETTINGS = "sendRunData";
-    public static boolean sendRunData = false;
-    public static boolean sendDataPopupAlreadyShown = false; // Only show the sendDataPopup once per application launch (nee=nee)
+    public static boolean sendRunData = true;
+    public static boolean sendDataPopupAlreadyShown = true; // Only show the sendDataPopup once per application launch
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Rhythm Girl";
@@ -108,6 +112,9 @@ public class RhythmGirlMod implements
     //singleton beatUI
     public static BeatUI beatUI;
 
+    //config
+    public static String defaultSessionID = "DEFAULT-SESSION-ID";
+    public static String sessionID = defaultSessionID;
     public static ConfirmPopup sendDataPopup;
     public static ModLabeledToggleButton enableButtonSendData;
     
@@ -175,16 +182,29 @@ public class RhythmGirlMod implements
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
+        theDefaultRhythmGirlSettings.setProperty(SESSION_ID, defaultSessionID);
         theDefaultRhythmGirlSettings.setProperty(ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS, "TRUE"); // This is the default setting. It's actually set...
         theDefaultRhythmGirlSettings.setProperty(ENABLE_SEND_RUN_DATA_SETTINGS, "TRUE");
         try {
             SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
+            sessionID = config.getString(SESSION_ID);
             enableCustomSoundEffects = config.getBool(ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS);
             sendRunData = config.getBool(ENABLE_SEND_RUN_DATA_SETTINGS);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if (sessionID.equals(defaultSessionID)){
+            try {
+                sessionID = UUID.randomUUID().toString();
+                SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings);
+                config.setString(SESSION_ID, sessionID);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         logger.info("Done adding mod settings");
         
@@ -619,9 +639,12 @@ public class RhythmGirlMod implements
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
+        CustomMetrics.receiveCardUsed(abstractCard);
         //usually, a beat is gained whenever a card is played
         //the description of beat tells that a beat is gained after playing a card, but this is what actually happens behind the scenes:
         //card checks current beat and applies actions accordingly --> gain 1 beat --> execute actions
+        if (abstractCard instanceof WorkingDough)
+            abstractCard = abstractCard.cardsToPreview;
         if (!(abstractCard instanceof CoffeeBreak) && !(abstractCard instanceof TryAgain) && !(abstractCard instanceof CountIn)){
             logger.info("Gain 1 Beat (played a card)");
             AbstractDungeon.actionManager.addToBottom(new GainAdditionalBeatsAction(AbstractDungeon.player, AbstractDungeon.player, 1));
@@ -635,4 +658,10 @@ public class RhythmGirlMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {beatUI.reset(false);}
+
+    @Override
+    public void receiveStartGame() {
+        CustomMetrics.receiveStartGame();
+        beatUI.visible = (AbstractDungeon.player instanceof TheRhythmGirl);
+    }
 }

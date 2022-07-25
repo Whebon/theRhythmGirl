@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -47,6 +48,7 @@ public class GrowingFanbasePower extends AbstractPower implements CloneablePower
     public void atStartOfTurnPostDraw() {
         this.flash();
         this.addToBot(new ApplyPowerAction(this.owner, this.owner, new PopularityPower(this.owner, this.owner, this.amount), this.amount));
+        CustomMetrics.increasePowerEffectiveness(this, this.amount);
     }
 
     @Override

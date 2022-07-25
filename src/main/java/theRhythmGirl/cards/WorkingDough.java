@@ -64,6 +64,13 @@ public class WorkingDough extends AbstractRhythmGirlCard {
     }
 
     @Override
+    public int getEffectiveness(){
+        if (this.cardsToPreview instanceof AbstractRhythmGirlCard)
+            return ((AbstractRhythmGirlCard) this.cardsToPreview).getEffectiveness();
+        return 0;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.cardsToPreview != null){
             this.cardsToPreview.use(p, m);

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class SendData {
     public static Logger logger = LogManager.getLogger(SendData.class);
-    public static int MINIMUM_FLOOR = 2;
+    public static int MINIMUM_FLOOR = 5;
     public static String CHARACTER_NAME = "the Rhythm Girl";
 
     public static void sendData(RunDetails run) {
@@ -27,7 +27,7 @@ public class SendData {
         Gson gson = new Gson();
         String postUrl = "http://therhythmgirldata.000webhostapp.com/";
         Net.HttpRequest req = (new HttpRequestBuilder()).newRequest().url(postUrl).method("POST").header("Content-Type", "application/json").content(gson.toJson(run)).build();
-        logger.info("Gameplay data sent."/*req.getContent()*/);
+        logger.info("Anonymous gameplay data sent."/*req.getContent()*/);
         Gdx.net.sendHttpRequest(req, new Net.HttpResponseListener() {
             public void handleHttpResponse(Net.HttpResponse httpResponse) {
                 SendData.logger.info("Metrics: http request response: " + httpResponse.getResultAsString());
@@ -48,6 +48,7 @@ public class SendData {
         RunDetails run = new RunDetails();
         run.version = "1.0";
         run.characterName = "the Rhythm Girl";
+        run.sessionID = "Mock Session";
         run.ascensionLevel = 99;
         run.maxFloor = 99;
         run.elapsedTime = 99;

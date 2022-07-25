@@ -21,6 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.senddata.CardDetails;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.senddata.RunDetails;
 import theRhythmGirl.senddata.SendData;
 
@@ -72,6 +73,7 @@ public class MetricsPatch {
     public static RunDetails generateRunDetails() {
         RunDetails runDetails = new RunDetails();
         runDetails.characterName = AbstractDungeon.player.name;
+        runDetails.sessionID = RhythmGirlMod.sessionID;
         runDetails.version = "failed";
         for (ModInfo modInfo : Loader.MODINFOS) {
             if (modInfo.ID.toLowerCase().contains("rhythmgirl")) {
@@ -125,6 +127,7 @@ public class MetricsPatch {
             }
         }
         runDetails.cardDetails = cardDetails;
+        runDetails.customCardDetails = CustomMetrics.customCardDetails;
         return runDetails;
     }
 }

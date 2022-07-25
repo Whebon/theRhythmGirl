@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -49,6 +50,7 @@ public class KarateBoostPower extends AbstractPower implements CloneablePowerInt
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        CustomMetrics.increasePowerEffectiveness(this, ((int)(type == DamageInfo.DamageType.NORMAL ? damage * (this.amount/100.0F) : 0)));
         return type == DamageInfo.DamageType.NORMAL ? damage * ((this.amount+100.0F)/100.0F) : damage;
     }
 

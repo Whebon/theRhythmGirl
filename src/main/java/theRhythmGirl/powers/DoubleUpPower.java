@@ -18,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.RepeatModifier;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 //note: 2x DoubleUpPower + <AnyCard> + <WorkingDough> gives 3 copies of <AnyCard>
@@ -76,6 +77,7 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
         this.flash();
         addToBot(new CustomSFXAction("DOUBLE_UP_TRIGGER"));
         CardModifierManager.addModifier(card, new RepeatModifier(true));
+        CustomMetrics.increasePowerEffectiveness(this, 1);
     }
 
     @Override
