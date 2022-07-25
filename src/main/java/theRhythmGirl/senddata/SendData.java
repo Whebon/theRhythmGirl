@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class SendData {
     public static Logger logger = LogManager.getLogger(SendData.class);
-    public static int MINIMUM_FLOOR = 17;
+    public static int MINIMUM_FLOOR = 16;
     public static String CHARACTER_NAME = "the Rhythm Girl";
 
     public static void sendData(RunDetails run) {
@@ -30,16 +30,16 @@ public class SendData {
         logger.info("Anonymous gameplay data sent."/*req.getContent()*/);
         Gdx.net.sendHttpRequest(req, new Net.HttpResponseListener() {
             public void handleHttpResponse(Net.HttpResponse httpResponse) {
-                SendData.logger.info("Metrics: http request response: " + httpResponse.getResultAsString());
+                SendData.logger.info("http request response: " + httpResponse.getResultAsString());
             }
 
             public void failed(Throwable t) {
                 t.printStackTrace();
-                SendData.logger.info("Metrics: http request failed: " + t);
+                SendData.logger.info("http request failed: " + t);
             }
 
             public void cancelled() {
-                SendData.logger.info("Metrics: http request cancelled.");
+                SendData.logger.info("http request cancelled.");
             }
         });
     }

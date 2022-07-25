@@ -68,9 +68,10 @@ public class RhythmGirlMod implements
     public static Properties theDefaultRhythmGirlSettings = new Properties();
     public static final String SESSION_ID = "sessionID";
     public static final String ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS = "enableCustomSoundEffects";
-    public static boolean enableCustomSoundEffects = true; // The boolean we'll be setting on/off (true/false)
+    public static boolean enableCustomSoundEffects = true;
     public static final String ENABLE_SEND_RUN_DATA_SETTINGS = "sendRunData";
-    public static boolean sendRunData = false;
+    //BOOKMARK sendRunData
+    public static boolean sendRunData = true; //also edit the theDefaultRhythmGirlSettings.setProperty(ENABLE_SEND_RUN_DATA_SETTINGS
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Rhythm Girl";
@@ -188,7 +189,8 @@ public class RhythmGirlMod implements
         // The actual mod Button is added below in receivePostInitialize()
         theDefaultRhythmGirlSettings.setProperty(SESSION_ID, defaultSessionID);
         theDefaultRhythmGirlSettings.setProperty(ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS, "TRUE"); // This is the default setting. It's actually set...
-        theDefaultRhythmGirlSettings.setProperty(ENABLE_SEND_RUN_DATA_SETTINGS, "FALSE");
+        //BOOKMARK sendRunData
+        theDefaultRhythmGirlSettings.setProperty(ENABLE_SEND_RUN_DATA_SETTINGS, "TRUE");
         try {
             SpireConfig config = new SpireConfig("rhythmGirlMod", "theRhythmGirlConfig", theDefaultRhythmGirlSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
