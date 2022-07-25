@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.options.ConfirmPopup;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -40,6 +41,7 @@ import theRhythmGirl.variables.MagicNumber2;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -111,6 +113,9 @@ public class RhythmGirlMod implements
 
     //singleton beatUI
     public static BeatUI beatUI;
+
+    //for seesaw
+    public static HashMap<AbstractMonster, Integer> monsterHealthAtTurnStart;
 
     //config
     public static String defaultSessionID = "DEFAULT-SESSION-ID";
@@ -654,6 +659,10 @@ public class RhythmGirlMod implements
     @Override
     public void receiveOnPlayerTurnStart() {
         beatUI.reset(true);
+        monsterHealthAtTurnStart = new HashMap<>();
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters){
+            monsterHealthAtTurnStart.put(m, m.currentHealth);
+        }
     }
 
     @Override

@@ -4,7 +4,7 @@ package theRhythmGirl.patches;
 public class SendDataPopupPatch{
 }
 
-//Since V0.1.1 I'm not sending the sendDataPopup anymore
+//Since V0.1.1 I'm not sending the sendDataPopups anymore
 
 /*
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

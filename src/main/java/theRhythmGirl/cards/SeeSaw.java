@@ -43,14 +43,11 @@ public class SeeSaw extends AbstractRhythmGirlCard {
     private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DMG = 3;
 
-    private HashMap<AbstractMonster, Integer> monsterHealthAtTurnStart;
-
     // /STAT DECLARATION/
 
     public SeeSaw() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.monsterHealthAtTurnStart = new HashMap<>();
 
         CardModifierManager.addModifier(this, new RepeatModifier());
     }
@@ -73,22 +70,13 @@ public class SeeSaw extends AbstractRhythmGirlCard {
     }
 
     @Override
-    public void atTurnStart(){
-        super.atTurnStart();
-        monsterHealthAtTurnStart = new HashMap<>();
-        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters){
-            monsterHealthAtTurnStart.put(m, m.currentHealth);
-        }
-    }
-
-    @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         if (!super.canUse(p, m)){
             return false;
         }
         if (m != null){
             this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return monsterHealthAtTurnStart.containsKey(m) && monsterHealthAtTurnStart.get(m) <= m.currentHealth;
+            return RhythmGirlMod.monsterHealthAtTurnStart.containsKey(m) && RhythmGirlMod.monsterHealthAtTurnStart.get(m) <= m.currentHealth;
         }
         for (AbstractMonster mm : AbstractDungeon.getCurrRoom().monsters.monsters){
             if (canUse(p, mm)){
@@ -106,15 +94,5 @@ public class SeeSaw extends AbstractRhythmGirlCard {
             upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        SeeSaw that = new SeeSaw();
-        if (this.monsterHealthAtTurnStart.isEmpty())
-            that.monsterHealthAtTurnStart = this.monsterHealthAtTurnStart;
-        else
-            that.atTurnStart();
-        return that;
     }
 }

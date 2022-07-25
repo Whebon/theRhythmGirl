@@ -18,6 +18,8 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //old version: 3 damage repeat. upgrade +2
 //old version: 5 damage. upgrade repeat. (but this was confusing with the switching artwork on repeat, so I reverted it to the old version)
 
+//idea: nerf this?
+
 public class Jab extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

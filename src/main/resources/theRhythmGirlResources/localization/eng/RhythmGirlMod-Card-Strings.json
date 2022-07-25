@@ -123,8 +123,7 @@
   },
   "theRhythmGirl:RhythmHeaven": {
     "NAME": "Rhythm Heaven",
-    "DESCRIPTION": "This turn, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "For !M! turns, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat."
+    "DESCRIPTION": "For !M! turns, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat."
   },
   "theRhythmGirl:BossaNova": {
     "NAME": "Bossa Nova",

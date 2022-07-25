@@ -32,7 +32,7 @@ public class RhythmHeaven extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -56,7 +56,6 @@ public class RhythmHeaven extends AbstractRhythmGirlCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
