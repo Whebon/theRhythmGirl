@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class SendData {
     public static Logger logger = LogManager.getLogger(SendData.class);
-    public static int MINIMUM_FLOOR = 15;
+    public static int MINIMUM_FLOOR = 17;
     public static String CHARACTER_NAME = "the Rhythm Girl";
 
     public static void sendData(RunDetails run) {

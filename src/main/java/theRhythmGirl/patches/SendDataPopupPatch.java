@@ -1,12 +1,5 @@
 package theRhythmGirl.patches;
 
-@Deprecated
-public class SendDataPopupPatch{
-}
-
-//Since V0.1.1 I'm not sending the sendDataPopups anymore
-
-/*
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.screens.DeathScreen;
@@ -75,4 +68,3 @@ public class SendDataPopupPatch{
         }
     }
 }
- */
