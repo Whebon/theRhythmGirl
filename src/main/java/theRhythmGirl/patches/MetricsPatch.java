@@ -31,7 +31,7 @@ import theRhythmGirl.senddata.SendData;
 
 public class MetricsPatch {
     public static Logger logger = LogManager.getLogger(RhythmGirlMod.class);
-    public static int SEND_DATA_POPUP_MINIMUM_FLOORS = 32;
+    public static int SEND_DATA_POPUP_MINIMUM_FLOORS = 17;
 
     @SpirePatch(clz = DeathScreen.class, method = "<ctor>", paramtypez = {MonsterGroup.class})
     public static class DeathScreenPatch {
