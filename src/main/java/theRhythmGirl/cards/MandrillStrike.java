@@ -18,6 +18,7 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //old version: deal 6 (9) damage, on beat 3: deal 12 (18) damage instead.
 //old version: deal 4 (8) damage, on beat 3: deal 6 (12) damage instead.
+//old version: deal 5 (10) damage, on beat 3: deal 7 (14) damage instead.
 
 public class MandrillStrike extends AbstractRhythmGirlCard {
 
@@ -37,8 +38,8 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
-    private static final int MAGIC = 10;
+    private static final int DAMAGE = 6;
+    private static final int MAGIC = 12;
     private static final int UPGRADE_DAMAGE = 2;
     private static final int UPGRADE_MAGIC = 4;
 

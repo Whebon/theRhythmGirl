@@ -39,8 +39,8 @@ public class OkItsOn extends AbstractRhythmGirlCard {
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
     private static final int COST = 1;
-    private static final int STRENGTH = 6;
-    private static final int UPGRADE_STRENGTH = 6;
+    private static final int STRENGTH = 10;
+    private static final int UPGRADE_STRENGTH = 5;
 
     private boolean descriptionUpdated = false;
 
