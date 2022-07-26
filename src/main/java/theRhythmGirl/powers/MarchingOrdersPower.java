@@ -4,6 +4,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -46,10 +47,19 @@ public class MarchingOrdersPower extends AbstractPower implements CloneablePower
     }
 
     @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        //for metrics only
+        if (card.type == AbstractCard.CardType.ATTACK){
+            if (StSLib.getMasterDeckEquivalent(card) == null) {
+                CustomMetrics.increasePowerEffectiveness(this, card.damage);
+            }
+        }
+    }
+
+    @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card){
         if (card.type == AbstractCard.CardType.ATTACK && type == DamageInfo.DamageType.NORMAL){
             if (StSLib.getMasterDeckEquivalent(card) == null) {
-                CustomMetrics.increasePowerEffectiveness(this, this.amount);
                 return damage + (float) this.amount;
             }
         }

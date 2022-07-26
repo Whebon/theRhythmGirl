@@ -49,6 +49,12 @@ public class DonkDonk extends AbstractRhythmGirlCard {
     }
 
     @Override
+    public int getEffectiveness(){
+        //deal damage twice
+        return this.damage*2;
+    }
+
+    @Override
     public void applyPowers() {
         this.baseDamage = AbstractDungeon.player.exhaustPile.size() + baseMagicNumber;
         super.applyPowers();

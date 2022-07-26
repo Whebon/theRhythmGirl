@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingFie
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -13,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.senddata.CustomMetrics;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -78,6 +80,7 @@ public class OkItsOn extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new CustomSFXAction("OK_ITS_ON"));
         this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
+        CustomMetrics.addCardSpecificDetails(OkItsOn.ID, "FloorNum"+AbstractDungeon.floorNum);
     }
 
     //Upgraded stats.

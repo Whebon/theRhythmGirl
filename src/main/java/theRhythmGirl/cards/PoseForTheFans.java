@@ -3,6 +3,7 @@ package theRhythmGirl.cards;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
@@ -10,6 +11,7 @@ import theRhythmGirl.actions.BigFlexAction;
 import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.actions.PoseForTheFansAction;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.powers.MeasurePower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -42,6 +44,12 @@ public class PoseForTheFans extends AbstractRhythmGirlCard {
     public PoseForTheFans() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
+    }
+
+    @Override
+    public int getEffectiveness(){
+        return AbstractDungeon.player.hasPower(MeasurePower.POWER_ID) ?
+                AbstractDungeon.player.getPower(MeasurePower.POWER_ID).amount*magicNumber : 0;
     }
 
     // Actions the card should do.

@@ -62,6 +62,12 @@ public class BossaNova extends AbstractRhythmGirlCard {
     }
 
     @Override
+    public int getEffectiveness(){
+        //damage only, no block
+        return this.damage*2;
+    }
+
+    @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         if (this.onBeatTriggered(1) || this.onBeatTriggered(3)){

@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
+import theRhythmGirl.cards.AbstractRhythmGirlCard;
+import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
@@ -44,6 +46,16 @@ public class SeeingHeavenPower extends AbstractPower implements CloneablePowerIn
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
+    }
+
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        //for metrics only
+        if (card instanceof AbstractRhythmGirlCard){
+            if (((AbstractRhythmGirlCard)card).hasOnBeatEffect()){
+                CustomMetrics.increasePowerEffectiveness(this, 1);
+            }
+        }
     }
 
     @Override

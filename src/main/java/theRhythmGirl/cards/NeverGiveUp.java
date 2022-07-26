@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.senddata.CustomMetrics;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -85,6 +87,7 @@ public class NeverGiveUp extends AbstractRhythmGirlCard {
             this.addToBot(new HealAction(p, p, p.maxHealth*3/4));
         else
             this.addToBot(new HealAction(p, p, p.maxHealth/4));
+        CustomMetrics.addCardSpecificDetails(NeverGiveUp.ID, "FloorNum"+AbstractDungeon.floorNum);
     }
 
     //Upgraded stats.

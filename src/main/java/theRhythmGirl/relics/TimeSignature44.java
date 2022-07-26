@@ -1,9 +1,7 @@
 package theRhythmGirl.relics;
 
-import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.cards.BossaNova;
 import theRhythmGirl.util.TextureLoader;
 
 import java.sql.Time;
