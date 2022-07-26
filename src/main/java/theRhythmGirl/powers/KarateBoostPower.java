@@ -3,6 +3,9 @@ package theRhythmGirl.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -49,8 +52,15 @@ public class KarateBoostPower extends AbstractPower implements CloneablePowerInt
     }
 
     @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        //for metrics only
+        if (card.type == AbstractCard.CardType.ATTACK){
+            CustomMetrics.increasePowerEffectiveness(this, ((int)(card.damage * (this.amount/100.0F))));
+        }
+    }
+
+    @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        CustomMetrics.increasePowerEffectiveness(this, ((int)(type == DamageInfo.DamageType.NORMAL ? damage * (this.amount/100.0F) : 0)));
         return type == DamageInfo.DamageType.NORMAL ? damage * ((this.amount+100.0F)/100.0F) : damage;
     }
 

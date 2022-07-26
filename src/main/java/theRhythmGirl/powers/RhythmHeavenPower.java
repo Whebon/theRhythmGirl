@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cards.AbstractRhythmGirlCard;
+import theRhythmGirl.cards.RhythmHeaven;
+import theRhythmGirl.cards.SeeingHeaven;
 import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
@@ -54,6 +56,7 @@ public class RhythmHeavenPower extends AbstractPower implements CloneablePowerIn
         if (card instanceof AbstractRhythmGirlCard){
             if (((AbstractRhythmGirlCard)card).hasOnBeatEffect()){
                 CustomMetrics.increasePowerEffectiveness(this, 1);
+                CustomMetrics.addCardSpecificDetails(RhythmHeaven.ID, card.cardID + ":" + this.amount);
             }
         }
     }
