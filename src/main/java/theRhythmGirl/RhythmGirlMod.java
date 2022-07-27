@@ -636,6 +636,12 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("OK_ITS_ON", makeAudioPath("SFX_OkItsOn.wav"));
         BaseMod.addAudio("MARCHING_ORDERS", makeAudioPath("SFX_MarchingOrders.wav"));
         BaseMod.addAudio("MUNCHY_MONK", makeAudioPath("SFX_MunchyMonk.wav"));
+        BaseMod.addAudio("LOVE_LIZARDS_1", makeAudioPath("SFX_LoveLizards1.wav"));
+        BaseMod.addAudio("LOVE_LIZARDS_2", makeAudioPath("SFX_LoveLizards2.wav"));
+        BaseMod.addAudio("LOVE_LIZARDS_3", makeAudioPath("SFX_LoveLizards3.wav"));
+        BaseMod.addAudio("LOVE_LIZARDS_4", makeAudioPath("SFX_LoveLizards4.wav"));
+        BaseMod.addAudio("LOVE_LIZARDS_5", makeAudioPath("SFX_LoveLizards5.wav"));
+        BaseMod.addAudio("LOVE_LIZARDS_6", makeAudioPath("SFX_LoveLizards6.wav"));
     }
 
     @Override

@@ -264,5 +264,9 @@
   "theRhythmGirl:MunchyMonk": {
     "NAME": "Munchy Monk",
     "DESCRIPTION": "Gain !M! additional therhythmgirl:Beats."
+  },
+  "theRhythmGirl:LoveLizards": {
+    "NAME": "Love Lizards",
+    "DESCRIPTION": "Apply !theRhythmGirl:MagicNumber2! Weak !M! times."
   }
 }
