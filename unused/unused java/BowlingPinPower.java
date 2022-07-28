@@ -1,28 +1,10 @@
-package theRhythmGirl.powers;
+//deprecated: supports the use of jab, which is not the goal of the countdown archetype
 
-import basemod.helpers.CardModifierManager;
-import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.CustomSFXAction;
-import theRhythmGirl.cardmodifiers.RepeatModifier;
-import theRhythmGirl.senddata.CustomMetrics;
-import theRhythmGirl.util.TextureLoader;
-
-import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
-import static theRhythmGirl.RhythmGirlMod.makePowerPath;
-
+/*
+"theRhythmGirl:BowlingPinPower": {
+        "NAME": "Bowling Pin",
+        "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage. Increase the damage by #b", " each time you play a card with #yRepeat."]
+}
 
 public class BowlingPinPower extends AbstractCountdownPower implements CloneablePowerInterface {
     public AbstractCreature source;
@@ -92,3 +74,4 @@ public class BowlingPinPower extends AbstractCountdownPower implements Cloneable
                 AbstractGameAction.AttackEffect.FIRE, false, enableCustomSoundEffects));
     }
 }
+*/

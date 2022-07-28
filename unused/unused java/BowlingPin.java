@@ -1,14 +1,10 @@
-package theRhythmGirl.cards;
+//deprecated: supports the use of jab, which is not the goal of the countdown archetype
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theRhythmGirl.RhythmGirlMod;
-import theRhythmGirl.actions.CustomSFXAction;
-import theRhythmGirl.characters.TheRhythmGirl;
-import theRhythmGirl.powers.BowlingPinPower;
-
-import static theRhythmGirl.RhythmGirlMod.makeCardPath;
+/*
+  "theRhythmGirl:BowlingPin": {
+    "NAME": "Bowling Pin",
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage. Increase the damage by !M! each time you play a card with therhythmgirl:Repeat."
+  }
 
 public class BowlingPin extends AbstractRhythmGirlCard {
 
@@ -61,3 +57,4 @@ public class BowlingPin extends AbstractRhythmGirlCard {
         }
     }
 }
+ */

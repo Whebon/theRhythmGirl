@@ -27,7 +27,6 @@ public class CustomMetrics {
         put(PopularityPower.POWER_ID, FanClub.ID);
         put(RatRacePower.POWER_ID, RatRace.ID);
         put(SpaceBellPower.POWER_ID, SpaceBell.ID);
-        put(BowlingPinPower.POWER_ID, BowlingPin.ID);
         put(SeeingHeavenPower.POWER_ID, SeeingHeaven.ID);
         put(RhythmHeavenPower.POWER_ID, RhythmHeaven.ID);
     }};
