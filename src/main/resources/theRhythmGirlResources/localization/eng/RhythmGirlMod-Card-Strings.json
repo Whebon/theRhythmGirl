@@ -268,5 +268,14 @@
   "theRhythmGirl:LoveLizards": {
     "NAME": "Love Lizards",
     "DESCRIPTION": "Apply !theRhythmGirl:MagicNumber2! Weak !M! times."
+  },
+  "theRhythmGirl:HairyVegetable": {
+    "NAME": "Hairy Vegetable",
+    "DESCRIPTION": "Shuffle !M! [#f0c851]Tweezers into your deck."
+  },
+  "theRhythmGirl:Tweezers": {
+    "NAME": "Tweezers",
+    "DESCRIPTION": "Draw a card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Draw a card. NL Exhaust."
   }
 }
