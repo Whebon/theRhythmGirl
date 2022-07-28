@@ -35,6 +35,8 @@ public class PreParty extends AbstractRhythmGirlCard {
 
     private static final int COST = 0;
 
+    public boolean triggeredSomething = false;
+
     // /STAT DECLARATION/
 
 
@@ -50,7 +52,7 @@ public class PreParty extends AbstractRhythmGirlCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        boolean triggeredSomething = false;
+        this.triggeredSomething = false;
         for (AbstractCreature monster : AbstractDungeon.getMonsters().monsters){
             for (AbstractPower power : monster.powers){
                 if (power instanceof AbstractCountdownPower){

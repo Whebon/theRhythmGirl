@@ -45,6 +45,11 @@ public class PartyCracker extends AbstractRhythmGirlCard {
         baseMagicNumber2 = magicNumber2 = COUNTDOWN;
     }
 
+    @Override
+    public int getEffectiveness(){
+        return 0;
+    }
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

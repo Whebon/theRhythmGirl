@@ -66,6 +66,10 @@ public class CustomMetrics {
                     addCardSpecificDetails(WorkingDough.ID, details);
                 }
             }
+
+            if (card.cardID.equals(PreParty.ID))
+                if  (!((PreParty)card).triggeredSomething)
+                    addCardSpecificDetails(PreParty.ID, "");
         }
     }
 
@@ -76,9 +80,15 @@ public class CustomMetrics {
 
     public static void increasePowerEffectiveness(AbstractPower power, int amount){
         if (power instanceof AbstractCountdownPower){
-            if (((AbstractCountdownPower) power).countdown > 0){
+            if (((AbstractCountdownPower) power).countdown > 0) {
                 increaseEffectiveness(PreParty.ID, amount);
-                addCardSpecificDetails(PreParty.ID, power.ID+":"+amount);
+                addCardSpecificDetails(PreParty.ID, power.ID + ":" + amount);
+            }
+            else{
+                String cleanPowerID = power.ID.replaceAll("[0-9]","");
+                if (powerToCardTable.containsKey(cleanPowerID)){
+                    increaseEffectiveness(powerToCardTable.get(cleanPowerID), amount);
+                }
             }
         }
         else if (powerToCardTable.containsKey(power.ID)){
