@@ -18,6 +18,8 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
+//old version: EVERYONE gains 40 (60) block.
+
 public class SpaceBellPower extends AbstractCountdownPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
@@ -72,8 +74,5 @@ public class SpaceBellPower extends AbstractCountdownPower implements CloneableP
         CustomMetrics.increasePowerEffectiveness(this, this.amount2);
         this.addToBot(new CustomSFXAction("SPACE_BELL_BLAST"));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, source, amount2));
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters){
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, source, amount2));
-        }
     }
 }

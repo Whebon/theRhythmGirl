@@ -15,6 +15,8 @@ import theRhythmGirl.powers.MeasurePower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: rework the upgrade? (although I like grave on this card)
+
 public class PoseForTheFans extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

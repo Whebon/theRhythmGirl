@@ -17,7 +17,7 @@
         },
         "theRhythmGirl:SpaceBellPower": {
                 "NAME": "Space Bell",
-                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "everyone gains #b", " Block."]
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "gain #b", " Block."]
         },
         "theRhythmGirl:CoffeeBreakPower": {
                 "NAME": "Coffee Break",
