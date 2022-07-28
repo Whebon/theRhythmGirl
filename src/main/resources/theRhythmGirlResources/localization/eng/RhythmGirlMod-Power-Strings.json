@@ -62,5 +62,9 @@
         "theRhythmGirl:MarchingOrdersPower": {
                 "NAME": "Marching Orders",
                 "DESCRIPTIONS": ["Attack cards created during combat deal #b", "  additional damage."]
+        },
+        "theRhythmGirl:BowlingPinPower": {
+                "NAME": "Bowling Pin",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage. Increase the damage by #b", " each time you play a card with #yRepeat."]
         }
 }

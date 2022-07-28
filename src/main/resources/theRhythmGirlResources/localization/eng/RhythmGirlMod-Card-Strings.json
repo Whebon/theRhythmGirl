@@ -277,5 +277,9 @@
     "NAME": "Tweezers",
     "DESCRIPTION": "Draw a card. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Draw a card. NL Exhaust."
+  },
+  "theRhythmGirl:BowlingPin": {
+    "NAME": "Bowling Pin",
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage. Increase the damage by !M! each time you play a card with therhythmgirl:Repeat."
   }
 }
