@@ -12,6 +12,8 @@ import theRhythmGirl.util.TextureLoader;
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
 
+//idea: limit measure to 10
+
 public class MeasurePower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 

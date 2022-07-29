@@ -281,5 +281,11 @@
     "NAME": "DJ School",
     "DESCRIPTION": "This turn, your next card without Ethereal gains therhythmgirl:Repeat.",
     "UPGRADE_DESCRIPTION": "This turn, your next !M! cards without Ethereal gain therhythmgirl:Repeat."
+  },
+  "theRhythmGirl:PackingPests": {
+    "NAME": "Packing Pests",
+    "DESCRIPTION": "Exhaust 1 card. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Put a copy of that card into your hand.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust 1 card. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Put a copy of that card into your hand.",
+    "EXTENDED_DESCRIPTION": ["Exhaust and put in a package. (non-healing)"]
   }
 }
