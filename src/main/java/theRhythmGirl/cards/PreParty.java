@@ -14,7 +14,8 @@ import theRhythmGirl.powers.AbstractCountdownPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-//idea: buff this card. (and remove draw)
+//old version: Trigger all active Countdown effects. If there are none, draw a card. (upgrade: draw a card)
+//old version: Had built in tutorial "(They don't wear off)"
 
 public class PreParty extends AbstractRhythmGirlCard {
 
@@ -59,6 +60,8 @@ public class PreParty extends AbstractRhythmGirlCard {
             for (AbstractPower power : monster.powers){
                 if (power instanceof AbstractCountdownPower){
                     ((AbstractCountdownPower) power).onCountdownTrigger();
+                    if (upgraded)
+                        ((AbstractCountdownPower) power).onCountdownTrigger();
                     triggeredSomething = true;
                 }
             }
@@ -66,11 +69,11 @@ public class PreParty extends AbstractRhythmGirlCard {
         for (AbstractPower power : AbstractDungeon.player.powers){
             if (power instanceof AbstractCountdownPower){
                 ((AbstractCountdownPower) power).onCountdownTrigger();
+                if (upgraded)
+                    ((AbstractCountdownPower) power).onCountdownTrigger();
                 triggeredSomething = true;
             }
         }
-        if (upgraded || !triggeredSomething)
-            this.addToBot(new DrawCardAction(p, 1));
     }
 
     //Upgraded stats.

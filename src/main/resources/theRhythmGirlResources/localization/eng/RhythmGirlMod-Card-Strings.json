@@ -221,8 +221,7 @@
   },
   "theRhythmGirl:DonkDonk": {
     "NAME": "Donk Donk",
-    "DESCRIPTION": "Deal damage equal to the size of your Exhaust pile, twice.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to the size of your Exhaust pile + !M!, twice.",
+    "DESCRIPTION": "Deal damage equal to the size of your Exhaust pile + !M!, twice.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage twice.)"]
   },
   "theRhythmGirl:PowerCalligraphy": {
@@ -244,8 +243,8 @@
   },
   "theRhythmGirl:PreParty": {
     "NAME": "Pre-Party",
-    "DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects. NL If there are none, draw a card.",
-    "UPGRADE_DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects. NL Draw a card."
+    "DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects.",
+    "UPGRADE_DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects twice."
   },
   "theRhythmGirl:Lumbearjack": {
     "NAME": "Lumbearjack",

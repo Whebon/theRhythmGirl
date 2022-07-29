@@ -35,7 +35,7 @@ public class KaratekaForm extends AbstractRhythmGirlCard {
 
     private static final int COST = 2;
     private static final int STACKS = 100;
-    private static final int UPGRADE_STACKS = 25;
+    private static final int UPGRADE_STACKS = 50;
 
     // /STAT DECLARATION/
 

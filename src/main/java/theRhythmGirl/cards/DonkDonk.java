@@ -15,7 +15,7 @@ import theRhythmGirl.characters.TheRhythmGirl;
 import static theRhythmGirl.RhythmGirlMod.enableCustomSoundEffects;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
-
+//old version: Deal damage equal to the size of your Exhaust pile, twice.
 
 public class DonkDonk extends AbstractRhythmGirlCard {
 
@@ -37,7 +37,7 @@ public class DonkDonk extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 1;
-    private static final int BASE_DAMAGE = 0;
+    private static final int BASE_DAMAGE = 2;
     private static final int UPGRADE_BASE_DAMAGE = 2;
 
     // /STAT DECLARATION/
@@ -58,20 +58,20 @@ public class DonkDonk extends AbstractRhythmGirlCard {
     public void applyPowers() {
         this.baseDamage = AbstractDungeon.player.exhaustPile.size() + baseMagicNumber;
         super.applyPowers();
-        this.rawDescription = (upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION) + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        this.rawDescription = (upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION) + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = (upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION);
+        this.rawDescription = cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
 
@@ -91,7 +91,6 @@ public class DonkDonk extends AbstractRhythmGirlCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_BASE_DAMAGE);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
