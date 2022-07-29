@@ -5,7 +5,7 @@
         },
         "theRhythmGirl:DoubleUpPower": {
                 "NAME": "Double Up",
-                "DESCRIPTIONS": ["The first card you play each turn gains #yRepeat.", "The first #b", " cards you play each turn have #yRepeat."]
+                "DESCRIPTIONS": ["The first card you play each turn gains #yRepeat.", "The first #b", " cards you play each turn have #yRepeat.", " (#b", " left)"]
         },
         "theRhythmGirl:LaunchPartyPower": {
                 "NAME": "Launch Party",
@@ -62,5 +62,9 @@
         "theRhythmGirl:MarchingOrdersPower": {
                 "NAME": "Marching Orders",
                 "DESCRIPTIONS": ["Attack cards created during combat deal #b", "  additional damage."]
+        },
+        "theRhythmGirl:DJSchoolPower": {
+                "NAME": "DJ School",
+                "DESCRIPTIONS": ["The next card without #yEthereal you play this turn gains #yRepeat.", "The next #b", " cards without #yEthereal you play this turn gain #yRepeat."]
         }
 }

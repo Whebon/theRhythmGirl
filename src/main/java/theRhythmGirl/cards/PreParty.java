@@ -14,6 +14,8 @@ import theRhythmGirl.powers.AbstractCountdownPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: buff this card. (and remove draw)
+
 public class PreParty extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

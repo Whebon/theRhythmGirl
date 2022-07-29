@@ -277,5 +277,10 @@
     "NAME": "Tweezers",
     "DESCRIPTION": "Draw a card. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Draw a card. NL Exhaust."
+  },
+  "theRhythmGirl:DJSchool": {
+    "NAME": "DJ School",
+    "DESCRIPTION": "This turn, your next card without Ethereal gains therhythmgirl:Repeat.",
+    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards without Ethereal gain therhythmgirl:Repeat."
   }
 }

@@ -644,6 +644,8 @@ public class RhythmGirlMod implements
         BaseMod.addAudio("LOVE_LIZARDS_6", makeAudioPath("SFX_LoveLizards6.wav"));
         BaseMod.addAudio("TWEEZERS", makeAudioPath("SFX_Tweezers.wav"));
         BaseMod.addAudio("HAIRY_VEGETABLE", makeAudioPath("SFX_HairyVegetable.wav"));
+        BaseMod.addAudio("DJ_SCHOOL_APPLY", makeAudioPath("SFX_DJSchoolApply.wav"));
+        BaseMod.addAudio("DJ_SCHOOL_TRIGGER", makeAudioPath("SFX_DJSchoolTrigger.wav"));
     }
 
     @Override

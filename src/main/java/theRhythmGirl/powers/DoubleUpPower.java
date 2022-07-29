@@ -57,15 +57,12 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        /*
-        //repeating a purgeOnUse card is fine I guess
-        if (card.purgeOnUse){
-            logger.info(String.format("'DoubleUpPower' does not consider applying Repeat on '%s'", card.name));
-            return;
-        }
-         */
+    public void atStartOfTurn(){
+        updateDescription();
+    }
 
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
         if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > this.amount){
             logger.info(String.format("'DoubleUpPower' does not apply Repeat on '%s' because that would be card %d/%d.",
                     card.name, AbstractDungeon.actionManager.cardsPlayedThisTurn.size(), this.amount));
@@ -75,6 +72,7 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
         logger.info(String.format("'DoubleUpPower' will apply Repeat on '%s' (card %d/%d)",
                 card.name, AbstractDungeon.actionManager.cardsPlayedThisTurn.size(), this.amount));
         this.flash();
+        updateDescription();
         addToBot(new CustomSFXAction("DOUBLE_UP_TRIGGER"));
         CardModifierManager.addModifier(card, new RepeatModifier(true));
         CustomMetrics.increasePowerEffectiveness(this, 1);
@@ -87,7 +85,7 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
         } else {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
-
+        this.description += DESCRIPTIONS[3] + Math.max(0, this.amount-AbstractDungeon.actionManager.cardsPlayedThisTurn.size()) + DESCRIPTIONS[4];
     }
 
     @Override

@@ -39,9 +39,9 @@ public class RepeatModifier extends AbstractCardModifier {
     @Override
     public boolean shouldApply(AbstractCard card){
         //a card can have 'Repeat' multiple times
-        return true;
+        //return true;
         //a card cannot have 'Repeat' twice
-        //return !CardModifierManager.hasModifier(card, RepeatModifier.ID);
+        return !CardModifierManager.hasModifier(card, RepeatModifier.ID);
     }
 
     @Override
