@@ -284,8 +284,8 @@
   },
   "theRhythmGirl:PackingPests": {
     "NAME": "Packing Pests",
-    "DESCRIPTION": "Exhaust 1 card. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Put a copy of that card into your hand.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust 1 card. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Put a copy of that card into your hand.",
+    "DESCRIPTION": "Innate. Retain. NL Store a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:Innate+. Retain. NL Store a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
     "EXTENDED_DESCRIPTION": ["Exhaust and put in a package. (non-healing)"]
   }
 }

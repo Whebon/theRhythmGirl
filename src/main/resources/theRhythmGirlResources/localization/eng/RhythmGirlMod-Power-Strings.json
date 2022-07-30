@@ -69,6 +69,6 @@
         },
         "theRhythmGirl:PackagePower": {
                 "NAME": "Package",
-                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "put #b", " copy of #y", " copies of #y", " into your hand."]
+                "DESCRIPTIONS": ["After #b", " #yBeat, put ", " #yBeats, put ", "a copy of #y", "#b", " copies of #y", " into your hand."]
         }
 }

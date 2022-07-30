@@ -3,11 +3,14 @@ package theRhythmGirl.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
@@ -29,6 +32,8 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(PackagePower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(PackagePower.class.getSimpleName() + "32.png"));
+
+    private static final int AMOUNT_OF_CHARACTERS = 3;
 
     private final AbstractCard content;
 
@@ -56,6 +61,19 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
     }
 
     @Override
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
+        int realAmount2 = this.amount2;
+        this.amount2 = 0;
+        super.renderAmount(sb, x, y, c);
+        this.amount2 = realAmount2;
+        if (this.content.name.length() > 0) {
+            this.greenColor2.a = c.a;
+            c = this.greenColor2;
+            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, this.content.name.substring(0, AMOUNT_OF_CHARACTERS), x, y + 15.0F * Settings.scale, 1.0F, c);
+        }
+    }
+
+    @Override
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
@@ -63,9 +81,9 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
         }
         if (this.amount2 == 1) {
-            this.description += DESCRIPTIONS[3] + this.amount2 + DESCRIPTIONS[4];
+            this.description += DESCRIPTIONS[3];
         } else {
-            this.description += DESCRIPTIONS[3] + this.amount2 + DESCRIPTIONS[5];
+            this.description += DESCRIPTIONS[4] + this.amount2 + DESCRIPTIONS[5];
         }
         this.description += this.content.name.replaceAll(" ", " #y") + DESCRIPTIONS[6];
     }

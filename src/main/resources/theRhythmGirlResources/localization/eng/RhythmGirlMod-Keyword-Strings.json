@@ -59,5 +59,12 @@
       "countdown"
     ],
     "DESCRIPTION": "Apply this card's effect on a creature. After you've gained X #yBeats, trigger this effect. (Excluding the #yBeat gained from this card.)"
+  },
+  {
+    "PROPER_NAME": "Innate+",
+    "NAMES": [
+      "innate+"
+    ],
+    "DESCRIPTION": "Start each combat with this card in your hand. Don't count this card towards your maximum hand size in your opening hand."
   }
 ]
