@@ -43,7 +43,6 @@ public class SpaceBell extends AbstractRhythmGirlCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         baseMagicNumber2 = magicNumber2 = COUNTDOWN;
-        this.exhaust = true;
     }
 
     @Override
