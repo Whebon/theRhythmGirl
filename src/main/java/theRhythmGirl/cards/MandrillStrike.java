@@ -25,7 +25,7 @@ public class MandrillStrike extends AbstractRhythmGirlCard {
     // TEXT DECLARATION
 
     public static final String ID = RhythmGirlMod.makeID(MandrillStrike.class.getSimpleName());
-    public static final String IMG = makeCardPath("MandrillStrike.png");
+    public static final String IMG = makeCardPath(MandrillStrike.class.getSimpleName()+".png");
 
     // /TEXT DECLARATION/
 

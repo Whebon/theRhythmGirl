@@ -291,5 +291,9 @@
   "theRhythmGirl:Plesiosaurus": {
     "NAME": "Plesiosaurus",
     "DESCRIPTION": "Costs 1 less [E] for each therhythmgirl:Measure you have. Gain !B! Block."
+  },
+  "theRhythmGirl:BigRockFinish": {
+    "NAME": "Big Rock Finish",
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 1: NL Lose 1 therhythmgirl:Measure to deal !M! damage instead."
   }
 }
