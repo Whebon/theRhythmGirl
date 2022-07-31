@@ -21,6 +21,8 @@ import java.util.List;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//note: innate+ behaves weirdly when the player has more than 5 innate cards
+//idea: remove this card?
 //old version: Exhaust a non-healing card. Countdown 4. Put a copy of that card into your hand.
 
 public class PackingPests extends AbstractRhythmGirlCard implements StartupCard {

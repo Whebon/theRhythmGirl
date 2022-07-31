@@ -36,18 +36,7 @@ public class HeavenPotion extends CustomPotion {
     public HeavenPotion() {
         // The bottle shape and inside is determined by potion size and color. The actual colors are the main RhythmGirlMod.java
         super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.MOON, PotionColor.WHITE);
-
-        // Potency is the damage/magic number equivalent of potions.
-        potency = getPotency();
-
-        // Initialize the Description
-        description = DESCRIPTIONS[0] + DESCRIPTIONS[2];
-
-        // Do you throw this potion at an enemy or do you just consume it
         isThrown = false;
-
-        // Initialize the on-hover name + description
-        tips.add(new PowerTip(name, description));
     }
 
     @Override

@@ -3,6 +3,8 @@ package theRhythmGirl.potions;
 import basemod.abstracts.CustomPotion;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -35,20 +37,15 @@ public class BeatPotion extends CustomPotion {
     public static final int UPGRADE_POTENCY = 13;
 
     public BeatPotion() {
-        // The bottle shape and inside is determined by potion size and color. The actual colors are the main RhythmGirlMod.java
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.SPHERE, PotionColor.SMOKE);
-
-        // Potency is the damage/magic number equivalent of potions.
-        potency = getPotency();
-
-        // Initialize the Description
-        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
-
-        // Do you throw this potion at an enemy or do you just consume it
         isThrown = false;
+    }
 
-        // Initialize the on-hover name + description
-        tips.add(new PowerTip(name, description));
+    public void initializeData() {
+        this.potency = this.getPotency();
+        this.description = potionStrings.DESCRIPTIONS[0] + this.potency + potionStrings.DESCRIPTIONS[1];
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
     }
 
     @Override
