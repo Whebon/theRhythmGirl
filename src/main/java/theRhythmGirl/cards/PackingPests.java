@@ -2,9 +2,7 @@ package theRhythmGirl.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -22,6 +20,8 @@ import theRhythmGirl.powers.PackagePower;
 import java.util.List;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
+
+//old version: Exhaust a non-healing card. Countdown 4. Put a copy of that card into your hand.
 
 public class PackingPests extends AbstractRhythmGirlCard implements StartupCard {
 
@@ -57,15 +57,20 @@ public class PackingPests extends AbstractRhythmGirlCard implements StartupCard 
         baseMagicNumber2 = magicNumber2 = COUNTDOWN;
     }
 
+    @Override
+    public int getEffectiveness(){
+        return 0;
+    }
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("PACKING_PESTS_APPLY"));
         this.addToBot(new NoRefreshSelectCardsInHandAction(cardStrings.EXTENDED_DESCRIPTION[0],
                 (AbstractCard c) -> !c.hasTag(AbstractCard.CardTags.HEALING),
                 (List<AbstractCard> cardList) -> {
                     if (cardList.size() > 0) {
                         AbstractCard c = cardList.get(0);
-                        this.addToTop(new SFXAction("PACKING_PESTS_APPLY"));
                         this.addToTop(new ApplyPowerAction(p, p, new PackagePower(p, p, magicNumber2, c, magicNumber), magicNumber2));
                         this.addToTop(new ShowCardAction(c));
                         AbstractDungeon.player.hand.empower(c);

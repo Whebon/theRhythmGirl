@@ -279,13 +279,13 @@
   },
   "theRhythmGirl:DJSchool": {
     "NAME": "DJ School",
-    "DESCRIPTION": "This turn, your next card without Ethereal gains therhythmgirl:Repeat.",
-    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards without Ethereal gain therhythmgirl:Repeat."
+    "DESCRIPTION": "This turn, your next card without Ethereal gains therhythmgirl:Repeat. Exhaust.",
+    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards without Ethereal gain therhythmgirl:Repeat. Exhaust."
   },
   "theRhythmGirl:PackingPests": {
     "NAME": "Packing Pests",
-    "DESCRIPTION": "Innate. Retain. NL Store a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:Innate+. Retain. NL Store a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
-    "EXTENDED_DESCRIPTION": ["Exhaust and put in a package. (non-healing)"]
+    "DESCRIPTION": "Innate. Retain. NL Remove a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:Innate+. Retain. NL Remove a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
+    "EXTENDED_DESCRIPTION": ["store. (non-healing)"]
   }
 }

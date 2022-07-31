@@ -5,6 +5,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -57,6 +58,14 @@ public class DJSchoolPower extends AbstractPower implements CloneablePowerInterf
             CardModifierManager.addModifier(card, new RepeatModifier(true));
             CustomMetrics.addCardSpecificDetails(DJSchool.ID, card.cardID);
             CustomMetrics.increasePowerEffectiveness(this, 1);
+        }
+    }
+
+    //remove all stacks at the end of turn
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer){
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 

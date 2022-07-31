@@ -13,6 +13,7 @@ import theRhythmGirl.powers.DJSchoolPower;
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
 //note: OP with freepeat, but that's just how it is!
+//dj school: idea: skip cards that already have RepeatModifier
 
 public class DJSchool extends AbstractRhythmGirlCard {
 
@@ -43,6 +44,7 @@ public class DJSchool extends AbstractRhythmGirlCard {
     public DJSchool() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
