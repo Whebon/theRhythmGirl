@@ -361,7 +361,7 @@ public class BeatUI
                 return;
             }
             publishOnGainBeat(amount);
-            if (amount >= MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE)
+            if (amount >= MINIMUM_NUMBER_OF_ANIMATIONS_TO_ACTIVATE_FAST_MODE && !playCountingSfx)
                 marshalAnimationIsFast = true;
             int n = getNumberOfPillars();
             if (n <= 0)
