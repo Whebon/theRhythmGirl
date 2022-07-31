@@ -59,12 +59,9 @@ public class RhythmGirlMod implements
         OnPlayerTurnStartSubscriber,
         PostBattleSubscriber,
         StartGameSubscriber{
-    // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
-    // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
     private static String modID;
 
-    // Mod-settings settings. This is if you want an on/off savable button
     public static Properties theDefaultRhythmGirlSettings = new Properties();
     public static final String SESSION_ID = "sessionID";
     public static final String ENABLE_CUSTOM_SOUND_EFFECTS_SETTINGS = "enableCustomSoundEffects";
@@ -79,9 +76,7 @@ public class RhythmGirlMod implements
     private static final String DESCRIPTION = "An in-game description for my own Slay the Spire mod";
     
     // =============== INPUT TEXTURE LOCATION =================
-    
-    // Colors (RGB)
-    // Character Color
+
     // gray: CardHelper.getColor(64.0f, 70.0f, 70.0f);
     // skin: CardHelper.getColor(252.0f, 218.0f, 159.0f);
     // redwood: CardHelper.getColor(164.0f, 90.0f, 82.0f); (#a45a52)
@@ -368,10 +363,6 @@ public class RhythmGirlMod implements
     
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
-        
-        // Class Specific Potion. If you want your potion to not be class-specific,
-        // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
-        // Remember, you can press ctrl+P inside parentheses like addPotions)
         BaseMod.addPotion(BeatPotion.class, BeatPotion.LIQUID, BeatPotion.HYBRID, BeatPotion.SPOTS, BeatPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
         BaseMod.addPotion(HeavenPotion.class, HeavenPotion.LIQUID, HeavenPotion.HYBRID, HeavenPotion.SPOTS, HeavenPotion.POTION_ID, TheRhythmGirl.Enums.THE_RHYTHM_GIRL);
         logger.info("Done editing potions");
@@ -386,14 +377,6 @@ public class RhythmGirlMod implements
     public void receiveEditRelics() {
         logger.info("Adding relics");
 
-        // Take a look at https://github.com/daviscook477/BaseMod/wiki/AutoAdd
-        // as well as
-        // https://github.com/kiooeht/Bard/blob/e023c4089cc347c60331c78c6415f489d19b6eb9/src/main/java/com/evacipated/cardcrawl/mod/bard/BardMod.java#L319
-        // for reference as to how to turn this into an "Auto-Add" rather than having to list every relic individually.
-        // Of note is that the bard mod uses it's own custom relic class (not dissimilar to our AbstractRhythmGirlCard class for cards) that adds the 'color' field,
-        // in order to automatically differentiate which pool to add the relic too.
-
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new TimeSignature24(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new TimeSignature34(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new TimeSignature44(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
@@ -403,13 +386,8 @@ public class RhythmGirlMod implements
         BaseMod.addRelicToCustomPool(new Quicknibble(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new Freepeat(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
         BaseMod.addRelicToCustomPool(new GoForAPerfect(), TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL);
+        //BaseMod.addRelic(new GoForAPerfect(), RelicType.SHARED);
 
-        // This adds a relic to the Shared pool. Every character can find this relic.
-        //BaseMod.addRelic(new TimeSignature44(), RelicType.SHARED);
-        
-        // Mark relics as seen - makes it visible in the compendium immediately
-        // If you don't have this it won't be visible in the compendium until you see them in game
-        // (the others are all starters so they're marked as seen in the character file)
         UnlockTracker.markRelicAsSeen(TimeSignature24.ID);
         UnlockTracker.markRelicAsSeen(TimeSignature34.ID);
         UnlockTracker.markRelicAsSeen(TimeSignature44.ID);
@@ -431,32 +409,16 @@ public class RhythmGirlMod implements
     @Override
     public void receiveEditCards() {
         logger.info("Adding variables");
-        //Ignore this
         pathCheck();
-        // Add the Custom Dynamic Variables
         logger.info("Add variables");
-        // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new MagicNumber2());
         
         logger.info("Adding cards");
-        // Add the cards
-        // when generating card rewards/shop screen items.
-
-        // This method automatically adds any cards so you don't have to manually load them 1 by 1
-        // For more specific info, including how to exclude cards from being added:
-        // https://github.com/daviscook477/BaseMod/wiki/AutoAdd
-
-        // The ID for this function isn't actually your modid as used for prefixes/by the getModID() method.
-        // It's the mod id you give MTS in ModTheSpire.json - by default your artifact ID in your pom.xml
 
         new AutoAdd("RhythmGirl") // ${project.artifactId}
             .packageFilter(AbstractRhythmGirlCard.class) // filters to any class in the same package as AbstractRhythmGirlCard, nested packages included
             .setDefaultSeen(true)
             .cards();
-
-        // .setDefaultSeen(true) unlocks the cards
-        // This is so that they are all "seen" in the library,
-        // for people who like to look at the card list before playing your mod
 
         logger.info("Done adding cards!");
     }
@@ -507,14 +469,6 @@ public class RhythmGirlMod implements
 
     @Override
     public void receiveEditKeywords() {
-        // Keywords on cards are supposed to be Capitalized, while in Keyword-String.json they're lowercase
-        //
-        // Multiword keywords on cards are done With_Underscores
-        //
-        // If you're using multiword keywords, the first element in your NAMES array in your keywords-strings.json has to be the same as the PROPER_NAME.
-        // That is, in Card-Strings.json you would have #yA_Long_Keyword (#y highlights the keyword in yellow).
-        // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
-        
         Gson gson = new Gson();
         String json = Gdx.files.internal(getModID() + "Resources/localization/eng/RhythmGirlMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
@@ -522,7 +476,6 @@ public class RhythmGirlMod implements
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
 
                 // note to self: added keywords do not get parsed correctly in relic strings.
                 // expected behavior: therhythmgirl:beat -> `Beat` [Beat, description]
@@ -534,16 +487,14 @@ public class RhythmGirlMod implements
     }
     
     // ================ /LOAD THE KEYWORDS/ ===================    
-    
-    // this adds "ModName:" before the ID of any card/relic/power etc.
-    // in order to avoid conflicts if any other mod uses the same ID.
+
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
     }
 
     @Override
     public void receiveAddAudio() {
-        // please automate this somehow
+        //note: please automate this somehow
         BaseMod.addAudio("STRIKE", makeAudioPath("SFX_Strike.wav"));
         BaseMod.addAudio("MANDRILL_STRIKE_SOUR", makeAudioPath("SFX_MandrillStrikeSour.wav"));
         BaseMod.addAudio("MANDRILL_STRIKE_SWEET", makeAudioPath("SFX_MandrillStrikeSweet.wav"));

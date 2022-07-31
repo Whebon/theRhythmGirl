@@ -34,19 +34,10 @@ import static theRhythmGirl.RhythmGirlMod.*;
 import static theRhythmGirl.RhythmGirlMod.makeScenePath;
 import static theRhythmGirl.characters.TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
-//Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
-//and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
-//All text (starting description and loadout, anything labeled TEXT[]) can be found in RhythmGirlMod-character-Strings.json in the resources
-
 public class TheRhythmGirl extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
-    // These are enums for your Characters color (both general color and for the card library) as well as
-    // an enum for the name of the player class - IRONCLAD, THE_SILENT, DEFECT, YOUR_CLASS ...
-    // These are all necessary for creating a character. If you want to find out where and how exactly they are used
-    // in the basegame (for fun and education) Ctrl+click on the PlayerClass, CardColor and/or LibraryType below and go down the
-    // Ctrl+click rabbit hole
 
     public static class Enums {
         @SpireEnum
@@ -81,9 +72,6 @@ public class TheRhythmGirl extends CustomPlayer {
 
     // =============== /STRINGS/ =================
 
-
-    // =============== TEXTURES OF BIG ENERGY ORB ===============
-
     public static final String[] orbTextures = {
             "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer1.png",
             "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer2.png",
@@ -97,9 +85,6 @@ public class TheRhythmGirl extends CustomPlayer {
             "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer4d.png",
             "theRhythmGirlResources/images/char/rhythmGirlCharacter/energyOrb/layer5d.png",};
 
-    // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
-
-    // =============== CHARACTER CLASS START =================
 
     public TheRhythmGirl(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
@@ -107,30 +92,16 @@ public class TheRhythmGirl extends CustomPlayer {
                 new SpriterAnimation(
                         "theRhythmGirlResources/images/char/rhythmGirlCharacter/Spriter/theRhythmGirlAnimation.scml"));
 
+        initializeClass(null,
+                THE_RHYTHM_GIRL_SHOULDER_2,
+                THE_RHYTHM_GIRL_SHOULDER_1,
+                THE_RHYTHM_GIRL_CORPSE,
+                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        // =============== TEXTURES, ENERGY, LOADOUT =================  
-
-        initializeClass(null, // required call to load textures and setup energy/loadout.
-                // I left these in RhythmGirlMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                THE_RHYTHM_GIRL_SHOULDER_2, // campfire pose
-                THE_RHYTHM_GIRL_SHOULDER_1, // another campfire pose
-                THE_RHYTHM_GIRL_CORPSE, // dead corpse
-                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
-
-        // =============== /TEXTURES, ENERGY, LOADOUT/ =================
-
-        // =============== TEXT BUBBLE LOCATION =================
-
-        dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
-        dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
-
-        // =============== /TEXT BUBBLE LOCATION/ =================
-
+        dialogX = (drawX + 0.0F * Settings.scale);
+        dialogY = (drawY + 220.0F * Settings.scale);
     }
 
-    // =============== /CHARACTER CLASS END/ =================
-
-    // Starting description and loadout
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
@@ -138,7 +109,6 @@ public class TheRhythmGirl extends CustomPlayer {
                 getStartingDeck(), false);
     }
 
-    // Starting Deck
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
@@ -159,14 +129,10 @@ public class TheRhythmGirl extends CustomPlayer {
         return retVal;
     }
 
-    // Starting Relics	
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
         retVal.add(TimeSignature44.ID);
-
-        // Mark relics as seen - makes it visible in the compendium immediately
-        // If you don't have this it won't be visible in the compendium until you see them in game
         UnlockTracker.markRelicAsSeen(TimeSignature44.ID);
 
         return retVal;
@@ -175,9 +141,8 @@ public class TheRhythmGirl extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.play(getCustomModeCharacterButtonSoundKey()); // Sound Effect
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
-                false); // Screen Effect
+        CardCrawlGame.sound.play(getCustomModeCharacterButtonSoundKey());
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false);
     }
 
     // character Select on-button-press sound effect
@@ -186,8 +151,7 @@ public class TheRhythmGirl extends CustomPlayer {
         return "CLICK_BUTTON";
     }
 
-    // Should return how much HP your maximum HP reduces by when starting a run at
-    // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
+    // Should return how much HP your maximum HP reduces by when starting a run at Ascension 14 or higher
     @Override
     public int getAscensionMaxHPLoss() {
         return 4;
@@ -221,7 +185,7 @@ public class TheRhythmGirl extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Strike_RhythmGirl();
+        return new IntoYou();
     }
 
     // The class name as it appears next to your player name in-game
@@ -249,9 +213,6 @@ public class TheRhythmGirl extends CustomPlayer {
         return RhythmGirlMod.RHYTHM_GIRL_CHARACTER_COLOR;
     }
 
-    // Should return an AttackEffect array of any size greater than 0. These effects
-    // will be played in sequence as your character's finishing combo on the heart.
-    // Attack effects are the same as used in DamageAction and the like.
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
@@ -273,17 +234,11 @@ public class TheRhythmGirl extends CustomPlayer {
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY};
     }
 
-    // Should return a string containing what text is shown when your character is
-    // about to attack the heart. For example, the defect is "NL You charge your
-    // core to its maximum..."
     @Override
     public String getSpireHeartText() {
         return TEXT[1];
     }
 
-    // The vampire events refer to the base game characters as "brother", "sister",
-    // and "broken one" respectively.This method should return a String containing
-    // the full text that will be displayed as the first screen of the vampires event.
     @Override
     public String getVampireText() {
         return TEXT[2];
