@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.evacipated.cardcrawl.mod.stslib.patches.FleetingPatch;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import theRhythmGirl.actions.CustomSFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.cardmodifiers.RepeatModifier;
+import theRhythmGirl.cards.DJSchool;
 import theRhythmGirl.senddata.CustomMetrics;
 import theRhythmGirl.util.TextureLoader;
 
@@ -25,6 +27,9 @@ import theRhythmGirl.util.TextureLoader;
 //this is funky, yet intended, behavior.
 
 import static theRhythmGirl.RhythmGirlMod.makePowerPath;
+
+//old version: gave an additional instance of RepeatModifier to cards that already had the RepeatModifier.
+//old version: could apply repeat on cards with ethereal (infinite loop with freepeat)
 
 public class DoubleUpPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
@@ -57,22 +62,19 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
     }
 
     @Override
-    public void atStartOfTurn(){
-        updateDescription();
+    public void atStartOfTurnPostDraw() {updateDescription();}
+
+    private int getNumberOfCardsWithoutEtherealPlayedThisTurn(){
+        return (int) AbstractDungeon.actionManager.cardsPlayedThisTurn.stream().filter((AbstractCard c) ->  !c.isEthereal).count();
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > this.amount){
-            logger.info(String.format("'DoubleUpPower' does not apply Repeat on '%s' because that would be card %d/%d.",
-                    card.name, AbstractDungeon.actionManager.cardsPlayedThisTurn.size(), this.amount));
+        updateDescription();
+        if (this.amount < getNumberOfCardsWithoutEtherealPlayedThisTurn() || card.isEthereal){
             return;
         }
-
-        logger.info(String.format("'DoubleUpPower' will apply Repeat on '%s' (card %d/%d)",
-                card.name, AbstractDungeon.actionManager.cardsPlayedThisTurn.size(), this.amount));
         this.flash();
-        updateDescription();
         addToBot(new CustomSFXAction("DOUBLE_UP_TRIGGER"));
         CardModifierManager.addModifier(card, new RepeatModifier(true));
         CustomMetrics.increasePowerEffectiveness(this, 1);
@@ -85,7 +87,7 @@ public class DoubleUpPower extends AbstractPower implements CloneablePowerInterf
         } else {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
-        this.description += DESCRIPTIONS[3] + Math.max(0, this.amount-AbstractDungeon.actionManager.cardsPlayedThisTurn.size()) + DESCRIPTIONS[4];
+        this.description += DESCRIPTIONS[3] + Math.max(0, this.amount-getNumberOfCardsWithoutEtherealPlayedThisTurn()) + DESCRIPTIONS[4];
     }
 
     @Override

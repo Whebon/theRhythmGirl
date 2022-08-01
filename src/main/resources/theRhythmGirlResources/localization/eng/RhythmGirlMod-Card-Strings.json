@@ -49,7 +49,7 @@
   },
   "theRhythmGirl:DoubleUp": {
     "NAME": "Double Up",
-    "DESCRIPTION": "The first card you play each turn gains therhythmgirl:Repeat."
+    "DESCRIPTION": "The first card without Ethereal you play each turn gains therhythmgirl:Repeat."
   },
   "theRhythmGirl:SeeSaw": {
     "NAME": "See Saw",

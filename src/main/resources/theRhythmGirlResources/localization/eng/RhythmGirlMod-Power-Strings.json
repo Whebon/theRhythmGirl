@@ -5,7 +5,7 @@
         },
         "theRhythmGirl:DoubleUpPower": {
                 "NAME": "Double Up",
-                "DESCRIPTIONS": ["The first card you play each turn gains #yRepeat.", "The first #b", " cards you play each turn have #yRepeat.", " (#b", " left)"]
+                "DESCRIPTIONS": ["The first card without #yEthereal you play each turn gains #yRepeat.", "The first #b", " cards without #yEthereal you play each turn gain #yRepeat.", " ( #b", " left )"]
         },
         "theRhythmGirl:LaunchPartyPower": {
                 "NAME": "Launch Party",
