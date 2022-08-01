@@ -1,10 +1,7 @@
 package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -63,16 +60,13 @@ public class CropStomp extends AbstractRhythmGirlCard {
         super.triggerOnGlowCheck();
         if (this.onBeatTriggered(1) || this.onBeatTriggered(3)){
             if (this.onBeatTriggered(2) || this.onBeatTriggered(4)){
-                this.exhaust = true;
                 this.loadCardImage(IMG_1234);
             }
             else{
-                this.exhaust = false;
                 this.loadCardImage(IMG_13);
             }
         }
         else {
-            this.exhaust = true;
             this.loadCardImage(IMG_24);
         }
     }
@@ -85,6 +79,7 @@ public class CropStomp extends AbstractRhythmGirlCard {
             this.addToBot(new DrawCardAction(p, this.magicNumber));
         }
         if (onBeatTriggered(2) || onBeatTriggered(4)){
+            this.exhaust = true;
             this.addToBot(new CustomSFXAction("CROP_STOMP_24"));
             this.addToBot(new GainEnergyAction(this.magicNumber2));
         }

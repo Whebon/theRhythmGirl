@@ -74,6 +74,7 @@ public class WorkingDough extends AbstractRhythmGirlCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.cardsToPreview != null){
             this.cardsToPreview.use(p, m);
+            this.exhaust = cardsToPreview.exhaust;
         }
         else{
             logger.error("WorkingDough has not copied any card");
