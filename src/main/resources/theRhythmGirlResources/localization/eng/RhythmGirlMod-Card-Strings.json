@@ -201,8 +201,8 @@
   },
   "theRhythmGirl:TryAgain": {
     "NAME": "Try Again",
-    "DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
+    "DESCRIPTION": "Reset all active therhythmgirl:Countdown counters. NL Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Reset all active therhythmgirl:Countdown counters. NL Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
   },
   "theRhythmGirl:RatRace": {
     "NAME": "Rat Race",
@@ -243,8 +243,8 @@
   },
   "theRhythmGirl:PreParty": {
     "NAME": "Pre-Party",
-    "DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects.",
-    "UPGRADE_DESCRIPTION": "Trigger all active therhythmgirl:Countdown effects twice."
+    "DESCRIPTION": "therhythmgirl:Trigger all active therhythmgirl:Countdown effects.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:Trigger all active therhythmgirl:Countdown effects twice."
   },
   "theRhythmGirl:Lumbearjack": {
     "NAME": "Lumbearjack",

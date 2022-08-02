@@ -43,7 +43,7 @@ public class PartyCrackerPower extends AbstractCountdownPower implements Cloneab
         this.owner = owner;
         this.source = source;
         this.amount = countdown;
-        this.countdown = countdown;
+        this.originalCountdown = this.countdown = countdown;
         this.amount2 = damage;
         this.greenColor2 = Color.GOLD.cpy();
 

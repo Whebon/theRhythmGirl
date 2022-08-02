@@ -45,7 +45,7 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
         this.owner = owner;
         this.source = source;
         this.amount = countdown;
-        this.countdown = countdown;
+        this.originalCountdown = this.countdown = countdown;
         this.amount2 = numberOfCopies;
         this.greenColor2 = Color.GOLD.cpy();
 

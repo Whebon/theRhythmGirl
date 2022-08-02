@@ -3,15 +3,18 @@ package theRhythmGirl.cards;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.actions.CustomSFXAction;
 import theRhythmGirl.actions.GainAdditionalBeatsAction;
 import theRhythmGirl.actions.ResetBeatsAction;
 import theRhythmGirl.characters.TheRhythmGirl;
+import theRhythmGirl.powers.AbstractCountdownPower;
 import theRhythmGirl.powers.MeasurePower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
@@ -55,6 +58,18 @@ public class TryAgain extends AbstractRhythmGirlCard {
         this.addToBot(new ResetBeatsAction());
         this.addToBot(new RemoveSpecificPowerAction(p, p, MeasurePower.POWER_ID));
         this.addToBot(new DrawCardAction(p, magicNumber));
+        for (AbstractCreature monster : AbstractDungeon.getMonsters().monsters){
+            for (AbstractPower power : monster.powers){
+                if (power instanceof AbstractCountdownPower){
+                    ((AbstractCountdownPower) power).resetCountdown();
+                }
+            }
+        }
+        for (AbstractPower power : AbstractDungeon.player.powers){
+            if (power instanceof AbstractCountdownPower){
+                ((AbstractCountdownPower) power).resetCountdown();
+            }
+        }
     }
 
     //Upgraded stats.

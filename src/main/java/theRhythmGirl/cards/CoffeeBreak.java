@@ -19,6 +19,10 @@ import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 //"Ignore the next #b incoming #yBeats, wears off at the end of your turn."
 //downside: playing this card would already consume 1 stack.
 
+//
+
+//
+
 public class CoffeeBreak extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

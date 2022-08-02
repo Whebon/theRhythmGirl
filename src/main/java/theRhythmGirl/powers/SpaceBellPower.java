@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.senddata.CustomMetrics;
@@ -41,7 +40,7 @@ public class SpaceBellPower extends AbstractCountdownPower implements CloneableP
         this.owner = owner;
         this.source = source;
         this.amount = countdown;
-        this.countdown = countdown;
+        this.originalCountdown = this.countdown = countdown;
         this.amount2 = block;
         this.greenColor2 = Color.GOLD.cpy();
 

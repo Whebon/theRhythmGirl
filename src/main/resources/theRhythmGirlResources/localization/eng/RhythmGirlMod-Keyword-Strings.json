@@ -56,9 +56,10 @@
   {
     "PROPER_NAME": "Countdown X",
     "NAMES": [
-      "countdown"
+      "countdown",
+      "countdowns"
     ],
-    "DESCRIPTION": "Apply this card's effect on a creature. After you've gained X #yBeats, trigger this effect. (Excluding the #yBeat gained from this card.)"
+    "DESCRIPTION": "Card effects with #yCountdown are applied on a creature and trigger after you've gained X #yBeats."
   },
   {
     "PROPER_NAME": "Innate+",
@@ -66,5 +67,12 @@
       "innate+"
     ],
     "DESCRIPTION": "Start each combat with this card in your hand. Don't count this card towards your maximum hand size in your opening hand."
+  },
+  {
+    "PROPER_NAME": "Trigger",
+    "NAMES": [
+      "trigger"
+    ],
+    "DESCRIPTION": "Trigger the effects applied by #yCountdown cards. They don't wear off and can trigger again."
   }
 ]
