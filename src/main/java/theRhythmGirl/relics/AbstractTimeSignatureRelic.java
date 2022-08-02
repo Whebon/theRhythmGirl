@@ -15,8 +15,6 @@ public abstract class AbstractTimeSignatureRelic extends CustomRelic {
 
     public AbstractTimeSignatureRelic(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx) {
         super(id, texture, outline, tier, sfx);
-        if (RhythmGirlMod.beatUI != null)
-            RhythmGirlMod.beatUI.visible = true;
     }
 
     private boolean replaceOldTimeSignature(){
@@ -42,6 +40,10 @@ public abstract class AbstractTimeSignatureRelic extends CustomRelic {
 
     @Override
     public void obtain(){
+        if (RhythmGirlMod.beatUI != null) {
+            logger.info("Player obtained a time signature relic, setting RhythmGirlMod.beatUI = true");
+            RhythmGirlMod.beatUI.visible = true;
+        }
         if (!replaceOldTimeSignature())
             super.obtain();
     }
