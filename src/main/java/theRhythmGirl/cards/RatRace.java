@@ -10,6 +10,8 @@ import theRhythmGirl.powers.RatRacePower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
+//idea: make this a common?
+
 public class RatRace extends AbstractRhythmGirlCard {
 
     // TEXT DECLARATION

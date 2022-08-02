@@ -112,8 +112,8 @@
   },
   "theRhythmGirl:CoffeeBreak": {
     "NAME": "Coffee Break",
-    "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn.",
-    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card."
+    "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw !M! cards."
   },
   "theRhythmGirl:CountIn": {
     "NAME": "Count In",

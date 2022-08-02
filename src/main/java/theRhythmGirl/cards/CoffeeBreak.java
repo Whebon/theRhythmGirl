@@ -43,12 +43,15 @@ public class CoffeeBreak extends AbstractRhythmGirlCard {
     public static final CardColor COLOR = TheRhythmGirl.Enums.COLOR_RHYTHM_GIRL;
 
     private static final int COST = 0;
+    private static final int DRAW = 1;
+    private static final int UPGRADE_DRAW = 1;
 
     // /STAT DECLARATION/
 
 
     public CoffeeBreak() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = DRAW;
     }
 
     // Actions the card should do.
@@ -65,6 +68,7 @@ public class CoffeeBreak extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_DRAW);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
