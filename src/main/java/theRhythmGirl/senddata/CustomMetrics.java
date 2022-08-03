@@ -31,6 +31,7 @@ public class CustomMetrics {
         put(RhythmHeavenPower.POWER_ID, RhythmHeaven.ID);
         put(DJSchoolPower.POWER_ID, DJSchool.ID);
         put(PackagePower.POWER_ID, PackingPests.ID);
+        put(AlienKnowledgePower.POWER_ID, AlienKnowledge.ID);
     }};
 
     public static void receiveCardUsed(AbstractCard abstractCard){

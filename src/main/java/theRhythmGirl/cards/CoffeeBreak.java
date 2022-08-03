@@ -2,13 +2,16 @@ package theRhythmGirl.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theRhythmGirl.RhythmGirlMod;
 import theRhythmGirl.characters.TheRhythmGirl;
 import theRhythmGirl.powers.CoffeeBreakPower;
+import theRhythmGirl.powers.FillbotsPower;
 
 import static theRhythmGirl.RhythmGirlMod.makeCardPath;
 
@@ -44,7 +47,8 @@ public class CoffeeBreak extends AbstractRhythmGirlCard {
 
     private static final int COST = 0;
     private static final int DRAW = 1;
-    private static final int UPGRADE_DRAW = 1;
+    private static final int BLOCK = 0;
+    private static final int UPGRADE_BLOCK = 3;
 
     // /STAT DECLARATION/
 
@@ -52,15 +56,18 @@ public class CoffeeBreak extends AbstractRhythmGirlCard {
     public CoffeeBreak() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
+        block = baseBlock = BLOCK;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new CoffeeBreakPower(p, p, 1), 1));
-        if (upgraded){
-            this.addToBot(new DrawCardAction(p, 1));
+        if (!AbstractDungeon.player.hasPower(CoffeeBreakPower.POWER_ID))
+            this.addToBot(new ApplyPowerAction(p, p, new CoffeeBreakPower(p, p, 0), 0));
+        if (block > 0){
+            this.addToBot((new GainBlockAction(p, p, block)));
         }
+        this.addToBot(new DrawCardAction(p, magicNumber));
     }
 
     //Upgraded stats.
@@ -68,7 +75,7 @@ public class CoffeeBreak extends AbstractRhythmGirlCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_DRAW);
+            upgradeBlock(UPGRADE_BLOCK);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

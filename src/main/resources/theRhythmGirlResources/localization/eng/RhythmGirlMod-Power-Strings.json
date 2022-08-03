@@ -21,7 +21,7 @@
         },
         "theRhythmGirl:CoffeeBreakPower": {
                 "NAME": "Coffee Break",
-                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats ", "this turn.", "for #b", " turns."]
+                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats this turn."]
         },
         "theRhythmGirl:RhythmHeavenPower": {
                 "NAME": "Rhythm Heaven",
@@ -70,5 +70,9 @@
         "theRhythmGirl:PackagePower": {
                 "NAME": "Package",
                 "DESCRIPTIONS": ["After #b", " #yBeat, put ", " #yBeats, put ", "a copy of #y", "#b", " copies of #y", " into your hand."]
+        },
+        "theRhythmGirl:AlienKnowledgePower": {
+                "NAME": "Alien Knowledge",
+                "DESCRIPTIONS": ["Gain #b", " Block whenever you play a card while a #yCountdown effect is active."]
         }
 }

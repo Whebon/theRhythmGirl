@@ -45,12 +45,7 @@ public class CoffeeBreakPower extends AbstractPower implements CloneablePowerInt
 
     @Override
     public void updateDescription() {
-        if (this.amount > 1){
-            description = DESCRIPTIONS[0]+DESCRIPTIONS[2]+this.amount+DESCRIPTIONS[3];
-        }
-        else{
-            description = DESCRIPTIONS[0]+DESCRIPTIONS[1];
-        }
+        description = DESCRIPTIONS[0];
     }
 
     @Override
@@ -60,10 +55,6 @@ public class CoffeeBreakPower extends AbstractPower implements CloneablePowerInt
 
     //reduce stacks at the end of round
     public void atEndOfRound() {
-        if (this.amount == 0) {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-        } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
-        }
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 }

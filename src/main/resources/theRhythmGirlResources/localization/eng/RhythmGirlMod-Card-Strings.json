@@ -113,7 +113,7 @@
   "theRhythmGirl:CoffeeBreak": {
     "NAME": "Coffee Break",
     "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw !M! cards."
+    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Gain !B! Block. NL Draw a card."
   },
   "theRhythmGirl:CountIn": {
     "NAME": "Count In",
@@ -295,5 +295,9 @@
   "theRhythmGirl:BigRockFinish": {
     "NAME": "Big Rock Finish",
     "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 1: NL Lose 1 therhythmgirl:Measure to deal !M! damage instead."
+  },
+  "theRhythmGirl:AlienKnowledge": {
+    "NAME": "Alien Knowledge",
+    "DESCRIPTION": "Gain !M! Block whenever you play a card while a therhythmgirl:Countdown effect is active."
   }
 }
