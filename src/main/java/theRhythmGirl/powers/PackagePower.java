@@ -51,7 +51,7 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
 
         this.content = content.makeStatEquivalentCopy();
 
-        type = PowerType.DEBUFF;
+        type = PowerType.BUFF;
         isTurnBased = false;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);

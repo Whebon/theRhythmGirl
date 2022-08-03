@@ -2,6 +2,7 @@ package theRhythmGirl.cards;
 
 import basemod.helpers.CardModifierManager;
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -177,7 +178,8 @@ public class WorkingDough extends AbstractRhythmGirlCard {
                 setDynamicVariables(targetMonster);
                 setCardImage();
                 initializeTitle();
-                initializeDescription();
+                this.cardsToPreview.initializeDescription();
+                this.description = this.cardsToPreview.description;
                 return;
             }
         }
@@ -267,6 +269,35 @@ public class WorkingDough extends AbstractRhythmGirlCard {
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             resetCard();
             initializeDescription();
+        }
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        try {
+            super.render(sb);
+        }
+        catch (Exception e1){
+            try {
+                logger.info("Rendering of WorkingDough failed, using a description without custom variables instead");
+                this.rawDescription = this.cardsToPreview.rawDescription.replaceAll("![^!]*!", "?");
+                initializeDescription();
+                super.render(sb);
+            }
+            catch (Exception e2) {
+                try {
+                    logger.info("Rendering of WorkingDough failed, using the title as description instead.");
+                    this.rawDescription = this.cardsToPreview.name;
+                    initializeDescription();
+                    super.render(sb);
+                }
+                catch (Exception e3){
+                    logger.info("Rendering of WorkingDough failed, using no description instead.");
+                    this.rawDescription = "";
+                    initializeDescription();
+                    super.render(sb);
+                }
+            }
         }
     }
 
