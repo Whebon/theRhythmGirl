@@ -195,6 +195,7 @@ public class WorkingDough extends AbstractRhythmGirlCard {
         this.heal = this.cardsToPreview.heal;
         this.discard = this.cardsToPreview.discard;
         this.magicNumber = this.cardsToPreview.magicNumber;
+        this.costForTurn = this.cardsToPreview.costForTurn;
         if (this.cardsToPreview instanceof AbstractRhythmGirlCard) {
             this.magicNumber2 = ((AbstractRhythmGirlCard) this.cardsToPreview).magicNumber2;
         }

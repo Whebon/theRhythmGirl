@@ -51,7 +51,8 @@ public class Plesiosaurus extends AbstractRhythmGirlCard {
     public void applyPowers(){
         super.applyPowers();
         int measure = AbstractDungeon.player.hasPower(MeasurePower.POWER_ID) ? AbstractDungeon.player.getPower(MeasurePower.POWER_ID).amount : 0;
-        this.setCostForTurn(this.cost-measure);
+        if (this.costForTurn > this.cost-measure)
+            this.setCostForTurn(this.cost-measure);
     }
 
     // Actions the card should do.
