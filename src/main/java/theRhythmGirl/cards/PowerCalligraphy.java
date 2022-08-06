@@ -46,6 +46,7 @@ public class PowerCalligraphy extends AbstractRhythmGirlCard {
 
     public PowerCalligraphy() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
         mustBePlayedOnBeat = true;
         onBeatColor.put(3, BeatUI.BeatColor.ON_BEAT);
     }
