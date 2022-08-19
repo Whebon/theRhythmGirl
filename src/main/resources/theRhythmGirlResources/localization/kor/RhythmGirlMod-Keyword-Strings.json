@@ -1,78 +1,78 @@
 [
   {
-    "PROPER_NAME": "Beat",
+    "PROPER_NAME": "비트",
     "NAMES": [
-      "beat",
-      "beats"
+      "비트",
+      "비트"
     ],
-    "DESCRIPTION": "After you play a card, gain #b1 #yBeat. At the start of each turn, reset your #yBeat to #b1."
+    "DESCRIPTION": "카드를 사용할 때마다, #y비트 를 #b1 얻습니다. 턴 시작시, 보유한 #y비트 수가 #b1 로 초기화됩니다."
   },
   {
-    "PROPER_NAME": "On Beat",
+    "PROPER_NAME": "비트 발동",
     "NAMES": [
-      "On Beat",
-      "on_beat",
-      "on",
-      "on_beat_2_or_4"
+      "비트 발동",
+      "비트_발동",
+      "발동",
+      "비트_발동_2_또는_4"
     ],
-    "DESCRIPTION": "Card effects after #yOn #yBeat X will only occur if the player has exactly X #yBeats."
+    "DESCRIPTION": "#y비트 #y발동 효과는 플레이어의 #y비트 가 정확히 X 일때만 발동할 수 있습니다."
   },
   {
-    "PROPER_NAME": "Measure",
+    "PROPER_NAME": "마디",
     "NAMES": [
-      "measure",
-      "measures"
+      "마디",
+      "마디"
     ],
-    "DESCRIPTION": "#yMeasures are obtained by gaining enough #yBeats. They have no effect by themselves."
+    "DESCRIPTION": "#y마디 는 충분한 양의 #y비트 가 모였을때 획득하는 효과입니다. 마디 자체는 아무런 효과도 없습니다."
   },
   {
-    "PROPER_NAME": "Repeat",
+    "PROPER_NAME": "반복",
     "NAMES": [
-      "repeat"
+      "반복"
     ],
-    "DESCRIPTION": "Add a copy of this card to your hand with #yExhaust and #yEthereal instead of #yRepeat."
+    "DESCRIPTION": "사용시 이 카드를 #y소멸 과 #y휘발성이 부여된 상태로 1장 복사하여 얻습니다. 이 효과로 복사된 카드에는 #y반복 효과가 없습니다."
   },
   {
-    "PROPER_NAME": "Cued",
+    "PROPER_NAME": "큐",
     "NAMES": [
-      "cued"
+      "큐"
     ],
-    "DESCRIPTION": "#yCued cards exhaust whenever you play another attack. #yCued cards are also equipped with #yExhaust and #yEthereal."
+    "DESCRIPTION": "#y큐 효과 카드가 손에 있을때 다른 공격 카드를 사용하면, 큐 카드가 #y소멸합니다. #y큐 카드는 #y소멸 과 #y휘발성 이 존재합니다."
   },
   {
-    "PROPER_NAME": "Popularity",
+    "PROPER_NAME": "인기",
     "NAMES": [
-      "popularity"
+      "인기"
     ],
-    "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
+    "DESCRIPTION": "#y마디 를 얻을때마다, 적 전체에게 피해를 줍니다."
   },
   {
-    "PROPER_NAME": "Popularity",
+    "PROPER_NAME": "인기",
     "NAMES": [
-      "popularity"
+      "인기"
     ],
-    "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
+    "DESCRIPTION": "#y마디 를 얻을때마다, 적 전체에게 피해를 줍니다."
   },
   {
-    "PROPER_NAME": "Countdown X",
+    "PROPER_NAME": "카운트다운 X",
     "NAMES": [
-      "countdown",
-      "countdowns"
+      "카운트다운",
+      "카운트다운"
     ],
-    "DESCRIPTION": "Card effects with #yCountdown are applied on a creature and trigger after you've gained X #yBeats."
+    "DESCRIPTION": "#y카운트다운 효과는 적에게 부여할 수 있으며, #y비트 를 X 이상 얻은 후에 해당 효과가 발동됩니다."
   },
   {
-    "PROPER_NAME": "Innate+",
+    "PROPER_NAME": "선천성+",
     "NAMES": [
-      "innate+"
+      "선천성+"
     ],
-    "DESCRIPTION": "Start each combat with this card in your hand. Don't count this card towards your maximum hand size in your opening hand."
+    "DESCRIPTION": "전투 시작시, 이 카드를 손에 가져온 뒤 카드를 뽑습니다. 이 카드는 첫패 드로우에 영향을 끼치지 않습니다."
   },
   {
-    "PROPER_NAME": "Trigger",
+    "PROPER_NAME": "트리거",
     "NAMES": [
-      "trigger"
+      "트리거"
     ],
-    "DESCRIPTION": "Trigger the effects applied by #yCountdown cards. They don't wear off and can trigger again."
+    "DESCRIPTION": "모든 생물에게 부여된 #y카운트다운 효과를 발동시킵니다. 발동된 카운트다운 효과는 제거되지 않고 다시 발동시킬수 있습니다."
   }
 ]
