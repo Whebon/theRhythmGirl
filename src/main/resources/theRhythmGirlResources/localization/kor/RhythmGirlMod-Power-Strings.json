@@ -1,0 +1,78 @@
+{
+        "theRhythmGirl:MeasurePower": {
+                "NAME": "Measure",
+                "DESCRIPTIONS": ["#yMeasures are obtained by gaining enough #yBeats. They have no effect by themselves."]
+        },
+        "theRhythmGirl:DoubleUpPower": {
+                "NAME": "Double Up",
+                "DESCRIPTIONS": ["The first card without #yEthereal you play each turn gains #yRepeat.", "The first #b", " cards without #yEthereal you play each turn gain #yRepeat.", " ( #b", " left )"]
+        },
+        "theRhythmGirl:LaunchPartyPower": {
+                "NAME": "Launch Party",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage."]
+        },
+        "theRhythmGirl:PartyCrackerPower": {
+                "NAME": "Party Cracker",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage. At the end of your turn, double the damage of this effect."]
+        },
+        "theRhythmGirl:SpaceBellPower": {
+                "NAME": "Space Bell",
+                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "gain #b", " Block."]
+        },
+        "theRhythmGirl:CoffeeBreakPower": {
+                "NAME": "Coffee Break",
+                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats this turn."]
+        },
+        "theRhythmGirl:RhythmHeavenPower": {
+                "NAME": "Rhythm Heaven",
+                "DESCRIPTIONS": ["This turn, ", "For #b", " turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
+        },
+        "theRhythmGirl:KarateBoostPower": {
+                "NAME": "Karate Boost",
+                "DESCRIPTIONS": ["Your attacks deal #b", "% more damage."]
+        },
+        "theRhythmGirl:KarateTimingPower": {
+                "NAME": "Karate Timing",
+                "DESCRIPTIONS": ["You can only play attacks if you have exactly #b1 #yBeat. This power doesn't stack beyond #b1."]
+        },
+        "theRhythmGirl:ComboPower": {
+                "NAME": "Hit ",
+                "DESCRIPTIONS": ["!", "The first time you play #b", " consecutive attacks each turn, add #b", " Barrel to your hand.", " Barrels to your hand."]
+        },
+        "theRhythmGirl:PopularityPower": {
+                "NAME": "Popularity",
+                "DESCRIPTIONS": ["Whenever you gain a #yMeasure, deal #b", " damage to ALL enemies."]
+        },
+        "theRhythmGirl:GrowingFanbasePower": {
+                "NAME": "Growing Fanbase",
+                "DESCRIPTIONS": ["At the start of your turn, gain #b", " #yPopularity"]
+        },
+        "theRhythmGirl:RatRacePower": {
+                "NAME": "Rat Race",
+                "DESCRIPTIONS": ["At the end of your turn, if you didn't gain any #yMeasure this turn, gain #b", " #yBlock.", " (Gains #b0 #yBlock this turn.)"]
+        },
+        "theRhythmGirl:FillbotsPower": {
+                "NAME": "Fillbots",
+                "DESCRIPTIONS": ["At the end of your turn, gain #yBeats until you gain a #yMeasure.", " Gain #b", " #yBlock for every #yBeat gained this way."]
+        },
+        "theRhythmGirl:SeeingHeavenPower": {
+                "NAME": "Seeing Heaven",
+                "DESCRIPTIONS": ["#yOn #yBeat effects of your next ", "card", "cards", " always trigger regardless of your current #yBeat."]
+        },
+        "theRhythmGirl:MarchingOrdersPower": {
+                "NAME": "Marching Orders",
+                "DESCRIPTIONS": ["Attack cards created during combat deal #b", "  additional damage."]
+        },
+        "theRhythmGirl:DJSchoolPower": {
+                "NAME": "DJ School",
+                "DESCRIPTIONS": ["The next card without #yEthereal you play this turn gains #yRepeat.", "The next #b", " cards without #yEthereal you play this turn gain #yRepeat."]
+        },
+        "theRhythmGirl:PackagePower": {
+                "NAME": "Package",
+                "DESCRIPTIONS": ["After #b", " #yBeat, put ", " #yBeats, put ", "a copy of #y", "#b", " copies of #y", " into your hand."]
+        },
+        "theRhythmGirl:AlienKnowledgePower": {
+                "NAME": "Alien Knowledge",
+                "DESCRIPTIONS": ["Gain #b", " Block whenever you play a card while a #yCountdown effect is active."]
+        }
+}

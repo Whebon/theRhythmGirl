@@ -427,38 +427,29 @@ public class RhythmGirlMod implements
     
     
     // ================ LOAD THE TEXT ===================
+
+    private static String makeLocPath(Settings.GameLanguage language, String stringType)
+    {
+        String languagePath;
+        if (language == Settings.GameLanguage.KOR) {
+            languagePath = "kor";
+        } else {
+            languagePath = "eng";
+        }
+        return getModID() + "Resources/localization/" + languagePath + "/RhythmGirlMod-" + stringType + ".json";
+    }
     
     @Override
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
-        
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-Card-Strings.json");
-        
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-Power-Strings.json");
-        
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-Relic-Strings.json");
-        
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-Event-Strings.json");
-        
-        // PotionStrings
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-Potion-Strings.json");
-        
-        // CharacterStrings
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-Character-Strings.json");
 
-        // UIStrings
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/eng/RhythmGirlMod-UI-Strings.json");
+        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocPath(Settings.language, "Card-Strings"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocPath(Settings.language, "Relic-Strings"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocPath(Settings.language, "Potion-Strings"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocPath(Settings.language, "Power-Strings"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocPath(Settings.language, "UI-Strings"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocPath(Settings.language, "Character-Strings"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocPath(Settings.language, "Event-Strings"));
         
         logger.info("Done editing strings");
     }
@@ -470,7 +461,7 @@ public class RhythmGirlMod implements
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/RhythmGirlMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(makeLocPath(Settings.language, "Keyword-Strings")).readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {

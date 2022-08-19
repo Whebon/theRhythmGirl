@@ -1,0 +1,303 @@
+{
+  "theRhythmGirl:Strike_RhythmGirl": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theRhythmGirl:Defend_RhythmGirl": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "theRhythmGirl:MandrillStrike": {
+    "NAME": "Mandrill Strike",
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: Deal !M! damage instead."
+  },
+  "theRhythmGirl:TallScrew": {
+    "NAME": "Tall Screw",
+    "DESCRIPTION": "Gain !B! Block. Gain !M! additional therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Gain !M! additional therhythmgirl:Beats."
+  },
+  "theRhythmGirl:Metronome": {
+    "NAME": "Metronome",
+    "DESCRIPTION": "This card returns to your hand after play. NL Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "Retain. NL This card returns to your hand after play. NL Exhaustive !stslib:ex!."
+  },
+  "theRhythmGirl:AirRally": {
+    "NAME": "Air Rally",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theRhythmGirl:MicroRowSwim": {
+    "NAME": "Micro Row Swim",
+    "DESCRIPTION": "therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+  },
+  "theRhythmGirl:Jab": {
+    "NAME": "Jab",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theRhythmGirl:IntoYou": {
+    "NAME": "Into You",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "theRhythmGirl:FlipperRolls": {
+    "NAME": "Flipper Roll",
+    "DESCRIPTION": "Gain !B! Block. NL Can be upgraded any number of times.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block !M! times. NL Can be upgraded any number of times."
+  },
+  "theRhythmGirl:MonkeySeeMonkeyDo": {
+    "NAME": "Monkey Business",
+    "DESCRIPTION": "Put a card from your discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Put a copy of a non-healing card from your discard pile into your hand."
+  },
+  "theRhythmGirl:DoubleUp": {
+    "NAME": "Double Up",
+    "DESCRIPTION": "The first card without Ethereal you play each turn gains therhythmgirl:Repeat."
+  },
+  "theRhythmGirl:SeeSaw": {
+    "NAME": "See Saw",
+    "DESCRIPTION": "Deal !D! damage to an enemy that did not take damage this turn.",
+    "EXTENDED_DESCRIPTION": ["That enemy already took damage this turn."]
+  },
+  "theRhythmGirl:Pitch": {
+    "NAME": "Pitch",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#f0c851]Home [#f0c851]Run to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#f0c851]Home [#f0c851]Run+ to your hand."
+  },
+  "theRhythmGirl:HomeRun": {
+    "NAME": "Home Run",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Deal !D! damage."
+  },
+  "theRhythmGirl:Ready": {
+    "NAME": "Rea--dy",
+    "DESCRIPTION": "Gain 1 additional therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "Gain 1 additional therhythmgirl:Beat. Draw a card."
+  },
+  "theRhythmGirl:NeverGiveUp": {
+    "NAME": "Never Give Up",
+    "DESCRIPTION": "Heal for !M! % of your NL Max HP. NL Fleeting.",
+    "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
+  },
+  "theRhythmGirl:MochiPounding": {
+    "NAME": "Mochi Pounding",
+    "DESCRIPTION": "Gain !M! additional therhythmgirl:Beats. NL Exhaust."
+  },
+  "theRhythmGirl:BuiltToScale": {
+    "NAME": "Built To Scale",
+    "DESCRIPTION": "Gain Block equal to your therhythmgirl:Measure times !M!.",
+    "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
+  },
+  "theRhythmGirl:FishingRod": {
+    "NAME": "Fishing Rod",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#f0c851]Pausegill to NL your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#f0c851]Pausegill+ to NL your hand."
+  },
+  "theRhythmGirl:Pausegill": {
+    "NAME": "Pausegill",
+    "DESCRIPTION": "therhythmgirl:On_Beat 4: NL Deal !D! damage."
+  },
+  "theRhythmGirl:BigFlex": {
+    "NAME": "Big Flex",
+    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength equal to !M! times the amount of therhythmgirl:Measure lost this way.",
+    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength equal to !M! times the amount of therhythmgirl:Measure lost this way. NL Grave."
+  },
+  "theRhythmGirl:LaunchParty": {
+    "NAME": "Launch Party",
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage."
+  },
+  "theRhythmGirl:PartyCracker": {
+    "NAME": "Party Cracker",
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage. Double the damage each turn this effect is delayed."
+  },
+  "theRhythmGirl:SpaceBell": {
+    "NAME": "Space Bell",
+    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Gain !B! Block."
+  },
+  "theRhythmGirl:CoffeeBreak": {
+    "NAME": "Coffee Break",
+    "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Gain !B! Block. NL Draw a card."
+  },
+  "theRhythmGirl:CountIn": {
+    "NAME": "Count In",
+    "DESCRIPTION": "Put a card with an therhythmgirl:On [#f0c851]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with an therhythmgirl:On [#f0c851]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
+    "EXTENDED_DESCRIPTION": ["I have no cards with #rOn #rBeat effects in my draw pile."]
+  },
+  "theRhythmGirl:RhythmHeaven": {
+    "NAME": "Rhythm Heaven",
+    "DESCRIPTION": "For !M! turns, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat."
+  },
+  "theRhythmGirl:BossaNova": {
+    "NAME": "Bossa Nova",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Deal !D! damage twice. NL therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+  },
+  "theRhythmGirl:Screwbot": {
+    "NAME": "Screwbot",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable."
+  },
+  "theRhythmGirl:PeaFlick": {
+    "NAME": "Pea Flick",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: Add a [#f0c851]Pea [#f0c851]Fork to your hand. NL Exhaust."
+  },
+  "theRhythmGirl:PeaFork": {
+    "NAME": "Pea Fork",
+    "DESCRIPTION": "therhythmgirl:On_Beat 3 or 4: NL Heal !M! HP."
+  },
+  "theRhythmGirl:Pterodactyl": {
+    "NAME": "Pterodactyl",
+    "DESCRIPTION": "Can only be played if you have at least !M! therhythmgirl:Measures. NL Deal !D! damage.",
+    "EXTENDED_DESCRIPTION": ["Not enough #rMeasures."]
+  },
+  "theRhythmGirl:SquareShoulders": {
+    "NAME": "Square Shoulders",
+    "DESCRIPTION": "Deal damage equal to your therhythmgirl:Measure squared.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+  },
+  "theRhythmGirl:KaratekaForm": {
+    "NAME": "Karateka Form",
+    "DESCRIPTION": "Your attacks deal 100% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "Your attacks deal 150% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat."
+  },
+  "theRhythmGirl:RollCall": {
+  "NAME": "Roll Call",
+  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#f0c851]Board [#f0c851]Meeting to NL your hand.",
+  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#f0c851]Board [#f0c851]Meeting+ to NL your hand."
+  },
+  "theRhythmGirl:BoardMeeting": {
+    "NAME": "Board Meeting",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Deal !D! damage to ALL enemies."
+  },
+  "theRhythmGirl:Combo": {
+    "NAME": "Combo",
+    "DESCRIPTION": "The first time you play !M! consecutive attacks each turn, add a Barrel to your hand."
+  },
+  "theRhythmGirl:Barrel": {
+    "NAME": "Barrel",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theRhythmGirl:FanClub": {
+    "NAME": "Fan Club",
+    "DESCRIPTION": "Gain !M! therhythmgirl:Popularity."
+  },
+  "theRhythmGirl:PoseForTheFans": {
+    "NAME": "Pose For The Fans",
+    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to !M! times the amount of therhythmgirl:Measure lost this way.",
+    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to !M! times the amount of therhythmgirl:Measure lost this way. NL Grave."
+  },
+  "theRhythmGirl:GrowingFanbase": {
+    "NAME": "Growing Fanbase",
+    "DESCRIPTION": "At the start of your turn, gain !M! therhythmgirl:Popularity."
+  },
+  "theRhythmGirl:CropStomp": {
+    "NAME": "Crop Stomp",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Draw !M! cards. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! [E] and Exhaust."
+  },
+  "theRhythmGirl:SneakySpirit": {
+    "NAME": "Sneaky Spirit",
+    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 4: NL Gain [E] [E]."
+  },
+  "theRhythmGirl:EarlyBird": {
+    "NAME": "Early Bird",
+    "DESCRIPTION": "Can only be played if you have no therhythmgirl:Measure. NL Draw !M! cards.",
+    "EXTENDED_DESCRIPTION": ["Too much #rMeasures."]
+  },
+  "theRhythmGirl:TryAgain": {
+    "NAME": "Try Again",
+    "DESCRIPTION": "Reset all active therhythmgirl:Countdown counters. NL Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Reset all active therhythmgirl:Countdown counters. NL Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
+  },
+  "theRhythmGirl:RatRace": {
+    "NAME": "Rat Race",
+    "DESCRIPTION": "At the end of your turn, if you didn't gain any therhythmgirl:Measure this turn, gain !M! Block."
+  },
+  "theRhythmGirl:WorkingDough": {
+    "NAME": "Working Dough",
+    "DESCRIPTION": "While in your hand, this card is a copy of the previous card you played this turn.",
+    "UPGRADE_DESCRIPTION": "While in your hand, this card is an upgraded copy of the previous card you played this turn.",
+    "EXTENDED_DESCRIPTION": ["No cards to copy."]
+  },
+  "theRhythmGirl:Fillbots": {
+    "NAME": "Fillbots",
+    "DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure. Gain 1 Block per therhythmgirl:Beat gained this way."
+  },
+  "theRhythmGirl:DonkDonk": {
+    "NAME": "Donk Donk",
+    "DESCRIPTION": "Deal damage equal to the size of your Exhaust pile + !M!, twice.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage twice.)"]
+  },
+  "theRhythmGirl:PowerCalligraphy": {
+    "NAME": "Power Calligraphy",
+    "DESCRIPTION": "therhythmgirl:On_Beat 3: NL Put a Power from your draw pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put a Power from your draw pile into your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "There are no Powers NL in my draw pile."
+    ]
+  },
+  "theRhythmGirl:WanderingSamurai": {
+    "NAME": "Wandering Samurai",
+    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Gain !M! Strength. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! Dexterity."
+  },
+  "theRhythmGirl:SeeingHeaven": {
+    "NAME": "Seeing Heaven",
+    "DESCRIPTION": "therhythmgirl:On_Beat effects of your next card always trigger regardless of your current therhythmgirl:Beat.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat effects of the next !M! cards always trigger regardless of your current therhythmgirl:Beat."
+  },
+  "theRhythmGirl:PreParty": {
+    "NAME": "Pre-Party",
+    "DESCRIPTION": "therhythmgirl:Trigger all active therhythmgirl:Countdown effects.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:Trigger all active therhythmgirl:Countdown effects twice."
+  },
+  "theRhythmGirl:Lumbearjack": {
+    "NAME": "Lumbearjack",
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: therhythmgirl:Repeat. NL therhythmgirl:On_Beat 4: Deal !M! damage instead.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 4: Deal !M! damage instead."
+  },
+  "theRhythmGirl:OkItsOn": {
+    "NAME": "OK, it's on!",
+    "DESCRIPTION": "Gain !M! Strength. NL Fleeting.",
+    "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
+  },
+  "theRhythmGirl:MarchingOrders": {
+    "NAME": "Marching Orders",
+    "DESCRIPTION": "Attack cards created during combat deal !M! additional damage."
+  },
+  "theRhythmGirl:MunchyMonk": {
+    "NAME": "Munchy Monk",
+    "DESCRIPTION": "Gain !M! additional therhythmgirl:Beats."
+  },
+  "theRhythmGirl:LoveLizards": {
+    "NAME": "Love Lizards",
+    "DESCRIPTION": "Apply !theRhythmGirl:MagicNumber2! Weak !M! times."
+  },
+  "theRhythmGirl:HairyVegetable": {
+    "NAME": "Hairy Vegetable",
+    "DESCRIPTION": "Shuffle !M! [#f0c851]Tweezers into your deck."
+  },
+  "theRhythmGirl:Tweezers": {
+    "NAME": "Tweezers",
+    "DESCRIPTION": "Draw a card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Draw a card. NL Exhaust."
+  },
+  "theRhythmGirl:DJSchool": {
+    "NAME": "DJ School",
+    "DESCRIPTION": "This turn, your next card without Ethereal gains therhythmgirl:Repeat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards without Ethereal gain therhythmgirl:Repeat. NL Exhaust."
+  },
+  "theRhythmGirl:PackingPests": {
+    "NAME": "Packing Pests",
+    "DESCRIPTION": "Innate. Retain. NL Remove a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:Innate+. Retain. NL Remove a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
+    "EXTENDED_DESCRIPTION": ["store. (non-healing)"]
+  },
+  "theRhythmGirl:Plesiosaurus": {
+    "NAME": "Plesiosaurus",
+    "DESCRIPTION": "Costs 1 less [E] for each therhythmgirl:Measure you have. Gain !B! Block."
+  },
+  "theRhythmGirl:BigRockFinish": {
+    "NAME": "Big Rock Finish",
+    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 1: NL Lose 1 therhythmgirl:Measure to deal !M! damage instead."
+  },
+  "theRhythmGirl:AlienKnowledge": {
+    "NAME": "Alien Knowledge",
+    "DESCRIPTION": "Gain !M! Block whenever you play a card while a therhythmgirl:Countdown effect is active."
+  }
+}

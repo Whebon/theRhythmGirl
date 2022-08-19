@@ -1,0 +1,21 @@
+{
+  "theRhythmGirl:BossaNovaEvent": {
+    "NAME": "Bossa Nova",
+    "DESCRIPTIONS": [
+      "You stumble upon two suspicious looking flowers. NL A voice emerged from the ground. \"Hey there young one, your style looks pretty #rBasic to us. We can teach you a #b~Groovy~ rhythm.\"",
+      "Bossa & Nova happily joined the party.",
+      "We just don't seem to be in sync."
+    ],
+    "OPTIONS": [
+      "[Invest] #y",
+      " #ygold: #gTransform #g2 #gBasic #gCards #ginto #g2 #gBossa #gNovas.",
+      "[Accept] #gTransform #g1 #gBasic #gCard #ginto #g1 #gBossa #gNova.",
+      "[Locked] Requires: Basic Cards",
+      "[Locked] Requires: ",
+      " gold.",
+      "Select basic card to remove.",
+      "[Refuse]",
+      "[Leave]"
+    ]
+  }
+}

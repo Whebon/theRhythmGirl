@@ -1,0 +1,68 @@
+{
+  "theRhythmGirl:TimeSignature54": {
+    "NAME": "5/4 Time Signature",
+    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "DESCRIPTIONS": [
+      "Whenever you have more than #b5 #yBeat, lose #b5 #yBeats and gain #b1 #yMeasure."
+    ]
+  },
+  "theRhythmGirl:TimeSignature44": {
+    "NAME": "4/4 Time Signature",
+    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "DESCRIPTIONS": [
+      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeats and gain #b1 #yMeasure."
+    ]
+  },
+  "theRhythmGirl:TimeSignature34": {
+    "NAME": "3/4 Time Signature",
+    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "DESCRIPTIONS": [
+      "Whenever you have more than #b3 #yBeat, lose #b3 #yBeats and gain #b1 #yMeasure.",
+      "Replaces [#a45a52]4/4 [#a45a52]Time [#a45a52]Signature[]. NL "
+    ]
+  },
+  "theRhythmGirl:TimeSignature24": {
+    "NAME": "2/4 Time Signature",
+    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "DESCRIPTIONS": [
+      "Whenever you have more than #b2 #yBeat, lose #b2 #yBeats and gain #b1 #yMeasure.",
+      "Replaces [#a45a52]3/4 [#a45a52]Time [#a45a52]Signature[]. NL "
+    ]
+  },
+  "theRhythmGirl:Cowbell": {
+  "NAME": "Cowbell",
+  "FLAVOR": "When you feel like you've lost the rhythm, you can always fall back on this cue to guide you.",
+  "DESCRIPTIONS": [
+    "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat.[] NL Gain #b1 #yBeat."
+  ]
+  },
+  "theRhythmGirl:Widget": {
+    "NAME": "Widget",
+    "FLAVOR": "Word about the high quality of our widgets has gotten out, so we need more! Pick up the pace!",
+    "DESCRIPTIONS": [
+      "Whenever you gain a #yMeasure, gain 3 #yBlock."
+    ]
+  },
+  "theRhythmGirl:Quicknibble": {
+    "NAME": "Quicknibble",
+    "FLAVOR": "Dinner's on me!",
+    "DESCRIPTIONS": [
+      "The first time you gain a #yMeasure each turn, gain 1 [E] ."
+    ]
+  },
+  "theRhythmGirl:Freepeat": {
+    "NAME": "Freepeat",
+    "FLAVOR": "\"Buy 1, get 1 free!\" ~NotTheMerchant",
+    "DESCRIPTIONS": [
+      "Cards created by the #yRepeat keyword cost #b0 that turn."
+    ]
+  },
+  "theRhythmGirl:GoForAPerfect": {
+    "NAME": "Go for a Perfect",
+    "FLAVOR": "If you get a Perfect on 'Card Crawl Game' right now, you'll receive 35 gold!",
+    "DESCRIPTIONS": [
+      "At the end of combat, if you didn't lose any HP that combat, gain #y35 #ygold.",
+      " Gold (Perfect)"
+    ]
+  }
+}

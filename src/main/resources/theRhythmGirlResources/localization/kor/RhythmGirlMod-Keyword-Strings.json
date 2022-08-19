@@ -1,0 +1,78 @@
+[
+  {
+    "PROPER_NAME": "Beat",
+    "NAMES": [
+      "beat",
+      "beats"
+    ],
+    "DESCRIPTION": "After you play a card, gain #b1 #yBeat. At the start of each turn, reset your #yBeat to #b1."
+  },
+  {
+    "PROPER_NAME": "On Beat",
+    "NAMES": [
+      "On Beat",
+      "on_beat",
+      "on",
+      "on_beat_2_or_4"
+    ],
+    "DESCRIPTION": "Card effects after #yOn #yBeat X will only occur if the player has exactly X #yBeats."
+  },
+  {
+    "PROPER_NAME": "Measure",
+    "NAMES": [
+      "measure",
+      "measures"
+    ],
+    "DESCRIPTION": "#yMeasures are obtained by gaining enough #yBeats. They have no effect by themselves."
+  },
+  {
+    "PROPER_NAME": "Repeat",
+    "NAMES": [
+      "repeat"
+    ],
+    "DESCRIPTION": "Add a copy of this card to your hand with #yExhaust and #yEthereal instead of #yRepeat."
+  },
+  {
+    "PROPER_NAME": "Cued",
+    "NAMES": [
+      "cued"
+    ],
+    "DESCRIPTION": "#yCued cards exhaust whenever you play another attack. #yCued cards are also equipped with #yExhaust and #yEthereal."
+  },
+  {
+    "PROPER_NAME": "Popularity",
+    "NAMES": [
+      "popularity"
+    ],
+    "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
+  },
+  {
+    "PROPER_NAME": "Popularity",
+    "NAMES": [
+      "popularity"
+    ],
+    "DESCRIPTION": "Whenever you gain a #yMeasure, deal damage to ALL enemies."
+  },
+  {
+    "PROPER_NAME": "Countdown X",
+    "NAMES": [
+      "countdown",
+      "countdowns"
+    ],
+    "DESCRIPTION": "Card effects with #yCountdown are applied on a creature and trigger after you've gained X #yBeats."
+  },
+  {
+    "PROPER_NAME": "Innate+",
+    "NAMES": [
+      "innate+"
+    ],
+    "DESCRIPTION": "Start each combat with this card in your hand. Don't count this card towards your maximum hand size in your opening hand."
+  },
+  {
+    "PROPER_NAME": "Trigger",
+    "NAMES": [
+      "trigger"
+    ],
+    "DESCRIPTION": "Trigger the effects applied by #yCountdown cards. They don't wear off and can trigger again."
+  }
+]

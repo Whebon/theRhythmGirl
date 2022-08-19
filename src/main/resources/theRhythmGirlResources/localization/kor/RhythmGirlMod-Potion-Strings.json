@@ -1,0 +1,10 @@
+{
+        "theRhythmGirl:BeatPotion": {
+                "NAME": "Beat Potion",
+                "DESCRIPTIONS": ["Gain #b", " #yBeats."]
+        },
+        "theRhythmGirl:HeavenPotion": {
+                "NAME": "Heaven Potion",
+                "DESCRIPTIONS": ["This turn, ", "For 2 turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
+        }
+}
