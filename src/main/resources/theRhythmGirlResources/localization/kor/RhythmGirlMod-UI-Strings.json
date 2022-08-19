@@ -21,5 +21,17 @@
       "덱을 공유하시겠습니까?",
       "플레이 해주셔서 감사드립니다! 익명으로 당신의 게임 플레이 데이터를 전송하여 이 모드의 밸런스를 맞추는 데에 기여하시겠습니까?"
     ]
+  },
+  "theRhythmGirl:RepeatCardModifier": {
+    "TEXT": [
+      "therhythmgirl:반복."
+    ]
+  },
+  "theRhythmGirl:ExhaustAndEtherealModifier": {
+    "TEXT": [
+      "소멸. 휘발성.",
+      "소멸.",
+      "휘발성."
+    ]
   }
 }

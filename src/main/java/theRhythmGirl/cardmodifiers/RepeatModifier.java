@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theRhythmGirl.RhythmGirlMod;
@@ -18,6 +20,9 @@ public class RepeatModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:RepeatCardModifier";
     private final boolean isTemp;
     private final boolean hasLineBreak;
+
+    public static final String UI_ID = RhythmGirlMod.makeID("RepeatCardModifier");
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
 
@@ -49,7 +54,7 @@ public class RepeatModifier extends AbstractCardModifier {
         if (card instanceof AbstractRhythmGirlCard)
             ((AbstractRhythmGirlCard)card).loadAlternativeCardImage();
         String linebreak = hasLineBreak ? " NL " : " ";
-        return rawDescription + linebreak + "therhythmgirl:Repeat.";
+        return rawDescription + linebreak + uiStrings.TEXT[0];
     }
 
     @Override

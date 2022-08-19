@@ -2,9 +2,15 @@ package theRhythmGirl.cardmodifiers;
 
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import theRhythmGirl.RhythmGirlMod;
 
 public class ExhaustAndEtherealModifier extends AbstractCardModifier {
     public static String ID = "therhythmgirl:ExhaustAndEtherealModifier";
+
+    public static final String UI_ID = RhythmGirlMod.makeID("ExhaustAndEtherealModifier");
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
 
     private boolean appliedExhaust;
     private boolean appliedEthereal;
@@ -19,11 +25,11 @@ public class ExhaustAndEtherealModifier extends AbstractCardModifier {
 
     public String modifyDescription(String rawDescription, AbstractCard card) {
         if (appliedExhaust && appliedEthereal)
-            return rawDescription + " NL Exhaust. Ethereal.";
+            return rawDescription + " NL "+uiStrings.TEXT[0];
         if (appliedExhaust)
-            return rawDescription + " Exhaust.";
+            return rawDescription + " "+uiStrings.TEXT[1];
         if (appliedEthereal)
-            return rawDescription + " Ethereal.";
+            return rawDescription + " "+uiStrings.TEXT[2];
         return rawDescription;
     }
 
