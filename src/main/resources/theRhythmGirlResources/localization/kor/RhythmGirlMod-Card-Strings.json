@@ -1,303 +1,303 @@
 {
   "theRhythmGirl:Strike_RhythmGirl": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
   },
   "theRhythmGirl:Defend_RhythmGirl": {
-    "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
   },
   "theRhythmGirl:MandrillStrike": {
-    "NAME": "Mandrill Strike",
-    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: Deal !M! damage instead."
+    "NAME": "맨드릴 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL therhythmgirl:비트_발동 3: 대신 피해를 !M! 줍니다."
   },
   "theRhythmGirl:TallScrew": {
-    "NAME": "Tall Screw",
-    "DESCRIPTION": "Gain !B! Block. Gain !M! additional therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. Gain !M! additional therhythmgirl:Beats."
+    "NAME": "키 큰 나사 로봇",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 추가로 therhythmgirl:비트 를 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. therhythmgirl:비트 를 !M! 얻습니다."
   },
   "theRhythmGirl:Metronome": {
-    "NAME": "Metronome",
-    "DESCRIPTION": "This card returns to your hand after play. NL Exhaustive !stslib:ex!.",
-    "UPGRADE_DESCRIPTION": "Retain. NL This card returns to your hand after play. NL Exhaustive !stslib:ex!."
+    "NAME": "메트로놈",
+    "DESCRIPTION": "이 카드는 사용시 다시 손으로 돌아옵니다. NL 소멸성 !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "보존. NL 이 카드는 사용시 다시 손으로 돌아옵니다. NL 소멸성 !stslib:ex!."
   },
   "theRhythmGirl:AirRally": {
-    "NAME": "Air Rally",
-    "DESCRIPTION": "Deal !D! damage."
+    "NAME": "배드민턴",
+    "DESCRIPTION": "피해를 !D! 줍니다."
   },
   "theRhythmGirl:MicroRowSwim": {
-    "NAME": "Micro Row Swim",
-    "DESCRIPTION": "therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+    "NAME": "작고 작은 미생물 착착균",
+    "DESCRIPTION": "therhythmgirl:비트_발동 2 또는 4: NL 방어도를 !B! 얻습니다."
   },
   "theRhythmGirl:Jab": {
-    "NAME": "Jab",
-    "DESCRIPTION": "Deal !D! damage."
+    "NAME": "잽",
+    "DESCRIPTION": "피해를 !D! 줍니다."
   },
   "theRhythmGirl:IntoYou": {
-    "NAME": "Into You",
-    "DESCRIPTION": "Gain !B! Block."
+    "NAME": "네가 좋아",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
   },
   "theRhythmGirl:FlipperRolls": {
-    "NAME": "Flipper Roll",
-    "DESCRIPTION": "Gain !B! Block. NL Can be upgraded any number of times.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block !M! times. NL Can be upgraded any number of times."
+    "NAME": "뒹굴뒹굴",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 강화 횟수에 제한이 없습니다.",
+    "UPGRADE_DESCRIPTION": " !B! 방어도를 !M! 번 얻습니다. NL 강화 횟수에 제한이 없습니다."
   },
   "theRhythmGirl:MonkeySeeMonkeyDo": {
-    "NAME": "Monkey Business",
-    "DESCRIPTION": "Put a card from your discard pile into your hand.",
-    "UPGRADE_DESCRIPTION": "Put a copy of a non-healing card from your discard pile into your hand."
+    "NAME": "탬버린 원숭이",
+    "DESCRIPTION": "버린 카드 더미에 있는 카드 1장을 선택해 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "버린 카드 더미에 있는 카드 1장을 선택해 손으로 가져옵니다.(체력 회복 카드는 제외)"
   },
   "theRhythmGirl:DoubleUp": {
-    "NAME": "Double Up",
-    "DESCRIPTION": "The first card without Ethereal you play each turn gains therhythmgirl:Repeat."
+    "NAME": "간다!",
+    "DESCRIPTION": "매 턴 처음으로 사용하는 휘발성을 제외한 therhythmgirl:반복 효과를 얻습니다."
   },
   "theRhythmGirl:SeeSaw": {
-    "NAME": "See Saw",
-    "DESCRIPTION": "Deal !D! damage to an enemy that did not take damage this turn.",
-    "EXTENDED_DESCRIPTION": ["That enemy already took damage this turn."]
+    "NAME": "시소",
+    "DESCRIPTION": "이번 턴에 피해를 받지 않은 적에게 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": ["그 적은 이번 턴에 피해를 받은 상태야."]
   },
   "theRhythmGirl:Pitch": {
-    "NAME": "Pitch",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#f0c851]Home [#f0c851]Run to your hand.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: Add a [#f0c851]Home [#f0c851]Run+ to your hand."
+    "NAME": "피치",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1: [#f0c851]홈 [#f0c851]런 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:비트_발동 1: [#f0c851]홈 [#f0c851]런+ 을 얻습니다."
   },
   "theRhythmGirl:HomeRun": {
-    "NAME": "Home Run",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Deal !D! damage."
+    "NAME": "홈런",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1: NL 피해를 !D! 줍니다."
   },
   "theRhythmGirl:Ready": {
-    "NAME": "Rea--dy",
-    "DESCRIPTION": "Gain 1 additional therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "Gain 1 additional therhythmgirl:Beat. Draw a card."
+    "NAME": "준--비",
+    "DESCRIPTION": "추가 로 therhythmgirl:비트 를 1 얻습니다.",
+    "UPGRADE_DESCRIPTION": "추가 로 therhythmgirl:비트 를 1 얻습니다. 카드를 1장 뽑습니다."
   },
   "theRhythmGirl:NeverGiveUp": {
-    "NAME": "Never Give Up",
-    "DESCRIPTION": "Heal for !M! % of your NL Max HP. NL Fleeting.",
+    "NAME": "Never Give Up!",
+    "DESCRIPTION": "최대 체력의 !M! % 만큼 NL 체력을 회복합니다. NL 일회성 .",
     "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
   },
   "theRhythmGirl:MochiPounding": {
-    "NAME": "Mochi Pounding",
-    "DESCRIPTION": "Gain !M! additional therhythmgirl:Beats. NL Exhaust."
+    "NAME": "떡메 치기",
+    "DESCRIPTION": "추가로 therhythmgirl:비트 를 !M! 얻습니다. NL 소멸."
   },
   "theRhythmGirl:BuiltToScale": {
-    "NAME": "Built To Scale",
-    "DESCRIPTION": "Gain Block equal to your therhythmgirl:Measure times !M!.",
-    "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
+    "NAME": "부품 조립",
+    "DESCRIPTION": "현재 보유한 therhythmgirl:마디 의 !M! 배에 해당하는 방어도를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [" NL (방어도를 !B! 얻습니다.)"]
   },
   "theRhythmGirl:FishingRod": {
-    "NAME": "Fishing Rod",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#f0c851]Pausegill to NL your hand.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 1: NL Gain 1 additional therhythmgirl:Beat. NL Add a [#f0c851]Pausegill+ to NL your hand."
+    "NAME": "낚시",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1: NL 추가로 therhythmgirl:비트 를 1 얻습니다. NL [#f0c851]한번쉬어 1 장을 NL 얻습니다.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:비트_발동 1: NL 추가로 therhythmgirl:비트 를 1 얻습니다. NL [#f0c851]한번쉬어+ 1 장을 NL 얻습니다."
   },
   "theRhythmGirl:Pausegill": {
-    "NAME": "Pausegill",
-    "DESCRIPTION": "therhythmgirl:On_Beat 4: NL Deal !D! damage."
+    "NAME": "한번쉬어",
+    "DESCRIPTION": "therhythmgirl:비트_발동 4: NL 피해를 !D! 줍니다."
   },
   "theRhythmGirl:BigFlex": {
-    "NAME": "Big Flex",
-    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength equal to !M! times the amount of therhythmgirl:Measure lost this way.",
-    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain Strength equal to !M! times the amount of therhythmgirl:Measure lost this way. NL Grave."
+    "NAME": "이두박근 자랑",
+    "DESCRIPTION": "therhythmgirl:마디 를 전부 잃습니다. 이 효과로 잃은 therhythmgirl:마디 1당, 힘을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:마디 를 전부 잃습니다. 이 효과로 잃은 therhythmgirl:마디 1당, 힘을 !M! 얻습니다. NL 무덤 ."
   },
   "theRhythmGirl:LaunchParty": {
-    "NAME": "Launch Party",
-    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage."
+    "NAME": "렛츠호",
+    "DESCRIPTION": "therhythmgirl:카운트다운 !theRhythmGirl:MagicNumber2!. NL 피해를 !M! 줍니다."
   },
   "theRhythmGirl:PartyCracker": {
-    "NAME": "Party Cracker",
-    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Deal !M! damage. Double the damage each turn this effect is delayed."
+    "NAME": "크래커호",
+    "DESCRIPTION": "therhythmgirl:카운트다운 !theRhythmGirl:MagicNumber2!. NL 피해를 !M! 줍니다. 턴 종료시, 이 효과로 주는 피해량이 2배씩 증가합니다."
   },
   "theRhythmGirl:SpaceBell": {
-    "NAME": "Space Bell",
-    "DESCRIPTION": "therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Gain !B! Block."
+    "NAME": "벨호",
+    "DESCRIPTION": "therhythmgirl:카운트다운 !theRhythmGirl:MagicNumber2!. NL 방어도를 !B! 얻습니다."
   },
   "theRhythmGirl:CoffeeBreak": {
-    "NAME": "Coffee Break",
-    "DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "You cannot gain therhythmgirl:Beats until end of turn. NL Gain !B! Block. NL Draw a card."
+    "NAME": "커피 타임",
+    "DESCRIPTION": "이번 턴에 더 이상 therhythmgirl:비트 를 얻을 수 없습니다. NL 카드를 1 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 더 이상 therhythmgirl:비트 를 얻을 수 없습니다. NL 방어도를 !B! 얻습니다. NL 카드를 1 장 뽑습니다."
   },
   "theRhythmGirl:CountIn": {
-    "NAME": "Count In",
-    "DESCRIPTION": "Put a card with an therhythmgirl:On [#f0c851]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Put a card with an therhythmgirl:On [#f0c851]Beat[] effect from your draw pile into your hand. Gain therhythmgirl:Beats until you can play that card.",
-    "EXTENDED_DESCRIPTION": ["I have no cards with #rOn #rBeat effects in my draw pile."]
+    "NAME": "원숭이 시계",
+    "DESCRIPTION": "뽑을 카드 더미에 있는 therhythmgirl:비트 [#f0c851]발동[] 카드 1장을 선택해 손으로 가져옵니다. 그 카드를 발동할 수 있을만큼의 therhythmgirl:비트 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 뽑을 카드 더미에 있는 therhythmgirl:비트 [#f0c851]발동[] 카드 1장을 선택해 손으로 가져옵니다. 그 카드를 발동할 수 있을만큼의 therhythmgirl:비트 를 얻습니다.",
+    "EXTENDED_DESCRIPTION": ["뽑을 카드 더미에 #r비트 #r발동 효과가 있는 카드가 없다."]
   },
   "theRhythmGirl:RhythmHeaven": {
-    "NAME": "Rhythm Heaven",
-    "DESCRIPTION": "For !M! turns, therhythmgirl:On_Beat effects always trigger regardless of your current therhythmgirl:Beat."
+    "NAME": "리듬 세상",
+    "DESCRIPTION": " !M! 턴 동안, therhythmgirl:비트_발동 효과가 현재 보유한 therhythmgirl:비트 에 관계없이 항상 발동합니다."
   },
   "theRhythmGirl:BossaNova": {
-    "NAME": "Bossa Nova",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Deal !D! damage twice. NL therhythmgirl:On_Beat 2 or 4: NL Gain !B! Block."
+    "NAME": "보사 노바",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 또는 3: NL !D! 피해를 2 번 줍니다. NL therhythmgirl:비트_발동 2 또는 4: NL 방어도를 !B! 얻습니다."
   },
   "theRhythmGirl:Screwbot": {
-    "NAME": "Screwbot",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 1 or 3: NL Apply !M! Weak. NL therhythmgirl:On_Beat 2 or 4: NL Apply !M! Vulnerable."
+    "NAME": "나사 로봇",
+    "DESCRIPTION": "피해를 !D! 줍니다. therhythmgirl:비트_발동 1 또는 3: NL 약화를 !M! 부여합니다. NL therhythmgirl:비트_발동 2 또는 4: NL 취약을 !M! 부여합니다."
   },
   "theRhythmGirl:PeaFlick": {
-    "NAME": "Pea Flick",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 2: Add a [#f0c851]Pea [#f0c851]Fork to your hand. NL Exhaust."
+    "NAME": "콩 튕기기",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 or 2: [#f0c851]포크 [#f0c851]찍기 를 얻습니다. NL 소멸."
   },
   "theRhythmGirl:PeaFork": {
-    "NAME": "Pea Fork",
-    "DESCRIPTION": "therhythmgirl:On_Beat 3 or 4: NL Heal !M! HP."
+    "NAME": "포크 찍기",
+    "DESCRIPTION": "therhythmgirl:비트_발동 3 or 4: NL 체력을 !M! 회복합니다."
   },
   "theRhythmGirl:Pterodactyl": {
-    "NAME": "Pterodactyl",
-    "DESCRIPTION": "Can only be played if you have at least !M! therhythmgirl:Measures. NL Deal !D! damage.",
-    "EXTENDED_DESCRIPTION": ["Not enough #rMeasures."]
+    "NAME": "프테라노돈",
+    "DESCRIPTION": "보유한 therhythmgirl:마디 가 !M! 이상일때만 사용할 수 있습니다. NL 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": ["#r마디 가 부족해."]
   },
   "theRhythmGirl:SquareShoulders": {
-    "NAME": "Square Shoulders",
-    "DESCRIPTION": "Deal damage equal to your therhythmgirl:Measure squared.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+    "NAME": "정사각 어꺠 각도",
+    "DESCRIPTION": "현재 보유한 therhythmgirl:마디 의 제곱만큼 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [" NL (피해를 !D! 줍니다.)"]
   },
   "theRhythmGirl:KaratekaForm": {
-    "NAME": "Karateka Form",
-    "DESCRIPTION": "Your attacks deal 100% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "Your attacks deal 150% more damage, but can only be played if you have exactly 1 therhythmgirl:Beat."
+    "NAME": "격투가의 형상",
+    "DESCRIPTION": "공격 카드의 피해량이 100% 증가하는 대신, 보유한 therhythmgirl:비트 가 정확히 1 일때만 사용할 수 있습니다.",
+    "UPGRADE_DESCRIPTION": "공격 카드의 피해량이 150% 증가하는 대신, 보유한 therhythmgirl:비트 가 정확히 1 일때만 사용할 수 있습니다."
   },
   "theRhythmGirl:RollCall": {
-  "NAME": "Roll Call",
-  "DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#f0c851]Board [#f0c851]Meeting to NL your hand.",
-  "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat 3: Add a [#f0c851]Board [#f0c851]Meeting+ to NL your hand."
+  "NAME": "출석 호출",
+  "DESCRIPTION": "therhythmgirl:비트_발동 3: [#f0c851]임원 [#f0c851]회의 1 장을 NL 얻습니다.",
+  "UPGRADE_DESCRIPTION": "therhythmgirl:비트_발동 3: [#f0c851]임원 [#f0c851]회의+ 1 장을 NL 얻습니다."
   },
   "theRhythmGirl:BoardMeeting": {
-    "NAME": "Board Meeting",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1: NL Deal !D! damage to ALL enemies."
+    "NAME": "임원 회의",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1: NL 적 전체에게 피해를 !D! 줍니다."
   },
   "theRhythmGirl:Combo": {
-    "NAME": "Combo",
-    "DESCRIPTION": "The first time you play !M! consecutive attacks each turn, add a Barrel to your hand."
+    "NAME": "콤보",
+    "DESCRIPTION": "매 턴 처음으로 공격 카드 !M! 장을 연속으로 사용하면, 술통 1 장을 얻습니다."
   },
   "theRhythmGirl:Barrel": {
-    "NAME": "Barrel",
-    "DESCRIPTION": "Deal !D! damage."
+    "NAME": "술통",
+    "DESCRIPTION": "피해를 !D! 줍니다."
   },
   "theRhythmGirl:FanClub": {
-    "NAME": "Fan Club",
-    "DESCRIPTION": "Gain !M! therhythmgirl:Popularity."
+    "NAME": "팬클럽",
+    "DESCRIPTION": "therhythmgirl:인기 를 !M! 얻습니다."
   },
   "theRhythmGirl:PoseForTheFans": {
-    "NAME": "Pose For The Fans",
-    "DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to !M! times the amount of therhythmgirl:Measure lost this way.",
-    "UPGRADE_DESCRIPTION": "Lose all therhythmgirl:Measure. Gain therhythmgirl:Popularity equal to !M! times the amount of therhythmgirl:Measure lost this way. NL Grave."
+    "NAME": "여기 보세요!",
+    "DESCRIPTION": "therhythmgirl:마디 를 전부 잃습니다. 이 효과로 잃은 therhythmgirl:마디 1당, therhythmgirl:인기 를 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:마디 를 전부 잃습니다. 이 효과로 잃은 therhythmgirl:마디 1당, therhythmgirl:인기 를 !M! 얻습니다. NL 무덤 ."
   },
   "theRhythmGirl:GrowingFanbase": {
-    "NAME": "Growing Fanbase",
-    "DESCRIPTION": "At the start of your turn, gain !M! therhythmgirl:Popularity."
+    "NAME": "성장하는 팬클럽",
+    "DESCRIPTION": "내 턴 시작시, therhythmgirl:인기 를 !M! 얻습니다."
   },
   "theRhythmGirl:CropStomp": {
-    "NAME": "Crop Stomp",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Draw !M! cards. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! [E] and Exhaust."
+    "NAME": "쿵쿵 농장",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 or 3: NL 카드를 !M! 장 뽑습니다. NL therhythmgirl:비트_발동 2 or 4: NL !theRhythmGirl:MagicNumber2! [E] 를 얻고 이 카드를 소멸 시킵니다."
   },
   "theRhythmGirl:SneakySpirit": {
-    "NAME": "Sneaky Spirit",
-    "DESCRIPTION": "Deal !D! damage. therhythmgirl:On_Beat 4: NL Gain [E] [E]."
+    "NAME": "하얀 귀신",
+    "DESCRIPTION": "피해를 !D! 줍니다. therhythmgirl:비트_발동 4: NL [E] [E] 를 얻습니다."
   },
   "theRhythmGirl:EarlyBird": {
-    "NAME": "Early Bird",
-    "DESCRIPTION": "Can only be played if you have no therhythmgirl:Measure. NL Draw !M! cards.",
-    "EXTENDED_DESCRIPTION": ["Too much #rMeasures."]
+    "NAME": "자명종 담당",
+    "DESCRIPTION": "보유한 therhythmgirl:마디 가 없을때만 사용할 수 있습니다. NL 카드를 !M! 장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": ["#r마디를 너무 많이 보유하고 있어."]
   },
   "theRhythmGirl:TryAgain": {
-    "NAME": "Try Again",
-    "DESCRIPTION": "Reset all active therhythmgirl:Countdown counters. NL Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Reset all active therhythmgirl:Countdown counters. NL Reset your therhythmgirl:Beat to 1. NL Lose all therhythmgirl:Measure. NL Draw !M! cards."
+    "NAME": "좀 더 열심히",
+    "DESCRIPTION": "모든 therhythmgirl:카운트다운 타이머를 초기화시킵니다. NL 보유한 therhythmgirl:비트 를 1 로 초기화시킵니다. NL therhythmgirl:마디 를 전부 잃습니다. NL 카드를 1 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "모든 therhythmgirl:카운트다운 타이머를 초기화시킵니다. NL 보유한 therhythmgirl:비트 를 1 로 초기화시킵니다. NL therhythmgirl:마디 를 전부 잃습니다. NL 카드를 !M! 장 뽑습니다."
   },
   "theRhythmGirl:RatRace": {
-    "NAME": "Rat Race",
-    "DESCRIPTION": "At the end of your turn, if you didn't gain any therhythmgirl:Measure this turn, gain !M! Block."
+    "NAME": "생쥐 레이스",
+    "DESCRIPTION": "턴 종료시, 이번 턴에 therhythmgirl:마디 를 얻지 않았다면, 방어도를 !M! 얻습니다."
   },
   "theRhythmGirl:WorkingDough": {
-    "NAME": "Working Dough",
-    "DESCRIPTION": "While in your hand, this card is a copy of the previous card you played this turn.",
-    "UPGRADE_DESCRIPTION": "While in your hand, this card is an upgraded copy of the previous card you played this turn.",
-    "EXTENDED_DESCRIPTION": ["No cards to copy."]
+    "NAME": "일하는 호빵",
+    "DESCRIPTION": "이 카드가 손패에 있는 동안, 이 카드는 이전에 사용한 카드의 효과를 그대로 복사하여 따라합니다.",
+    "UPGRADE_DESCRIPTION": "이 카드가 손패에 있는 동안, 이 카드는 이전에 사용한 카드의 강화된 효과를 그대로 복사하여 따라합니다.",
+    "EXTENDED_DESCRIPTION": ["효과를 복사할 카드가 없다."]
   },
   "theRhythmGirl:Fillbots": {
-    "NAME": "Fillbots",
-    "DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, gain therhythmgirl:Beats until you gain a therhythmgirl:Measure. Gain 1 Block per therhythmgirl:Beat gained this way."
+    "NAME": "오일 로봇",
+    "DESCRIPTION": "턴 종료시, therhythmgirl:마디 를 얻을때까지 therhythmgirl:비트 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "턴 종료시, therhythmgirl:마디 를 얻을때까지 therhythmgirl:비트 를 얻습니다. 이 효과로 얻은 therhythmgirl:비트 1당 방어도를 1 얻습니다."
   },
   "theRhythmGirl:DonkDonk": {
-    "NAME": "Donk Donk",
-    "DESCRIPTION": "Deal damage equal to the size of your Exhaust pile + !M!, twice.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage twice.)"]
+    "NAME": "콩콩즈",
+    "DESCRIPTION": "소멸 카드 더미에 있는 카드의 수량 + !M! 만큼의 피해를 2 번 줍니다.",
+    "EXTENDED_DESCRIPTION": [" NL ( !D! 피해를 2 번 줍니다.)"]
   },
   "theRhythmGirl:PowerCalligraphy": {
-    "NAME": "Power Calligraphy",
-    "DESCRIPTION": "therhythmgirl:On_Beat 3: NL Put a Power from your draw pile into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Put a Power from your draw pile into your hand. NL Exhaust.",
+    "NAME": "리듬 서예",
+    "DESCRIPTION": "therhythmgirl:비트_발동 3: NL 뽑을 카드 더미에 있는 파워 카드 1장을 선택해 손으로 가져옵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "뽑을 카드 더미에 있는 파워 카드 1장을 선택해 손으로 가져옵니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
-      "There are no Powers NL in my draw pile."
+      "뽑을 카드 더미에 파워 카드가 없다."
     ]
   },
   "theRhythmGirl:WanderingSamurai": {
-    "NAME": "Wandering Samurai",
-    "DESCRIPTION": "therhythmgirl:On_Beat 1 or 3: NL Gain !M! Strength. NL therhythmgirl:On_Beat 2 or 4: NL Gain !theRhythmGirl:MagicNumber2! Dexterity."
+    "NAME": "방랑 무사",
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 or 3: NL 힘을 !M! 얻습니다. NL therhythmgirl:비트_발동 2 or 4: NL 민첩을 !theRhythmGirl:MagicNumber2! 얻습니다."
   },
   "theRhythmGirl:SeeingHeaven": {
-    "NAME": "Seeing Heaven",
-    "DESCRIPTION": "therhythmgirl:On_Beat effects of your next card always trigger regardless of your current therhythmgirl:Beat.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:On_Beat effects of the next !M! cards always trigger regardless of your current therhythmgirl:Beat."
+    "NAME": "천국 발견",
+    "DESCRIPTION": "다음에 사용하는 therhythmgirl:비트_발동 카드가 현재 보유한 therhythmgirl:비트 에 관계없이 발동합니다.",
+    "UPGRADE_DESCRIPTION": "다음에 사용하는 therhythmgirl:비트_발동 카드 !M! 장이 현재 보유한 therhythmgirl:비트 에 관계없이 발동합니다."
   },
   "theRhythmGirl:PreParty": {
-    "NAME": "Pre-Party",
-    "DESCRIPTION": "therhythmgirl:Trigger all active therhythmgirl:Countdown effects.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:Trigger all active therhythmgirl:Countdown effects twice."
+    "NAME": "파티 개방",
+    "DESCRIPTION": "모든 생물에게 부여된 therhythmgirl:카운트다운 효과를 therhythmgirl:트리거 합니다.",
+    "UPGRADE_DESCRIPTION": "모든 생물에게 부여된 therhythmgirl:카운트다운 효과를 2 번 therhythmgirl:트리거 합니다."
   },
   "theRhythmGirl:Lumbearjack": {
-    "NAME": "Lumbearjack",
-    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 3: therhythmgirl:Repeat. NL therhythmgirl:On_Beat 4: Deal !M! damage instead.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 4: Deal !M! damage instead."
+    "NAME": "장작 고양이",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL therhythmgirl:비트_발동 3: therhythmgirl:반복 . NL therhythmgirl:비트_발동 4: 대신 피해를 !M! 줍니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL therhythmgirl:비트_발동 4: 대신 피해를 !M! 줍니다."
   },
   "theRhythmGirl:OkItsOn": {
     "NAME": "OK, it's on!",
-    "DESCRIPTION": "Gain !M! Strength. NL Fleeting.",
+    "DESCRIPTION": "힘을 !M! 얻습니다. NL 일회성 .",
     "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
   },
   "theRhythmGirl:MarchingOrders": {
-    "NAME": "Marching Orders",
-    "DESCRIPTION": "Attack cards created during combat deal !M! additional damage."
+    "NAME": "행진",
+    "DESCRIPTION": "전투 도중에 생성된 공격 카드가 추가로 피해를 !M! 줍니다."
   },
   "theRhythmGirl:MunchyMonk": {
-    "NAME": "Munchy Monk",
-    "DESCRIPTION": "Gain !M! additional therhythmgirl:Beats."
+    "NAME": "수행자",
+    "DESCRIPTION": "추가로 therhythmgirl:비트 를 !M! 얻습니다."
   },
   "theRhythmGirl:LoveLizards": {
-    "NAME": "Love Lizards",
-    "DESCRIPTION": "Apply !theRhythmGirl:MagicNumber2! Weak !M! times."
+    "NAME": "사랑의 도마뱀",
+    "DESCRIPTION": "약화를 !theRhythmGirl:MagicNumber2! 씩 !M! 번 부여합니다."
   },
   "theRhythmGirl:HairyVegetable": {
-    "NAME": "Hairy Vegetable",
-    "DESCRIPTION": "Shuffle !M! [#f0c851]Tweezers into your deck."
+    "NAME": "털투성이 채소",
+    "DESCRIPTION": "!M! 장의 [#f0c851]핀셋 을 뽑을 카드 더미에 넣습니다."
   },
   "theRhythmGirl:Tweezers": {
-    "NAME": "Tweezers",
-    "DESCRIPTION": "Draw a card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Draw a card. NL Exhaust."
+    "NAME": "핀셋",
+    "DESCRIPTION": "카드를 1 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "보존. NL 카드를 1 장 뽑습니다. NL 소멸."
   },
   "theRhythmGirl:DJSchool": {
-    "NAME": "DJ School",
-    "DESCRIPTION": "This turn, your next card without Ethereal gains therhythmgirl:Repeat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards without Ethereal gain therhythmgirl:Repeat. NL Exhaust."
+    "NAME": "DJ 스쿨",
+    "DESCRIPTION": "이번 턴 동안, 다음에 사용하는 휘발성을 제외한 카드가 therhythmgirl:반복 효과를 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴 동안, 다음에 사용하는 휘발성을 제외한 !M! 장의 카드가 therhythmgirl:반복 효과를 얻습니다. NL 소멸."
   },
   "theRhythmGirl:PackingPests": {
-    "NAME": "Packing Pests",
-    "DESCRIPTION": "Innate. Retain. NL Remove a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
-    "UPGRADE_DESCRIPTION": "therhythmgirl:Innate+. Retain. NL Remove a non-healing card from your hand. NL therhythmgirl:Countdown !theRhythmGirl:MagicNumber2!. NL Return it to your hand.",
-    "EXTENDED_DESCRIPTION": ["store. (non-healing)"]
+    "NAME": "분류창고",
+    "DESCRIPTION": "선천성. 보존. NL 체력 회복 카드를 제외한 카드를 선택해 제거합니다. NL therhythmgirl:카운트다운 !theRhythmGirl:MagicNumber2!. NL 타이머가 끝나면 해당 카드가 다시 손으로 돌아옵니다.",
+    "UPGRADE_DESCRIPTION": "therhythmgirl:선천성+. 보존. NL 체력 회복 카드를 제외한 카드를 선택해 제거합니다. NL therhythmgirl:카운트다운 !theRhythmGirl:MagicNumber2!. NL 타이머가 끝나면 해당 카드가 다시 손으로 돌아옵니다.",
+    "EXTENDED_DESCRIPTION": ["카드를 선택해 보관합니다. (체력 회복 카드는 선택에서 제외됩니다)"]
   },
   "theRhythmGirl:Plesiosaurus": {
-    "NAME": "Plesiosaurus",
-    "DESCRIPTION": "Costs 1 less [E] for each therhythmgirl:Measure you have. Gain !B! Block."
+    "NAME": "플레시오사우르스",
+    "DESCRIPTION": "현재 보유한 therhythmgirl:마디 하나당 이 카드의 비용이 [E] 감소합니다. 방어도를 !B! 얻습니다."
   },
   "theRhythmGirl:BigRockFinish": {
-    "NAME": "Big Rock Finish",
-    "DESCRIPTION": "Deal !D! damage. NL therhythmgirl:On_Beat 1: NL Lose 1 therhythmgirl:Measure to deal !M! damage instead."
+    "NAME": "미니 라이브",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL therhythmgirl:비트_발동 1: NL therhythmgirl:마디 를 1 잃습니다. 대신 피해를 !M! 줍니다."
   },
   "theRhythmGirl:AlienKnowledge": {
-    "NAME": "Alien Knowledge",
-    "DESCRIPTION": "Gain !M! Block whenever you play a card while a therhythmgirl:Countdown effect is active."
+    "NAME": "통역사",
+    "DESCRIPTION": "therhythmgirl:카운트다운 타이머가 감소하거나 효과가 발동할 때마다, 방어도를 !M! 얻습니다."
   }
 }
