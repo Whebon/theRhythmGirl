@@ -1,21 +1,21 @@
 {
   "theRhythmGirl:BossaNovaEvent": {
-    "NAME": "Bossa Nova",
+    "NAME": "보사 & 노바",
     "DESCRIPTIONS": [
-      "You stumble upon two suspicious looking flowers. NL A voice emerged from the ground. \"Hey there young one, your style looks pretty #rBasic to us. We can teach you a #b~Groovy~ rhythm.\"",
-      "Bossa & Nova happily joined the party.",
-      "We just don't seem to be in sync."
+      "당신은 두 개의 수상해 보이는 꽃을 우연히 발견하게 됩니다. NL 땅 속에서 목소리가 들려왔습니다. \"거기 소녀분, 네 스타일이 우리보다 좀 #r부족해 보이는데요. 우리가 당신에게 #b~신나는~ 리듬에 대해 알려드릴게요.\"",
+      "보사 & 노바가 기뻐하며 당신의 무리에 합류했습니다.",
+      "우리는 마음이 맞는것 같지 않군요."
     ],
     "OPTIONS": [
-      "[Invest] #y",
-      " #ygold: #gTransform #g2 #gBasic #gCards #ginto #g2 #gBossa #gNovas.",
-      "[Accept] #gTransform #g1 #gBasic #gCard #ginto #g1 #gBossa #gNova.",
-      "[Locked] Requires: Basic Cards",
-      "[Locked] Requires: ",
-      " gold.",
-      "Select basic card to remove.",
-      "[Refuse]",
-      "[Leave]"
+      "[초대] #y",
+      " #y골드: #g시작 #g카드 #g2 #g장을 #g보사 #g노바 #g2 #g장으로 #g변화시킵니다.",
+      "[수락한다] #g시작 #g카드 #g1 #g장을 #g보사 #g노바 #g1 #g장으로 #g변화시킵니다.",
+      "[잠김] 조건: 시작 카드.",
+      "[잠김] 조건: ",
+      " 골드가 필요합니다.",
+      "제거할 시작 카드를 선택하세요.",
+      "[거절]",
+      "[떠나기]"
     ]
   }
 }
