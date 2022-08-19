@@ -1,10 +1,10 @@
 {
         "theRhythmGirl:BeatPotion": {
-                "NAME": "Beat Potion",
-                "DESCRIPTIONS": ["Gain #b", " #yBeats."]
+                "NAME": "비트 포션",
+                "DESCRIPTIONS": ["#y비트 를 #b", " 얻습니다."]
         },
         "theRhythmGirl:HeavenPotion": {
-                "NAME": "Heaven Potion",
-                "DESCRIPTIONS": ["This turn, ", "For 2 turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
+                "NAME": "천국 포션",
+                "DESCRIPTIONS": ["이번 턴 동안, ", " 2 턴 동안, ", "#y비트 #y발동 효과가 현재 보유한 #y비트 에 관계없이 발동합니다."]
         }
 }
