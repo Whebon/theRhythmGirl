@@ -1,68 +1,68 @@
 {
   "theRhythmGirl:TimeSignature54": {
-    "NAME": "5/4 Time Signature",
-    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "NAME": "4분의 5박자",
+    "FLAVOR": "루머에 따르면 이 '박자' 를 잃어버리는 자는 4분의 5박자에 따른 인생을 산다고 합니다.",
     "DESCRIPTIONS": [
-      "Whenever you have more than #b5 #yBeat, lose #b5 #yBeats and gain #b1 #yMeasure."
+      "#y비트 를 #b5 개 이상 초과하여 얻을때마다, #y비트 를 #b5 잃고 #y마디 를 #b1 얻습니다."
     ]
   },
   "theRhythmGirl:TimeSignature44": {
-    "NAME": "4/4 Time Signature",
-    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "NAME": "4분의 4박자",
+    "FLAVOR": "루머에 따르면 이 '박자' 를 잃어버리는 자는 4분의 5박자에 따른 인생을 산다고 합니다.",
     "DESCRIPTIONS": [
-      "Whenever you have more than #b4 #yBeat, lose #b4 #yBeats and gain #b1 #yMeasure."
+      "#y비트 를 #b4 개 이상 초과하여 얻을때마다, #y비트 를 #b4 잃고 #y마디 를 #b1 얻습니다."
     ]
   },
   "theRhythmGirl:TimeSignature34": {
-    "NAME": "3/4 Time Signature",
-    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "NAME": "4분의 3박자",
+    "FLAVOR": "루머에 따르면 이 '박자' 를 잃어버리는 자는 4분의 5박자에 따른 인생을 산다고 합니다.",
     "DESCRIPTIONS": [
-      "Whenever you have more than #b3 #yBeat, lose #b3 #yBeats and gain #b1 #yMeasure.",
-      "Replaces [#a45a52]4/4 [#a45a52]Time [#a45a52]Signature[]. NL "
+      "#y비트 를 #b3 개 이상 초과하여 얻을때마다, #y비트 를 #b3 잃고 #y마디 를 #b1 얻습니다.",
+      "[#a45a52]4분의 [#a45a52]4 [#a45a52]박자[] 유물을 대체합니다. NL "
     ]
   },
   "theRhythmGirl:TimeSignature24": {
-    "NAME": "2/4 Time Signature",
-    "FLAVOR": "Rumor has it that those who lose their 'Time Signature' will have to deal with 5/4 time.",
+    "NAME": "4분의 2박자",
+    "FLAVOR": "루머에 따르면 이 '박자' 를 잃어버리는 자는 4분의 5박자에 따른 인생을 산다고 합니다.",
     "DESCRIPTIONS": [
-      "Whenever you have more than #b2 #yBeat, lose #b2 #yBeats and gain #b1 #yMeasure.",
-      "Replaces [#a45a52]3/4 [#a45a52]Time [#a45a52]Signature[]. NL "
+      "#y비트 를 #b2 개 이상 초과하여 얻을때마다, #y비트 를 #b2 잃고 #y마디 를 #b1 얻습니다.",
+      "[#a45a52]4분의 [#a45a52]3 [#a45a52]박자[] 유물을 대체합니다. NL "
     ]
   },
   "theRhythmGirl:Cowbell": {
-  "NAME": "Cowbell",
-  "FLAVOR": "When you feel like you've lost the rhythm, you can always fall back on this cue to guide you.",
+  "NAME": "카우벨",
+  "FLAVOR": "당신이 리듬을 잃었다고 느낄 때, 항상 이것의 신호가 당신을 실패로부터 벗어나게 도와줍니다",
   "DESCRIPTIONS": [
-    "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat.[] NL Gain #b1 #yBeat."
+    "[#2aecd7]전투에서 [#2aecd7]한번만 [#2aecd7]사용할수 [#2aecd7]있습니다.[] NL #y비트 를 #b1 얻습니다."
   ]
   },
   "theRhythmGirl:Widget": {
-    "NAME": "Widget",
-    "FLAVOR": "Word about the high quality of our widgets has gotten out, so we need more! Pick up the pace!",
+    "NAME": "조립 키트",
+    "FLAVOR": "이건 인기가 좋아서 부품이 모자랄 지경이에요! 조립 속도를 더 높여볼까요?",
     "DESCRIPTIONS": [
-      "Whenever you gain a #yMeasure, gain 3 #yBlock."
+      "#y마디 를 얻을때마다, #y방어도를 3 얻습니다."
     ]
   },
   "theRhythmGirl:Quicknibble": {
-    "NAME": "Quicknibble",
-    "FLAVOR": "Dinner's on me!",
+    "NAME": "바로어",
+    "FLAVOR": "저녁은 내가 쏜다!",
     "DESCRIPTIONS": [
-      "The first time you gain a #yMeasure each turn, gain 1 [E] ."
+      "매 턴 처음으로 #y마디 를 얻으면, [E] 를 얻습니다."
     ]
   },
   "theRhythmGirl:Freepeat": {
-    "NAME": "Freepeat",
-    "FLAVOR": "\"Buy 1, get 1 free!\" ~NotTheMerchant",
+    "NAME": "친구 통신",
+    "FLAVOR": "\"하나를 사면 하나는 공짜입니다!\" ~상인이 말한거 아님",
     "DESCRIPTIONS": [
-      "Cards created by the #yRepeat keyword cost #b0 that turn."
+      "#y반복 효과로 만들어진 카드는 그 턴 동안 비용이 #b0 이 됩니다."
     ]
   },
   "theRhythmGirl:GoForAPerfect": {
-    "NAME": "Go for a Perfect",
-    "FLAVOR": "If you get a Perfect on 'Card Crawl Game' right now, you'll receive 35 gold!",
+    "NAME": "퍼펙트를 향해",
+    "FLAVOR": "지금 바로 당신이 '덱 빌딩 카드 게임' 에서, 퍼펙트를 달성하시면 35 골드를 얻습니다!",
     "DESCRIPTIONS": [
-      "At the end of combat, if you didn't lose any HP that combat, gain #y35 #ygold.",
-      " Gold (Perfect)"
+      "전투 종료시, 해당 전투에서 체력을 하나도 잃지 않았다면, #y35 #y골드를 얻습니다.",
+      " 골드 (퍼펙트)"
     ]
   }
 }
