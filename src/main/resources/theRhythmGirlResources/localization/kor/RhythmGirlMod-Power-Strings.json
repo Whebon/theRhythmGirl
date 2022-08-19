@@ -1,78 +1,78 @@
 {
         "theRhythmGirl:MeasurePower": {
-                "NAME": "Measure",
-                "DESCRIPTIONS": ["#yMeasures are obtained by gaining enough #yBeats. They have no effect by themselves."]
+                "NAME": "마디",
+                "DESCRIPTIONS": ["#y마디 는 충분한 양의 #y비트 가 모였을때 획득하는 효과입니다. 마디 자체는 아무런 효과도 없습니다."]
         },
         "theRhythmGirl:DoubleUpPower": {
-                "NAME": "Double Up",
-                "DESCRIPTIONS": ["The first card without #yEthereal you play each turn gains #yRepeat.", "The first #b", " cards without #yEthereal you play each turn gain #yRepeat.", " ( #b", " left )"]
+                "NAME": "간다!",
+                "DESCRIPTIONS": ["매 턴 처음으로 사용하는 휘발성을 제외한 therhythmgirl:반복 효과를 얻습니다.", "매 턴 처음으로 사용하는 #b", " 장의 #y휘발성 을 제외한 카드가 #y반복 효과를 얻습니다.", " ( #b", " 장 남음 )"]
         },
         "theRhythmGirl:LaunchPartyPower": {
-                "NAME": "Launch Party",
-                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage."]
+                "NAME": "렛츠호",
+                "DESCRIPTIONS": ["#y비트 를 #b", " 얻은 후, ", " 얻은 후, ", "이 적이 피해를 #b", " 받습니다."]
         },
         "theRhythmGirl:PartyCrackerPower": {
-                "NAME": "Party Cracker",
-                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "this enemy takes #b", " damage. At the end of your turn, double the damage of this effect."]
+                "NAME": "크래커호",
+                "DESCRIPTIONS": ["#y비트 를 #b", " 얻은 후, ", " 얻은 후, ", "이 적이 피해를 #b", " 받습니다. 내 턴 종료시, 이 효과의 피해량이 2배 증가합니다."]
         },
         "theRhythmGirl:SpaceBellPower": {
-                "NAME": "Space Bell",
-                "DESCRIPTIONS": ["After #b", " #yBeat, ", " #yBeats, ", "gain #b", " Block."]
+                "NAME": "벨호",
+                "DESCRIPTIONS": ["#y비트 를 #b", " 얻은 후, ", " 얻은 후, ", "방어도를 #b", " 얻습니다."]
         },
         "theRhythmGirl:CoffeeBreakPower": {
-                "NAME": "Coffee Break",
-                "DESCRIPTIONS": ["Ignore all effects that gain #yBeats this turn."]
+                "NAME": "커피 타임",
+                "DESCRIPTIONS": ["이번 턴 동안 #y비트 를 얻을 수 없습니다."]
         },
         "theRhythmGirl:RhythmHeavenPower": {
-                "NAME": "Rhythm Heaven",
-                "DESCRIPTIONS": ["This turn, ", "For #b", " turns, ", "#yOn #yBeat effects always trigger regardless of your current #yBeat."]
+                "NAME": "리듬 세상",
+                "DESCRIPTIONS": ["이번 턴 동안, ", " #b", " 턴 동안, ", "#y비트 #y발동 효과가 현재 보유한 비트 에 관계없이 항상 발동합니다."]
         },
         "theRhythmGirl:KarateBoostPower": {
-                "NAME": "Karate Boost",
-                "DESCRIPTIONS": ["Your attacks deal #b", "% more damage."]
+                "NAME": "격투가의 힘",
+                "DESCRIPTIONS": ["공격 카드의 피해량이 #b", "% 증가합니다."]
         },
         "theRhythmGirl:KarateTimingPower": {
-                "NAME": "Karate Timing",
-                "DESCRIPTIONS": ["You can only play attacks if you have exactly #b1 #yBeat. This power doesn't stack beyond #b1."]
+                "NAME": "격투가의 타이밍",
+                "DESCRIPTIONS": ["보유한 #y비트 가 정확히 #b1 일때만 공격 카드를 사용할 수 있습니다. 이 파워 효과는 #b1 중첩 이상으로 증가하지 않습니다."]
         },
         "theRhythmGirl:ComboPower": {
-                "NAME": "Hit ",
-                "DESCRIPTIONS": ["!", "The first time you play #b", " consecutive attacks each turn, add #b", " Barrel to your hand.", " Barrels to your hand."]
+                "NAME": "타격 ",
+                "DESCRIPTIONS": ["!", "매 턴 처음으로 공격 카드 #b", " 장을 연속으로 사용하면, #b", " 장의 술통을 얻습니다.", " 장의 술통을 얻습니다."]
         },
         "theRhythmGirl:PopularityPower": {
-                "NAME": "Popularity",
-                "DESCRIPTIONS": ["Whenever you gain a #yMeasure, deal #b", " damage to ALL enemies."]
+                "NAME": "인기",
+                "DESCRIPTIONS": ["#y마디 를 얻을때마다, 적 전체에게 피해를 #b", " 줍니다."]
         },
         "theRhythmGirl:GrowingFanbasePower": {
-                "NAME": "Growing Fanbase",
-                "DESCRIPTIONS": ["At the start of your turn, gain #b", " #yPopularity"]
+                "NAME": "성장하는 팬클럽",
+                "DESCRIPTIONS": ["내 턴 시작시, #y인기 를 #b", " 얻습니다."]
         },
         "theRhythmGirl:RatRacePower": {
-                "NAME": "Rat Race",
-                "DESCRIPTIONS": ["At the end of your turn, if you didn't gain any #yMeasure this turn, gain #b", " #yBlock.", " (Gains #b0 #yBlock this turn.)"]
+                "NAME": "생쥐 레이스",
+                "DESCRIPTIONS": ["내 턴 종료시, 이번 턴에 #y마디 를 얻지 않았다면, #y방어도를 #b", " 얻습니다.", " (이번 턴에 #y방어도를 #b0 얻습니다.)"]
         },
         "theRhythmGirl:FillbotsPower": {
-                "NAME": "Fillbots",
-                "DESCRIPTIONS": ["At the end of your turn, gain #yBeats until you gain a #yMeasure.", " Gain #b", " #yBlock for every #yBeat gained this way."]
+                "NAME": "오일 로봇",
+                "DESCRIPTIONS": ["내 턴 종료시, #y마디 를 얻을때까지 #y비트 를 얻습니다.", " 이 효과로 얻은 #y비트 1당 #y방어도를 #b", " 얻습니다."]
         },
         "theRhythmGirl:SeeingHeavenPower": {
-                "NAME": "Seeing Heaven",
-                "DESCRIPTIONS": ["#yOn #yBeat effects of your next ", "card", "cards", " always trigger regardless of your current #yBeat."]
+                "NAME": "천국 발견",
+                "DESCRIPTIONS": ["다음에 사용하는 ", "장의", "장의", " #y비트 발동 효과가 현재 보유한 #y비트에 관계 없이 발동합니다."]
         },
         "theRhythmGirl:MarchingOrdersPower": {
-                "NAME": "Marching Orders",
-                "DESCRIPTIONS": ["Attack cards created during combat deal #b", "  additional damage."]
+                "NAME": "행진",
+                "DESCRIPTIONS": ["전투 도중에 생성된 공격 카드가 추가로 피해를 #b", "  줍니다."]
         },
         "theRhythmGirl:DJSchoolPower": {
-                "NAME": "DJ School",
-                "DESCRIPTIONS": ["The next card without #yEthereal you play this turn gains #yRepeat.", "The next #b", " cards without #yEthereal you play this turn gain #yRepeat."]
+                "NAME": "DJ 스쿨",
+                "DESCRIPTIONS": ["이번 턴 동안, 다음에 사용하는 #y휘발성 을 제외한 카드가 #y반복 효과를 얻습니다.", "이번 턴 동안, 다음에 사용하는 #b", " 장의 #y휘발성 을 제외한 카드가 #y반복 효과를 얻습니다."]
         },
         "theRhythmGirl:PackagePower": {
-                "NAME": "Package",
-                "DESCRIPTIONS": ["After #b", " #yBeat, put ", " #yBeats, put ", "a copy of #y", "#b", " copies of #y", " into your hand."]
+                "NAME": "분류함",
+                "DESCRIPTIONS": ["#y비트 를 #b", " 얻은 후, 손패에 ", " 얻은 후, 손패에 ", " 현재 보관해둔 #y", "#b", " 현재 보관해둔 #y", " 카드를 다시 생성합니다."]
         },
         "theRhythmGirl:AlienKnowledgePower": {
-                "NAME": "Alien Knowledge",
-                "DESCRIPTIONS": ["Gain #b", " Block whenever you play a card while a #yCountdown effect is active."]
+                "NAME": "통역사",
+                "DESCRIPTIONS": ["#y카운트다운 타이머가 감소하거나 효과가 발동할 때마다, #y방어도를 #b", " 얻습니다."]
         }
 }
