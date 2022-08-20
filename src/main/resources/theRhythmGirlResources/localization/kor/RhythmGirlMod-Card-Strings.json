@@ -135,11 +135,11 @@
   },
   "theRhythmGirl:PeaFlick": {
     "NAME": "콩 튕기기",
-    "DESCRIPTION": "therhythmgirl:비트_발동 1 or 2: [#f0c851]포크 [#f0c851]찍기 를 얻습니다. NL 소멸."
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 또는 2: [#f0c851]포크 [#f0c851]찍기 를 얻습니다. NL 소멸."
   },
   "theRhythmGirl:PeaFork": {
     "NAME": "포크 찍기",
-    "DESCRIPTION": "therhythmgirl:비트_발동 3 or 4: NL 체력을 !M! 회복합니다."
+    "DESCRIPTION": "therhythmgirl:비트_발동 3  4: NL 체력을 !M! 회복합니다."
   },
   "theRhythmGirl:Pterodactyl": {
     "NAME": "프테라노돈",
@@ -147,7 +147,7 @@
     "EXTENDED_DESCRIPTION": ["#r마디 가 부족해."]
   },
   "theRhythmGirl:SquareShoulders": {
-    "NAME": "정사각 어꺠 각도",
+    "NAME": "정사각 어깨 각도",
     "DESCRIPTION": "현재 보유한 therhythmgirl:마디 의 제곱만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [" NL (피해를 !D! 줍니다.)"]
   },
@@ -188,7 +188,7 @@
   },
   "theRhythmGirl:CropStomp": {
     "NAME": "쿵쿵 농장",
-    "DESCRIPTION": "therhythmgirl:비트_발동 1 or 3: NL 카드를 !M! 장 뽑습니다. NL therhythmgirl:비트_발동 2 or 4: NL !theRhythmGirl:MagicNumber2! [E] 를 얻고 이 카드를 소멸 시킵니다."
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 또는 3: NL 카드를 !M! 장 뽑습니다. NL therhythmgirl:비트_발동 2 또는 4: NL !theRhythmGirl:MagicNumber2! [E] 를 얻고 이 카드를 소멸 시킵니다."
   },
   "theRhythmGirl:SneakySpirit": {
     "NAME": "하얀 귀신",
@@ -234,7 +234,7 @@
   },
   "theRhythmGirl:WanderingSamurai": {
     "NAME": "방랑 무사",
-    "DESCRIPTION": "therhythmgirl:비트_발동 1 or 3: NL 힘을 !M! 얻습니다. NL therhythmgirl:비트_발동 2 or 4: NL 민첩을 !theRhythmGirl:MagicNumber2! 얻습니다."
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 또는 3: NL 힘을 !M! 얻습니다. NL therhythmgirl:비트_발동 2  4: NL 민첩을 !theRhythmGirl:MagicNumber2! 얻습니다."
   },
   "theRhythmGirl:SeeingHeaven": {
     "NAME": "천국 발견",
