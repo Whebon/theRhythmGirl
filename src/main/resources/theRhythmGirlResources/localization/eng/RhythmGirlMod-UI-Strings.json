@@ -33,5 +33,10 @@
       "Exhaust.",
       "Ethereal."
     ]
+  },
+  "theRhythmGirl:WarnOnBeat": {
+    "TEXT": [
+      "This card must be played #rOn #rBeat."
+    ]
   }
 }

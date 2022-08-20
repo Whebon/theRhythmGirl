@@ -62,7 +62,7 @@ public class FlipperRolls extends AbstractRhythmGirlCard {
         this.upgradeMagicNumber(UPGRADE_MAGIC);
         ++this.timesUpgraded;
         this.upgraded = true;
-        this.name = (this.timesUpgraded+1)+" "+cardStrings.NAME+"s";
+        this.name = (this.timesUpgraded+1)+" "+cardStrings.NAME+cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeTitle();
         this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();

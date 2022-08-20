@@ -40,7 +40,8 @@
   "theRhythmGirl:FlipperRolls": {
     "NAME": "Flipper Roll",
     "DESCRIPTION": "Gain !B! Block. NL Can be upgraded any number of times.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block !M! times. NL Can be upgraded any number of times."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block !M! times. NL Can be upgraded any number of times.",
+    "EXTENDED_DESCRIPTION": ["s"]
   },
   "theRhythmGirl:MonkeySeeMonkeyDo": {
     "NAME": "Monkey Business",

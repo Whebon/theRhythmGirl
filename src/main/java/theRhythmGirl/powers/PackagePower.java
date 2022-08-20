@@ -3,6 +3,7 @@ package theRhythmGirl.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -33,7 +34,8 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath(PackagePower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath(PackagePower.class.getSimpleName() + "32.png"));
 
-    private static final int AMOUNT_OF_CHARACTERS = 3;
+    private static final int AMOUNT_OF_CHARACTERS_ENG = 3;
+    private static final int AMOUNT_OF_CHARACTERS_KOR = 2;
 
     private final AbstractCard content;
 
@@ -69,7 +71,22 @@ public class PackagePower extends AbstractCountdownPower implements CloneablePow
         if (this.content.name.length() > 0) {
             this.greenColor2.a = c.a;
             c = this.greenColor2;
-            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, this.content.name.substring(0, AMOUNT_OF_CHARACTERS), x, y + 15.0F * Settings.scale, 1.0F, c);
+            String displayString;
+            BitmapFont font;
+            float fontScale;
+            if (Settings.language == Settings.GameLanguage.KOR) {
+                //we will borrow the tipBodyFont as it has korean characters and the powerAmountFont does not.
+                displayString = this.content.name.substring(0, Math.min(AMOUNT_OF_CHARACTERS_KOR, this.content.name.length()));
+                font = FontHelper.tipBodyFont;
+                fontScale = 0.75F;
+            }
+            else{
+                displayString = this.content.name.substring(0, Math.min(AMOUNT_OF_CHARACTERS_ENG, this.content.name.length()));
+                font = FontHelper.powerAmountFont;
+                fontScale = 1.0F;
+            }
+            FontHelper.renderFontRightTopAligned(sb, font, displayString, x, y + 15.0F * Settings.scale, fontScale, c);
+            FontHelper.tipBodyFont.getData().setScale(1.0F);
         }
     }
 

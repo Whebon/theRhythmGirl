@@ -33,5 +33,10 @@
       "소멸.",
       "휘발성."
     ]
+  },
+  "theRhythmGirl:WarnOnBeat": {
+    "TEXT": [
+      "This card must be played #rOn #rBeat."
+    ]
   }
 }

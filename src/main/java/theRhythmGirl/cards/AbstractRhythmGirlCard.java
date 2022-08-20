@@ -3,7 +3,9 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,6 +21,8 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 public abstract class AbstractRhythmGirlCard extends CustomCard {
 
     public static final Logger logger = LogManager.getLogger(RhythmGirlMod.class.getName());
+
+    private static final UIStrings uiStringsWarnOnBeat = CardCrawlGame.languagePack.getUIString(RhythmGirlMod.makeID("WarnOnBeat"));
 
     //variables for the second magic number
     public int magicNumber2;
@@ -161,7 +165,7 @@ public abstract class AbstractRhythmGirlCard extends CustomCard {
             return false;
         }
         if (mustBePlayedOnBeat && !onBeatTriggered()) {
-            this.cantUseMessage = "This card must be played #rOn #rBeat.";
+            this.cantUseMessage = uiStringsWarnOnBeat.TEXT[0];
             return false;
         }
         return true;

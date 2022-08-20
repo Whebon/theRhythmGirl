@@ -40,7 +40,8 @@
   "theRhythmGirl:FlipperRolls": {
     "NAME": "뒹굴뒹굴",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL 강화 횟수에 제한이 없습니다.",
-    "UPGRADE_DESCRIPTION": " !B! 방어도를 !M! 번 얻습니다. NL 강화 횟수에 제한이 없습니다."
+    "UPGRADE_DESCRIPTION": " !B! 방어도를 !M! 번 얻습니다. NL 강화 횟수에 제한이 없습니다.",
+    "EXTENDED_DESCRIPTION": ["s"]
   },
   "theRhythmGirl:MonkeySeeMonkeyDo": {
     "NAME": "탬버린 원숭이",
