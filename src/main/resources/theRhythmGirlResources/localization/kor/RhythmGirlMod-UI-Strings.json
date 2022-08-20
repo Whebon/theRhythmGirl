@@ -36,7 +36,7 @@
   },
   "theRhythmGirl:WarnOnBeat": {
     "TEXT": [
-      "This card must be played #rOn #rBeat."
+      "이 카드는 #r비트 #r발동 조건에 맞춰야 사용할 ."
     ]
   }
 }
