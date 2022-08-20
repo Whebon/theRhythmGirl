@@ -49,7 +49,7 @@
   },
   "theRhythmGirl:DoubleUp": {
     "NAME": "간다!",
-    "DESCRIPTION": "매 턴 처음으로 사용하는 휘발성을 제외한 therhythmgirl:반복 효과를 얻습니다."
+    "DESCRIPTION": "매 턴 처음으로 사용하는 휘발성 카드에 therhythmgirl:반복 효과를 얻습니다."
   },
   "theRhythmGirl:SeeSaw": {
     "NAME": "시소",
