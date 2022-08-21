@@ -5,7 +5,7 @@
         },
         "theRhythmGirl:DoubleUpPower": {
                 "NAME": "간다!",
-                "DESCRIPTIONS": ["매 턴 처음으로 사용하는 휘발성을 제외한 therhythmgirl:반복 효과를 얻습니다.", "매 턴 처음으로 사용하는 #b", " 장의 #y휘발성 을 제외한 카드가 #y반복 효과를 얻습니다.", " ( #b", " 장 남음 )"]
+                "DESCRIPTIONS": ["매 턴 처음으로 사용하는 휘발성이 아닌 카드에 #y반복 효과를 부여합니다.", "매 턴 처음으로 사용하는 #b", " 장의 #y휘발성 이 아닌 카드에 #y반복 효과를 부여합니다.", " ( #b", " 장 남음 )"]
         },
         "theRhythmGirl:LaunchPartyPower": {
                 "NAME": "렛츠호",
@@ -36,7 +36,7 @@
                 "DESCRIPTIONS": ["보유한 #y비트 가 정확히 #b1 일때만 공격 카드를 사용할 수 있습니다. 이 파워 효과는 #b1 중첩 이상으로 증가하지 않습니다."]
         },
         "theRhythmGirl:ComboPower": {
-                "NAME": "타격 ",
+                "NAME": "콤보 ",
                 "DESCRIPTIONS": ["!", "매 턴 처음으로 공격 카드 #b", " 장을 연속으로 사용하면, #b", " 장의 술통을 얻습니다.", " 장의 술통을 얻습니다."]
         },
         "theRhythmGirl:PopularityPower": {
@@ -57,15 +57,15 @@
         },
         "theRhythmGirl:SeeingHeavenPower": {
                 "NAME": "천국 발견",
-                "DESCRIPTIONS": ["다음에 사용하는 ", "장의", "장의", " #y비트 발동 효과가 현재 보유한 #y비트에 관계 없이 발동합니다."]
+                "DESCRIPTIONS": ["다음에 사용하는 ", " ", "장의", " 카드의 #y비트 발동 효과를 즉시 발동합니다."]
         },
         "theRhythmGirl:MarchingOrdersPower": {
                 "NAME": "행진",
-                "DESCRIPTIONS": ["전투 도중에 생성된 공격 카드가 추가로 피해를 #b", "  줍니다."]
+                "DESCRIPTIONS": ["전투 도중에 생성된 공격 카드의 피해량이 #b", "  증가합니다."]
         },
         "theRhythmGirl:DJSchoolPower": {
                 "NAME": "DJ 스쿨",
-                "DESCRIPTIONS": ["이번 턴 동안, 다음에 사용하는 #y휘발성 을 제외한 카드가 #y반복 효과를 얻습니다.", "이번 턴 동안, 다음에 사용하는 #b", " 장의 #y휘발성 을 제외한 카드가 #y반복 효과를 얻습니다."]
+                "DESCRIPTIONS": ["이번 턴 동안, 다음에 사용하는 #y휘발성 을 제외한 카드에 #y반복 효과를 부여합니다.", "이번 턴 동안, 다음에 사용하는 #b", " 장의 #y휘발성 을 제외한 카드에 #y반복 효과를 부여합니다."]
         },
         "theRhythmGirl:PackagePower": {
                 "NAME": "분류함",
