@@ -239,8 +239,8 @@
   },
   "theRhythmGirl:SeeingHeaven": {
     "NAME": "천국 발견",
-    "DESCRIPTION": "다음에 사용하는 therhythmgirl:비트_발동 카드가 현재 보유한 therhythmgirl:비트 에 관계없이 발동합니다.",
-    "UPGRADE_DESCRIPTION": "다음에 사용하는 therhythmgirl:비트_발동 카드 !M! 장이 현재 보유한 therhythmgirl:비트 에 관계없이 발동합니다."
+    "DESCRIPTION": "다음에 사용하는 카드의 therhythmgirl:비트_발동 효과를, 현재 보유한 therhythmgirl:비트 에 관계없이 발동합니다.",
+    "UPGRADE_DESCRIPTION": "다음에 사용하는 카드 !M! 장의 therhythmgirl:비트_발동 효과를, 현재 보유한 therhythmgirl:비트 에 관계없이 발동합니다."
   },
   "theRhythmGirl:PreParty": {
     "NAME": "파티 개방",
@@ -280,8 +280,8 @@
   },
   "theRhythmGirl:DJSchool": {
     "NAME": "DJ 스쿨",
-    "DESCRIPTION": "이번 턴 동안, 다음에 사용하는 휘발성을 제외한 카드가 therhythmgirl:반복 효과를 얻습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "이번 턴 동안, 다음에 사용하는 휘발성을 제외한 !M! 장의 카드가 therhythmgirl:반복 효과를 얻습니다. NL 소멸."
+    "DESCRIPTION": "이번 턴 동안, 다음에 사용하는 휘발성을 제외한 카드에 therhythmgirl:반복 효과를 부여합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴 동안, 다음에 사용하는 휘발성을 제외한 !M! 장의 카드에 therhythmgirl:반복 효과를 부여합니다. NL 소멸."
   },
   "theRhythmGirl:PackingPests": {
     "NAME": "분류창고",
