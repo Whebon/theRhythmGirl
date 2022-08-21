@@ -50,7 +50,7 @@
   },
   "theRhythmGirl:DoubleUp": {
     "NAME": "간다!",
-    "DESCRIPTION": "매 턴 처음으로 사용하는 휘발성 카드에 therhythmgirl:반복 효과를 얻습니다."
+    "DESCRIPTION": "매 턴 처음으로 사용하는 휘발성을 제외한 카드에 therhythmgirl:반복 효과를 부여합니다."
   },
   "theRhythmGirl:SeeSaw": {
     "NAME": "시소",
@@ -74,7 +74,7 @@
   "theRhythmGirl:NeverGiveUp": {
     "NAME": "Never Give Up!",
     "DESCRIPTION": "최대 체력의 !M! % 만큼 NL 체력을 회복합니다. NL 일회성 .",
-    "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
+    "EXTENDED_DESCRIPTION": ["(복사된 카드입니다.) NL "]
   },
   "theRhythmGirl:MochiPounding": {
     "NAME": "떡메 치기",
@@ -140,7 +140,7 @@
   },
   "theRhythmGirl:PeaFork": {
     "NAME": "포크 찍기",
-    "DESCRIPTION": "therhythmgirl:비트_발동 3  4: NL 체력을 !M! 회복합니다."
+    "DESCRIPTION": "therhythmgirl:비트_발동 3 또는 4: NL 체력을 !M! 회복합니다."
   },
   "theRhythmGirl:Pterodactyl": {
     "NAME": "프테라노돈",
@@ -255,11 +255,11 @@
   "theRhythmGirl:OkItsOn": {
     "NAME": "OK, it's on!",
     "DESCRIPTION": "힘을 !M! 얻습니다. NL 일회성 .",
-    "EXTENDED_DESCRIPTION": ["(Copied version) NL "]
+    "EXTENDED_DESCRIPTION": ["(복사된 카드입니다.) NL "]
   },
   "theRhythmGirl:MarchingOrders": {
     "NAME": "행진",
-    "DESCRIPTION": "전투 도중에 생성된 공격 카드가 추가로 피해를 !M! 줍니다."
+    "DESCRIPTION": "전투 도중에 생성된 공격 카드의 피해량이 !M! 증가합니다."
   },
   "theRhythmGirl:MunchyMonk": {
     "NAME": "수행자",
