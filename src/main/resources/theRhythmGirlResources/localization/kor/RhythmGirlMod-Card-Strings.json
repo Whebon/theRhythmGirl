@@ -235,7 +235,7 @@
   },
   "theRhythmGirl:WanderingSamurai": {
     "NAME": "방랑 무사",
-    "DESCRIPTION": "therhythmgirl:비트_발동 1 또는 3: NL 힘을 !M! 얻습니다. NL therhythmgirl:비트_발동 2  4: NL 민첩을 !theRhythmGirl:MagicNumber2! 얻습니다."
+    "DESCRIPTION": "therhythmgirl:비트_발동 1 또는 3: NL 힘을 !M! 얻습니다. NL therhythmgirl:비트_발동 2 또는 4: NL 민첩을 !theRhythmGirl:MagicNumber2! 얻습니다."
   },
   "theRhythmGirl:SeeingHeaven": {
     "NAME": "천국 발견",
